@@ -427,7 +427,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "FirstLegReferenceRate": {
+        "ReferenceRate": {
           "title": "Reference Rate",
           "description": "Identifies the reference index for the instrument",
           "type": "string",
@@ -1096,7 +1096,7 @@
             "ZAR-PRIME-AVERAGE": "Per 2006 ISDA Definitions or Annex to the 2000 ISDA Definitions, Section 7.1 Rate Options, as amended and supplemented through the date on which parties enter into the relevant transaction"
           }
         },
-        "FirstLegReferenceRateTermValue": {
+        "ReferenceRateTermValue": {
           "title": "Reference Rate Term Value",
           "description": "Tenor value of the first leg reference rate",
           "type": "integer",
@@ -1107,7 +1107,7 @@
             ]
           }
         },
-        "FirstLegReferenceRateTermUnit": {
+        "ReferenceRateTermUnit": {
           "title": "Reference Rate Term Unit",
           "description": "Tenor unit of the first leg reference rate",
           "type": "string",
@@ -1124,7 +1124,7 @@
             "YEAR": "Rate is reported in years"
           }
         },
-        "OtherLegNotionalCurrency": {
+        "OtherNotionalCurrency": {
           "title": "Other Notional Currency",
           "description": "In the case of multi-currency or cross-currency swaps the currency in which leg 2 of the contract is denominated; For swaptions where the underlying swap is multi-currency, the currency in which leg 2 of the swap is denominated",
           "type": "string",
@@ -1512,10 +1512,10 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "FirstLegReferenceRate",
-        "FirstLegReferenceRateTermValue",
-        "FirstLegReferenceRateTermUnit",
-        "OtherLegNotionalCurrency",
+        "ReferenceRate",
+        "ReferenceRateTermValue",
+        "ReferenceRateTermUnit",
+        "OtherNotionalCurrency",
         "NotionalSchedule"
       ],
       "additionalProperties": false

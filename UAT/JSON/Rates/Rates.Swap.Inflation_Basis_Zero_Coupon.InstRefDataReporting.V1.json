@@ -97,17 +97,17 @@
       "description": "Derived Attributes",
       "type": "object",
       "properties": {
-        "LongName": {
+        "FullName": {
           "title": "Full Name",
           "description": "Full name of the financial instrument",
           "type": "string"
         },
-        "CFI": {
+        "ClassificationType": {
           "title": "Classification Type",
           "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
           "type": "string"
         },
-        "CommoditiesDerivativesIndicator": {
+        "CommodityDerivativeIndicator": {
           "title": "Commodity Derivative Indicator",
           "description": "Indication as to whether the financial instrument falls within the definition of commodities derivative under Article 2(1)(30) of Regulation (EU) No 600/2014 or is a derivative relating to emission allowances referred to in Section C(4) of Annex I to Directive 2014/65/EU",
           "type": "string"
@@ -154,7 +154,7 @@
             ]
           }
         },
-        "SingleOrMultiCurrency": {
+        "SingleorMultiCurrency": {
           "title": "Single or Multi Currency",
           "description": "Indicates whether the swap is single or multi-currency",
           "type": "string",
@@ -167,12 +167,12 @@
             "Cross Currency": "Cross Currency (multi curency)"
           }
         },
-        "Issuer": {
+        "IssuerorOperatoroftheTradingVenueIdentifier": {
           "title": "Issuer or Operator of the Trading Venue Identifier",
           "description": "ISIN Issuer Long Name",
           "type": "string"
         },
-        "FISN": {
+        "ShortName": {
           "title": "Short Name",
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
@@ -183,7 +183,7 @@
           "default": "1",
           "type": "integer"
         },
-        "ISOFirstLegReferenceRate": {
+        "ISOReferenceRate": {
           "title": "ISO Reference Rate",
           "description": "First leg reference rate represented in ISO 20022 acceptable format",
           "type": "string",
@@ -403,16 +403,16 @@
         }
       },
       "required": [
-        "LongName",
-        "CFI",
-        "CommoditiesDerivativesIndicator",
+        "FullName",
+        "ClassificationType",
+        "CommodityDerivativeIndicator",
         "UnderlyingAssetType",
         "DeliveryType",
-        "SingleOrMultiCurrency",
-        "Issuer",
-        "FISN",
+        "SingleorMultiCurrency",
+        "IssuerorOperatoroftheTradingVenueIdentifier",
+        "ShortName",
         "PriceMultiplier",
-        "ISOFirstLegReferenceRate",
+        "ISOReferenceRate",
         "ISOOtherLegReferenceRate"
       ],
       "additionalProperties": false
@@ -794,7 +794,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "FirstLegReferenceRate": {
+        "ReferenceRate": {
           "title": "Reference Rate",
           "description": "Identifies the reference index for the instrument",
           "type": "string",
@@ -945,7 +945,7 @@
             "ZAR-CPIX": "South Africa: ZAR - Non-revised Consumer Price Index Excluding Mortgages (CPIX)"
           }
         },
-        "FirstLegReferenceRateTermValue": {
+        "ReferenceRateTermValue": {
           "title": "Reference Rate Term Value",
           "description": "Tenor value of the first leg reference rate",
           "type": "integer",
@@ -956,7 +956,7 @@
             ]
           }
         },
-        "FirstLegReferenceRateTermUnit": {
+        "ReferenceRateTermUnit": {
           "title": "Reference Rate Term Unit",
           "description": "Tenor unit of the first leg reference rate",
           "type": "string",
@@ -1173,9 +1173,9 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "FirstLegReferenceRate",
-        "FirstLegReferenceRateTermValue",
-        "FirstLegReferenceRateTermUnit",
+        "ReferenceRate",
+        "ReferenceRateTermValue",
+        "ReferenceRateTermUnit",
         "OtherLegReferenceRate",
         "OtherLegReferenceRateTermValue",
         "OtherLegReferenceRateTermUnit",

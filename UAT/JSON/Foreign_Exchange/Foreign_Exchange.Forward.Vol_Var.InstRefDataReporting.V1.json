@@ -97,32 +97,32 @@
       "description": "Derived Attributes",
       "type": "object",
       "properties": {
-        "LongName": {
+        "FullName": {
           "title": "Full Name",
           "description": "Full name of the financial instrument",
           "type": "string"
         },
-        "CFI": {
+        "ClassificationType": {
           "title": "Classification Type",
           "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
           "type": "string"
         },
-        "CommoditiesDerivativesIndicator": {
+        "CommodityDerivativeIndicator": {
           "title": "Commodity Derivative Indicator",
           "description": "Indication as to whether the financial instrument falls within the definition of commodities derivative under Article 2(1)(30) of Regulation (EU) No 600/2014 or is a derivative relating to emission allowances referred to in Section C(4) of Annex I to Directive 2014/65/EU",
           "type": "string"
         },
-        "Issuer": {
+        "IssuerorOperatoroftheTradingVenueIdentifier": {
           "title": "Issuer or Operator of the Trading Venue Identifier",
           "description": "ISIN Issuer Long Name",
           "type": "string"
         },
-        "FISN": {
+        "ShortName": {
           "title": "Short Name",
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
         },
-        "FxType": {
+        "FXType": {
           "title": "FX Type",
           "description": "Type of underlying currency",
           "type": "string",
@@ -154,7 +154,7 @@
             "Futures": "Futures"
           }
         },
-        "ReturnPayout": {
+        "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
           "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -196,14 +196,14 @@
         }
       },
       "required": [
-        "LongName",
-        "CFI",
-        "CommoditiesDerivativesIndicator",
-        "Issuer",
-        "FISN",
-        "FxType",
+        "FullName",
+        "ClassificationType",
+        "CommodityDerivativeIndicator",
+        "IssuerorOperatoroftheTradingVenueIdentifier",
+        "ShortName",
+        "FXType",
         "UnderlyingAssetType",
-        "ReturnPayout",
+        "ReturnorPayoutTrigger",
         "DeliveryType",
         "PriceMultiplier"
       ],
@@ -586,7 +586,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "OtherLegNotionalCurrency": {
+        "OtherNotionalCurrency": {
           "title": "Other Notional Currency",
           "description": "In the case of multi-currency or cross-currency swaps the currency in which leg 2 of the contract is denominated; For swaptions where the underlying swap is multi-currency, the currency in which leg 2 of the swap is denominated",
           "type": "string",
@@ -1324,7 +1324,7 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "OtherLegNotionalCurrency",
+        "OtherNotionalCurrency",
         "SettlementCurrency"
       ],
       "additionalProperties": false

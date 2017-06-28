@@ -427,7 +427,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "UnderlyingInstrumentReferenceRates": {
+        "UnderlyingInstrumentIndex": {
           "title": "Underlying Instrument Index",
           "type": "array",
           "uniqueItems": true,
@@ -836,7 +836,7 @@
             }
           }
         },
-        "ReturnPayout": {
+        "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
           "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -927,8 +927,8 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "UnderlyingInstrumentReferenceRates",
-        "ReturnPayout",
+        "UnderlyingInstrumentIndex",
+        "ReturnorPayoutTrigger",
         "DeliveryType",
         "TransactionType",
         "FinalPriceType"

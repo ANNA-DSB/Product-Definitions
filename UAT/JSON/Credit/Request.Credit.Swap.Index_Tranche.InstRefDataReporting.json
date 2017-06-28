@@ -60,7 +60,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "UnderlyingIndexName": {
+        "UnderlyingInstrumentIndex": {
           "title": "Underlying Instrument Index",
           "description": "Name of the index on which the financial instrument is based",
           "type": "string",
@@ -178,13 +178,13 @@
             ]
           }
         },
-        "IndexSeries": {
+        "UnderlyingCreditIndexSeries": {
           "title": "Underlying Credit Index Series",
           "description": "The series identifier of a credit default swap index",
           "type": "integer",
           "minimum": 1
         },
-        "IndexVersion": {
+        "UnderlyingCreditIndexVersion": {
           "title": "Underlying Credit Index Version",
           "description": "The version of a credit default swap index annex",
           "type": "integer",
@@ -193,10 +193,10 @@
       },
       "required": [
         "ExpiryDate",
-        "UnderlyingIndexName",
+        "UnderlyingInstrumentIndex",
         "DebtSeniority",
-        "IndexSeries",
-        "IndexVersion"
+        "UnderlyingCreditIndexSeries",
+        "UnderlyingCreditIndexVersion"
       ],
       "additionalProperties": false
     }

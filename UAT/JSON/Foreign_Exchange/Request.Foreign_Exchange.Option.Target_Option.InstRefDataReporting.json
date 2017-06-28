@@ -449,7 +449,7 @@
             ]
           }
         },
-        "ExerciseStyle": {
+        "OptionExerciseStyle": {
           "title": "Option Exercise Style",
           "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
@@ -471,7 +471,7 @@
             ]
           }
         },
-        "OtherLegNotionalCurrency": {
+        "OtherNotionalCurrency": {
           "title": "Other Notional Currency",
           "description": "In the case of multi-currency or cross-currency swaps the currency in which leg 2 of the contract is denominated; For swaptions where the underlying swap is multi-currency, the currency in which leg 2 of the swap is denominated",
           "type": "string",
@@ -843,8 +843,8 @@
         "NotionalCurrency",
         "ExpiryDate",
         "OptionType",
-        "ExerciseStyle",
-        "OtherLegNotionalCurrency"
+        "OptionExerciseStyle",
+        "OtherNotionalCurrency"
       ],
       "additionalProperties": false
     }

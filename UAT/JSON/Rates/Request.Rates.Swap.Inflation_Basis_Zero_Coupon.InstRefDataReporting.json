@@ -427,7 +427,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "FirstLegReferenceRate": {
+        "ReferenceRate": {
           "title": "Reference Rate",
           "description": "Identifies the reference index for the instrument",
           "type": "string",
@@ -578,7 +578,7 @@
             "ZAR-CPIX": "South Africa: ZAR - Non-revised Consumer Price Index Excluding Mortgages (CPIX)"
           }
         },
-        "FirstLegReferenceRateTermValue": {
+        "ReferenceRateTermValue": {
           "title": "Reference Rate Term Value",
           "description": "Tenor value of the first leg reference rate",
           "type": "integer",
@@ -589,7 +589,7 @@
             ]
           }
         },
-        "FirstLegReferenceRateTermUnit": {
+        "ReferenceRateTermUnit": {
           "title": "Reference Rate Term Unit",
           "description": "Tenor unit of the first leg reference rate",
           "type": "string",
@@ -806,9 +806,9 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "FirstLegReferenceRate",
-        "FirstLegReferenceRateTermValue",
-        "FirstLegReferenceRateTermUnit",
+        "ReferenceRate",
+        "ReferenceRateTermValue",
+        "ReferenceRateTermUnit",
         "OtherLegReferenceRate",
         "OtherLegReferenceRateTermValue",
         "OtherLegReferenceRateTermUnit",

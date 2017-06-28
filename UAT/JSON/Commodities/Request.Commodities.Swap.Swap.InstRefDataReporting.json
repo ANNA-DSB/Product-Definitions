@@ -427,7 +427,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "ReturnPayout": {
+        "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
           "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -1552,7 +1552,7 @@
             "OTHR": "Other price."
           }
         },
-        "FirstLegReferenceRate": {
+        "ReferenceRate": {
           "title": "Reference Rate",
           "description": "Identifies the reference index for the instrument",
           "type": "string",
@@ -3447,12 +3447,12 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "ReturnPayout",
+        "ReturnorPayoutTrigger",
         "DeliveryType",
         "BaseProduct",
         "TransactionType",
         "FinalPriceType",
-        "FirstLegReferenceRate"
+        "ReferenceRate"
       ],
       "additionalProperties": false
     }

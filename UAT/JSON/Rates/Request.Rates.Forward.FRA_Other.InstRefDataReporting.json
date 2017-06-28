@@ -440,7 +440,7 @@
             "Other": "Miscellaneous"
           }
         },
-        "UnderlyingInstrumentCode": {
+        "UnderlyingInstrumentISIN": {
           "title": "Underlying Instrument ISIN",
           "description": "ISIN code of the underlying instrument",
           "type": "string",
@@ -451,7 +451,7 @@
         "NotionalCurrency",
         "ExpiryDate",
         "UnderlyingAssetType",
-        "UnderlyingInstrumentCode"
+        "UnderlyingInstrumentISIN"
       ],
       "additionalProperties": false
     }

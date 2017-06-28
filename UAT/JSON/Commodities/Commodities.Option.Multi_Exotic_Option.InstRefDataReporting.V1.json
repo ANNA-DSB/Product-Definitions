@@ -97,27 +97,27 @@
       "description": "Derived Attributes",
       "type": "object",
       "properties": {
-        "LongName": {
+        "FullName": {
           "title": "Full Name",
           "description": "Full name of the financial instrument",
           "type": "string"
         },
-        "CFI": {
+        "ClassificationType": {
           "title": "Classification Type",
           "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
           "type": "string"
         },
-        "CommoditiesDerivativesIndicator": {
+        "CommodityDerivativeIndicator": {
           "title": "Commodity Derivative Indicator",
           "description": "Indication as to whether the financial instrument falls within the definition of commodities derivative under Article 2(1)(30) of Regulation (EU) No 600/2014 or is a derivative relating to emission allowances referred to in Section C(4) of Annex I to Directive 2014/65/EU",
           "type": "string"
         },
-        "Issuer": {
+        "IssuerorOperatoroftheTradingVenueIdentifier": {
           "title": "Issuer or Operator of the Trading Venue Identifier",
           "description": "ISIN Issuer Long Name",
           "type": "string"
         },
-        "FISN": {
+        "ShortName": {
           "title": "Short Name",
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
@@ -130,7 +130,7 @@
         },
         "BaseProduct": {
           "title": "Base Product",
-          "description": "The first commodity of the basis swap represents the receiving leg, the second commodity of the basis swap represents that paying leg",
+          "description": "Base product taxonomy of commodity product",
           "type": "string"
         },
         "SubProduct": {
@@ -184,11 +184,11 @@
         }
       },
       "required": [
-        "LongName",
-        "CFI",
-        "CommoditiesDerivativesIndicator",
-        "Issuer",
-        "FISN",
+        "FullName",
+        "ClassificationType",
+        "CommodityDerivativeIndicator",
+        "IssuerorOperatoroftheTradingVenueIdentifier",
+        "ShortName",
         "PriceMultiplier",
         "BaseProduct",
         "SubProduct",
@@ -574,7 +574,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "UnderlyingInstrumentReferenceRates": {
+        "UnderlyingInstrumentIndex": {
           "title": "Underlying Instrument Index",
           "type": "array",
           "uniqueItems": true,
@@ -1005,7 +1005,7 @@
             ]
           }
         },
-        "ExerciseStyle": {
+        "OptionExerciseStyle": {
           "title": "Option Exercise Style",
           "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
@@ -1027,7 +1027,7 @@
             ]
           }
         },
-        "ValuationMethod": {
+        "ValuationMethodorTrigger": {
           "title": "Valuation Method or Trigger",
           "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -1130,10 +1130,10 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "UnderlyingInstrumentReferenceRates",
+        "UnderlyingInstrumentIndex",
         "OptionType",
-        "ExerciseStyle",
-        "ValuationMethod",
+        "OptionExerciseStyle",
+        "ValuationMethodorTrigger",
         "DeliveryType",
         "TransactionType",
         "FinalPriceType"

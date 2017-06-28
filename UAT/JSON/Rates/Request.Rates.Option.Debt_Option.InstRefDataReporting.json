@@ -427,7 +427,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "UnderlyingInstrumentCode": {
+        "UnderlyingInstrumentISIN": {
           "title": "Underlying Instrument ISIN",
           "description": "ISIN code of the underlying instrument",
           "type": "string",
@@ -455,7 +455,7 @@
             ]
           }
         },
-        "ExerciseStyle": {
+        "OptionExerciseStyle": {
           "title": "Option Exercise Style",
           "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
@@ -477,7 +477,7 @@
             ]
           }
         },
-        "ValuationMethod": {
+        "ValuationMethodorTrigger": {
           "title": "Valuation Method or Trigger",
           "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -528,10 +528,10 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "UnderlyingInstrumentCode",
+        "UnderlyingInstrumentISIN",
         "OptionType",
-        "ExerciseStyle",
-        "ValuationMethod",
+        "OptionExerciseStyle",
+        "ValuationMethodorTrigger",
         "DeliveryType"
       ],
       "additionalProperties": false

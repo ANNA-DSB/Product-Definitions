@@ -427,13 +427,13 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "UnderlyingInstrumentCode": {
+        "UnderlyingInstrumentISIN": {
           "title": "Underlying Instrument ISIN",
           "description": "ISIN code of the underlying instrument",
           "type": "string",
           "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
         },
-        "ReturnPayout": {
+        "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
           "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -450,8 +450,8 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "UnderlyingInstrumentCode",
-        "ReturnPayout"
+        "UnderlyingInstrumentISIN",
+        "ReturnorPayoutTrigger"
       ],
       "additionalProperties": false
     }

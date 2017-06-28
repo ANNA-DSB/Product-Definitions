@@ -97,32 +97,32 @@
       "description": "Derived Attributes",
       "type": "object",
       "properties": {
-        "LongName": {
+        "FullName": {
           "title": "Full Name",
           "description": "Full name of the financial instrument",
           "type": "string"
         },
-        "CFI": {
+        "ClassificationType": {
           "title": "Classification Type",
           "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
           "type": "string"
         },
-        "CommoditiesDerivativesIndicator": {
+        "CommodityDerivativeIndicator": {
           "title": "Commodity Derivative Indicator",
           "description": "Indication as to whether the financial instrument falls within the definition of commodities derivative under Article 2(1)(30) of Regulation (EU) No 600/2014 or is a derivative relating to emission allowances referred to in Section C(4) of Annex I to Directive 2014/65/EU",
           "type": "string"
         },
-        "Issuer": {
+        "IssuerorOperatoroftheTradingVenueIdentifier": {
           "title": "Issuer or Operator of the Trading Venue Identifier",
           "description": "ISIN Issuer Long Name",
           "type": "string"
         },
-        "FISN": {
+        "ShortName": {
           "title": "Short Name",
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
         },
-        "FxType": {
+        "FXType": {
           "title": "FX Type",
           "description": "Type of underlying currency",
           "type": "string",
@@ -183,12 +183,12 @@
         }
       },
       "required": [
-        "LongName",
-        "CFI",
-        "CommoditiesDerivativesIndicator",
-        "Issuer",
-        "FISN",
-        "FxType",
+        "FullName",
+        "ClassificationType",
+        "CommodityDerivativeIndicator",
+        "IssuerorOperatoroftheTradingVenueIdentifier",
+        "ShortName",
+        "FXType",
         "UnderlyingAssetType",
         "DeliveryType",
         "PriceMultiplier"
@@ -594,7 +594,7 @@
             ]
           }
         },
-        "ExerciseStyle": {
+        "OptionExerciseStyle": {
           "title": "Option Exercise Style",
           "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
@@ -616,7 +616,7 @@
             ]
           }
         },
-        "ValuationMethod": {
+        "ValuationMethodorTrigger": {
           "title": "Valuation Method or Trigger",
           "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -629,7 +629,7 @@
             "Digital Barrier": "a digital option embedded with a barrier option; there are different variations of this type of option; as an example, a down-and-out digital call option will pay a fixed payoff, or the underlying, at any time before maturity that the underlying price is equal to or greater than the barrier level; it will pay zero if the underlying price is less than the barrier level"
           }
         },
-        "OtherLegNotionalCurrency": {
+        "OtherNotionalCurrency": {
           "title": "Other Notional Currency",
           "description": "In the case of multi-currency or cross-currency swaps the currency in which leg 2 of the contract is denominated; For swaptions where the underlying swap is multi-currency, the currency in which leg 2 of the swap is denominated",
           "type": "string",
@@ -1368,9 +1368,9 @@
         "NotionalCurrency",
         "ExpiryDate",
         "OptionType",
-        "ExerciseStyle",
-        "ValuationMethod",
-        "OtherLegNotionalCurrency",
+        "OptionExerciseStyle",
+        "ValuationMethodorTrigger",
+        "OtherNotionalCurrency",
         "SettlementCurrency"
       ],
       "additionalProperties": false

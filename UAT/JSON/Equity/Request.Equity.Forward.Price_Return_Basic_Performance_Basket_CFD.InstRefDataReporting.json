@@ -427,7 +427,7 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "UnderlyingInstrumentCodes": {
+        "UnderlyingInstrumentISIN": {
           "title": "Underlying Instrument ISINs",
           "type": "array",
           "uniqueItems": true,
@@ -443,7 +443,7 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "UnderlyingInstrumentCodes"
+        "UnderlyingInstrumentISIN"
       ],
       "additionalProperties": false
     }
