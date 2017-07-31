@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Equity.Swap.Price_Return_Basic_Performance_Single_Name.InstRefDataReporting.V1",
+  "LastModifyDateTime": "2017-07-28T22:46:00",
   "description": "Record template for Equity.Swap.Price_Return_Basic_Performance_Single_Name",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -70,15 +71,28 @@
           "enum": [
             "New",
             "Updated",
+            "Expired",
             "Deleted",
             "Reused"
           ],
           "elaboration": {
             "New": "New ISIN added to the database",
             "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
             "Deleted": "The instrument associated with the ISIN is no longer active",
             "Reused": "ISIN that exists in inactive ISIN record in ASB database is used in an Active ISIN record"
           }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for ISIN Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
         },
         "Parent": {
           "title": "Parent",
@@ -122,12 +136,6 @@
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
         },
-        "PriceMultiplier": {
-          "title": "Price Multiplier",
-          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
-          "default": "1",
-          "type": "integer"
-        },
         "UnderlyingAssetType": {
           "title": "Underlying Asset Type",
           "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
@@ -144,28 +152,6 @@
             "Basket": "a bespoke, synthetic portfolio of underlying assets whose components have been agreed for a specific over-thecounter (OTC) derivative by the parties to the transaction",
             "Other": "miscellaneous"
           }
-        },
-        "DeliveryType": {
-          "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
-          "type": "string",
-          "enum": [
-            "CASH",
-            "PHYS",
-            "OPTL"
-          ],
-          "elaboration": {
-            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
-            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
-            "OPTL": "determined at the time of settlement"
-          },
-          "options": {
-            "enum_titles": [
-              "Cash",
-              "Physical",
-              "Elect at Settlement"
-            ]
-          }
         }
       },
       "required": [
@@ -174,9 +160,7 @@
         "CommodityDerivativeIndicator",
         "IssuerorOperatoroftheTradingVenueIdentifier",
         "ShortName",
-        "PriceMultiplier",
-        "UnderlyingAssetType",
-        "DeliveryType"
+        "UnderlyingAssetType"
       ],
       "additionalProperties": false
     },
@@ -559,9 +543,16 @@
         },
         "UnderlyingInstrumentISIN": {
           "title": "Underlying Instrument ISIN",
-          "description": "ISIN code of the underlying instrument",
-          "type": "string",
-          "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "title": "Underlying ISIN",
+            "description": "ISIN code of the underlying instrument",
+            "type": "string",
+            "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+          }
         },
         "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
@@ -569,11 +560,44 @@
           "type": "string",
           "enum": [
             "Price",
-            "Total Return"
+            "Total Return",
+            "Other"
           ],
           "elaboration": {
             "Price": "price return equity swap, similar to a total return swap, except that dividends are not passed through to the buyer",
-            "Total Return": "the total economic return of an underlying asset is transferred from one party (total return buyer) to another (total return seller); total return seller takes on the risk of negative changes in market value of the reference asset, and pays any positive cash flow to the buyer such as coupon, capital gains or dividends of the reference asset"
+            "Total Return": "the total economic return of an underlying asset is transferred from one party (total return buyer) to another (total return seller); total return seller takes on the risk of negative changes in market value of the reference asset, and pays any positive cash flow to the buyer such as coupon, capital gains or dividends of the reference asset",
+            "Other": "Other"
+          }
+        },
+        "PriceMultiplier": {
+          "default": "1",
+          "title": "Price Multiplier",
+          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "DeliveryType": {
+          "default": "PHYS",
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": "determined at the time of settlement"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Elect at Settlement"
+            ]
           }
         }
       },
@@ -581,7 +605,9 @@
         "NotionalCurrency",
         "ExpiryDate",
         "UnderlyingInstrumentISIN",
-        "ReturnorPayoutTrigger"
+        "ReturnorPayoutTrigger",
+        "PriceMultiplier",
+        "DeliveryType"
       ],
       "additionalProperties": false
     }

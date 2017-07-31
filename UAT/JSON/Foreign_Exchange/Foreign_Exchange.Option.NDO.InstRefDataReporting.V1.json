@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Option.NDO.InstRefDataReporting.V1",
+  "LastModifyDateTime": "2017-07-28T22:46:00",
   "description": "Record template for Foreign_Exchange.Option.NDO",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -70,15 +71,28 @@
           "enum": [
             "New",
             "Updated",
+            "Expired",
             "Deleted",
             "Reused"
           ],
           "elaboration": {
             "New": "New ISIN added to the database",
             "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
             "Deleted": "The instrument associated with the ISIN is no longer active",
             "Reused": "ISIN that exists in inactive ISIN record in ASB database is used in an Active ISIN record"
           }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for ISIN Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
         },
         "Parent": {
           "title": "Parent",
@@ -155,31 +169,6 @@
             "Volatility": "the variability of movements in a security or underlying instrument's price; it is a measure of the amount by which an asset's price is expected to fluctuate over a given period of time; it is normally measured by the annual standard deviation of daily price changes",
             "Other": "Miscellaneous"
           }
-        },
-        "DeliveryType": {
-          "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
-          "type": "string",
-          "enum": [
-            "CASH",
-            "PHYS"
-          ],
-          "elaboration": {
-            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
-            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
-          },
-          "options": {
-            "enum_titles": [
-              "Cash",
-              "Physical"
-            ]
-          }
-        },
-        "PriceMultiplier": {
-          "title": "Price Multiplier",
-          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
-          "default": "1",
-          "type": "integer"
         }
       },
       "required": [
@@ -189,9 +178,7 @@
         "IssuerorOperatoroftheTradingVenueIdentifier",
         "ShortName",
         "FXType",
-        "UnderlyingAssetType",
-        "DeliveryType",
-        "PriceMultiplier"
+        "UnderlyingAssetType"
       ],
       "additionalProperties": false
     },
@@ -621,12 +608,18 @@
           "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
           "enum": [
-            "Digital (Binary)",
-            "Digital Barrier"
+            "Vanilla",
+            "Asian",
+            "Lookback",
+            "Other Path Dependent",
+            "Other"
           ],
           "elaboration": {
-            "Digital (Binary)": "an option that has a pre-determined payout if the option is in-the-money and the payoff condition is satisfied; also referred to as a \"binary option\" or an \"all-or-nothing option\"",
-            "Digital Barrier": "a digital option embedded with a barrier option; there are different variations of this type of option; as an example, a down-and-out digital call option will pay a fixed payoff, or the underlying, at any time before maturity that the underlying price is equal to or greater than the barrier level; it will pay zero if the underlying price is less than the barrier level"
+            "Vanilla": "an option for which all terms are standardized",
+            "Asian": "an option where either the strike price or the settlement price is the average level of an underlying instrument over a predetermined period; the averaging can be either a geometric or arithmetic average",
+            "Lookback": "an option that minimizes the uncertainties related to the timing of market entry; there are two types of lookback options: fixed and floating; the fixed option strike is determined at purchase, and the floating option strike is determined at maturity",
+            "Other Path Dependent": "an option on a contract whose payoff is directly related to the price pattern the underlying asset follows during the life of the contract",
+            "Other": "Miscellaneous"
           }
         },
         "OtherNotionalCurrency": {
@@ -1362,6 +1355,37 @@
             "ZMW": "Zambian Kwacha",
             "ZWL": "Zimbabwe Dollar"
           }
+        },
+        "DeliveryType": {
+          "default": "CASH",
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Elect at Exercise"
+            ]
+          }
+        },
+        "PriceMultiplier": {
+          "default": "1",
+          "title": "Price Multiplier",
+          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
         }
       },
       "required": [
@@ -1371,7 +1395,9 @@
         "OptionExerciseStyle",
         "ValuationMethodorTrigger",
         "OtherNotionalCurrency",
-        "SettlementCurrency"
+        "SettlementCurrency",
+        "DeliveryType",
+        "PriceMultiplier"
       ],
       "additionalProperties": false
     }

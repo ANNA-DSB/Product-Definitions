@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Option.CapFloor.InstRefDataReporting",
+  "LastModifyDateTime": "2017-07-28T22:46:00",
   "description": "Request template for Rates Option CapFloor",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1105,7 +1106,9 @@
             "enum": [
               0
             ]
-          }
+          },
+          "minimum": -999,
+          "maximum": 999
         },
         "UnderlyingInstrumentIndexTermUnit": {
           "title": "Underlying Instrument Index Term Unit",
@@ -1145,6 +1148,37 @@
               "Chooser"
             ]
           }
+        },
+        "PriceMultiplier": {
+          "default": "1",
+          "title": "Price Multiplier",
+          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "DeliveryType": {
+          "default": "CASH",
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Elect at Exercise"
+            ]
+          }
         }
       },
       "required": [
@@ -1153,7 +1187,9 @@
         "UnderlyingInstrumentIndex",
         "UnderlyingInstrumentIndexTermValue",
         "UnderlyingInstrumentIndexTermUnit",
-        "OptionType"
+        "OptionType",
+        "PriceMultiplier",
+        "DeliveryType"
       ],
       "additionalProperties": false
     }

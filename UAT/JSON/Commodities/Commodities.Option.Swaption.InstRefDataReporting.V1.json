@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Commodities.Option.Swaption.InstRefDataReporting.V1",
+  "LastModifyDateTime": "2017-07-28T22:46:00",
   "description": "Record template for Commodities.Option.Swaption",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -70,15 +71,28 @@
           "enum": [
             "New",
             "Updated",
+            "Expired",
             "Deleted",
             "Reused"
           ],
           "elaboration": {
             "New": "New ISIN added to the database",
             "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
             "Deleted": "The instrument associated with the ISIN is no longer active",
             "Reused": "ISIN that exists in inactive ISIN record in ASB database is used in an Active ISIN record"
           }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for ISIN Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
         },
         "Parent": {
           "title": "Parent",
@@ -121,12 +135,6 @@
           "title": "Short Name",
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
-        },
-        "PriceMultiplier": {
-          "title": "Price Multiplier",
-          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
-          "default": "1",
-          "type": "integer"
         }
       },
       "required": [
@@ -134,8 +142,7 @@
         "ClassificationType",
         "CommodityDerivativeIndicator",
         "IssuerorOperatoroftheTradingVenueIdentifier",
-        "ShortName",
-        "PriceMultiplier"
+        "ShortName"
       ],
       "additionalProperties": false
     },
@@ -631,6 +638,7 @@
           }
         },
         "DeliveryType": {
+          "default": "CASH",
           "title": "Delivery Type",
           "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -651,6 +659,14 @@
               "Elect at Exercise"
             ]
           }
+        },
+        "PriceMultiplier": {
+          "default": "1",
+          "title": "Price Multiplier",
+          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
         }
       },
       "required": [
@@ -661,7 +677,8 @@
         "OptionType",
         "OptionExerciseStyle",
         "ValuationMethodorTrigger",
-        "DeliveryType"
+        "DeliveryType",
+        "PriceMultiplier"
       ],
       "additionalProperties": false
     }

@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Option.Swaption.InstRefDataReporting",
+  "LastModifyDateTime": "2017-07-28T22:46:00",
   "description": "Request template for Rates Option Swaption",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -437,9 +438,6 @@
             "Fixed - Fixed",
             "Inflation Rate Index",
             "Overnight Index Swap (OIS)",
-            "Options",
-            "Forwards",
-            "Futures",
             "Other"
           ],
           "elaboration": {
@@ -448,9 +446,6 @@
             "Fixed - Fixed": "Fixed - Fixed",
             "Inflation Rate Index": "Inflation rate index",
             "Overnight Index Swap (OIS)": "Overnight Index Swap (OIS)",
-            "Options": "Options",
-            "Forwards": "Forwards",
-            "Futures": "Futures",
             "Other": "Others"
           }
         },
@@ -530,6 +525,7 @@
           }
         },
         "DeliveryType": {
+          "default": "CASH",
           "title": "Delivery Type",
           "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -550,6 +546,14 @@
               "Elect at Exercise"
             ]
           }
+        },
+        "PriceMultiplier": {
+          "default": "1",
+          "title": "Price Multiplier",
+          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
         }
       },
       "required": [
@@ -560,7 +564,8 @@
         "OptionType",
         "OptionExerciseStyle",
         "ValuationMethodorTrigger",
-        "DeliveryType"
+        "DeliveryType",
+        "PriceMultiplier"
       ],
       "additionalProperties": false
     }
