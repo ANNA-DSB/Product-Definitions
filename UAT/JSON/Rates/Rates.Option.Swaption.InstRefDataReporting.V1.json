@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Option.Swaption.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2017-07-28T22:46:00",
+  "LastModifyDateTime": "2017-08-16T17:47:37",
   "description": "Record template for Rates.Option.Swaption",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -541,7 +541,7 @@
             "Fixed - Fixed": "Fixed - Fixed",
             "Inflation Rate Index": "Inflation rate index",
             "Overnight Index Swap (OIS)": "Overnight Index Swap (OIS)",
-            "Other": "Others"
+            "Other": "Other"
           }
         },
         "UnderlyingInstrumentISIN": {
@@ -620,7 +620,6 @@
           }
         },
         "DeliveryType": {
-          "default": "CASH",
           "title": "Delivery Type",
           "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
           "type": "string",

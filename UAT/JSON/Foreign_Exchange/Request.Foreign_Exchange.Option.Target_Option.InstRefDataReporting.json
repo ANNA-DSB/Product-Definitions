@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Foreign_Exchange.Option.Target_Option.InstRefDataReporting",
-  "LastModifyDateTime": "2017-07-28T22:46:00",
+  "LastModifyDateTime": "2017-08-16T17:47:37",
   "description": "Request template for Foreign_Exchange Option Target_Option",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -876,9 +876,7 @@
         "ExpiryDate",
         "OptionType",
         "OptionExerciseStyle",
-        "OtherNotionalCurrency",
-        "DeliveryType",
-        "PriceMultiplier"
+        "OtherNotionalCurrency"
       ],
       "additionalProperties": false
     }

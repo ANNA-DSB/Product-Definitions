@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Swap.Basis_Swap.InstRefDataReporting",
-  "LastModifyDateTime": "2017-07-28T22:46:00",
+  "LastModifyDateTime": "2017-08-16T17:47:37",
   "description": "Request template for Commodities Swap Basis_Swap",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -442,7 +442,6 @@
           }
         },
         "DeliveryType": {
-          "default": "CASH",
           "title": "Delivery Type",
           "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
@@ -9575,8 +9574,7 @@
         "TransactionType",
         "FinalPriceType",
         "ReferenceRate",
-        "OtherReferenceRate",
-        "PriceMultiplier"
+        "OtherReferenceRate"
       ],
       "additionalProperties": false
     }

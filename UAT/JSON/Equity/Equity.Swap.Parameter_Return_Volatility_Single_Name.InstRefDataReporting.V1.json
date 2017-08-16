@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Equity.Swap.Parameter_Return_Volatility_Single_Name.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2017-07-28T22:46:00",
+  "LastModifyDateTime": "2017-08-16T17:47:37",
   "description": "Record template for Equity.Swap.Parameter_Return_Volatility_Single_Name",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -166,7 +166,7 @@
             "Contract for Difference (CFD)",
             "Spreadbets",
             "Forward price of underlying instrument",
-            "Others"
+            "Other"
           ],
           "elaboration": {
             "Price": "price return equity swap, similar to a total return swap, except that dividends are not passed through to the buyer",
@@ -177,7 +177,7 @@
             "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
             "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
             "Forward price of underlying instrument": "Forward price of underlying instrument",
-            "Others": "Miscellaneous"
+            "Other": "Miscellaneous"
           }
         }
       },

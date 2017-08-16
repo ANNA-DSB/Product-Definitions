@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Forward.Price_Return_Basic_Performance_Single_Name.InstRefDataReporting",
-  "LastModifyDateTime": "2017-07-28T22:46:00",
+  "LastModifyDateTime": "2017-08-16T17:47:37",
   "description": "Request template for Equity Forward Price_Return_Basic_Performance_Single_Name",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -456,13 +456,11 @@
           "type": "string",
           "enum": [
             "Spreadbets",
-            "Forward price of underlying instrument",
-            "Other"
+            "Forward price of underlying instrument"
           ],
           "elaboration": {
             "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
-            "Forward price of underlying instrument": "Forward price of underlying instrument",
-            "Other": "Other"
+            "Forward price of underlying instrument": "Forward price of underlying instrument"
           }
         },
         "DeliveryType": {
@@ -489,10 +487,7 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "UnderlyingInstrumentISIN",
-        "PriceMultiplier",
-        "ReturnorPayoutTrigger",
-        "DeliveryType"
+        "UnderlyingInstrumentISIN"
       ],
       "additionalProperties": false
     }

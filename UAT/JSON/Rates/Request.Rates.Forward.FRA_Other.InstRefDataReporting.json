@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Forward.FRA_Other.InstRefDataReporting",
-  "LastModifyDateTime": "2017-07-28T22:46:00",
+  "LastModifyDateTime": "2017-08-16T17:47:37",
   "description": "Request template for Rates Forward FRA_Other",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -480,9 +480,7 @@
         "NotionalCurrency",
         "ExpiryDate",
         "UnderlyingAssetType",
-        "UnderlyingInstrumentISIN",
-        "DeliveryType",
-        "PriceMultiplier"
+        "UnderlyingInstrumentISIN"
       ],
       "additionalProperties": false
     }
