@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Parameter_Return_Volatility_Single_Index.InstRefDataReporting",
-  "LastModifyDateTime": "2017-08-16T17:47:37",
+  "LastModifyDateTime": "2017-08-22T19:56:12",
   "description": "Request template for Equity Swap Parameter_Return_Volatility_Single_Index",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -433,7 +433,6 @@
           "description": "Name of the index on which the financial instrument is based",
           "type": "string",
           "enum": [
-            "Additional Custom Index",
             "Amex Composite",
             "BIST 100 (XU100)",
             "Brazil 100 Index (IBrX 100)",
@@ -1066,7 +1065,6 @@
             "Wilshire 5000"
           ],
           "elaboration": {
-            "Additional Custom Index": "Additional Custom Index",
             "Amex Composite": "Amex Composite",
             "BIST 100 (XU100)": "BIST 100 (XU100)",
             "Brazil 100 Index (IBrX 100)": "Brazil 100 Index (IBrX 100)",

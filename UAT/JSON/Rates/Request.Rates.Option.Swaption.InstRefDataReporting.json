@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Option.Swaption.InstRefDataReporting",
-  "LastModifyDateTime": "2017-08-16T17:47:37",
+  "LastModifyDateTime": "2017-08-22T19:56:12",
   "description": "Request template for Rates Option Swaption",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -433,7 +433,7 @@
           "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
           "enum": [
-            "Basis swap (Float - Float)",
+            "Basis Swap (Float - Float)",
             "Fixed - Floating",
             "Fixed - Fixed",
             "Inflation Rate Index",
@@ -441,7 +441,7 @@
             "Other"
           ],
           "elaboration": {
-            "Basis swap (Float - Float)": "Basis swap (Float - Float)",
+            "Basis Swap (Float - Float)": "Basis Swap (Float - Float)",
             "Fixed - Floating": "Fixed - Floating",
             "Fixed - Fixed": "Fixed - Fixed",
             "Inflation Rate Index": "Inflation rate index",
