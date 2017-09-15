@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Credit.Swap.Sovereign.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2017-08-16T17:47:37",
+  "LastModifyDateTime": "2017-09-14T12:18:05",
   "description": "Record template for Credit.Swap.Sovereign",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -661,7 +661,7 @@
           }
         },
         "PriceMultiplier": {
-          "default": "1",
+          "default": 1,
           "title": "Price Multiplier",
           "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
           "type": "number",

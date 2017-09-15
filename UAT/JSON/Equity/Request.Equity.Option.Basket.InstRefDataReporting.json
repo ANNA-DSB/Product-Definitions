@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Option.Basket.InstRefDataReporting",
-  "LastModifyDateTime": "2017-08-22T19:56:12",
+  "LastModifyDateTime": "2017-09-14T12:18:05",
   "description": "Request template for Equity Option Basket",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -3159,10 +3159,10 @@
           "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
           "type": "number",
           "minimum": 0,
-          "exclusiveMinimum": true
+          "exclusiveMinimum": false
         },
         "PriceMultiplier": {
-          "default": "1",
+          "default": 1,
           "title": "Price Multiplier",
           "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
           "type": "number",
