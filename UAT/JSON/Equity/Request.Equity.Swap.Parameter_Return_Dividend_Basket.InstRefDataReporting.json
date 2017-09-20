@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Parameter_Return_Dividend_Basket.InstRefDataReporting",
-  "LastModifyDateTime": "2017-08-22T19:56:12",
+  "LastModifyDateTime": "2017-09-14T12:18:05",
   "description": "Request template for Equity Swap Parameter_Return_Dividend_Basket",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -3064,7 +3064,7 @@
           ]
         },
         "PriceMultiplier": {
-          "default": "1",
+          "default": 1,
           "title": "Price Multiplier",
           "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
           "type": "number",
