@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Equity.Swap.Portfolio_Swap.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2017-09-14T12:18:05",
+  "LastModifyDateTime": "2017-09-21T13:30:42",
   "description": "Record template for Equity.Swap.Portfolio_Swap",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -72,15 +72,13 @@
             "New",
             "Updated",
             "Expired",
-            "Deleted",
-            "Reused"
+            "Deleted"
           ],
           "elaboration": {
             "New": "New ISIN added to the database",
             "Updated": "One/several of the fields in the ISIN record is/are updated",
             "Expired": "ISIN that has already matured relative of the specified Expiry Date",
-            "Deleted": "The instrument associated with the ISIN is no longer active",
-            "Reused": "ISIN that exists in inactive ISIN record in ASB database is used in an Active ISIN record"
+            "Deleted": "The instrument associated with the ISIN is no longer active"
           }
         },
         "StatusReason": {
