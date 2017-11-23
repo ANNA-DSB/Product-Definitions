@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Option.Non_Standard.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2017-10-23T08:22:31",
+  "LastModifyDateTime": "2017-11-23T10:40:51",
   "description": "Record template for Foreign_Exchange.Option.Non_Standard",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -2413,6 +2413,14 @@
         "DeliveryType",
         "OtherNotionalCurrency"
       ],
+      "dependencies": {
+        "OptionType": [
+          "OptionExerciseStyle"
+        ],
+        "OptionExerciseStyle": [
+          "OptionType"
+        ]
+      },
       "additionalProperties": false
     }
   },

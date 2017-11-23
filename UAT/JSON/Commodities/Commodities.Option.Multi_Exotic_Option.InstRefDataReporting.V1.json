@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Commodities.Option.Multi_Exotic_Option.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2017-10-23T08:22:31",
+  "LastModifyDateTime": "2017-11-23T10:40:51",
   "description": "Record template for Commodities.Option.Multi_Exotic_Option",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -4541,6 +4541,14 @@
         "ReferenceRate",
         "PriceMultiplier"
       ],
+      "dependencies": {
+        "OptionType": [
+          "OptionExerciseStyle"
+        ],
+        "OptionExerciseStyle": [
+          "OptionType"
+        ]
+      },
       "additionalProperties": false
     }
   },
