@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Commodities.Swap.Multi_Exotic_Swap.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2017-10-23T08:22:31",
+  "LastModifyDateTime": "2017-11-29T01:28:42",
   "description": "Record template for Commodities.Swap.Multi_Exotic_Swap",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -152,7 +152,33 @@
         "UnderlyingAssetType": {
           "title": "Underlying Asset Type",
           "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "Energy",
+            "Metals",
+            "Agriculture",
+            "Environmental",
+            "Freight",
+            "Polypropylene Products",
+            "Paper",
+            "Fertilizer",
+            "Index",
+            "Multi Commodity",
+            "Other"
+          ],
+          "elaboration": {
+            "Energy": "a swap that references an energy-related product, or a derivative of an energy-related product, including electricity, renewable energy, or any power/energy delivered through a utility network of provider; diesel fuel, fuel oil, gas oil, gasoline, heating oil, jet fuel, kerosene, natural gas, oil (Brent, Tapis, Dubai, WTI)",
+            "Metals": "a swap that references a precious or industrial metal, such as aluminium, copper, gold, lead, nickel, platinum, silver, tin, zinc",
+            "Agriculture": "commodities which include forestry, fishing, livestock, grain, dairy, corn, cocoa, soybeans, sugar, coffee",
+            "Environmental": "includes carbon-related, emission reduction, weather",
+            "Freight": "a swap in respect of which the specified commodity is a freight index route",
+            "Polypropylene Products": "Polypropylene Products",
+            "Paper": "containerboard, newsprint, pulp, recovered paper",
+            "Fertilizer": "ammonia, DAP (diammonium phosphate), potash, sulfur, urea, UAN (urea and ammonium nitrate)",
+            "Index": "a swap where the underlying reference entity is a commodity index",
+            "Multi Commodity": "a swap that references multiple commodity underlying types",
+            "Other": "miscellaneous"
+          }
         },
         "ISOUnderlyingInstrumentIndex": {
           "title": "ISO Underlying Instrument Index",
