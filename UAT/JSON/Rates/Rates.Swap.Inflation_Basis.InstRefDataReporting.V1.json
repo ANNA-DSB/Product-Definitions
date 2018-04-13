@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Swap.Inflation_Basis.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2018-02-26T14:56:24",
+  "LastModifyDateTime": "2018-04-11T16:47:50",
   "description": "Record template for Rates.Swap.Inflation_Basis_Zero_Coupon",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -527,7 +527,8 @@
             "USA-CPI-U",
             "WIBO",
             "WMBA-RONIA-COMPOUND",
-            "WMBA-SONIA-COMPOUND"
+            "WMBA-SONIA-COMPOUND",
+            "SONIA-COMPOUND"
           ],
           "elaboration": {
             "7-Repo Compounding Date": "7-Repo Compounding Date",
@@ -773,7 +774,8 @@
             "USA-CPI-U": "USA-CPI-U",
             "WIBO": "WIBO",
             "WMBA-RONIA-COMPOUND": "WMBA-RONIA-COMPOUND",
-            "WMBA-SONIA-COMPOUND": "WMBA-SONIA-COMPOUND"
+            "WMBA-SONIA-COMPOUND": "WMBA-SONIA-COMPOUND",
+            "SONIA-COMPOUND": "SONIA-COMPOUND"
           }
         }
       },
@@ -1544,6 +1546,7 @@
                 "GBP-SONIA-OIS-4:15-TRADITION",
                 "GBP-WMBA-RONIA-COMPOUND",
                 "GBP-WMBA-SONIA-COMPOUND",
+                "GBP-SONIA-COMPOUND",
                 "GRD-ATHIBOR-ATHIBOR",
                 "GRD-ATHIBOR-Reference Banks",
                 "GRD-ATHIBOR-Telerate",
@@ -2039,6 +2042,7 @@
                 "GBP-SONIA-OIS-4:15-TRADITION": "GBP-SONIA-OIS-4:15-TRADITION",
                 "GBP-WMBA-RONIA-COMPOUND": "GBP-WMBA-RONIA-COMPOUND",
                 "GBP-WMBA-SONIA-COMPOUND": "GBP-WMBA-SONIA-COMPOUND",
+                "GBP-SONIA-COMPOUND": "GBP-SONIA-COMPOUND",
                 "GRD-ATHIBOR-ATHIBOR": "GRD-ATHIBOR-ATHIBOR",
                 "GRD-ATHIBOR-Reference Banks": "GRD-ATHIBOR-Reference Banks",
                 "GRD-ATHIBOR-Telerate": "GRD-ATHIBOR-Telerate",
