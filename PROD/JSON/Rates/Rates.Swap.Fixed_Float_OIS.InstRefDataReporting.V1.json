@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Swap.Fixed_Float_OIS.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2018-04-11T16:47:50",
+  "LastModifyDateTime": "2018-05-07T06:26:47",
   "description": "Record template for Rates.Swap.Fixed_Float_OIS",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -369,7 +369,8 @@
             "WIBO",
             "WMBA-RONIA-COMPOUND",
             "WMBA-SONIA-COMPOUND",
-            "SONIA-COMPOUND"
+            "SONIA-COMPOUND",
+            "SOFR-COMPOUND"
           ],
           "elaboration": {
             "7-Repo Compounding Date": "7-Repo Compounding Date",
@@ -566,7 +567,8 @@
             "WIBO": "WIBO",
             "WMBA-RONIA-COMPOUND": "WMBA-RONIA-COMPOUND",
             "WMBA-SONIA-COMPOUND": "WMBA-SONIA-COMPOUND",
-            "SONIA-COMPOUND": "SONIA-COMPOUND"
+            "SONIA-COMPOUND": "SONIA-COMPOUND",
+            "SOFR-COMPOUND": "SOFR-COMPOUND"
           }
         }
       },
@@ -1365,6 +1367,7 @@
             "USD-SIBOR-Reference Banks",
             "USD-SIBOR-SIBO",
             "USD-SIFMA Municipal Swap Index",
+            "USD-SOFR-COMPOUND",
             "USD-TBILL-H.15-Bloomberg",
             "USD-TBILL-H.15",
             "USD-TBILL-Secondary Market",
@@ -1790,6 +1793,7 @@
             "USD-SIBOR-Reference Banks": "USD-SIBOR-Reference Banks",
             "USD-SIBOR-SIBO": "USD-SIBOR-SIBO",
             "USD-SIFMA Municipal Swap Index": "USD-SIFMA Municipal Swap Index",
+            "USD-SOFR-COMPOUND": "USD-SOFR-COMPOUND",
             "USD-TBILL-H.15-Bloomberg": "USD-TBILL-H.15-Bloomberg",
             "USD-TBILL-H.15": "USD-TBILL-H.15",
             "USD-TBILL-Secondary Market": "USD-TBILL-Secondary Market",
