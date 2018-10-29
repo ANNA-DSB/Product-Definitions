@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "Request.Other.Option.Non_Standard.InstRefDataReporting",
-    "LastModifyDateTime": "2018-07-23T12:56:35",
+    "LastModifyDateTime": "2018-09-13T08:58:21",
     "description": "Request template for Other Option Non_Standard",
     "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
     "type": "object",
@@ -1193,7 +1193,7 @@
                                     "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
                                     "type": "number",
                                     "minimum": 0,
-                                    "exclusiveMinimum": true
+                                    "exclusiveMinimum": false
                                 },
                                 "StrikePriceCurrency": {
                                     "title": "Strike Price Currency",
@@ -2904,7 +2904,8 @@
                             "properties": {
                                 "INFL": {
                                     "title": "Sub Product",
-                                    "type": "object"
+                                    "type": "object",
+                                    "additionalProperties": false
                                 }
                             },
                             "required": [
@@ -2918,7 +2919,8 @@
                             "properties": {
                                 "OEST": {
                                     "title": "Sub Product",
-                                    "type": "object"
+                                    "type": "object",
+                                    "additionalProperties": false
                                 }
                             },
                             "required": [
@@ -3046,7 +3048,8 @@
                             "properties": {
                                 "MCEX": {
                                     "title": "Sub Product",
-                                    "type": "object"
+                                    "type": "object",
+                                    "additionalProperties": false
                                 }
                             },
                             "required": [
@@ -3213,7 +3216,8 @@
                             "properties": {
                                 "OTHR": {
                                     "title": "Sub Product",
-                                    "type": "object"
+                                    "type": "object",
+                                    "additionalProperties": false
                                 }
                             },
                             "required": [
@@ -4063,7 +4067,8 @@
                             "properties": {
                                 "INFL": {
                                     "title": "Sub Product",
-                                    "type": "object"
+                                    "type": "object",
+                                    "additionalProperties": false
                                 }
                             },
                             "required": [
@@ -4077,7 +4082,8 @@
                             "properties": {
                                 "OEST": {
                                     "title": "Sub Product",
-                                    "type": "object"
+                                    "type": "object",
+                                    "additionalProperties": false
                                 }
                             },
                             "required": [
@@ -4205,7 +4211,8 @@
                             "properties": {
                                 "MCEX": {
                                     "title": "Sub Product",
-                                    "type": "object"
+                                    "type": "object",
+                                    "additionalProperties": false
                                 }
                             },
                             "required": [
@@ -4372,7 +4379,8 @@
                             "properties": {
                                 "OTHR": {
                                     "title": "Sub Product",
-                                    "type": "object"
+                                    "type": "object",
+                                    "additionalProperties": false
                                 }
                             },
                             "required": [

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Swap.Swap.InstRefDataReporting",
-  "LastModifyDateTime": "2018-07-23T12:56:35",
+  "LastModifyDateTime": "2018-09-13T08:58:21",
   "description": "Request template for Commodities Swap Swap",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1308,7 +1308,8 @@
               "properties": {
                 "INFL": {
                   "title": "Sub Product",
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": false
                 }
               },
               "required": [
@@ -1322,7 +1323,8 @@
               "properties": {
                 "OEST": {
                   "title": "Sub Product",
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": false
                 }
               },
               "required": [
@@ -1450,7 +1452,8 @@
               "properties": {
                 "MCEX": {
                   "title": "Sub Product",
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": false
                 }
               },
               "required": [
@@ -1617,7 +1620,8 @@
               "properties": {
                 "OTHR": {
                   "title": "Sub Product",
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": false
                 }
               },
               "required": [
