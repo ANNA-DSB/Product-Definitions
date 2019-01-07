@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "Request.Other.Other.Non_Standard.InstRefDataReporting",
-    "LastModifyDateTime": "2018-09-13T08:58:21",
+    "LastModifyDateTime": "2018-12-13T14:23:23",
     "description": "Request template for Other Other Non_Standard",
     "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
     "type": "object",
@@ -5712,10 +5712,6 @@
                 "PriceMultiplier"
             ],
             "dependencies": {
-                "UnderlyingInstrumentIndex": [
-                    "UnderlyingInstrumentIndexTermValue",
-                    "UnderlyingInstrumentIndexTermUnit"
-                ],
                 "UnderlyingInstrumentIndexProp": [
                     "UnderlyingInstrumentIndexTermValue",
                     "UnderlyingInstrumentIndexTermUnit"

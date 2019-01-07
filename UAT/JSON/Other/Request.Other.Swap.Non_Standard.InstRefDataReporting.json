@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "Request.Other.Swap.Non_Standard.InstRefDataReporting",
-    "LastModifyDateTime": "2018-09-13T08:58:21",
+    "LastModifyDateTime": "2018-12-13T14:23:23",
     "description": "Request template for Other Swap Non_Standard",
     "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
     "type": "object",
@@ -448,22 +448,16 @@
                     "type": "string",
                     "enum": [
                         "Cash",
-                        "Physical",
-                        "Elect at Settlement",
-                        "Auction"
+                        "Physical"
                     ],
                     "elaboration": {
                         "Cash": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
-                        "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
-                        "Elect at Settlement": "determined at the time of settlement",
-                        "Auction": "an independently administered synthetic auction process on a set of defined deliverable obligations that sets a reference final price that can be used to facilitate cash settlement of all covered transactions following a credit event"
+                        "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
                     },
                     "options": {
                         "enum_titles": [
                             "Cash",
-                            "Physical",
-                            "Elect at Settlement",
-                            "Auction"
+                            "Physical"
                         ]
                     }
                 },
@@ -4904,10 +4898,6 @@
                 "DeliveryType"
             ],
             "dependencies": {
-                "UnderlyingInstrumentIndex": [
-                    "UnderlyingInstrumentIndexTermValue",
-                    "UnderlyingInstrumentIndexTermUnit"
-                ],
                 "UnderlyingInstrumentIndexProp": [
                     "UnderlyingInstrumentIndexTermValue",
                     "UnderlyingInstrumentIndexTermUnit"
