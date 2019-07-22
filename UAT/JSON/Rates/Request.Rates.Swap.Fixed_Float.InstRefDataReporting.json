@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Swap.Fixed_Float.InstRefDataReporting",
-  "LastModifyDateTime": "2019-06-17T07:34:35",
+  "LastModifyDateTime": "2019-07-15T12:31:22",
   "description": "Request template for Rates Swap Fixed_Float",
   "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -177,7 +177,7 @@
             "ExpiryDateAdjusted": {
               "title": "Expiry Date Adjusted",
               "description": "Flag that specifies if the given expiry date is an adjusted date",
-              "default": "false",
+              "default": false,
               "type": "boolean",
               "enum": [
                 false
