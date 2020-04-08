@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "version": 1,
+  "LastModifyDateTime": "2020-04-02T10:16:58",
+  "title": "CommoditiesIndex",
+  "type": "string",
+  "description": "Commodities Index",
+  "enum": [
+    "OTHER"
+  ],
+  "elaboration": {
+    "OTHER": "OTHER"
+  }
+}
