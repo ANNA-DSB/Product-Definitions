@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Forward.FRA_Index.InstRefDataReporting",
-  "LastModifyDateTime": "2020-01-30T17:36:00",
+  "LastModifyDateTime": "2020-04-20T03:52:46",
   "description": "Request template for Rates Forward FRA_Index",
-  "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
     "Header": {
@@ -1005,6 +1005,8 @@
         "TWD-Telerate-6165",
         "TWD-TWCPBA",
         "UK Base Rate",
+        "USD Swap Rate-BCMP1",
+        "USD Treasury Rate-BCMP1",
         "USD-3M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
         "USD-3M LIBOR SWAP-CME vs LCH-ICAP",
         "USD-6M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
@@ -1435,6 +1437,8 @@
         "TWD-Telerate-6165": "TWD-Telerate-6165",
         "TWD-TWCPBA": "TWD-TWCPBA",
         "UK Base Rate": "UK Base Rate",
+        "USD Swap Rate-BCMP1": "USD Swap Rate-BCMP1",
+        "USD Treasury Rate-BCMP1": "USD Treasury Rate-BCMP1",
         "USD-3M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg": "USD-3M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
         "USD-3M LIBOR SWAP-CME vs LCH-ICAP": "USD-3M LIBOR SWAP-CME vs LCH-ICAP",
         "USD-6M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg": "USD-6M LIBOR SWAP-CME vs LCH-ICAP-Bloomberg",
