@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Swap.Inflation_Basis.InstRefDataReporting.V2",
-  "LastModifyDateTime": "2020-04-20T03:52:46",
+  "LastModifyDateTime": "2020-05-11T01:54:05",
   "description": "Record template for Rates.Swap.Inflation_Basis_Zero_Coupon",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -533,7 +533,8 @@
             "SONIA-COMPOUND",
             "SOFR-COMPOUND",
             "UK Base Rate",
-            "EuroSTR-COMPOUND"
+            "EuroSTR-COMPOUND",
+            "TLREF-OIS-COMPOUND"
           ],
           "elaboration": {
             "7-Repo Compounding Date": "7-Repo Compounding Date",
@@ -785,7 +786,8 @@
             "SONIA-COMPOUND": "SONIA-COMPOUND",
             "SOFR-COMPOUND": "SOFR-COMPOUND",
             "UK Base Rate": "UK Base Rate",
-            "EuroSTR-COMPOUND": "EuroSTR-COMPOUND"
+            "EuroSTR-COMPOUND": "EuroSTR-COMPOUND",
+            "TLREF-OIS-COMPOUND": "TLREF-OIS-COMPOUND"
           }
         }
       },
@@ -1802,6 +1804,7 @@
                 "TRY-Annual Swap Rate-Reference Banks",
                 "TRY-CPI",
                 "TRY-Semi-Annual Swap Rate-TRADITION-Reference Banks",
+                "TRY-TLREF-OIS-COMPOUND",
                 "TRY-TRYIBOR-Reference Banks",
                 "TRY-TRYIBOR-Reuters",
                 "TWD-CPI",
@@ -2305,6 +2308,7 @@
                 "TRY-Annual Swap Rate-Reference Banks": "TRY-Annual Swap Rate-Reference Banks",
                 "TRY-CPI": "TRY-CPI",
                 "TRY-Semi-Annual Swap Rate-TRADITION-Reference Banks": "TRY-Semi-Annual Swap Rate-TRADITION-Reference Banks",
+                "TRY-TLREF-OIS-COMPOUND": "TRY-TLREF-OIS-COMPOUND",
                 "TRY-TRYIBOR-Reference Banks": "TRY-TRYIBOR-Reference Banks",
                 "TRY-TRYIBOR-Reuters": "TRY-TRYIBOR-Reuters",
                 "TWD-CPI": "TWD-CPI",
