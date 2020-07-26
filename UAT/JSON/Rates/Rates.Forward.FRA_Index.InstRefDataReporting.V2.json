@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Forward.FRA_Index.InstRefDataReporting.V2",
-  "LastModifyDateTime": "2020-05-11T01:54:05",
+  "LastModifyDateTime": "2020-07-24T10:07:38",
   "description": "Record template for Rates.Forward.FRA_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -100,7 +100,8 @@
       },
       "required": [
         "ISIN",
-        "Status"
+        "Status",
+        "LastUpdateDateTime"
       ],
       "additionalProperties": false
     },
@@ -367,7 +368,11 @@
             "SOFR-COMPOUND",
             "UK Base Rate",
             "EuroSTR-COMPOUND",
-            "TLREF-OIS-COMPOUND"
+            "ESTR",
+            "SONA",
+            "SOFR",
+            "TLREF-OIS-COMPOUND",
+            "THOR-COMPOUND"
           ],
           "elaboration": {
             "7-Repo Compounding Date": "7-Repo Compounding Date",
@@ -570,7 +575,11 @@
             "SOFR-COMPOUND": "SOFR-COMPOUND",
             "UK Base Rate": "UK Base Rate",
             "EuroSTR-COMPOUND": "EuroSTR-COMPOUND",
-            "TLREF-OIS-COMPOUND": "TLREF-OIS-COMPOUND"
+            "ESTR": "ESTR",
+            "SONA": "SONA",
+            "SOFR": "SOFR",
+            "TLREF-OIS-COMPOUND": "TLREF-OIS-COMPOUND",
+            "THOR-COMPOUND": "THOR-COMPOUND"
           }
         }
       },
@@ -1334,6 +1343,7 @@
             "THB-SOR-Telerate",
             "THB-THBFIX-Reference Banks",
             "THB-THBFIX-Reuters",
+            "THB-THOR-COMPOUND",
             "TRY Annual Swap Rate-11:00-TRADITION",
             "TRY-Annual Swap Rate-11:15-BGCANTOR",
             "TRY-Annual Swap Rate-Reference Banks",
@@ -1767,6 +1777,7 @@
             "THB-SOR-Telerate": "THB-SOR-Telerate",
             "THB-THBFIX-Reference Banks": "THB-THBFIX-Reference Banks",
             "THB-THBFIX-Reuters": "THB-THBFIX-Reuters",
+            "THB-THOR-COMPOUND": "THB-THOR-COMPOUND",
             "TRY Annual Swap Rate-11:00-TRADITION": "TRY Annual Swap Rate-11:00-TRADITION",
             "TRY-Annual Swap Rate-11:15-BGCANTOR": "TRY-Annual Swap Rate-11:15-BGCANTOR",
             "TRY-Annual Swap Rate-Reference Banks": "TRY-Annual Swap Rate-Reference Banks",

@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Equity.Swap.Price_Return_Basic_Performance_Single_Index.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2018-07-23T12:56:35",
+  "LastModifyDateTime": "2020-07-24T10:07:38",
   "description": "Record template for Equity.Swap.Price_Return_Basic_Performance_Single_Index",
-  "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
     "TemplateVersion": {
@@ -100,7 +100,8 @@
       },
       "required": [
         "ISIN",
-        "Status"
+        "Status",
+        "LastUpdateDateTime"
       ],
       "additionalProperties": false
     },

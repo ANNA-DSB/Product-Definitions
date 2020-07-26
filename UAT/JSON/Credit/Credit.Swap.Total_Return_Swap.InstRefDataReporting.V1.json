@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Credit.Swap.Total_Return_Swap.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2020-05-11T01:54:05",
+  "LastModifyDateTime": "2020-07-24T10:07:38",
   "description": "Record template for Credit.Swap.Total_Return_Swap",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -100,7 +100,8 @@
       },
       "required": [
         "ISIN",
-        "Status"
+        "Status",
+        "LastUpdateDateTime"
       ],
       "additionalProperties": false
     },
