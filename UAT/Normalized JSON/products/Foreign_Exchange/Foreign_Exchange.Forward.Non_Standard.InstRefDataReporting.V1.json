@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Forward.Non_Standard.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2020-04-28T13:18:25",
+  "LastModifyDateTime": "2020-07-24T10:07:47",
   "description": "Record template for Foreign_Exchange.Forward.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -100,7 +100,8 @@
       },
       "required": [
         "ISIN",
-        "Status"
+        "Status",
+        "LastUpdateDateTime"
       ],
       "additionalProperties": false
     },
