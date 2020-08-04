@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Commodities.Forward.Forward.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2020-07-24T10:07:47",
+  "LastModifyDateTime": "2020-04-28T13:18:25",
   "description": "Record template for Commodities.Forward.Forward",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -100,8 +100,7 @@
       },
       "required": [
         "ISIN",
-        "Status",
-        "LastUpdateDateTime"
+        "Status"
       ],
       "additionalProperties": false
     },
