@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Equity.Swap.Non_Standard.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2020-07-24T10:07:38",
+  "LastModifyDateTime": "2018-07-23T12:56:35",
   "description": "Record template for Equity.Swap.Non_Standard",
-  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
     "TemplateVersion": {
@@ -100,8 +100,7 @@
       },
       "required": [
         "ISIN",
-        "Status",
-        "LastUpdateDateTime"
+        "Status"
       ],
       "additionalProperties": false
     },
