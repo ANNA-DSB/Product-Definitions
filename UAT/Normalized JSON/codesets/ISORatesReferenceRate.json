@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
-  "LastModifyDateTime": "2020-06-30T05:10:51",
+  "LastModifyDateTime": "2020-08-03T11:25:38",
   "title": "ISORatesReferenceRate",
   "type": "string",
   "description": "ISO 20022 Reference Rate",
@@ -206,7 +206,8 @@
     "SOFR-COMPOUND",
     "UK Base Rate",
     "EuroSTR-COMPOUND",
-    "TLREF-OIS-COMPOUND"
+    "TLREF-OIS-COMPOUND",
+    "SONA"
   ],
   "elaboration": {
     "7-Repo Compounding Date": "7-Repo Compounding Date",
@@ -409,6 +410,7 @@
     "SOFR-COMPOUND": "SOFR-COMPOUND",
     "UK Base Rate": "UK Base Rate",
     "EuroSTR-COMPOUND": "EuroSTR-COMPOUND",
-    "TLREF-OIS-COMPOUND": "TLREF-OIS-COMPOUND"
+    "TLREF-OIS-COMPOUND": "TLREF-OIS-COMPOUND",
+    "SONA": "SONA"
   }
 }

@@ -375,8 +375,12 @@
             "SOFR-COMPOUND",
             "UK Base Rate",
             "EuroSTR-COMPOUND",
+<<<<<<< HEAD
+            "TLREF-OIS-COMPOUND"
+=======
             "TLREF-OIS-COMPOUND",
             "SONA"
+>>>>>>> 5ac9cd4ef357d5b0bfc1ebcea88297495b657915
           ],
           "elaboration": {
             "7-Repo Compounding Date": "7-Repo Compounding Date",
@@ -579,8 +583,12 @@
             "SOFR-COMPOUND": "SOFR-COMPOUND",
             "UK Base Rate": "UK Base Rate",
             "EuroSTR-COMPOUND": "EuroSTR-COMPOUND",
+<<<<<<< HEAD
+            "TLREF-OIS-COMPOUND": "TLREF-OIS-COMPOUND"
+=======
             "TLREF-OIS-COMPOUND": "TLREF-OIS-COMPOUND",
             "SONA": "SONA"
+>>>>>>> 5ac9cd4ef357d5b0bfc1ebcea88297495b657915
           }
         }
       },
