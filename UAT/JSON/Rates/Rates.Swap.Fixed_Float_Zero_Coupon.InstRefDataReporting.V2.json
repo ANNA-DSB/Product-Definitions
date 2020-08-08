@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Swap.Fixed_Float_Zero_Coupon.InstRefDataReporting.V2",
-  "LastModifyDateTime": "2020-05-11T01:54:05",
+  "LastModifyDateTime": "2020-08-03T11:25:25",
   "description": "Record template for Rates.Swap.Fixed_Float_Zero_Coupon",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -375,7 +375,8 @@
             "SOFR-COMPOUND",
             "UK Base Rate",
             "EuroSTR-COMPOUND",
-            "TLREF-OIS-COMPOUND"
+            "TLREF-OIS-COMPOUND",
+            "SONA"
           ],
           "elaboration": {
             "7-Repo Compounding Date": "7-Repo Compounding Date",
@@ -578,7 +579,8 @@
             "SOFR-COMPOUND": "SOFR-COMPOUND",
             "UK Base Rate": "UK Base Rate",
             "EuroSTR-COMPOUND": "EuroSTR-COMPOUND",
-            "TLREF-OIS-COMPOUND": "TLREF-OIS-COMPOUND"
+            "TLREF-OIS-COMPOUND": "TLREF-OIS-COMPOUND",
+            "SONA": "SONA"
           }
         }
       },
@@ -1163,6 +1165,7 @@
             "GBP-Semi-Annual Swap Rate-Reference Banks",
             "GBP-Semi-Annual Swap Rate-SwapMarker26",
             "GBP-Semi-Annual Swap Rate",
+            "GBP-SONIA-COMPOUNDED-INDEX",
             "GBP-SONIA-OIS-11:00-ICAP",
             "GBP-SONIA-OIS-11:00-TRADITION",
             "GBP-SONIA-OIS-4:15-TRADITION",
@@ -1596,6 +1599,7 @@
             "GBP-Semi-Annual Swap Rate-Reference Banks": "GBP-Semi-Annual Swap Rate-Reference Banks",
             "GBP-Semi-Annual Swap Rate-SwapMarker26": "GBP-Semi-Annual Swap Rate-SwapMarker26",
             "GBP-Semi-Annual Swap Rate": "GBP-Semi-Annual Swap Rate",
+            "GBP-SONIA-COMPOUNDED-INDEX": "GBP-SONIA-COMPOUNDED-INDEX",
             "GBP-SONIA-OIS-11:00-ICAP": "GBP-SONIA-OIS-11:00-ICAP",
             "GBP-SONIA-OIS-11:00-TRADITION": "GBP-SONIA-OIS-11:00-TRADITION",
             "GBP-SONIA-OIS-4:15-TRADITION": "GBP-SONIA-OIS-4:15-TRADITION",
