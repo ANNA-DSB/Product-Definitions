@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Equity.Swap.Parameter_Return_Variance_Basket.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2018-07-23T12:56:35",
+  "LastModifyDateTime": "2020-08-05T10:37:29",
   "description": "Record template for Equity.Swap.Parameter_Return_Variance_Basket",
-  "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
     "TemplateVersion": {
@@ -100,7 +100,8 @@
       },
       "required": [
         "ISIN",
-        "Status"
+        "Status",
+        "LastUpdateDateTime"
       ],
       "additionalProperties": false
     },
