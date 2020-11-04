@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Option.Single_Index.InstRefDataReporting",
-  "LastModifyDateTime": "2020-04-28T13:18:25",
+  "LastModifyDateTime": "2020-11-04T07:27:34",
   "description": "Request template for Equity Option Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -138,12 +138,51 @@
             }
           ]
         },
-        "StrikePrice": {
-          "title": "Strike Price",
-          "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
-          "type": "number",
-          "minimum": 0,
-          "exclusiveMinimum": false
+        "StrikePriceType": {
+          "title": "StrikePriceType",
+          "type": "object",
+          "properties": {
+            "StrikePriceType": {
+              "title": "Strike Price Type",
+              "description": "Strike Price Type",
+              "type": "string",
+              "enum": [
+                "Monetary Value",
+                "Percentage",
+                "Yield",
+                "Basis Points"
+              ],
+              "elaboration": {
+                "Monetary Value": "Monetary Value",
+                "Percentage": "Percentage",
+                "Yield": "Yield",
+                "Basis Points": "Basis Points"
+              },
+              "options": {
+                "enum_titles": [
+                  "Monetary Value",
+                  "Percentage",
+                  "Yield",
+                  "Basis Points"
+                ]
+              }
+            },
+            "StrikePrice": {
+              "title": "Strike Price",
+              "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+              "type": "number",
+              "highPrecisionNumber": true,
+              "minimum": -1000000000000000000,
+              "exclusiveMinimum": true,
+              "maximum": 1000000000000000000,
+              "exclusiveMaximum": true
+            }
+          },
+          "required": [
+            "StrikePriceType",
+            "StrikePrice"
+          ],
+          "additionalProperties": false
         },
         "OptionType": {
           "title": "Option Type",
@@ -250,7 +289,7 @@
         "NotionalCurrency",
         "ExpiryDate",
         "Underlying",
-        "StrikePrice",
+        "StrikePriceType",
         "OptionType",
         "OptionExerciseStyle",
         "ValuationMethodorTrigger"
