@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Other.Option.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2020-08-05T10:37:29",
+  "LastModifyDateTime": "2020-11-04T07:27:25",
   "description": "Request template for Other Option Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -156,20 +156,34 @@
               "title": "Debt Seniority",
               "description": "Indicates the seniority of the debt, or debt basket or index underlying a derivative"
             },
-            "StrikePrice": {
-              "title": "Strike Price",
+            "StrikePriceType": {
+              "title": "StrikePriceType",
               "type": "object",
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "value",
+                  "title": "Monetary Value",
+                  "options": {
+                    "disable_properties": false
+                  },
                   "properties": {
+                    "StrikePriceType": {
+                      "default": "Monetary Value",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Monetary Value"
+                      ]
+                    },
                     "StrikePrice": {
                       "title": "Strike Price",
                       "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
                       "type": "number",
-                      "minimum": 0,
-                      "exclusiveMinimum": false
+                      "highPrecisionNumber": true,
+                      "minimum": -1000000000000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 1000000000000000000,
+                      "exclusiveMaximum": true
                     },
                     "StrikePriceCurrency": {
                       "$ref": "#/definitions/NotionalCurrency",
@@ -178,15 +192,116 @@
                     }
                   },
                   "required": [
+                    "StrikePriceType",
+                    "StrikePrice",
+                    "StrikePriceCurrency"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "title": "Percentage",
+                  "properties": {
+                    "StrikePriceType": {
+                      "default": "Percentage",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Percentage"
+                      ]
+                    },
+                    "StrikePrice": {
+                      "title": "Strike Price",
+                      "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+                      "type": "number",
+                      "highPrecisionNumber": true,
+                      "minimum": -100000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 100000000000,
+                      "exclusiveMaximum": true
+                    }
+                  },
+                  "required": [
+                    "StrikePriceType",
                     "StrikePrice"
                   ],
                   "additionalProperties": false
                 },
                 {
                   "type": "object",
-                  "title": "PNDG",
+                  "title": "Yield",
                   "properties": {
+                    "StrikePriceType": {
+                      "default": "Yield",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Yield"
+                      ]
+                    },
                     "StrikePrice": {
+                      "title": "Strike Price",
+                      "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+                      "type": "number",
+                      "highPrecisionNumber": true,
+                      "minimum": -100000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 100000000000,
+                      "exclusiveMaximum": true
+                    }
+                  },
+                  "required": [
+                    "StrikePriceType",
+                    "StrikePrice"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "title": "Basis Points",
+                  "properties": {
+                    "StrikePriceType": {
+                      "default": "Basis Points",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Basis Points"
+                      ]
+                    },
+                    "StrikePrice": {
+                      "title": "Strike Price",
+                      "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+                      "type": "number",
+                      "highPrecisionNumber": true,
+                      "minimum": -1000000000000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 1000000000000000000,
+                      "exclusiveMaximum": true
+                    }
+                  },
+                  "required": [
+                    "StrikePriceType",
+                    "StrikePrice"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "title": "No Price",
+                  "options": {
+                    "disable_properties": false
+                  },
+                  "properties": {
+                    "StrikePriceType": {
+                      "default": "No Price",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "No Price"
+                      ]
+                    },
+                    "StrikePrice": {
+                      "default": "PNDG",
                       "title": "Strike Price",
                       "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
                       "type": "string",
@@ -204,6 +319,7 @@
                     }
                   },
                   "required": [
+                    "StrikePriceType",
                     "StrikePrice"
                   ],
                   "additionalProperties": false
@@ -2832,20 +2948,34 @@
               "title": "Debt Seniority",
               "description": "Indicates the seniority of the debt, or debt basket or index underlying a derivative"
             },
-            "StrikePrice": {
-              "title": "Strike Price",
+            "StrikePriceType": {
+              "title": "StrikePriceType",
               "type": "object",
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "value",
+                  "title": "Monetary Value",
+                  "options": {
+                    "disable_properties": false
+                  },
                   "properties": {
+                    "StrikePriceType": {
+                      "default": "Monetary Value",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Monetary Value"
+                      ]
+                    },
                     "StrikePrice": {
                       "title": "Strike Price",
                       "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
                       "type": "number",
-                      "minimum": 0,
-                      "exclusiveMinimum": false
+                      "highPrecisionNumber": true,
+                      "minimum": -1000000000000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 1000000000000000000,
+                      "exclusiveMaximum": true
                     },
                     "StrikePriceCurrency": {
                       "$ref": "#/definitions/NotionalCurrency",
@@ -2854,15 +2984,116 @@
                     }
                   },
                   "required": [
+                    "StrikePriceType",
+                    "StrikePrice",
+                    "StrikePriceCurrency"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "title": "Percentage",
+                  "properties": {
+                    "StrikePriceType": {
+                      "default": "Percentage",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Percentage"
+                      ]
+                    },
+                    "StrikePrice": {
+                      "title": "Strike Price",
+                      "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+                      "type": "number",
+                      "highPrecisionNumber": true,
+                      "minimum": -100000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 100000000000,
+                      "exclusiveMaximum": true
+                    }
+                  },
+                  "required": [
+                    "StrikePriceType",
                     "StrikePrice"
                   ],
                   "additionalProperties": false
                 },
                 {
                   "type": "object",
-                  "title": "PNDG",
+                  "title": "Yield",
                   "properties": {
+                    "StrikePriceType": {
+                      "default": "Yield",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Yield"
+                      ]
+                    },
                     "StrikePrice": {
+                      "title": "Strike Price",
+                      "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+                      "type": "number",
+                      "highPrecisionNumber": true,
+                      "minimum": -100000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 100000000000,
+                      "exclusiveMaximum": true
+                    }
+                  },
+                  "required": [
+                    "StrikePriceType",
+                    "StrikePrice"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "title": "Basis Points",
+                  "properties": {
+                    "StrikePriceType": {
+                      "default": "Basis Points",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Basis Points"
+                      ]
+                    },
+                    "StrikePrice": {
+                      "title": "Strike Price",
+                      "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+                      "type": "number",
+                      "highPrecisionNumber": true,
+                      "minimum": -1000000000000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 1000000000000000000,
+                      "exclusiveMaximum": true
+                    }
+                  },
+                  "required": [
+                    "StrikePriceType",
+                    "StrikePrice"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "title": "No Price",
+                  "options": {
+                    "disable_properties": false
+                  },
+                  "properties": {
+                    "StrikePriceType": {
+                      "default": "No Price",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "No Price"
+                      ]
+                    },
+                    "StrikePrice": {
+                      "default": "PNDG",
                       "title": "Strike Price",
                       "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
                       "type": "string",
@@ -2880,6 +3111,7 @@
                     }
                   },
                   "required": [
+                    "StrikePriceType",
                     "StrikePrice"
                   ],
                   "additionalProperties": false
@@ -5475,20 +5707,34 @@
               "title": "Debt Seniority",
               "description": "Indicates the seniority of the debt, or debt basket or index underlying a derivative"
             },
-            "StrikePrice": {
-              "title": "Strike Price",
+            "StrikePriceType": {
+              "title": "StrikePriceType",
               "type": "object",
               "oneOf": [
                 {
                   "type": "object",
-                  "title": "value",
+                  "title": "Monetary Value",
+                  "options": {
+                    "disable_properties": false
+                  },
                   "properties": {
+                    "StrikePriceType": {
+                      "default": "Monetary Value",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Monetary Value"
+                      ]
+                    },
                     "StrikePrice": {
                       "title": "Strike Price",
                       "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
                       "type": "number",
-                      "minimum": 0,
-                      "exclusiveMinimum": false
+                      "highPrecisionNumber": true,
+                      "minimum": -1000000000000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 1000000000000000000,
+                      "exclusiveMaximum": true
                     },
                     "StrikePriceCurrency": {
                       "$ref": "#/definitions/NotionalCurrency",
@@ -5497,15 +5743,116 @@
                     }
                   },
                   "required": [
+                    "StrikePriceType",
+                    "StrikePrice",
+                    "StrikePriceCurrency"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "title": "Percentage",
+                  "properties": {
+                    "StrikePriceType": {
+                      "default": "Percentage",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Percentage"
+                      ]
+                    },
+                    "StrikePrice": {
+                      "title": "Strike Price",
+                      "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+                      "type": "number",
+                      "highPrecisionNumber": true,
+                      "minimum": -100000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 100000000000,
+                      "exclusiveMaximum": true
+                    }
+                  },
+                  "required": [
+                    "StrikePriceType",
                     "StrikePrice"
                   ],
                   "additionalProperties": false
                 },
                 {
                   "type": "object",
-                  "title": "PNDG",
+                  "title": "Yield",
                   "properties": {
+                    "StrikePriceType": {
+                      "default": "Yield",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Yield"
+                      ]
+                    },
                     "StrikePrice": {
+                      "title": "Strike Price",
+                      "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+                      "type": "number",
+                      "highPrecisionNumber": true,
+                      "minimum": -100000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 100000000000,
+                      "exclusiveMaximum": true
+                    }
+                  },
+                  "required": [
+                    "StrikePriceType",
+                    "StrikePrice"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "title": "Basis Points",
+                  "properties": {
+                    "StrikePriceType": {
+                      "default": "Basis Points",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "Basis Points"
+                      ]
+                    },
+                    "StrikePrice": {
+                      "title": "Strike Price",
+                      "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+                      "type": "number",
+                      "highPrecisionNumber": true,
+                      "minimum": -1000000000000000000,
+                      "exclusiveMinimum": true,
+                      "maximum": 1000000000000000000,
+                      "exclusiveMaximum": true
+                    }
+                  },
+                  "required": [
+                    "StrikePriceType",
+                    "StrikePrice"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "title": "No Price",
+                  "options": {
+                    "disable_properties": false
+                  },
+                  "properties": {
+                    "StrikePriceType": {
+                      "default": "No Price",
+                      "title": "Strike Price Type",
+                      "type": "string",
+                      "enum": [
+                        "No Price"
+                      ]
+                    },
+                    "StrikePrice": {
+                      "default": "PNDG",
                       "title": "Strike Price",
                       "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
                       "type": "string",
@@ -5523,6 +5870,7 @@
                     }
                   },
                   "required": [
+                    "StrikePriceType",
                     "StrikePrice"
                   ],
                   "additionalProperties": false
@@ -11566,7 +11914,6 @@
           "GBP-Semi-Annual Swap Rate-Reference Banks",
           "GBP-Semi-Annual Swap Rate-SwapMarker26",
           "GBP-Semi-Annual Swap Rate",
-          "GBP-SONIA-COMPOUNDED-INDEX",
           "GBP-SONIA-OIS-11:00-ICAP",
           "GBP-SONIA-OIS-11:00-TRADITION",
           "GBP-SONIA-OIS-4:15-TRADITION",
@@ -12072,7 +12419,6 @@
           "GBP-Semi-Annual Swap Rate-Reference Banks": "GBP-Semi-Annual Swap Rate-Reference Banks",
           "GBP-Semi-Annual Swap Rate-SwapMarker26": "GBP-Semi-Annual Swap Rate-SwapMarker26",
           "GBP-Semi-Annual Swap Rate": "GBP-Semi-Annual Swap Rate",
-          "GBP-SONIA-COMPOUNDED-INDEX": "GBP-SONIA-COMPOUNDED-INDEX",
           "GBP-SONIA-OIS-11:00-ICAP": "GBP-SONIA-OIS-11:00-ICAP",
           "GBP-SONIA-OIS-11:00-TRADITION": "GBP-SONIA-OIS-11:00-TRADITION",
           "GBP-SONIA-OIS-4:15-TRADITION": "GBP-SONIA-OIS-4:15-TRADITION",
