@@ -1,11 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Request.Equity.Option.Basket.InstRefDataReporting",
+  "title": "Equity.Option.Basket.InstRefDataReporting.V2",
   "LastModifyDateTime": "2020-11-04T07:27:34",
-  "description": "Request template for Equity Option Basket",
+  "description": "Record template for Equity.Option.Basket",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
+    "TemplateVersion": {
+      "title": "Template Version",
+      "description": "Template Version",
+      "type": "integer"
+    },
     "Header": {
       "title": "Header",
       "type": "object",
@@ -48,6 +53,155 @@
         "InstrumentType",
         "UseCase",
         "Level"
+      ],
+      "additionalProperties": false
+    },
+    "ISIN": {
+      "type": "object",
+      "properties": {
+        "ISIN": {
+          "title": "Identification",
+          "description": "International Securities Identification Number (ISO 6166)",
+          "type": "string"
+        },
+        "Status": {
+          "title": "Status",
+          "description": "Status of the ISIN",
+          "type": "string",
+          "enum": [
+            "New",
+            "Updated",
+            "Expired",
+            "Deleted"
+          ],
+          "elaboration": {
+            "New": "New ISIN added to the database",
+            "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
+            "Deleted": "The instrument associated with the ISIN is no longer active"
+          }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for ISIN Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
+        },
+        "Parent": {
+          "title": "Parent",
+          "description": "ISIN of the parent level",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ISIN",
+        "Status",
+        "LastUpdateDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "Derived": {
+      "title": "Derived",
+      "description": "Derived Attributes",
+      "type": "object",
+      "properties": {
+        "FullName": {
+          "title": "Full Name",
+          "description": "Full name of the financial instrument",
+          "type": "string"
+        },
+        "ClassificationType": {
+          "title": "Classification Type",
+          "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
+          "type": "string"
+        },
+        "CommodityDerivativeIndicator": {
+          "title": "Commodity Derivative Indicator",
+          "description": "Indication as to whether the financial instrument falls within the definition of commodities derivative under Article 2(1)(30) of Regulation (EU) No 600/2014 or is a derivative relating to emission allowances referred to in Section C(4) of Annex I to Directive 2014/65/EU",
+          "type": "string"
+        },
+        "IssuerorOperatoroftheTradingVenueIdentifier": {
+          "title": "Issuer or Operator of the Trading Venue Identifier",
+          "description": "ISIN Issuer Long Name",
+          "type": "string"
+        },
+        "ShortName": {
+          "title": "Short Name",
+          "description": "Short name of financial instrument in accordance with ISO 18774",
+          "type": "string"
+        },
+        "UnderlyingAssetType": {
+          "title": "Underlying Asset Type",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Single Stock",
+            "Index",
+            "Basket",
+            "Options",
+            "Forwards",
+            "Futures",
+            "Other"
+          ],
+          "elaboration": {
+            "Single Stock": "an option on a contract which gives the holder the right to buy, respectively to sell, single-named equity",
+            "Index": "an option on a contract which gives the holder the right to buy, respectively to sell, specified equity indices",
+            "Basket": "an option on a contract that may be exercised based on the weighted average performance of several underlying equities instruments",
+            "Options": "Options",
+            "Forwards": "Forwards",
+            "Futures": "Futures",
+            "Other": "Miscellaneous"
+          }
+        },
+        "ISOUnderlyingInstrumentIndex": {
+          "title": "ISO Underlying Instrument Index",
+          "description": "Underlying Instrument Index represented in ISO 20022 acceptable format",
+          "type": "string"
+        },
+        "UnderlyingInstrumentIndexTermValue": {
+          "title": "Underlying Instrument Index Term Value",
+          "description": "Tenor value of the underlying reference rate",
+          "type": "integer",
+          "minimum": -999,
+          "maximum": 999
+        },
+        "UnderlyingInstrumentIndexTermUnit": {
+          "title": "Underlying Instrument Index Term Unit",
+          "description": "Tenor unit of the underlying reference rate",
+          "type": "string",
+          "enum": [
+            "DAYS",
+            "WEEK",
+            "MNTH",
+            "YEAR"
+          ],
+          "elaboration": {
+            "DAYS": "Rate is reported in days",
+            "WEEK": "Rate is reported in weeks",
+            "MNTH": "Rate is reported in months",
+            "YEAR": "Rate is reported in years"
+          }
+        },
+        "StrikePriceCurrency": {
+          "$ref": "../../codesets/ISOCurrencyCode.json",
+          "title": "Strike Price Currency",
+          "description": "Currency code of the Strike price"
+        }
+      },
+      "required": [
+        "FullName",
+        "ClassificationType",
+        "CommodityDerivativeIndicator",
+        "IssuerorOperatoroftheTradingVenueIdentifier",
+        "ShortName",
+        "UnderlyingAssetType",
+        "UnderlyingInstrumentIndexTermValue",
+        "UnderlyingInstrumentIndexTermUnit"
       ],
       "additionalProperties": false
     },
@@ -265,13 +419,17 @@
         "OptionType",
         "OptionExerciseStyle",
         "ValuationMethodorTrigger",
-        "DeliveryType"
+        "DeliveryType",
+        "PriceMultiplier"
       ],
       "additionalProperties": false
     }
   },
   "required": [
+    "TemplateVersion",
     "Header",
+    "ISIN",
+    "Derived",
     "Attributes"
   ],
   "additionalProperties": false
