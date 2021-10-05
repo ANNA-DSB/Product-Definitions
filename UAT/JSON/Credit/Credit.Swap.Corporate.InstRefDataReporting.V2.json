@@ -1,11 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Request.Credit.Swap.Municipal.InstRefDataReporting",
+  "title": "Credit.Swap.Corporate.InstRefDataReporting.V2",
   "LastModifyDateTime": "2021-09-17T08:32:47",
-  "description": "Request template for Credit Swap Municipal",
+  "description": "Record template for Credit.Swap.Corporate",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
+    "TemplateVersion": {
+      "title": "Template Version",
+      "description": "Template Version",
+      "type": "integer"
+    },
     "Header": {
       "title": "Header",
       "type": "object",
@@ -31,7 +36,7 @@
           "description": "Unique label that defines the product",
           "type": "string",
           "enum": [
-            "Municipal"
+            "Corporate"
           ]
         },
         "Level": {
@@ -48,6 +53,146 @@
         "InstrumentType",
         "UseCase",
         "Level"
+      ],
+      "additionalProperties": false
+    },
+    "ISIN": {
+      "type": "object",
+      "properties": {
+        "ISIN": {
+          "title": "Identification",
+          "description": "International Securities Identification Number (ISO 6166)",
+          "type": "string"
+        },
+        "Status": {
+          "title": "Status",
+          "description": "Status of the ISIN",
+          "type": "string",
+          "enum": [
+            "New",
+            "Updated",
+            "Expired",
+            "Deleted"
+          ],
+          "elaboration": {
+            "New": "New ISIN added to the database",
+            "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
+            "Deleted": "The instrument associated with the ISIN is no longer active"
+          }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for ISIN Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
+        },
+        "Parent": {
+          "title": "Parent",
+          "description": "ISIN of the parent level",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ISIN",
+        "Status",
+        "LastUpdateDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "Derived": {
+      "title": "Derived",
+      "description": "Derived Attributes",
+      "type": "object",
+      "properties": {
+        "FullName": {
+          "title": "Full Name",
+          "description": "Full name of the financial instrument",
+          "type": "string"
+        },
+        "ClassificationType": {
+          "title": "Classification Type",
+          "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
+          "type": "string"
+        },
+        "CommodityDerivativeIndicator": {
+          "title": "Commodity Derivative Indicator",
+          "description": "Indication as to whether the financial instrument falls within the definition of commodities derivative under Article 2(1)(30) of Regulation (EU) No 600/2014 or is a derivative relating to emission allowances referred to in Section C(4) of Annex I to Directive 2014/65/EU",
+          "type": "string"
+        },
+        "IssuerorOperatoroftheTradingVenueIdentifier": {
+          "title": "Issuer or Operator of the Trading Venue Identifier",
+          "description": "ISIN Issuer Long Name",
+          "type": "string"
+        },
+        "ShortName": {
+          "title": "Short Name",
+          "description": "Short name of financial instrument in accordance with ISO 18774",
+          "type": "string"
+        },
+        "UnderlyingAssetType": {
+          "title": "Underlying Asset Type",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Single Name",
+            "Index Tranche",
+            "Index",
+            "Basket",
+            "Other"
+          ],
+          "elaboration": {
+            "Single Name": "the underlying risk is a single reference entity or reference obligation",
+            "Index Tranche": "a synthetic Collaterized Debt Obligation (CDO) based on a CDS index where each tranche references a different segment of the loss distribution of the underlying CDS index; each tranche has a different priority of claims on the principal and interest flows from the collateral pool, and are traditionally portioned into rising levels of seniority",
+            "Index": "family of standardized credit derivative indices, where the underlying reference entities are a defined basket of credit from a particular geographic region (for instance, Asia, North America, Europe, etc.), and/or credit rating level (for instance Emerging Markets, high yield, investment grade, etc.); credit default indices trade in standard maturities, and the reference entities are typically the most liquid; the reference portfolio is reassessed periodically to maintain this",
+            "Basket": "a synthetic credit derivative where the underlying reference entities are a bespoke portfolio whose constituents have been agreed to by the parties to the trade",
+            "Other": "miscellaneous"
+          }
+        },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Credit Default",
+            "Total Return",
+            "Spreadbets",
+            "Forward price of underlying instrument",
+            "Other"
+          ],
+          "elaboration": {
+            "Credit Default": "Credit Default",
+            "Total Return": "the total economic return of an underlying asset is transferred from one party (total return buyer) to another (total return seller); total return seller takes on the risk of negative changes in market value of the reference asset, and pays any positive cash flow to the buyer such as coupon, capital gains or dividends of the reference asset",
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+            "Forward price of underlying instrument": "Forward price of underlying instrument",
+            "Other": "Miscellaneous"
+          }
+        },
+        "UnderlyingIssuerType": {
+          "title": "Underlying Issuer Type",
+          "description": "The underlying issuer type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Corporate",
+            "Sovereign",
+            "Local"
+          ]
+        }
+      },
+      "required": [
+        "FullName",
+        "ClassificationType",
+        "CommodityDerivativeIndicator",
+        "IssuerorOperatoroftheTradingVenueIdentifier",
+        "ShortName",
+        "UnderlyingAssetType",
+        "ReturnorPayoutTrigger",
+        "UnderlyingIssuerType"
       ],
       "additionalProperties": false
     },
@@ -525,20 +670,116 @@
           "description": "The name of an existing document or reference that provides standard terms and conditions to be applied to the contract having the underlying asset or benchmark identified by the underlier for which the ISIN is assigned.",
           "type": "string",
           "enum": [
-            "StandardUSMunicipalFullFaithAndCredit",
-            "StandardUSMunicipalGeneralFund",
-            "StandardUSMunicipalRevenue",
-            "USMunicipalFullFaithAndCredit",
-            "USMunicipalGeneralFund",
-            "USMunicipalRevenue"
+            "AsiaCorporate",
+            "AsiaFinancialCorporate",
+            "AustraliaCorporate",
+            "AustraliaFinancialCorporate",
+            "EmergingEuropeanCorporate",
+            "EmergingEuropeanCorporateLPN",
+            "EmergingEuropeanFinancialCorporate",
+            "EmergingEuropeanFinancialCorporateLPN",
+            "EuropeanCoCoFinancialCorporate",
+            "EuropeanCorporate",
+            "EuropeanFinancialCorporate",
+            "EuropeanSeniorNonPreferredFinancialCorporate",
+            "JapanCorporate",
+            "JapanFinancialCorporate",
+            "LatinAmericaCorporate",
+            "LatinAmericaCorporateBond",
+            "LatinAmericaCorporateBondOrLoan",
+            "LatinAmericaFinancialCorporateBond",
+            "LatinAmericaFinancialCorporateBondOrLoan",
+            "NewZealandCorporate",
+            "NewZealandFinancialCorporate",
+            "NorthAmericanCorporate",
+            "NorthAmericanFinancialCorporate",
+            "SingaporeCorporate",
+            "SingaporeFinancialCorporate",
+            "StandardAsiaCorporate",
+            "StandardAsiaFinancialCorporate",
+            "StandardAustraliaCorporate",
+            "StandardAustraliaFinancialCorporate",
+            "StandardEmergingEuropeanCorporate",
+            "StandardEmergingEuropeanCorporateLPN",
+            "StandardEmergingEuropeanFinancialCorporate",
+            "StandardEmergingEuropeanFinancialCorporateLPN",
+            "StandardEuropeanCoCoFinancialCorporate",
+            "StandardEuropeanCorporate",
+            "StandardEuropeanFinancialCorporate",
+            "StandardEuropeanSeniorNonPreferredFinancialCorporate",
+            "StandardJapanCorporate",
+            "StandardJapanFinancialCorporate",
+            "StandardLatinAmericaCorporateBond",
+            "StandardLatinAmericaCorporateBondOrLoan",
+            "StandardLatinAmericaFinancialCorporateBond",
+            "StandardLatinAmericaFinancialCorporateBondOrLoan",
+            "StandardNewZealandCorporate",
+            "StandardNewZealandFinancialCorporate",
+            "StandardNorthAmericanCorporate",
+            "StandardNorthAmericanFinancialCorporate",
+            "StandardSingaporeCorporate",
+            "StandardSingaporeFinancialCorporate",
+            "StandardSubordinatedEuropeanInsuranceCorporate",
+            "StandardSukukFinancialCorporate",
+            "SubordinatedEuropeanInsuranceCorporate",
+            "SukukCorporate",
+            "SukukFinancialCorporate"
           ],
           "elaboration": {
-            "StandardUSMunicipalFullFaithAndCredit": "Matrix Transaction Type of STANDARD U.S. MUNICIPAL FULL FAITH AND CREDIT.",
-            "StandardUSMunicipalGeneralFund": "Matrix Transaction Type of STANDARD U.S. MUNICIPAL GENERAL FUND.",
-            "StandardUSMunicipalRevenue": "Matrix Transaction Type of STANDARD U.S. MUNICIPAL REVENUE.",
-            "USMunicipalFullFaithAndCredit": "Matrix Transaction Type of U.S. MUNICIPAL FULL FAITH AND CREDIT.",
-            "USMunicipalGeneralFund": "Matrix Transaction Type of U.S. MUNICIPAL GENERAL FUND.",
-            "USMunicipalRevenue": "Matrix Transaction Type of U.S. MUNICIPAL REVENUE."
+            "AsiaCorporate": "Matrix Transaction Type of ASIA CORPORATE.",
+            "AsiaFinancialCorporate": "Matrix Transaction Type of ASIA FINANCIAL CORPORATE.",
+            "AustraliaCorporate": "Matrix Transaction Type of AUSTRALIA CORPORATE.",
+            "AustraliaFinancialCorporate": "Matrix Transaction Type of AUSTRALIA FINANCIAL CORPORATE.",
+            "EmergingEuropeanCorporate": "Matrix Transaction Type of EMERGING EUROPEAN CORPORATE.",
+            "EmergingEuropeanCorporateLPN": "Matrix Transaction Type of EMERGING EUROPEAN CORPORATE LPN.",
+            "EmergingEuropeanFinancialCorporate": "Matrix Transaction Type of EMERGING EUROPEAN FINANCIAL CORPORATE.",
+            "EmergingEuropeanFinancialCorporateLPN": "Matrix Transaction Type of EMERGING EUROPEAN FINANCIAL CORPORATE LPN.",
+            "EuropeanCoCoFinancialCorporate": "Matrix Transaction Type of EUROPEAN COCO FINANCIAL CORPORATE.",
+            "EuropeanCorporate": "Matrix Transaction Type of EUROPEAN CORPORATE.",
+            "EuropeanFinancialCorporate": "Matrix Transaction Type of EUROPEAN FINANCIAL CORPORATE.",
+            "EuropeanSeniorNonPreferredFinancialCorporate": "Matrix Transaction Type of EUROPEAN SENIOR NON PREFERRED FINANCIAL CORPORATE.",
+            "JapanCorporate": "Matrix Transaction Type of JAPAN CORPORATE.",
+            "JapanFinancialCorporate": "Matrix Transaction Type of JAPAN FINANCIAL CORPORATE.",
+            "LatinAmericaCorporate": "Matrix Transaction Type of LATIN AMERICA CORPORATE.",
+            "LatinAmericaCorporateBond": "Matrix Transaction Type of LATIN AMERICA CORPORATE B.",
+            "LatinAmericaCorporateBondOrLoan": "Matrix Transaction Type of LATIN AMERICA CORPORATE BL.",
+            "LatinAmericaFinancialCorporateBond": "Matrix Transaction Type of LATIN AMERICA FINANCIAL CORPORATE B.",
+            "LatinAmericaFinancialCorporateBondOrLoan": "Matrix Transaction Type of LATIN AMERICA FINANCIAL CORPORATE BL.",
+            "NewZealandCorporate": "Matrix Transaction Type of NEW ZEALAND CORPORATE.",
+            "NewZealandFinancialCorporate": "Matrix Transaction Type of NEW ZEALAND FINANCIAL CORPORATE.",
+            "NorthAmericanCorporate": "Matrix Transaction Type of NORTH AMERICAN CORPORATE.",
+            "NorthAmericanFinancialCorporate": "Matrix Transaction Type of NORTH AMERICAN FINANCIAL CORPORATE.",
+            "SingaporeCorporate": "Matrix Transaction Type of SINGAPORE CORPORATE.",
+            "SingaporeFinancialCorporate": "Matrix Transaction Type of SINGAPORE FINANCIAL CORPORATE.",
+            "StandardAsiaCorporate": "Matrix Transaction Type of STANDARD ASIA CORPORATE.",
+            "StandardAsiaFinancialCorporate": "Matrix Transaction Type of STANDARD ASIA FINANCIAL CORPORATE.",
+            "StandardAustraliaCorporate": "Matrix Transaction Type of STANDARD AUSTRALIA CORPORATE.",
+            "StandardAustraliaFinancialCorporate": "Matrix Transaction Type of STANDARD AUSTRALIA FINANCIAL CORPORATE.",
+            "StandardEmergingEuropeanCorporate": "Matrix Transaction Type of STANDARD EMERGING EUROPEAN CORPORATE.",
+            "StandardEmergingEuropeanCorporateLPN": "Matrix Transaction Type of STANDARD EMERGING EUROPEAN CORPORATE LPN.",
+            "StandardEmergingEuropeanFinancialCorporate": "Matrix Transaction Type of STANDARD EMERGING EUROPEAN FINANCIAL CORPORATE.",
+            "StandardEmergingEuropeanFinancialCorporateLPN": "Matrix Transaction Type of STANDARD EMERGING EUROPEAN FINANCIAL CORPORATE LPN.",
+            "StandardEuropeanCoCoFinancialCorporate": "Matrix Transaction Type of STANDARD EUROPEAN COCO FINANCIAL CORPORATE.",
+            "StandardEuropeanCorporate": "Matrix Transaction Type of STANDARD EUROPEAN CORPORATE.",
+            "StandardEuropeanFinancialCorporate": "Matrix Transaction Type of STANDARD EUROPEAN FINANCIAL CORPORATE.",
+            "StandardEuropeanSeniorNonPreferredFinancialCorporate": "Matrix Transaction Type of STANDARD EUROPEAN SENIOR NON PREFERRED FINANCIAL CORPORATE.",
+            "StandardJapanCorporate": "Matrix Transaction Type of STANDARD JAPAN CORPORATE.",
+            "StandardJapanFinancialCorporate": "Matrix Transaction Type of STANDARD JAPAN FINANCIAL CORPORATE.",
+            "StandardLatinAmericaCorporateBond": "Matrix Transaction Type of STANDARD LATIN AMERICA CORPORATE B.",
+            "StandardLatinAmericaCorporateBondOrLoan": "Matrix Transaction Type of STANDARD LATIN AMERICA CORPORATE BL.",
+            "StandardLatinAmericaFinancialCorporateBond": "Matrix Transaction Type of STANDARD LATIN AMERICA FINANCIAL CORPORATE B.",
+            "StandardLatinAmericaFinancialCorporateBondOrLoan": "Matrix Transaction Type of STANDARD LATIN AMERICA FINANCIAL CORPORATE BL.",
+            "StandardNewZealandCorporate": "Matrix Transaction Type of STANDARD NEW ZEALAND CORPORATE.",
+            "StandardNewZealandFinancialCorporate": "Matrix Transaction Type of STANDARD NEW ZEALAND FINANCIAL CORPORATE.",
+            "StandardNorthAmericanCorporate": "Matrix Transaction Type of STANDARD NORTH AMERICAN CORPORATE.",
+            "StandardNorthAmericanFinancialCorporate": "Matrix Transaction Type of STANDARD NORTH AMERICAN FINANCIAL CORPORATE.",
+            "StandardSingaporeCorporate": "Matrix Transaction Type of STANDARD SINGAPORE CORPORATE.",
+            "StandardSingaporeFinancialCorporate": "Matrix Transaction Type of STANDARD SINGAPORE FINANCIAL CORPORATE.",
+            "StandardSubordinatedEuropeanInsuranceCorporate": "Transaction Type of STANDARD SUBORDINATED EUROPEAN INSURANCE CORPORATE.",
+            "StandardSukukFinancialCorporate": "Matrix Transaction Type of STANDARD SUKUK FINANCIAL CORPORATE.",
+            "SubordinatedEuropeanInsuranceCorporate": "Matrix Transaction Type of SUBORDINATED EUROPEAN INSURANCE CORPORATE.",
+            "SukukCorporate": "Matrix Transaction Type of SUKUK CORPORATE.",
+            "SukukFinancialCorporate": "Matrix Transaction Type of SUKUK FINANCIAL CORPORATE."
           }
         },
         "PriceMultiplier": {
@@ -555,13 +796,17 @@
         "ExpiryDate",
         "Underlying",
         "DebtSeniority",
-        "ContractSpecification"
+        "DeliveryType",
+        "PriceMultiplier"
       ],
       "additionalProperties": false
     }
   },
   "required": [
+    "TemplateVersion",
     "Header",
+    "ISIN",
+    "Derived",
     "Attributes"
   ],
   "additionalProperties": false
