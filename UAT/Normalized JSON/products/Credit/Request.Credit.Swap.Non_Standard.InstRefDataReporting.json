@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Swap.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2020-04-28T13:18:25",
+  "LastModifyDateTime": "2021-09-17T08:32:58",
   "description": "Request template for Credit Swap Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -196,12 +196,249 @@
         },
         "UnderlyingIssuerType": {
           "title": "Underlying Issuer Type",
-          "description": "The underlying issuer type as defined by CFI code: ISO 10962 (2015)",
-          "type": "string",
-          "enum": [
-            "Corporate",
-            "Sovereign",
-            "Local"
+          "type": "object",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "Corporate",
+              "options": {
+                "disable_properties": false
+              },
+              "properties": {
+                "Corporate": {
+                  "title": "Corporate",
+                  "type": "object",
+                  "properties": {
+                    "ContractSpecification": {
+                      "title": "Contract Specification",
+                      "description": "The name of an existing document or reference that provides standard terms and conditions to be applied to the contract having the underlying asset or benchmark identified by the underlier for which the ISIN is assigned.",
+                      "type": "string",
+                      "enum": [
+                        "AsiaCorporate",
+                        "AsiaFinancialCorporate",
+                        "AustraliaCorporate",
+                        "AustraliaFinancialCorporate",
+                        "EmergingEuropeanCorporate",
+                        "EmergingEuropeanCorporateLPN",
+                        "EmergingEuropeanFinancialCorporate",
+                        "EmergingEuropeanFinancialCorporateLPN",
+                        "EuropeanCoCoFinancialCorporate",
+                        "EuropeanCorporate",
+                        "EuropeanFinancialCorporate",
+                        "EuropeanSeniorNonPreferredFinancialCorporate",
+                        "JapanCorporate",
+                        "JapanFinancialCorporate",
+                        "LatinAmericaCorporate",
+                        "LatinAmericaCorporateBond",
+                        "LatinAmericaCorporateBondOrLoan",
+                        "LatinAmericaFinancialCorporateBond",
+                        "LatinAmericaFinancialCorporateBondOrLoan",
+                        "NewZealandCorporate",
+                        "NewZealandFinancialCorporate",
+                        "NorthAmericanCorporate",
+                        "NorthAmericanFinancialCorporate",
+                        "SingaporeCorporate",
+                        "SingaporeFinancialCorporate",
+                        "StandardAsiaCorporate",
+                        "StandardAsiaFinancialCorporate",
+                        "StandardAustraliaCorporate",
+                        "StandardAustraliaFinancialCorporate",
+                        "StandardEmergingEuropeanCorporate",
+                        "StandardEmergingEuropeanCorporateLPN",
+                        "StandardEmergingEuropeanFinancialCorporate",
+                        "StandardEmergingEuropeanFinancialCorporateLPN",
+                        "StandardEuropeanCoCoFinancialCorporate",
+                        "StandardEuropeanCorporate",
+                        "StandardEuropeanFinancialCorporate",
+                        "StandardEuropeanSeniorNonPreferredFinancialCorporate",
+                        "StandardJapanCorporate",
+                        "StandardJapanFinancialCorporate",
+                        "StandardLatinAmericaCorporateBond",
+                        "StandardLatinAmericaCorporateBondOrLoan",
+                        "StandardLatinAmericaFinancialCorporateBond",
+                        "StandardLatinAmericaFinancialCorporateBondOrLoan",
+                        "StandardNewZealandCorporate",
+                        "StandardNewZealandFinancialCorporate",
+                        "StandardNorthAmericanCorporate",
+                        "StandardNorthAmericanFinancialCorporate",
+                        "StandardSingaporeCorporate",
+                        "StandardSingaporeFinancialCorporate",
+                        "StandardSubordinatedEuropeanInsuranceCorporate",
+                        "StandardSukukFinancialCorporate",
+                        "SubordinatedEuropeanInsuranceCorporate",
+                        "SukukCorporate",
+                        "SukukFinancialCorporate"
+                      ],
+                      "elaboration": {
+                        "AsiaCorporate": "Matrix Transaction Type of ASIA CORPORATE.",
+                        "AsiaFinancialCorporate": "Matrix Transaction Type of ASIA FINANCIAL CORPORATE.",
+                        "AustraliaCorporate": "Matrix Transaction Type of AUSTRALIA CORPORATE.",
+                        "AustraliaFinancialCorporate": "Matrix Transaction Type of AUSTRALIA FINANCIAL CORPORATE.",
+                        "EmergingEuropeanCorporate": "Matrix Transaction Type of EMERGING EUROPEAN CORPORATE.",
+                        "EmergingEuropeanCorporateLPN": "Matrix Transaction Type of EMERGING EUROPEAN CORPORATE LPN.",
+                        "EmergingEuropeanFinancialCorporate": "Matrix Transaction Type of EMERGING EUROPEAN FINANCIAL CORPORATE.",
+                        "EmergingEuropeanFinancialCorporateLPN": "Matrix Transaction Type of EMERGING EUROPEAN FINANCIAL CORPORATE LPN.",
+                        "EuropeanCoCoFinancialCorporate": "Matrix Transaction Type of EUROPEAN COCO FINANCIAL CORPORATE.",
+                        "EuropeanCorporate": "Matrix Transaction Type of EUROPEAN CORPORATE.",
+                        "EuropeanFinancialCorporate": "Matrix Transaction Type of EUROPEAN FINANCIAL CORPORATE.",
+                        "EuropeanSeniorNonPreferredFinancialCorporate": "Matrix Transaction Type of EUROPEAN SENIOR NON PREFERRED FINANCIAL CORPORATE.",
+                        "JapanCorporate": "Matrix Transaction Type of JAPAN CORPORATE.",
+                        "JapanFinancialCorporate": "Matrix Transaction Type of JAPAN FINANCIAL CORPORATE.",
+                        "LatinAmericaCorporate": "Matrix Transaction Type of LATIN AMERICA CORPORATE.",
+                        "LatinAmericaCorporateBond": "Matrix Transaction Type of LATIN AMERICA CORPORATE B.",
+                        "LatinAmericaCorporateBondOrLoan": "Matrix Transaction Type of LATIN AMERICA CORPORATE BL.",
+                        "LatinAmericaFinancialCorporateBond": "Matrix Transaction Type of LATIN AMERICA FINANCIAL CORPORATE B.",
+                        "LatinAmericaFinancialCorporateBondOrLoan": "Matrix Transaction Type of LATIN AMERICA FINANCIAL CORPORATE BL.",
+                        "NewZealandCorporate": "Matrix Transaction Type of NEW ZEALAND CORPORATE.",
+                        "NewZealandFinancialCorporate": "Matrix Transaction Type of NEW ZEALAND FINANCIAL CORPORATE.",
+                        "NorthAmericanCorporate": "Matrix Transaction Type of NORTH AMERICAN CORPORATE.",
+                        "NorthAmericanFinancialCorporate": "Matrix Transaction Type of NORTH AMERICAN FINANCIAL CORPORATE.",
+                        "SingaporeCorporate": "Matrix Transaction Type of SINGAPORE CORPORATE.",
+                        "SingaporeFinancialCorporate": "Matrix Transaction Type of SINGAPORE FINANCIAL CORPORATE.",
+                        "StandardAsiaCorporate": "Matrix Transaction Type of STANDARD ASIA CORPORATE.",
+                        "StandardAsiaFinancialCorporate": "Matrix Transaction Type of STANDARD ASIA FINANCIAL CORPORATE.",
+                        "StandardAustraliaCorporate": "Matrix Transaction Type of STANDARD AUSTRALIA CORPORATE.",
+                        "StandardAustraliaFinancialCorporate": "Matrix Transaction Type of STANDARD AUSTRALIA FINANCIAL CORPORATE.",
+                        "StandardEmergingEuropeanCorporate": "Matrix Transaction Type of STANDARD EMERGING EUROPEAN CORPORATE.",
+                        "StandardEmergingEuropeanCorporateLPN": "Matrix Transaction Type of STANDARD EMERGING EUROPEAN CORPORATE LPN.",
+                        "StandardEmergingEuropeanFinancialCorporate": "Matrix Transaction Type of STANDARD EMERGING EUROPEAN FINANCIAL CORPORATE.",
+                        "StandardEmergingEuropeanFinancialCorporateLPN": "Matrix Transaction Type of STANDARD EMERGING EUROPEAN FINANCIAL CORPORATE LPN.",
+                        "StandardEuropeanCoCoFinancialCorporate": "Matrix Transaction Type of STANDARD EUROPEAN COCO FINANCIAL CORPORATE.",
+                        "StandardEuropeanCorporate": "Matrix Transaction Type of STANDARD EUROPEAN CORPORATE.",
+                        "StandardEuropeanFinancialCorporate": "Matrix Transaction Type of STANDARD EUROPEAN FINANCIAL CORPORATE.",
+                        "StandardEuropeanSeniorNonPreferredFinancialCorporate": "Matrix Transaction Type of STANDARD EUROPEAN SENIOR NON PREFERRED FINANCIAL CORPORATE.",
+                        "StandardJapanCorporate": "Matrix Transaction Type of STANDARD JAPAN CORPORATE.",
+                        "StandardJapanFinancialCorporate": "Matrix Transaction Type of STANDARD JAPAN FINANCIAL CORPORATE.",
+                        "StandardLatinAmericaCorporateBond": "Matrix Transaction Type of STANDARD LATIN AMERICA CORPORATE B.",
+                        "StandardLatinAmericaCorporateBondOrLoan": "Matrix Transaction Type of STANDARD LATIN AMERICA CORPORATE BL.",
+                        "StandardLatinAmericaFinancialCorporateBond": "Matrix Transaction Type of STANDARD LATIN AMERICA FINANCIAL CORPORATE B.",
+                        "StandardLatinAmericaFinancialCorporateBondOrLoan": "Matrix Transaction Type of STANDARD LATIN AMERICA FINANCIAL CORPORATE BL.",
+                        "StandardNewZealandCorporate": "Matrix Transaction Type of STANDARD NEW ZEALAND CORPORATE.",
+                        "StandardNewZealandFinancialCorporate": "Matrix Transaction Type of STANDARD NEW ZEALAND FINANCIAL CORPORATE.",
+                        "StandardNorthAmericanCorporate": "Matrix Transaction Type of STANDARD NORTH AMERICAN CORPORATE.",
+                        "StandardNorthAmericanFinancialCorporate": "Matrix Transaction Type of STANDARD NORTH AMERICAN FINANCIAL CORPORATE.",
+                        "StandardSingaporeCorporate": "Matrix Transaction Type of STANDARD SINGAPORE CORPORATE.",
+                        "StandardSingaporeFinancialCorporate": "Matrix Transaction Type of STANDARD SINGAPORE FINANCIAL CORPORATE.",
+                        "StandardSubordinatedEuropeanInsuranceCorporate": "Transaction Type of STANDARD SUBORDINATED EUROPEAN INSURANCE CORPORATE.",
+                        "StandardSukukFinancialCorporate": "Matrix Transaction Type of STANDARD SUKUK FINANCIAL CORPORATE.",
+                        "SubordinatedEuropeanInsuranceCorporate": "Matrix Transaction Type of SUBORDINATED EUROPEAN INSURANCE CORPORATE.",
+                        "SukukCorporate": "Matrix Transaction Type of SUKUK CORPORATE.",
+                        "SukukFinancialCorporate": "Matrix Transaction Type of SUKUK FINANCIAL CORPORATE."
+                      }
+                    }
+                  },
+                  "required": [
+                    "ContractSpecification"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "title": "Sovereign",
+              "options": {
+                "disable_properties": false
+              },
+              "properties": {
+                "Sovereign": {
+                  "title": "Sovereign",
+                  "type": "object",
+                  "properties": {
+                    "ContractSpecification": {
+                      "title": "Contract Specification",
+                      "description": "The name of an existing document or reference that provides standard terms and conditions to be applied to the contract having the underlying asset or benchmark identified by the underlier for which the ISIN is assigned.",
+                      "type": "string",
+                      "enum": [
+                        "AsiaSovereign",
+                        "AustraliaSovereign",
+                        "EmergingEuropeanAndMiddleEasternSovereign",
+                        "JapanSovereign",
+                        "LatinAmericaSovereign",
+                        "NewZealandSovereign",
+                        "SingaporeSovereign",
+                        "StandardAsiaSovereign",
+                        "StandardAustraliaSovereign",
+                        "StandardEmergingEuropeanAndMiddleEasternSovereign",
+                        "StandardJapanSovereign",
+                        "StandardLatinAmericaSovereign",
+                        "StandardNewZealandSovereign",
+                        "StandardSingaporeSovereign",
+                        "StandardWesternEuropeanSovereign",
+                        "SukukSovereign",
+                        "WesternEuropeanSovereign"
+                      ],
+                      "elaboration": {
+                        "AsiaSovereign": "Matrix Transaction Type of ASIA SOVEREIGN.",
+                        "AustraliaSovereign": "Matrix Transaction Type of AUSTRALIA SOVEREIGN.",
+                        "EmergingEuropeanAndMiddleEasternSovereign": "Matrix Transaction Type of EMERGING EUROPEAN AND MIDDLE EASTERN SOVEREIGN.",
+                        "JapanSovereign": "Matrix Transaction Type of JAPAN SOVEREIGN.",
+                        "LatinAmericaSovereign": "Matrix Transaction Type of LATIN AMERICA SOVEREIGN.",
+                        "NewZealandSovereign": "Matrix Transaction Type of NEW ZEALAND SOVEREIGN.",
+                        "SingaporeSovereign": "Matrix Transaction Type of SINGAPORE SOVEREIGN.",
+                        "StandardAsiaSovereign": "Matrix Transaction Type of STANDARD ASIA SOVEREIGN.",
+                        "StandardAustraliaSovereign": "Matrix Transaction Type of STANDARD AUSTRALIA SOVEREIGN.",
+                        "StandardEmergingEuropeanAndMiddleEasternSovereign": "Matrix Transaction Type of STANDARD EMERGING EUROPEAN AND MIDDLE EASTERN SOVEREIGN.",
+                        "StandardJapanSovereign": "Matrix Transaction Type of STANDARD JAPAN SOVEREIGN.",
+                        "StandardLatinAmericaSovereign": "Matrix Transaction Type of STANDARD LATIN AMERICA SOVEREIGN.",
+                        "StandardNewZealandSovereign": "Matrix Transaction Type of STANDARD NEW ZEALAND SOVEREIGN.",
+                        "StandardSingaporeSovereign": "Matrix Transaction Type of STANDARD SINGAPORE SOVEREIGN.",
+                        "StandardWesternEuropeanSovereign": "Matrix Transaction Type of STANDARD WESTERN EUROPEAN SOVEREIGN.",
+                        "SukukSovereign": "Matrix Transaction Type of SUKUK SOVEREIGN.",
+                        "WesternEuropeanSovereign": "Matrix Transaction Type of WESTERN EUROPEAN SOVEREIGN."
+                      }
+                    }
+                  },
+                  "required": [
+                    "ContractSpecification"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "title": "Local",
+              "options": {
+                "disable_properties": false
+              },
+              "properties": {
+                "Local": {
+                  "title": "Local",
+                  "type": "object",
+                  "properties": {
+                    "ContractSpecification": {
+                      "title": "Contract Specification",
+                      "description": "The name of an existing document or reference that provides standard terms and conditions to be applied to the contract having the underlying asset or benchmark identified by the underlier for which the ISIN is assigned.",
+                      "type": "string",
+                      "enum": [
+                        "StandardUSMunicipalFullFaithAndCredit",
+                        "StandardUSMunicipalGeneralFund",
+                        "StandardUSMunicipalRevenue",
+                        "USMunicipalFullFaithAndCredit",
+                        "USMunicipalGeneralFund",
+                        "USMunicipalRevenue"
+                      ],
+                      "elaboration": {
+                        "StandardUSMunicipalFullFaithAndCredit": "Matrix Transaction Type of STANDARD U.S. MUNICIPAL FULL FAITH AND CREDIT.",
+                        "StandardUSMunicipalGeneralFund": "Matrix Transaction Type of STANDARD U.S. MUNICIPAL GENERAL FUND.",
+                        "StandardUSMunicipalRevenue": "Matrix Transaction Type of STANDARD U.S. MUNICIPAL REVENUE.",
+                        "USMunicipalFullFaithAndCredit": "Matrix Transaction Type of U.S. MUNICIPAL FULL FAITH AND CREDIT.",
+                        "USMunicipalGeneralFund": "Matrix Transaction Type of U.S. MUNICIPAL GENERAL FUND.",
+                        "USMunicipalRevenue": "Matrix Transaction Type of U.S. MUNICIPAL REVENUE."
+                      }
+                    }
+                  },
+                  "required": [
+                    "ContractSpecification"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
           ]
         },
         "DeliveryType": {
