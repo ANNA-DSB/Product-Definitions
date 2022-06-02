@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Swap.Fixed_Fixed.InstRefDataReporting.V2",
-  "LastModifyDateTime": "2020-08-05T10:37:37",
+  "LastModifyDateTime": "2022-05-17T14:49:44",
   "description": "Record template for Rates.Swap.Fixed_Fixed",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
