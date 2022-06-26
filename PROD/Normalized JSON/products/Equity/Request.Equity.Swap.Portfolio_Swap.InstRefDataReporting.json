@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Portfolio_Swap.InstRefDataReporting",
-  "LastModifyDateTime": "2020-04-28T13:18:25",
+  "LastModifyDateTime": "2022-05-17T14:49:44",
   "description": "Request template for Equity Swap Portfolio_Swap",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
