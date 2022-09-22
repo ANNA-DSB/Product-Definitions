@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Swap.Total_Return_Swap.InstRefDataReporting",
-  "LastModifyDateTime": "2021-03-01T06:31:35",
+  "LastModifyDateTime": "2022-09-07T10:37:51",
   "description": "Request template for Credit Swap Total_Return_Swap",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -784,10 +784,36 @@
                   "description": "ISIN code of the underlying instrument",
                   "type": "string",
                   "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+                },
+                "DebtSeniority": {
+                  "title": "Debt Seniority",
+                  "description": "Indicates the seniority of the debt, or debt basket or index underlying a derivative",
+                  "type": "string",
+                  "enum": [
+                    "SNDB",
+                    "MZZD",
+                    "SBOD",
+                    "JUND"
+                  ],
+                  "elaboration": {
+                    "SNDB": "Senior Debt",
+                    "MZZD": "Mezzanine",
+                    "SBOD": "Subordinated Debt",
+                    "JUND": "Junior Debt"
+                  },
+                  "options": {
+                    "enum_titles": [
+                      "Senior Debt",
+                      "Mezzanine",
+                      "Subordinated Debt",
+                      "Junior Debt"
+                    ]
+                  }
                 }
               },
               "required": [
-                "UnderlyingInstrumentISIN"
+                "UnderlyingInstrumentISIN",
+                "DebtSeniority"
               ],
               "additionalProperties": false
             },
@@ -800,42 +826,40 @@
                   "description": "In case the instrument is referring to an issuer, rather than to one single instrument, the LEI code of the Issuer",
                   "type": "string",
                   "pattern": "^[A-Z0-9]{18}[0-9]{2}$"
+                },
+                "DebtSeniority": {
+                  "title": "Debt Seniority",
+                  "description": "Indicates the seniority of the debt, or debt basket or index underlying a derivative",
+                  "type": "string",
+                  "enum": [
+                    "SNDB",
+                    "MZZD",
+                    "SBOD",
+                    "JUND"
+                  ],
+                  "elaboration": {
+                    "SNDB": "Senior Debt",
+                    "MZZD": "Mezzanine",
+                    "SBOD": "Subordinated Debt",
+                    "JUND": "Junior Debt"
+                  },
+                  "options": {
+                    "enum_titles": [
+                      "Senior Debt",
+                      "Mezzanine",
+                      "Subordinated Debt",
+                      "Junior Debt"
+                    ]
+                  }
                 }
               },
               "required": [
-                "UnderlyingInstrumentLEI"
+                "UnderlyingInstrumentLEI",
+                "DebtSeniority"
               ],
               "additionalProperties": false
             }
           ]
-        },
-        "DebtSeniority": {
-          "title": "Debt Seniority",
-          "description": "Indicates the seniority of the debt, or debt basket or index underlying a derivative",
-          "type": "string",
-          "enum": [
-            "",
-            "SNDB",
-            "MZZD",
-            "SBOD",
-            "JUND"
-          ],
-          "elaboration": {
-            "": "n/a",
-            "SNDB": "Senior Debt",
-            "MZZD": "Mezzanine",
-            "SBOD": "Subordinated Debt",
-            "JUND": "Junior Debt"
-          },
-          "options": {
-            "enum_titles": [
-              "n/a",
-              "Senior Debt",
-              "Mezzanine",
-              "Subordinated Debt",
-              "Junior Debt"
-            ]
-          }
         },
         "DeliveryType": {
           "default": "PHYS",
