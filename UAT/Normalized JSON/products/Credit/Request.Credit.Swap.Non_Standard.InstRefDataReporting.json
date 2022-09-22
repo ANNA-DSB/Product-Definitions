@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Swap.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2022-06-15T14:52:31",
+  "LastModifyDateTime": "2022-09-07T10:38:32",
   "description": "Request template for Credit Swap Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -123,61 +123,47 @@
                 "description": "Underlying Instrument Index Prop",
                 "type": "string"
               }
-            },
-            "UnderlyingInstrumentIndexTermValue": {
-              "title": "Underlying Instrument Index Term Value",
-              "description": "Tenor value of the underlying reference rate",
-              "type": "integer",
-              "minimum": -999,
-              "maximum": 999
-            },
-            "UnderlyingInstrumentIndexTermUnit": {
-              "title": "Underlying Instrument Index Term Unit",
-              "description": "Tenor unit of the underlying reference rate",
-              "type": "string",
-              "enum": [
-                "DAYS",
-                "WEEK",
-                "MNTH",
-                "YEAR"
-              ],
-              "elaboration": {
-                "DAYS": "Rate is reported in days",
-                "WEEK": "Rate is reported in weeks",
-                "MNTH": "Rate is reported in months",
-                "YEAR": "Rate is reported in years"
-              }
-            },
-            "UnderlyingCreditIndexSeries": {
-              "title": "Underlying Credit Index Series",
-              "description": "The series identifier of a credit default swap index",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 999
-            },
-            "UnderlyingCreditIndexVersion": {
-              "title": "Underlying Credit Index Version",
-              "description": "The version of a credit default swap index annex",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 999
             }
           },
-          "dependencies": {
-            "UnderlyingInstrumentIndex": [
-              "UnderlyingInstrumentIndexTermValue",
-              "UnderlyingInstrumentIndexTermUnit",
-              "UnderlyingCreditIndexSeries",
-              "UnderlyingCreditIndexVersion"
-            ],
-            "UnderlyingInstrumentIndexProp": [
-              "UnderlyingInstrumentIndexTermValue",
-              "UnderlyingInstrumentIndexTermUnit",
-              "UnderlyingCreditIndexSeries",
-              "UnderlyingCreditIndexVersion"
-            ]
-          },
           "additionalProperties": false
+        },
+        "UnderlyingInstrumentIndexTermValue": {
+          "title": "Underlying Instrument Index Term Value",
+          "description": "Tenor value of the underlying reference rate",
+          "type": "integer",
+          "minimum": -999,
+          "maximum": 999
+        },
+        "UnderlyingInstrumentIndexTermUnit": {
+          "title": "Underlying Instrument Index Term Unit",
+          "description": "Tenor unit of the underlying reference rate",
+          "type": "string",
+          "enum": [
+            "DAYS",
+            "WEEK",
+            "MNTH",
+            "YEAR"
+          ],
+          "elaboration": {
+            "DAYS": "Rate is reported in days",
+            "WEEK": "Rate is reported in weeks",
+            "MNTH": "Rate is reported in months",
+            "YEAR": "Rate is reported in years"
+          }
+        },
+        "UnderlyingCreditIndexSeries": {
+          "title": "Underlying Credit Index Series",
+          "description": "The series identifier of a credit default swap index",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 999
+        },
+        "UnderlyingCreditIndexVersion": {
+          "title": "Underlying Credit Index Version",
+          "description": "The version of a credit default swap index annex",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 999
         },
         "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
@@ -472,14 +458,12 @@
           "description": "Indicates the seniority of the debt, or debt basket or index underlying a derivative",
           "type": "string",
           "enum": [
-            "",
             "SNDB",
             "MZZD",
             "SBOD",
             "JUND"
           ],
           "elaboration": {
-            "": "n/a",
             "SNDB": "Senior Debt",
             "MZZD": "Mezzanine",
             "SBOD": "Subordinated Debt",
@@ -487,7 +471,6 @@
           },
           "options": {
             "enum_titles": [
-              "n/a",
               "Senior Debt",
               "Mezzanine",
               "Subordinated Debt",
