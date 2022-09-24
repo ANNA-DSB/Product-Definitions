@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Swap.Index_Tranche.InstRefDataReporting",
-  "LastModifyDateTime": "2022-05-17T14:49:44",
+  "LastModifyDateTime": "2022-09-07T10:38:32",
   "description": "Request template for Credit Swap Index_Tranche",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -189,22 +189,6 @@
             }
           ]
         },
-        "DebtSeniority": {
-          "title": "Debt Seniority",
-          "description": "Indicates the seniority of the debt, or debt basket or index underlying a derivative",
-          "type": "string",
-          "enum": [
-            ""
-          ],
-          "elaboration": {
-            "": "n/a"
-          },
-          "options": {
-            "enum_titles": [
-              "n/a"
-            ]
-          }
-        },
         "UnderlyingIssuerType": {
           "default": "Corporate",
           "title": "Underlying Issuer Type",
@@ -251,8 +235,7 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "Underlying",
-        "DebtSeniority"
+        "Underlying"
       ],
       "additionalProperties": false
     }
