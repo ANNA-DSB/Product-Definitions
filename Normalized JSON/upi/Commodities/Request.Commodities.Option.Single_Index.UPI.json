@@ -1,0 +1,264 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Request.Commodities.Option.Single_Index.UPI",
+  "LastModifyDateTime": "2022-12-07T17:36:07",
+  "description": "Request template for Commodities Option Single_Index",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Commodities"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Option"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Single_Index"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "BaseProduct": {
+          "title": "Base Product",
+          "description": "Base product taxonomy of commodity product",
+          "type": "string",
+          "enum": [
+            "AGRI",
+            "NRGY",
+            "ENVR",
+            "FRGT",
+            "FRTL",
+            "INDP",
+            "INFL",
+            "OEST",
+            "METL",
+            "PAPR",
+            "POLY",
+            "OTHC",
+            "OTHR"
+          ],
+          "options": {
+            "enum_titles": [
+              "Agricultural[AGRI]",
+              "Energy[NRGY]",
+              "Environmental[ENVR]",
+              "Freight[FRGT]",
+              "Fertilizer[FRTL]",
+              "IndustrialProduct[INDP]",
+              "Inflation[INFL]",
+              "OfficialEconomicStatistics[OEST]",
+              "Metal[METL]",
+              "Paper[PAPR]",
+              "Polypropylene[POLY]",
+              "OtherC10[OTHC]",
+              "Other[OTHR]"
+            ]
+          }
+        },
+        "Underlying": {
+          "title": "Underlier Type",
+          "description": "Indicates the type of underlying asset or entity on which the product is based.",
+          "minProperties": 1,
+          "type": "object",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "Commodity Index",
+              "properties": {
+                "UnderlierIDSource": {
+                  "title": "Underlier ID Source",
+                  "description": "The origin, or publisher, of the associated underlier ID.",
+                  "type": "string",
+                  "enum": [
+                    "INDX"
+                  ],
+                  "elaboration": {
+                    "INDX": "Name of the index on which the financial instrument is based"
+                  }
+                },
+                "UnderlierID": {
+                  "$ref": "../../codesets/CommoditiesIndex.json",
+                  "title": "Underlier ID",
+                  "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index"
+                }
+              },
+              "required": [
+                "UnderlierIDSource",
+                "UnderlierID"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "title": "Proprietary Index",
+              "properties": {
+                "UnderlierIDSource": {
+                  "title": "Underlier ID Source",
+                  "description": "The origin, or publisher, of the associated underlier ID.",
+                  "type": "string",
+                  "enum": [
+                    "PROP"
+                  ],
+                  "elaboration": {
+                    "PROP": "Underlying Instrument Index Prop"
+                  }
+                },
+                "UnderlierID": {
+                  "title": "Underlier ID",
+                  "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierIDSource",
+                "UnderlierID"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "OptionType": {
+          "title": "Option Type",
+          "description": "Indication as to whether the derivative contract is a call (right to purchase a specific underlying asset) or a put (right to sell a specific underlying asset) or whether it is a chooser (right to decide whether it is a call or put prior to the expiration date)",
+          "type": "string",
+          "enum": [
+            "CALL",
+            "PUTO",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CALL": "An option on a contract which allows its holder (buyer) to exercise the right to buy specified assets (product)",
+            "PUTO": "An option on a contract which allows its holder (buyer) to exercise the right to sell specified assets (product)",
+            "OPTL": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product); The buyer does not have to decide whether the contract will be a put or a call until an agreed future date, prior to expiration"
+          },
+          "options": {
+            "enum_titles": [
+              "Call",
+              "Put",
+              "Chooser"
+            ]
+          }
+        },
+        "OptionExerciseStyle": {
+          "title": "Option Exercise Style",
+          "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
+          "type": "string",
+          "enum": [
+            "AMER",
+            "BERM",
+            "EURO"
+          ],
+          "elaboration": {
+            "AMER": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product) at a fixed price at any time during the term of the put option, up to and including the expiration date of the contract",
+            "BERM": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product) at a fixed price on a number of specific dates within the exercise period of the contract",
+            "EURO": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product) at a fixed price, only on the contract's expiration date"
+          },
+          "options": {
+            "enum_titles": [
+              "American",
+              "Bermudan",
+              "European"
+            ]
+          }
+        },
+        "ValuationMethodorTrigger": {
+          "title": "Valuation Method or Trigger",
+          "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Vanilla",
+            "Asian",
+            "Digital (Binary)",
+            "Barrier",
+            "Digital Barrier",
+            "Lookback",
+            "Other Path Dependent",
+            "Other"
+          ],
+          "elaboration": {
+            "Vanilla": "an option for which all terms are standardized",
+            "Asian": "an option where either the strike price or the settlement price is the average level of an underlying instrument over a predetermined period; the averaging can be either a geometric or arithmetic average",
+            "Digital (Binary)": "an option that has a pre-determined payout if the option is in-the-money and the payoff condition is satisfied; also referred to as a \"binary option\" or an \"all-or-nothing option\"",
+            "Barrier": "an option whose final exercise depends upon the path taken by the price of an underlying instrument; for a knockout barrier option, the option is cancelled if the underlying price crosses a predetermined barrier level; for a knock-in barrier option, the option becomes available-for-exercise if the underlying price crosses a predetermined barrier level",
+            "Digital Barrier": "a digital option embedded with a barrier option; there are different variations of this type of option; as an example, a down-and-out digital call option will pay a fixed payoff, or the underlying, at any time before maturity that the underlying price is equal to or greater than the barrier level; it will pay zero if the underlying price is less than the barrier level",
+            "Lookback": "an option that minimizes the uncertainties related to the timing of market entry; there are two types of lookback options: fixed and floating; the fixed option strike is determined at purchase, and the floating option strike is determined at maturity",
+            "Other Path Dependent": "an option on a contract whose payoff is directly related to the price pattern the underlying asset follows during the life of the contract",
+            "Other": "Miscellaneous"
+          }
+        },
+        "DeliveryType": {
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Elect at Exercise"
+            ]
+          }
+        }
+      },
+      "required": [
+        "BaseProduct",
+        "Underlying",
+        "OptionType",
+        "OptionExerciseStyle",
+        "ValuationMethodorTrigger",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "Header",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}

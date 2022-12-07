@@ -1,0 +1,395 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Request.Equity.Forward.Non_Standard.UPI",
+  "LastModifyDateTime": "2022-12-07T17:36:07",
+  "description": "Request template for Equity Forward Non_Standard",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Equity"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Forward"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Non_Standard"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "Underlying": {
+          "title": "Underlying Structure",
+          "description": "Indicates whether the product is based on a single underlier or a basket of underliers.",
+          "type": "object",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "Single Underlier",
+              "options": {
+                "disable_properties": true
+              },
+              "properties": {
+                "UnderlyingAssetType": {
+                  "options": {
+                    "disable_properties": true
+                  },
+                  "title": "Underlying Asset Type",
+                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "title": "Single Stock",
+                      "properties": {
+                        "SingleStock": {
+                          "type": "object",
+                          "properties": {
+                            "UnderlierIDSource": {
+                              "title": "Underlier ID Source",
+                              "description": "The origin, or publisher, of the associated underlier ID.",
+                              "type": "string",
+                              "enum": [
+                                "ISIN",
+                                "RIC",
+                                "FIGI",
+                                "CUSIP",
+                                "SEDOL"
+                              ],
+                              "elaboration": {
+                                "ISIN": "ISIN code of the underlying instrument",
+                                "RIC": "RIC of the underlying instrument",
+                                "FIGI": "FIGI code of the underlying instrument",
+                                "CUSIP": "CUSIP code of the underlying instrument",
+                                "SEDOL": "SEDOL code of the underlying instrument"
+                              }
+                            },
+                            "UnderlierID": {
+                              "title": "Underlier ID",
+                              "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "UnderlierIDSource",
+                            "UnderlierID"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "SingleStock"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "title": "Index",
+                      "properties": {
+                        "Index": {
+                          "title": "Underlier Type",
+                          "description": "Indicates the type of underlying asset or entity on which the product is based.",
+                          "type": "object",
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "title": "Equity Index Identifier",
+                              "properties": {
+                                "UnderlierIDSource": {
+                                  "title": "Underlier ID Source",
+                                  "description": "The origin, or publisher, of the associated underlier ID.",
+                                  "type": "string",
+                                  "enum": [
+                                    "ISIN"
+                                  ],
+                                  "elaboration": {
+                                    "ISIN": "ISIN code of the underlying instrument"
+                                  }
+                                },
+                                "UnderlierID": {
+                                  "title": "Underlier ID",
+                                  "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+                                  "type": "string",
+                                  "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+                                }
+                              },
+                              "required": [
+                                "UnderlierIDSource",
+                                "UnderlierID"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "title": "Equity Index Name",
+                              "properties": {
+                                "UnderlierIDSource": {
+                                  "title": "Underlier ID Source",
+                                  "description": "The origin, or publisher, of the associated underlier ID.",
+                                  "type": "string",
+                                  "enum": [
+                                    "ESMA"
+                                  ],
+                                  "elaboration": {
+                                    "ESMA": "Name of the index on which the financial instrument is based"
+                                  }
+                                },
+                                "UnderlierID": {
+                                  "$ref": "../../codesets/EsmaEquityIndex.json",
+                                  "title": "Underlier ID",
+                                  "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index"
+                                }
+                              },
+                              "required": [
+                                "UnderlierIDSource",
+                                "UnderlierID"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "title": "Proprietary Index",
+                              "properties": {
+                                "UnderlierIDSource": {
+                                  "title": "Underlier ID Source",
+                                  "description": "The origin, or publisher, of the associated underlier ID.",
+                                  "type": "string",
+                                  "enum": [
+                                    "PROP"
+                                  ],
+                                  "elaboration": {
+                                    "PROP": "Underlying Instrument Index Prop"
+                                  }
+                                },
+                                "UnderlierID": {
+                                  "title": "Underlier ID",
+                                  "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "UnderlierIDSource",
+                                "UnderlierID"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "Index"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "title": "Options",
+                      "properties": {
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "UnderlierIDSource": {
+                              "title": "Underlier ID Source",
+                              "description": "The origin, or publisher, of the associated underlier ID.",
+                              "type": "string",
+                              "enum": [
+                                "ISIN",
+                                "RIC",
+                                "FIGI",
+                                "CUSIP",
+                                "SEDOL"
+                              ],
+                              "elaboration": {
+                                "ISIN": "ISIN code of the underlying instrument",
+                                "RIC": "RIC of the underlying instrument",
+                                "FIGI": "FIGI code of the underlying instrument",
+                                "CUSIP": "CUSIP code of the underlying instrument",
+                                "SEDOL": "SEDOL code of the underlying instrument"
+                              }
+                            },
+                            "UnderlierID": {
+                              "title": "Underlier ID",
+                              "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "UnderlierIDSource",
+                            "UnderlierID"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "title": "Futures",
+                      "properties": {
+                        "Futures": {
+                          "type": "object",
+                          "properties": {
+                            "UnderlierIDSource": {
+                              "title": "Underlier ID Source",
+                              "description": "The origin, or publisher, of the associated underlier ID.",
+                              "type": "string",
+                              "enum": [
+                                "ISIN",
+                                "RIC",
+                                "FIGI",
+                                "CUSIP",
+                                "SEDOL"
+                              ],
+                              "elaboration": {
+                                "ISIN": "ISIN code of the underlying instrument",
+                                "RIC": "RIC of the underlying instrument",
+                                "FIGI": "FIGI code of the underlying instrument",
+                                "CUSIP": "CUSIP code of the underlying instrument",
+                                "SEDOL": "SEDOL code of the underlying instrument"
+                              }
+                            },
+                            "UnderlierID": {
+                              "title": "Underlier ID",
+                              "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "UnderlierIDSource",
+                            "UnderlierID"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "Futures"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "UnderlyingAssetType"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "title": "Basket",
+              "options": {
+                "disable_properties": true
+              },
+              "properties": {
+                "UnderlyingAssetType": {
+                  "options": {
+                    "disable_properties": true
+                  },
+                  "title": "Underlying Asset Type",
+                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+                  "type": "string",
+                  "enum": [
+                    "Basket",
+                    "Options",
+                    "Futures"
+                  ],
+                  "elaboration": {
+                    "Basket": "a defined basket of instruments",
+                    "Options": "Options",
+                    "Futures": "Futures"
+                  }
+                }
+              },
+              "required": [
+                "UnderlyingAssetType"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Spreadbets",
+            "Forward price of underlying instrument"
+          ],
+          "elaboration": {
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+            "Forward price of underlying instrument": "Forward price of underlying instrument"
+          }
+        },
+        "DeliveryType": {
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Underlying",
+        "ReturnorPayoutTrigger",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "Header",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Request.Foreign_Exchange.Swap.FX_Swap.UPI",
+  "LastModifyDateTime": "2022-12-07T17:36:07",
+  "description": "Request template for Foreign_Exchange Swap FX_Swap",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Foreign_Exchange"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Swap"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "FX_Swap"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "UnderlierID": {
+          "$ref": "../../codesets/ISOCurrencyCode.json",
+          "title": "Underlier ID",
+          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index."
+        },
+        "UnderlierIDSource": {
+          "title": "Underlier ID Source",
+          "description": "The origin, or publisher, of the associated underlier ID.",
+          "type": "string",
+          "enum": [
+            "CCY"
+          ],
+          "elaboration": {
+            "CCY": "CCY"
+          }
+        },
+        "OtherUnderlierID": {
+          "$ref": "../../codesets/ISOCurrencyCode.json",
+          "title": "Other Underlier ID",
+          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index."
+        },
+        "OtherUnderlierIDSource": {
+          "title": "Other Underlier ID Source",
+          "description": "The origin, or publisher, of the associated underlier ID.",
+          "type": "string",
+          "enum": [
+            "CCY"
+          ],
+          "elaboration": {
+            "CCY": "CCY"
+          }
+        },
+        "DeliveryType": {
+          "default": "PHYS",
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": "synthetic options on foreign exchange (FX) forwards that are based on non-convertible or thinly traded currencies"
+          },
+          "options": {
+            "enum_titles": [
+              "Physical",
+              "Non-Deliverable"
+            ]
+          }
+        }
+      },
+      "required": [
+        "UnderlierID",
+        "UnderlierIDSource",
+        "OtherUnderlierID",
+        "OtherUnderlierIDSource",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "Header",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}
