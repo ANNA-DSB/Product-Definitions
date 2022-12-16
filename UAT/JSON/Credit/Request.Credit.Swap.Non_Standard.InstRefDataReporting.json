@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Swap.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2022-09-07T10:37:51",
+  "LastModifyDateTime": "2022-11-29T16:12:19",
   "description": "Request template for Credit Swap Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -451,28 +451,31 @@
           "type": "object",
           "properties": {
             "UnderlyingInstrumentISIN": {
+              "title": "Underlying Instrument ISIN",
               "type": "array",
               "uniqueItems": true,
               "minItems": 1,
               "items": {
-                "title": "Instrument ISIN",
+                "title": "Underlying Instrument ISIN",
                 "description": "ISIN code of the underlying instrument",
                 "type": "string",
                 "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
               }
             },
             "UnderlyingInstrumentLEI": {
+              "title": "Underlying Instrument LEI",
               "type": "array",
               "uniqueItems": true,
               "minItems": 1,
               "items": {
-                "title": "Instrument LEI",
+                "title": "Underlying Instrument LEI",
                 "description": "In case the instrument is referring to an issuer, rather than to one single instrument, the LEI code of the Issuer",
                 "type": "string",
-                "pattern": "^[A-Z0-9]{18}[0-9]{2}$"
+                "pattern": "^(OTHER|[A-Z0-9]{18}[0-9]{2})$"
               }
             },
             "UnderlyingInstrumentIndex": {
+              "title": "Underlying Instrument Index",
               "type": "array",
               "uniqueItems": true,
               "minItems": 1,
@@ -703,6 +706,7 @@
               }
             },
             "UnderlyingInstrumentIndexProp": {
+              "title": "Underlying Instrument Index Prop",
               "type": "array",
               "uniqueItems": true,
               "minItems": 1,
