@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Forward.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2018-07-23T12:56:35",
+  "LastModifyDateTime": "2022-11-29T16:12:19",
   "description": "Request template for Equity Forward Non_Standard",
-  "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
     "Header": {
@@ -456,7 +456,7 @@
               "uniqueItems": true,
               "minItems": 0,
               "items": {
-                "title": "Instrument Index",
+                "title": "Underlying Instrument Index",
                 "description": "Name of the index on which the financial instrument is based",
                 "type": "string",
                 "enum": [
@@ -606,7 +606,6 @@
                   "MSCI World Telecom Services Net Total Return Index (USD)",
                   "MSCI World Utilities Net Total Return Index (USD)",
                   "MWIG40",
-                  "N225",
                   "NDX1",
                   "NIKKEI 225 INDEX",
                   "OBX TOTAL RETURN INDEX",
@@ -817,7 +816,6 @@
                   "MSCI World Telecom Services Net Total Return Index (USD)": "MSCI World Telecom Services Net Total Return Index (USD)",
                   "MSCI World Utilities Net Total Return Index (USD)": "MSCI World Utilities Net Total Return Index (USD)",
                   "MWIG40": "MWIG40",
-                  "N225": "N225",
                   "NDX1": "NDX1",
                   "NIKKEI 225 INDEX": "NIKKEI 225 INDEX",
                   "OBX TOTAL RETURN INDEX": "OBX TOTAL RETURN INDEX",
@@ -900,8 +898,8 @@
               "uniqueItems": true,
               "minItems": 1,
               "items": {
-                "title": "Underlying ISIN",
-                "description": "Underlying Instrument Index ISIN",
+                "title": " Underlying Instrument ISIN",
+                "description": "Underlying Instrument ISIN",
                 "type": "string",
                 "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
               }

@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Swap.Inflation_Basis_YoY.InstRefDataReporting",
-  "LastModifyDateTime": "2019-08-22T14:21:24",
+  "LastModifyDateTime": "2022-11-29T16:12:19",
   "description": "Request template for Rates Swap Inflation_Basis_YoY",
-  "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
     "Header": {
@@ -772,6 +772,7 @@
         "NLG-HICP",
         "NOK-CPI",
         "NZD-CPI",
+        "OTHER-INFLATION",
         "PER-CPI",
         "PLN-CPI",
         "POR-CPI",
@@ -782,6 +783,7 @@
         "SWF-CPI",
         "TRY-CPI",
         "TWD-CPI",
+        "UK-CPIH",
         "UK-HICP",
         "UK-RPI",
         "UK-RPIX",
@@ -845,6 +847,7 @@
         "NLG-HICP": "Netherlands: NLG - Harmonised-Non-revised Consumer Price Index (HICP)",
         "NOK-CPI": "Norway: NOK - Non-revised Consumer Price Index (CPI)",
         "NZD-CPI": "New Zealand: NZD - Non-revised Consumer Price Index (CPI)",
+        "OTHER-INFLATION": "Other-Inflation",
         "PER-CPI": "Peru: PER - Non-revised Consumer Price Index (CPI)",
         "PLN-CPI": "Poland: PLN - Non-Revised Consumer Price Index (CPI)",
         "POR-CPI": "Portugal: POR - Non-revised Consumer Price Index (CPI)",
@@ -855,6 +858,7 @@
         "SWF-CPI": "Switzerland: SWF - Non-revised Consumer Price Index (CPI)",
         "TRY-CPI": "Turkey: TRY - Non-revised Consumer Price Index (CPI)",
         "TWD-CPI": "Taiwan: TWD - Non-revised Consumer Price Index (CPI)",
+        "UK-CPIH": "United Kingdom: GBP - Non-revised Consumer Prices Index including Housing (UKCPIH)",
         "UK-HICP": "United Kingdom: GBP - Harmonised-Non-revised Consumer Price Index (HICP)",
         "UK-RPI": "United Kingdom: GBP - Non-revised Retail Price Index (UKRPI)",
         "UK-RPIX": "United Kingdom: GBP - Non-revised Retail Price Index Excluding Mortgage Interest Payments (UKRPIX)",

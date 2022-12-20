@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Option.Single_Name.InstRefDataReporting",
-  "LastModifyDateTime": "2020-11-04T07:27:25",
+  "LastModifyDateTime": "2022-11-29T16:12:19",
   "description": "Request template for Equity Option Single_Name",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -441,7 +441,7 @@
           "minItems": 1,
           "maxItems": 1,
           "items": {
-            "title": "Underlying ISIN",
+            "title": "Underlying Instrument ISIN",
             "description": "ISIN code of the underlying instrument",
             "type": "string",
             "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"

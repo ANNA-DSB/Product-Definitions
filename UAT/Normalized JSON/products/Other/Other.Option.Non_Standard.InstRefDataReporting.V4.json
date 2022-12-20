@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Option.Non_Standard.InstRefDataReporting.V4",
-  "LastModifyDateTime": "2022-09-07T10:38:32",
+  "LastModifyDateTime": "2022-11-29T16:13:05",
   "description": "Record template for Other.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1612,7 +1612,7 @@
                         "title": "Underlying Instrument LEI",
                         "description": "In case the instrument is referring to an issuer, rather than to one single instrument, the LEI code of the Issuer",
                         "type": "string",
-                        "pattern": "^[A-Z0-9]{18}[0-9]{2}$"
+                        "pattern": "^(OTHER|[A-Z0-9]{18}[0-9]{2})$"
                       }
                     },
                     "UnderlyingInstrumentIndex": {

@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Portfolio_Swap_Single_Name.InstRefDataReporting",
-  "LastModifyDateTime": "2018-12-21T18:58:31",
+  "LastModifyDateTime": "2022-11-29T16:12:19",
   "description": "Request template for Equity Swap Portfolio_Swap_Single_Name",
-  "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
     "Header": {
@@ -441,7 +441,7 @@
           "minItems": 1,
           "maxItems": 1,
           "items": {
-            "title": "Underlying ISIN",
+            "title": "Underlying Instrument ISIN",
             "description": "ISIN code of the underlying instrument",
             "type": "string",
             "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Option.Single_Index.InstRefDataReporting",
-  "LastModifyDateTime": "2020-11-04T07:27:25",
+  "LastModifyDateTime": "2022-11-29T16:12:19",
   "description": "Request template for Equity Option Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -443,12 +443,13 @@
               "title": "UnderlyingInstrumentIndex",
               "properties": {
                 "UnderlyingInstrumentIndex": {
+                  "title": "Underlying Instrument Index",
                   "type": "array",
                   "uniqueItems": true,
                   "minItems": 1,
                   "maxItems": 1,
                   "items": {
-                    "title": "Instrument Index",
+                    "title": "Underlying Instrument Index",
                     "description": "Name of the index on which the financial instrument is based",
                     "type": "string",
                     "enum": [
@@ -598,7 +599,6 @@
                       "MSCI World Telecom Services Net Total Return Index (USD)",
                       "MSCI World Utilities Net Total Return Index (USD)",
                       "MWIG40",
-                      "N225",
                       "NDX1",
                       "NIKKEI 225 INDEX",
                       "OBX TOTAL RETURN INDEX",
@@ -809,7 +809,6 @@
                       "MSCI World Telecom Services Net Total Return Index (USD)": "MSCI World Telecom Services Net Total Return Index (USD)",
                       "MSCI World Utilities Net Total Return Index (USD)": "MSCI World Utilities Net Total Return Index (USD)",
                       "MWIG40": "MWIG40",
-                      "N225": "N225",
                       "NDX1": "NDX1",
                       "NIKKEI 225 INDEX": "NIKKEI 225 INDEX",
                       "OBX TOTAL RETURN INDEX": "OBX TOTAL RETURN INDEX",
@@ -915,7 +914,7 @@
                   "maxItems": 1,
                   "items": {
                     "title": "Underlying Instrument ISIN",
-                    "description": "Underlying Instrument Index ISIN",
+                    "description": "Underlying Instrument ISIN",
                     "type": "string",
                     "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
                   }
