@@ -1,11 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Request.Credit.Swap.Index.InstRefDataReporting",
+  "title": "Credit.Swap.Index.InstRefDataReporting.V2",
   "LastModifyDateTime": "2022-09-07T10:37:51",
-  "description": "Request template for Credit Swap Index",
+  "description": "Record template for Credit.Swap.Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
+    "TemplateVersion": {
+      "title": "Template Version",
+      "description": "Template Version",
+      "type": "integer"
+    },
     "Header": {
       "title": "Header",
       "type": "object",
@@ -48,6 +53,141 @@
         "InstrumentType",
         "UseCase",
         "Level"
+      ],
+      "additionalProperties": false
+    },
+    "ISIN": {
+      "type": "object",
+      "properties": {
+        "ISIN": {
+          "title": "Identification",
+          "description": "International Securities Identification Number (ISO 6166)",
+          "type": "string"
+        },
+        "Status": {
+          "title": "Status",
+          "description": "Status of the ISIN",
+          "type": "string",
+          "enum": [
+            "New",
+            "Updated",
+            "Expired",
+            "Deleted"
+          ],
+          "elaboration": {
+            "New": "New ISIN added to the database",
+            "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
+            "Deleted": "The instrument associated with the ISIN is no longer active"
+          }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for ISIN Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
+        },
+        "Parent": {
+          "title": "Parent",
+          "description": "ISIN of the parent level",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ISIN",
+        "Status",
+        "LastUpdateDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "Derived": {
+      "title": "Derived",
+      "description": "Derived Attributes",
+      "type": "object",
+      "properties": {
+        "FullName": {
+          "title": "Full Name",
+          "description": "Full name of the financial instrument",
+          "type": "string"
+        },
+        "ClassificationType": {
+          "title": "Classification Type",
+          "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
+          "type": "string"
+        },
+        "CommodityDerivativeIndicator": {
+          "title": "Commodity Derivative Indicator",
+          "description": "Indication as to whether the financial instrument falls within the definition of commodities derivative under Article 2(1)(30) of Regulation (EU) No 600/2014 or is a derivative relating to emission allowances referred to in Section C(4) of Annex I to Directive 2014/65/EU",
+          "type": "string"
+        },
+        "IssuerorOperatoroftheTradingVenueIdentifier": {
+          "title": "Issuer or Operator of the Trading Venue Identifier",
+          "description": "ISIN Issuer Long Name",
+          "type": "string"
+        },
+        "ShortName": {
+          "title": "Short Name",
+          "description": "Short name of financial instrument in accordance with ISO 18774",
+          "type": "string"
+        },
+        "UnderlyingAssetType": {
+          "title": "Underlying Asset Type",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Single Name",
+            "Index Tranche",
+            "Index",
+            "Basket",
+            "Other"
+          ],
+          "elaboration": {
+            "Single Name": "the underlying risk is a single reference entity or reference obligation",
+            "Index Tranche": "a synthetic Collaterized Debt Obligation (CDO) based on a CDS index where each tranche references a different segment of the loss distribution of the underlying CDS index; each tranche has a different priority of claims on the principal and interest flows from the collateral pool, and are traditionally portioned into rising levels of seniority",
+            "Index": "family of standardized credit derivative indices, where the underlying reference entities are a defined basket of credit from a particular geographic region (for instance, Asia, North America, Europe, etc.), and/or credit rating level (for instance Emerging Markets, high yield, investment grade, etc.); credit default indices trade in standard maturities, and the reference entities are typically the most liquid; the reference portfolio is reassessed periodically to maintain this",
+            "Basket": "a synthetic credit derivative where the underlying reference entities are a bespoke portfolio whose constituents have been agreed to by the parties to the trade",
+            "Other": "miscellaneous"
+          }
+        },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Credit Default",
+            "Total Return",
+            "Spreadbets",
+            "Forward price of underlying instrument",
+            "Other"
+          ],
+          "elaboration": {
+            "Credit Default": "Credit Default",
+            "Total Return": "the total economic return of an underlying asset is transferred from one party (total return buyer) to another (total return seller); total return seller takes on the risk of negative changes in market value of the reference asset, and pays any positive cash flow to the buyer such as coupon, capital gains or dividends of the reference asset",
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+            "Forward price of underlying instrument": "Forward price of underlying instrument",
+            "Other": "Miscellaneous"
+          }
+        },
+        "ISOUnderlyingInstrumentIndex": {
+          "title": "ISO Underlying Instrument Index",
+          "description": "Underlying Instrument Index represented in ISO 20022 acceptable format",
+          "type": "string"
+        }
+      },
+      "required": [
+        "FullName",
+        "ClassificationType",
+        "CommodityDerivativeIndicator",
+        "IssuerorOperatoroftheTradingVenueIdentifier",
+        "ShortName",
+        "UnderlyingAssetType",
+        "ReturnorPayoutTrigger",
+        "ISOUnderlyingInstrumentIndex"
       ],
       "additionalProperties": false
     },
@@ -823,13 +963,19 @@
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "Underlying"
+        "Underlying",
+        "UnderlyingIssuerType",
+        "DeliveryType",
+        "PriceMultiplier"
       ],
       "additionalProperties": false
     }
   },
   "required": [
+    "TemplateVersion",
     "Header",
+    "ISIN",
+    "Derived",
     "Attributes"
   ],
   "additionalProperties": false
