@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Swap.Inflation_Fixed_Float_YoY.InstRefDataReporting",
-  "LastModifyDateTime": "2019-07-15T12:31:22",
+  "LastModifyDateTime": "2023-01-24T14:02:40",
   "description": "Request template for Rates Swap Inflation_Fixed_Float_YoY",
-  "copyright": "Copyright © 2017 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
     "Header": {
@@ -720,6 +720,7 @@
         "NLG-HICP",
         "NOK-CPI",
         "NZD-CPI",
+        "OTHER-INFLATION",
         "PER-CPI",
         "PLN-CPI",
         "POR-CPI",
@@ -793,6 +794,7 @@
         "NLG-HICP": "Netherlands: NLG - Harmonised-Non-revised Consumer Price Index (HICP)",
         "NOK-CPI": "Norway: NOK - Non-revised Consumer Price Index (CPI)",
         "NZD-CPI": "New Zealand: NZD - Non-revised Consumer Price Index (CPI)",
+        "OTHER-INFLATION": "Other-Inflation",
         "PER-CPI": "Peru: PER - Non-revised Consumer Price Index (CPI)",
         "PLN-CPI": "Poland: PLN - Non-Revised Consumer Price Index (CPI)",
         "POR-CPI": "Portugal: POR - Non-revised Consumer Price Index (CPI)",
