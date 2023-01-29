@@ -1,11 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Request.Other.Option.Non_Standard.InstRefDataReporting",
+  "title": "Other.Option.Non_Standard.InstRefDataReporting.V4",
   "LastModifyDateTime": "2022-09-07T10:37:51",
-  "description": "Request template for Other Option Non_Standard",
+  "description": "Record template for Other.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
+    "TemplateVersion": {
+      "title": "Template Version",
+      "description": "Template Version",
+      "type": "integer"
+    },
     "Header": {
       "title": "Header",
       "type": "object",
@@ -48,6 +53,646 @@
         "InstrumentType",
         "UseCase",
         "Level"
+      ],
+      "additionalProperties": false
+    },
+    "ISIN": {
+      "type": "object",
+      "properties": {
+        "ISIN": {
+          "title": "Identification",
+          "description": "International Securities Identification Number (ISO 6166)",
+          "type": "string"
+        },
+        "Status": {
+          "title": "Status",
+          "description": "Status of the ISIN",
+          "type": "string",
+          "enum": [
+            "New",
+            "Updated",
+            "Expired",
+            "Deleted"
+          ],
+          "elaboration": {
+            "New": "New ISIN added to the database",
+            "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
+            "Deleted": "The instrument associated with the ISIN is no longer active"
+          }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for ISIN Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
+        },
+        "Parent": {
+          "title": "Parent",
+          "description": "ISIN of the parent level",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ISIN",
+        "Status",
+        "LastUpdateDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "Derived": {
+      "title": "Derived",
+      "description": "Derived Attributes",
+      "type": "object",
+      "properties": {
+        "FullName": {
+          "title": "Full Name",
+          "description": "Full name of the financial instrument",
+          "type": "string"
+        },
+        "ClassificationType": {
+          "title": "Classification Type",
+          "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
+          "type": "string"
+        },
+        "CommodityDerivativeIndicator": {
+          "title": "Commodity Derivative Indicator",
+          "description": "Indication as to whether the financial instrument falls within the definition of commodities derivative under Article 2(1)(30) of Regulation (EU) No 600/2014 or is a derivative relating to emission allowances referred to in Section C(4) of Annex I to Directive 2014/65/EU",
+          "type": "string"
+        },
+        "IssuerorOperatoroftheTradingVenueIdentifier": {
+          "title": "Issuer or Operator of the Trading Venue Identifier",
+          "description": "ISIN Issuer Long Name",
+          "type": "string"
+        },
+        "ShortName": {
+          "title": "Short Name",
+          "description": "Short name of financial instrument in accordance with ISO 18774",
+          "type": "string"
+        },
+        "ISOUnderlyingInstrumentIndex": {
+          "title": "ISO Underlying Instrument Index",
+          "description": "Underlying Instrument Index represented in ISO 20022 acceptable format",
+          "type": "string"
+        },
+        "ISOReferenceRate": {
+          "title": "ISO Reference Rate",
+          "description": "First leg reference rate represented in ISO 20022 acceptable format",
+          "type": "string"
+        },
+        "ISOOtherLegReferenceRate": {
+          "title": "ISO Other Leg Reference Rate",
+          "description": "Other leg reference rate represented in ISO 20022 acceptable format",
+          "type": "string"
+        },
+        "ISODeliveryType": {
+          "title": "ISO Delivery Type",
+          "description": "ISO Delivery Type",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": ""
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "OPTL"
+            ]
+          }
+        },
+        "ISOPlaceofSettlement": {
+          "title": "ISO Place of Settlement",
+          "description": "ISO Place of Settlement",
+          "type": "string",
+          "enum": [
+            "AD",
+            "AE",
+            "AF",
+            "AG",
+            "AI",
+            "AL",
+            "AM",
+            "AO",
+            "AQ",
+            "AR",
+            "AS",
+            "AT",
+            "AU",
+            "AW",
+            "AX",
+            "AZ",
+            "BA",
+            "BB",
+            "BD",
+            "BE",
+            "BF",
+            "BG",
+            "BH",
+            "BI",
+            "BJ",
+            "BL",
+            "BM",
+            "BN",
+            "BO",
+            "BQ",
+            "BR",
+            "BS",
+            "BT",
+            "BV",
+            "BW",
+            "BY",
+            "BZ",
+            "CA",
+            "CC",
+            "CD",
+            "CF",
+            "CG",
+            "CH",
+            "CI",
+            "CK",
+            "CL",
+            "CM",
+            "CN",
+            "CO",
+            "CR",
+            "CU",
+            "CV",
+            "CW",
+            "CX",
+            "CY",
+            "CZ",
+            "DE",
+            "DJ",
+            "DK",
+            "DM",
+            "DO",
+            "DZ",
+            "EC",
+            "EE",
+            "EG",
+            "EH",
+            "ER",
+            "ES",
+            "ET",
+            "FI",
+            "FJ",
+            "FK",
+            "FM",
+            "FO",
+            "FR",
+            "GA",
+            "GB",
+            "GD",
+            "GE",
+            "GF",
+            "GG",
+            "GH",
+            "GI",
+            "GL",
+            "GM",
+            "GN",
+            "GP",
+            "GQ",
+            "GR",
+            "GS",
+            "GT",
+            "GU",
+            "GW",
+            "GY",
+            "HK",
+            "HM",
+            "HN",
+            "HR",
+            "HT",
+            "HU",
+            "ID",
+            "IE",
+            "IL",
+            "IM",
+            "IN",
+            "IO",
+            "IQ",
+            "IR",
+            "IS",
+            "IT",
+            "JE",
+            "JM",
+            "JO",
+            "JP",
+            "KE",
+            "KG",
+            "KH",
+            "KI",
+            "KM",
+            "KN",
+            "KP",
+            "KR",
+            "KW",
+            "KY",
+            "KZ",
+            "LA",
+            "LB",
+            "LC",
+            "LI",
+            "LK",
+            "LR",
+            "LS",
+            "LT",
+            "LU",
+            "LV",
+            "LY",
+            "MA",
+            "MC",
+            "MD",
+            "ME",
+            "MF",
+            "MG",
+            "MH",
+            "MK",
+            "ML",
+            "MM",
+            "MN",
+            "MO",
+            "MP",
+            "MQ",
+            "MR",
+            "MS",
+            "MT",
+            "MU",
+            "MV",
+            "MW",
+            "MX",
+            "MY",
+            "MZ",
+            "NA",
+            "NC",
+            "NE",
+            "NF",
+            "NG",
+            "NI",
+            "NL",
+            "NO",
+            "NP",
+            "NR",
+            "NU",
+            "NZ",
+            "OM",
+            "PA",
+            "PE",
+            "PF",
+            "PG",
+            "PH",
+            "PK",
+            "PL",
+            "PM",
+            "PN",
+            "PR",
+            "PS",
+            "PT",
+            "PW",
+            "PY",
+            "QA",
+            "RE",
+            "RO",
+            "RS",
+            "RU",
+            "RW",
+            "SA",
+            "SB",
+            "SC",
+            "SD",
+            "SE",
+            "SG",
+            "SH",
+            "SI",
+            "SJ",
+            "SK",
+            "SL",
+            "SM",
+            "SN",
+            "SO",
+            "SR",
+            "SS",
+            "ST",
+            "SV",
+            "SX",
+            "SY",
+            "SZ",
+            "TC",
+            "TD",
+            "TF",
+            "TG",
+            "TH",
+            "TJ",
+            "TK",
+            "TL",
+            "TM",
+            "TN",
+            "TO",
+            "TR",
+            "TT",
+            "TV",
+            "TW",
+            "TZ",
+            "UA",
+            "UG",
+            "UM",
+            "US",
+            "UY",
+            "UZ",
+            "VA",
+            "VC",
+            "VE",
+            "VG",
+            "VI",
+            "VN",
+            "VU",
+            "WF",
+            "WS",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ],
+          "elaboration": {
+            "AD": "AD",
+            "AE": "AE",
+            "AF": "AF",
+            "AG": "AG",
+            "AI": "AI",
+            "AL": "AL",
+            "AM": "AM",
+            "AO": "AO",
+            "AQ": "AQ",
+            "AR": "AR",
+            "AS": "AS",
+            "AT": "AT",
+            "AU": "AU",
+            "AW": "AW",
+            "AX": "AX",
+            "AZ": "AZ",
+            "BA": "BA",
+            "BB": "BB",
+            "BD": "BD",
+            "BE": "BE",
+            "BF": "BF",
+            "BG": "BG",
+            "BH": "BH",
+            "BI": "BI",
+            "BJ": "BJ",
+            "BL": "BL",
+            "BM": "BM",
+            "BN": "BN",
+            "BO": "BO",
+            "BQ": "BQ",
+            "BR": "BR",
+            "BS": "BS",
+            "BT": "BT",
+            "BV": "BV",
+            "BW": "BW",
+            "BY": "BY",
+            "BZ": "BZ",
+            "CA": "CA",
+            "CC": "CC",
+            "CD": "CD",
+            "CF": "CF",
+            "CG": "CG",
+            "CH": "CH",
+            "CI": "CI",
+            "CK": "CK",
+            "CL": "CL",
+            "CM": "CM",
+            "CN": "CN",
+            "CO": "CO",
+            "CR": "CR",
+            "CU": "CU",
+            "CV": "CV",
+            "CW": "CW",
+            "CX": "CX",
+            "CY": "CY",
+            "CZ": "CZ",
+            "DE": "DE",
+            "DJ": "DJ",
+            "DK": "DK",
+            "DM": "DM",
+            "DO": "DO",
+            "DZ": "DZ",
+            "EC": "EC",
+            "EE": "EE",
+            "EG": "EG",
+            "EH": "EH",
+            "ER": "ER",
+            "ES": "ES",
+            "ET": "ET",
+            "FI": "FI",
+            "FJ": "FJ",
+            "FK": "FK",
+            "FM": "FM",
+            "FO": "FO",
+            "FR": "FR",
+            "GA": "GA",
+            "GB": "GB",
+            "GD": "GD",
+            "GE": "GE",
+            "GF": "GF",
+            "GG": "GG",
+            "GH": "GH",
+            "GI": "GI",
+            "GL": "GL",
+            "GM": "GM",
+            "GN": "GN",
+            "GP": "GP",
+            "GQ": "GQ",
+            "GR": "GR",
+            "GS": "GS",
+            "GT": "GT",
+            "GU": "GU",
+            "GW": "GW",
+            "GY": "GY",
+            "HK": "HK",
+            "HM": "HM",
+            "HN": "HN",
+            "HR": "HR",
+            "HT": "HT",
+            "HU": "HU",
+            "ID": "ID",
+            "IE": "IE",
+            "IL": "IL",
+            "IM": "IM",
+            "IN": "IN",
+            "IO": "IO",
+            "IQ": "IQ",
+            "IR": "IR",
+            "IS": "IS",
+            "IT": "IT",
+            "JE": "JE",
+            "JM": "JM",
+            "JO": "JO",
+            "JP": "JP",
+            "KE": "KE",
+            "KG": "KG",
+            "KH": "KH",
+            "KI": "KI",
+            "KM": "KM",
+            "KN": "KN",
+            "KP": "KP",
+            "KR": "KR",
+            "KW": "KW",
+            "KY": "KY",
+            "KZ": "KZ",
+            "LA": "LA",
+            "LB": "LB",
+            "LC": "LC",
+            "LI": "LI",
+            "LK": "LK",
+            "LR": "LR",
+            "LS": "LS",
+            "LT": "LT",
+            "LU": "LU",
+            "LV": "LV",
+            "LY": "LY",
+            "MA": "MA",
+            "MC": "MC",
+            "MD": "MD",
+            "ME": "ME",
+            "MF": "MF",
+            "MG": "MG",
+            "MH": "MH",
+            "MK": "MK",
+            "ML": "ML",
+            "MM": "MM",
+            "MN": "MN",
+            "MO": "MO",
+            "MP": "MP",
+            "MQ": "MQ",
+            "MR": "MR",
+            "MS": "MS",
+            "MT": "MT",
+            "MU": "MU",
+            "MV": "MV",
+            "MW": "MW",
+            "MX": "MX",
+            "MY": "MY",
+            "MZ": "MZ",
+            "NA": "NA",
+            "NC": "NC",
+            "NE": "NE",
+            "NF": "NF",
+            "NG": "NG",
+            "NI": "NI",
+            "NL": "NL",
+            "NO": "NO",
+            "NP": "NP",
+            "NR": "NR",
+            "NU": "NU",
+            "NZ": "NZ",
+            "OM": "OM",
+            "PA": "PA",
+            "PE": "PE",
+            "PF": "PF",
+            "PG": "PG",
+            "PH": "PH",
+            "PK": "PK",
+            "PL": "PL",
+            "PM": "PM",
+            "PN": "PN",
+            "PR": "PR",
+            "PS": "PS",
+            "PT": "PT",
+            "PW": "PW",
+            "PY": "PY",
+            "QA": "QA",
+            "RE": "RE",
+            "RO": "RO",
+            "RS": "RS",
+            "RU": "RU",
+            "RW": "RW",
+            "SA": "SA",
+            "SB": "SB",
+            "SC": "SC",
+            "SD": "SD",
+            "SE": "SE",
+            "SG": "SG",
+            "SH": "SH",
+            "SI": "SI",
+            "SJ": "SJ",
+            "SK": "SK",
+            "SL": "SL",
+            "SM": "SM",
+            "SN": "SN",
+            "SO": "SO",
+            "SR": "SR",
+            "SS": "SS",
+            "ST": "ST",
+            "SV": "SV",
+            "SX": "SX",
+            "SY": "SY",
+            "SZ": "SZ",
+            "TC": "TC",
+            "TD": "TD",
+            "TF": "TF",
+            "TG": "TG",
+            "TH": "TH",
+            "TJ": "TJ",
+            "TK": "TK",
+            "TL": "TL",
+            "TM": "TM",
+            "TN": "TN",
+            "TO": "TO",
+            "TR": "TR",
+            "TT": "TT",
+            "TV": "TV",
+            "TW": "TW",
+            "TZ": "TZ",
+            "UA": "UA",
+            "UG": "UG",
+            "UM": "UM",
+            "US": "US",
+            "UY": "UY",
+            "UZ": "UZ",
+            "VA": "VA",
+            "VC": "VC",
+            "VE": "VE",
+            "VG": "VG",
+            "VI": "VI",
+            "VN": "VN",
+            "VU": "VU",
+            "WF": "WF",
+            "WS": "WS",
+            "YE": "YE",
+            "YT": "YT",
+            "ZA": "ZA",
+            "ZM": "ZM",
+            "ZW": "ZW"
+          }
+        },
+        "CFIOptionStyleandType": {
+          "title": "CFI Option Style and Type",
+          "description": "The Option Style and Type as defined by CFI code: ISO 10962",
+          "type": "string"
+        }
+      },
+      "required": [
+        "FullName",
+        "ClassificationType",
+        "CommodityDerivativeIndicator",
+        "IssuerorOperatoroftheTradingVenueIdentifier",
+        "ShortName",
+        "ISODeliveryType",
+        "CFIOptionStyleandType"
       ],
       "additionalProperties": false
     },
@@ -181,91 +826,30 @@
               },
               "type": "object",
               "properties": {
-                "TermofContract": {
-                  "title": "Term of Contract",
-                  "options": {
-                    "disable_properties": false
-                  },
-                  "type": "object",
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "title": "By Tenor",
-                      "properties": {
-                        "TermofContractValue": {
-                          "title": "Term of Contract Value",
-                          "description": "Value of the contract term in number of units",
-                          "default": 1,
-                          "type": "integer",
-                          "minimum": 1,
-                          "maximum": 999
-                        },
-                        "TermofContractUnit": {
-                          "title": "Term of Contract Unit",
-                          "description": "Unit for the rate basis",
-                          "type": "string",
-                          "enum": [
-                            "DAYS",
-                            "WEEK",
-                            "MNTH",
-                            "YEAR"
-                          ],
-                          "elaboration": {
-                            "DAYS": "Rate is reported in days",
-                            "WEEK": "Rate is reported in weeks",
-                            "MNTH": "Rate is reported in months",
-                            "YEAR": "Rate is reported in years"
-                          }
-                        }
-                      },
-                      "required": [
-                        "TermofContractValue",
-                        "TermofContractUnit"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "By Effective Date",
-                      "properties": {
-                        "EffectiveDate": {
-                          "title": "Effective Date",
-                          "description": "Effective date of the instrument (YYYY-MM-DD)",
-                          "type": "string",
-                          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-                          "format": "date"
-                        },
-                        "ExpiryDateAdjusted": {
-                          "title": "Expiry Date Adjusted",
-                          "description": "Flag that specifies if the given expiry date is an adjusted date",
-                          "default": false,
-                          "type": "boolean",
-                          "enum": [
-                            false
-                          ],
-                          "elaboration": {
-                            "false": "The given expiry date is not an adjusted date"
-                          }
-                        },
-                        "TenorCalculationMethod": {
-                          "title": "Tenor Calculation Method",
-                          "description": "The method used for calculating the Tenor",
-                          "default": "ESMA",
-                          "type": "string",
-                          "enum": [
-                            "ESMA"
-                          ],
-                          "elaboration": {
-                            "ESMA": "The calculation method used to calculate Term of contract is ESMA's specifications"
-                          }
-                        }
-                      },
-                      "required": [
-                        "EffectiveDate"
-                      ],
-                      "additionalProperties": false
-                    }
-                  ]
+                "TermofContractValue": {
+                  "title": "Term of Contract Value",
+                  "description": "Value of the contract term in number of units",
+                  "default": 1,
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                },
+                "TermofContractUnit": {
+                  "title": "Term of Contract Unit",
+                  "description": "Unit for the rate basis",
+                  "type": "string",
+                  "enum": [
+                    "DAYS",
+                    "WEEK",
+                    "MNTH",
+                    "YEAR"
+                  ],
+                  "elaboration": {
+                    "DAYS": "Rate is reported in days",
+                    "WEEK": "Rate is reported in weeks",
+                    "MNTH": "Rate is reported in months",
+                    "YEAR": "Rate is reported in years"
+                  }
                 },
                 "NotionalCurrency": {
                   "title": "Notional Currency",
@@ -5265,7 +5849,8 @@
                 }
               },
               "required": [
-                "TermofContract",
+                "TermofContractValue",
+                "TermofContractUnit",
                 "NotionalCurrency",
                 "ReferenceRate",
                 "ReferenceRateTermValue",
@@ -12477,1293 +13062,17 @@
                 "BaseProduct": {
                   "description": "The first commodity of the basis swap represents the receiving leg, the second commodity of the basis swap represents that paying leg",
                   "title": "Base Product",
-                  "type": "object",
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "title": "Agricultural[AGRI]",
-                      "properties": {
-                        "AGRI": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "GrainOilSeed[GROS]",
-                              "properties": {
-                                "GROS": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "FWHT",
-                                        "SOYB",
-                                        "RPSD",
-                                        "OTHR",
-                                        "CORN",
-                                        "RICE"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "FeedWheat[FWHT]",
-                                          "Soybeans[SOYB]",
-                                          "Rapeseed[RPSD]",
-                                          "Other[OTHR]",
-                                          "Maize[CORN]",
-                                          "Rice[RICE]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "GROS"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Dairy[DIRY]",
-                              "properties": {
-                                "DIRY": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "DIRY"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Forestry[FRST]",
-                              "properties": {
-                                "FRST": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "FRST"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Livestock[LSTK]",
-                              "properties": {
-                                "LSTK": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "LSTK"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Seafood[SEAF]",
-                              "properties": {
-                                "SEAF": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "SEAF"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Soft[SOFT]",
-                              "properties": {
-                                "SOFT": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "ROBU",
-                                        "CCOA",
-                                        "BRWN",
-                                        "WHSG",
-                                        "OTHR"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "RobustaCoffee[ROBU]",
-                                          "Cocoa[CCOA]",
-                                          "RawSugar[BRWN]",
-                                          "WhiteSugar[WHSG]",
-                                          "Other[OTHR]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "SOFT"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "OliveOil[OOLI]",
-                              "properties": {
-                                "OOLI": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "LAMP"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "Lampante[LAMP]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "OOLI"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Potato[POTA]",
-                              "properties": {
-                                "POTA": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "POTA"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Grain[GRIN]",
-                              "properties": {
-                                "GRIN": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "MWHT"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "MillingWheat[MWHT]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "GRIN"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "AGRI"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "Energy[NRGY]",
-                      "properties": {
-                        "NRGY": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "Coal[COAL]",
-                              "properties": {
-                                "COAL": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "COAL"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Distillates[DIST]",
-                              "properties": {
-                                "DIST": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "DIST"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "InterEnergy[INRG]",
-                              "properties": {
-                                "INRG": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "INRG"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "LightEnd[LGHT]",
-                              "properties": {
-                                "LGHT": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "LGHT"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "RenewableEnergy[RNNG]",
-                              "properties": {
-                                "RNNG": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "RNNG"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Electricity[ELEC]",
-                              "properties": {
-                                "ELEC": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "BSLD",
-                                        "FITR",
-                                        "PKLD",
-                                        "OFFP",
-                                        "OTHR"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "BaseLoad[BSLD]",
-                                          "FinancialTransmissionRights[FITR]",
-                                          "PeakLoad[PKLD]",
-                                          "OffPeak[OFFP]",
-                                          "Other[OTHR]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "ELEC"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "NaturalGas[NGAS]",
-                              "properties": {
-                                "NGAS": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "GASP",
-                                        "LNGG",
-                                        "NCGG",
-                                        "TTFG",
-                                        "NBPG"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "GasPool[GASP]",
-                                          "LNG[LNGG]",
-                                          "NCG[NCGG]",
-                                          "TTF[TTFG]",
-                                          "NBP[NBPG]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "NGAS"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Oil[OILP]",
-                              "properties": {
-                                "OILP": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "BAKK",
-                                        "BDSL",
-                                        "BRNT",
-                                        "BRNX",
-                                        "CNDA",
-                                        "COND",
-                                        "DSEL",
-                                        "DUBA",
-                                        "ESPO",
-                                        "ETHA",
-                                        "FUEL",
-                                        "FOIL",
-                                        "GOIL",
-                                        "GSLN",
-                                        "HEAT",
-                                        "JTFL",
-                                        "KERO",
-                                        "LLSO",
-                                        "MARS",
-                                        "NAPH",
-                                        "NGLO",
-                                        "TAPI",
-                                        "WTIO",
-                                        "URAL"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "Bakken[BAKK]",
-                                          "Biodiesel[BDSL]",
-                                          "Brent[BRNT]",
-                                          "BrentNX[BRNX]",
-                                          "Canadian[CNDA]",
-                                          "Condensate[COND]",
-                                          "Diesel[DSEL]",
-                                          "Dubai[DUBA]",
-                                          "ESPO[ESPO]",
-                                          "Ethanol[ETHA]",
-                                          "Fuel[FUEL]",
-                                          "FuelOil[FOIL]",
-                                          "Gasoil[GOIL]",
-                                          "Gasoline[GSLN]",
-                                          "HeatingOil[HEAT]",
-                                          "JetFuel[JTFL]",
-                                          "Kerosene[KERO]",
-                                          "LightLouisianaSweet[LLSO]",
-                                          "Mars[MARS]",
-                                          "Naphta[NAPH]",
-                                          "NGL[NGLO]",
-                                          "Tapis[TAPI]",
-                                          "WTI[WTIO]",
-                                          "Urals[URAL]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "OILP"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "NRGY"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "Environmental[ENVR]",
-                      "properties": {
-                        "ENVR": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "Emissions[EMIS]",
-                              "properties": {
-                                "EMIS": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "CERE",
-                                        "ERUE",
-                                        "EUAE",
-                                        "EUAA",
-                                        "OTHR"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "CER[CERE]",
-                                          "ERU[ERUE]",
-                                          "EUA[EUAE]",
-                                          "EUAA[EUAA]",
-                                          "Other[OTHR]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "EMIS"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "CarbonRelated[CRBR]",
-                              "properties": {
-                                "CRBR": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "CRBR"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Weather[WTHR]",
-                              "properties": {
-                                "WTHR": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "WTHR"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "ENVR"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "Freight[FRGT]",
-                      "properties": {
-                        "FRGT": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "Dry[DRYF]",
-                              "properties": {
-                                "DRYF": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "DBCR"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "DryBulkCarrier[DBCR]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "DRYF"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Wet[WETF]",
-                              "properties": {
-                                "WETF": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "TNKR"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "Tanker[TNKR]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "WETF"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "ContainerShip[CSHP]",
-                              "properties": {
-                                "CSHP": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "CSHP"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "FRGT"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "Fertilizer[FRTL]",
-                      "properties": {
-                        "FRTL": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "Ammonia[AMMO]",
-                              "properties": {
-                                "AMMO": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "AMMO"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "DiammoniumPhosphate[DAPH]",
-                              "properties": {
-                                "DAPH": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "DAPH"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Potash[PTSH]",
-                              "properties": {
-                                "PTSH": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "PTSH"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Sulphur[SLPH]",
-                              "properties": {
-                                "SLPH": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "SLPH"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Urea[UREA]",
-                              "properties": {
-                                "UREA": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "UREA"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "UreaAndAmmoniumNitrate[UAAN]",
-                              "properties": {
-                                "UAAN": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "UAAN"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "FRTL"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "IndustrialProduct[INDP]",
-                      "properties": {
-                        "INDP": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "Construction[CSTR]",
-                              "properties": {
-                                "CSTR": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "CSTR"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Manufacturing[MFTG]",
-                              "properties": {
-                                "MFTG": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "MFTG"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "INDP"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "Inflation[INFL]",
-                      "properties": {
-                        "INFL": {
-                          "options": {
-                            "disable_properties": true,
-                            "hidden": true
-                          },
-                          "title": "Sub Product",
-                          "type": "object",
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "INFL"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "OfficialEconomicStatistics[OEST]",
-                      "properties": {
-                        "OEST": {
-                          "options": {
-                            "disable_properties": true,
-                            "hidden": true
-                          },
-                          "title": "Sub Product",
-                          "type": "object",
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "OEST"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "Metal[METL]",
-                      "properties": {
-                        "METL": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "NonPrecious[NPRM]",
-                              "properties": {
-                                "NPRM": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "ALUM",
-                                        "ALUA",
-                                        "CBLT",
-                                        "COPR",
-                                        "IRON",
-                                        "MOLY",
-                                        "NASC",
-                                        "NICK",
-                                        "STEL",
-                                        "TINN",
-                                        "ZINC",
-                                        "OTHR",
-                                        "LEAD"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "Aluminium[ALUM]",
-                                          "AluminiumAlloy[ALUA]",
-                                          "Cobalt[CBLT]",
-                                          "Copper[COPR]",
-                                          "IronOre[IRON]",
-                                          "Molybdenum[MOLY]",
-                                          "NASAAC[NASC]",
-                                          "Nickel[NICK]",
-                                          "Steel[STEL]",
-                                          "Tin[TINN]",
-                                          "Zinc[ZINC]",
-                                          "Other[OTHR]",
-                                          "Lead[LEAD]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "NPRM"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Precious[PRME]",
-                              "properties": {
-                                "PRME": {
-                                  "title": " ",
-                                  "type": "object",
-                                  "properties": {
-                                    "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
-                                      "type": "string",
-                                      "enum": [
-                                        "GOLD",
-                                        "OTHR",
-                                        "PLDM",
-                                        "PTNM",
-                                        "SLVR"
-                                      ],
-                                      "options": {
-                                        "enum_titles": [
-                                          "Gold[GOLD]",
-                                          "Other[OTHR]",
-                                          "Palladium[PLDM]",
-                                          "Platinum[PTNM]",
-                                          "Silver[SLVR]"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "required": [
-                                    "AdditionalSubProduct"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "PRME"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "METL"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "MultiCommodityExotic[MCEX]",
-                      "properties": {
-                        "MCEX": {
-                          "options": {
-                            "disable_properties": true,
-                            "hidden": true
-                          },
-                          "title": "Sub Product",
-                          "type": "object",
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "MCEX"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "Paper[PAPR]",
-                      "properties": {
-                        "PAPR": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "Containerboard[CBRD]",
-                              "properties": {
-                                "CBRD": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "CBRD"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Newsprint[NSPT]",
-                              "properties": {
-                                "NSPT": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "NSPT"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Pulp[PULP]",
-                              "properties": {
-                                "PULP": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "PULP"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "RecoveredPaper[RCVP]",
-                              "properties": {
-                                "RCVP": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "RCVP"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "PAPR"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "Polypropylene[POLY]",
-                      "properties": {
-                        "POLY": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "Plastic[PLST]",
-                              "properties": {
-                                "PLST": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "PLST"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "POLY"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "OtherC10[OTHC]",
-                      "properties": {
-                        "OTHC": {
-                          "title": "Sub Product",
-                          "type": "object",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "title": "Deliverable[DLVR]",
-                              "properties": {
-                                "DLVR": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "DLVR"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "NonDeliverable[NDLV]",
-                              "properties": {
-                                "NDLV": {
-                                  "options": {
-                                    "disable_properties": true,
-                                    "hidden": true
-                                  },
-                                  "title": " ",
-                                  "type": "object",
-                                  "additionalProperties": false
-                                }
-                              },
-                              "required": [
-                                "NDLV"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "OTHC"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "title": "Other[OTHR]",
-                      "properties": {
-                        "OTHR": {
-                          "options": {
-                            "disable_properties": true,
-                            "hidden": true
-                          },
-                          "title": "Sub Product",
-                          "type": "object",
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "OTHR"
-                      ],
-                      "additionalProperties": false
-                    }
-                  ]
+                  "type": "string"
+                },
+                "SubProduct": {
+                  "title": "Sub Product",
+                  "description": "Sub product taxonomy of commodity product",
+                  "type": "string"
+                },
+                "AdditionalSubProduct": {
+                  "title": "Additional Sub Product",
+                  "description": "Additional Sub Product",
+                  "type": "string"
                 },
                 "TransactionType": {
                   "title": "Transaction Type",
@@ -13822,9 +13131,17 @@
                 "NotionalCurrency",
                 "Underlying",
                 "BaseProduct",
+                "SubProduct",
+                "AdditionalSubProduct",
                 "TransactionType",
                 "FinalPriceType"
               ],
+              "dependencies": {
+                "BaseProduct": [
+                  "TransactionType",
+                  "FinalPriceType"
+                ]
+              },
               "additionalProperties": false
             }
           },
@@ -13858,7 +13175,10 @@
     }
   },
   "required": [
+    "TemplateVersion",
     "Header",
+    "ISIN",
+    "Derived",
     "Attributes"
   ],
   "additionalProperties": false
