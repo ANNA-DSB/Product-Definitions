@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Swap.Inflation_Fixed_Float_Zero_Coupon.UPI.V1",
-  "LastModifyDateTime": "2022-12-07T17:36:07",
+  "LastModifyDateTime": "2023-02-01T19:12:44",
   "description": "Record template for Rates.Swap.Inflation_Fixed_Float_Zero_Coupon",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -72,14 +72,12 @@
           "enum": [
             "New",
             "Updated",
-            "Expired",
             "Deleted",
             "Deprecated"
           ],
           "elaboration": {
             "New": "New record added to the database",
             "Updated": "One/several of the fields in the record is/are updated",
-            "Expired": "Record that has already matured relative of the specified Expiry Date",
             "Deleted": "The identifier is deleted and no longer active",
             "Deprecated": "The record does not meet the requirements of the product template"
           }
@@ -172,6 +170,11 @@
           "title": "Short Name",
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
+        },
+        "UnderlierName": {
+          "title": "Underlier Name",
+          "description": "Underlier Name",
+          "type": "string"
         }
       },
       "required": [
@@ -179,7 +182,8 @@
         "UnderlyingAssetType",
         "SingleorMultiCurrency",
         "CFIDeliveryType",
-        "ShortName"
+        "ShortName",
+        "UnderlierName"
       ],
       "additionalProperties": false
     },
@@ -200,6 +204,12 @@
           "title": "Reference Rate Term Value",
           "description": "Tenor value of the first leg reference rate",
           "type": "integer",
+          "not": {
+            "type": "integer",
+            "enum": [
+              0
+            ]
+          },
           "minimum": -999,
           "maximum": 999
         },

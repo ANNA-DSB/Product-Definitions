@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Swap.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2022-12-07T17:36:07",
+  "LastModifyDateTime": "2023-02-01T19:12:44",
   "description": "Record template for Other.Swap.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -72,14 +72,12 @@
           "enum": [
             "New",
             "Updated",
-            "Expired",
             "Deleted",
             "Deprecated"
           ],
           "elaboration": {
             "New": "New record added to the database",
             "Updated": "One/several of the fields in the record is/are updated",
-            "Expired": "Record that has already matured relative of the specified Expiry Date",
             "Deleted": "The identifier is deleted and no longer active",
             "Deprecated": "The record does not meet the requirements of the product template"
           }
@@ -118,15 +116,106 @@
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
         },
+        "UnderlyingAssetClass": {
+          "title": "Underlying Asset Class",
+          "minProperties": 1,
+          "type": "object",
+          "properties": {
+            "Rates": {
+              "title": "Rates",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            },
+            "Equity": {
+              "title": "Equity",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            },
+            "Credit": {
+              "title": "Credit",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            },
+            "Foreign_Exchange": {
+              "title": "Foreign_Exchange",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            },
+            "Commodities": {
+              "title": "Commodities",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
         "UnderlyingAssetType": {
           "title": "Underlying Asset Type",
           "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
           "type": "string"
+        },
+        "UnderlyingRecord": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UnderlyingRecord",
+            "title": "Underlying Record"
+          }
         }
       },
       "required": [
         "ClassificationType",
         "ShortName",
+        "UnderlyingAssetClass",
         "UnderlyingAssetType"
       ],
       "additionalProperties": false
@@ -1001,7 +1090,6 @@
             },
             "Commodities": {
               "title": "Commodities",
-              "minProperties": 1,
               "options": {
                 "disable_properties": false
               },
@@ -1107,6 +1195,12 @@
                   "type": "string"
                 }
               },
+              "required": [
+                "NotionalCurrency",
+                "ReturnorPayoutTrigger",
+                "UnderlierCharacteristic",
+                "BaseProduct"
+              ],
               "additionalProperties": false
             }
           },
@@ -1146,5 +1240,55 @@
     "Derived",
     "Attributes"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "definitions": {
+    "UnderlyingRecord": {
+      "type": "object",
+      "properties": {
+        "UnderlierID": {
+          "title": "Underlier ID",
+          "description": "Underlier ID",
+          "type": "string"
+        },
+        "UnderlierIDSource": {
+          "title": "Underlier ID Source",
+          "description": "Underlier ID Source",
+          "type": "string",
+          "enum": [
+            "ISIN",
+            "LEI",
+            "UPI"
+          ]
+        },
+        "ReturnUnderlierIDSource": {
+          "title": "Return Underlier ID Source",
+          "description": "Return Underlier ID Source",
+          "type": "string",
+          "enum": [
+            "CUSIP",
+            "FIGI",
+            "RIC",
+            "SEDOL"
+          ]
+        },
+        "ReturnUnderlierID": {
+          "title": "Return Underlier ID",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+            "title": "Return Underlier ID",
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "UnderlierID",
+        "UnderlierIDSource",
+        "ReturnUnderlierIDSource",
+        "ReturnUnderlierID"
+      ],
+      "additionalProperties": false
+    }
+  }
 }

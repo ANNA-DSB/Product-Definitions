@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
-  "LastModifyDateTime": "2022-12-07T17:36:17",
+  "LastModifyDateTime": "2023-02-01T19:13:05",
   "title": "MrktCreditIndex",
   "type": "string",
-  "description": "MRKT Credit Index",
+  "description": "Credit Index",
   "enum": [
     "ABX.HE.A",
     "ABX.HE.AA",

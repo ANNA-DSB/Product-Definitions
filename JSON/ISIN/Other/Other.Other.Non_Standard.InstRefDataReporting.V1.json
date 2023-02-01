@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Other.Non_Standard.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2022-12-07T17:36:07",
+  "LastModifyDateTime": "2023-02-01T19:12:44",
   "description": "Record template for Other.Other.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -784,12 +784,14 @@
           "description": "Indicates the seniority of the debt, or debt basket or index underlying a derivative",
           "type": "string",
           "enum": [
+            "",
             "SNDB",
             "MZZD",
             "SBOD",
             "JUND"
           ],
           "elaboration": {
+            "": "n/a",
             "SNDB": "Senior Debt",
             "MZZD": "Mezzanine",
             "SBOD": "Subordinated Debt",
@@ -797,6 +799,7 @@
           },
           "options": {
             "enum_titles": [
+              "n/a",
               "Senior Debt",
               "Mezzanine",
               "Subordinated Debt",

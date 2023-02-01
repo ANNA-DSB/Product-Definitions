@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Swap.Fixed_Float_Zero_Coupon.UPI",
-  "LastModifyDateTime": "2022-12-07T17:36:07",
+  "LastModifyDateTime": "2023-02-01T19:12:44",
   "description": "Request template for Rates Swap Fixed_Float_Zero_Coupon",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -79,6 +79,12 @@
           "title": "Reference Rate Term Value",
           "description": "Tenor value of the first leg reference rate",
           "type": "integer",
+          "not": {
+            "type": "integer",
+            "enum": [
+              0
+            ]
+          },
           "minimum": -999,
           "maximum": 999
         },
