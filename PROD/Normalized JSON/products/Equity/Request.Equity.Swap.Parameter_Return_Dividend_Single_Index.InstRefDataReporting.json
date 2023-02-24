@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Parameter_Return_Dividend_Single_Index.InstRefDataReporting",
-  "LastModifyDateTime": "2022-05-17T14:49:44",
+  "LastModifyDateTime": "2023-02-10T13:58:41",
   "description": "Request template for Equity Swap Parameter_Return_Dividend_Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -75,13 +75,14 @@
               "title": "UnderlyingInstrumentIndex",
               "properties": {
                 "UnderlyingInstrumentIndex": {
+                  "title": "Underlying Instrument Index",
                   "type": "array",
                   "uniqueItems": true,
                   "minItems": 1,
                   "maxItems": 1,
                   "items": {
                     "$ref": "../../codesets/FpmlEquityIndex.json",
-                    "title": "Instrument Index",
+                    "title": "Underlying Instrument Index",
                     "description": "Name of the index on which the financial instrument is based"
                   }
                 }
@@ -125,7 +126,7 @@
                   "maxItems": 1,
                   "items": {
                     "title": "Underlying Instrument ISIN",
-                    "description": "Underlying Instrument Index ISIN",
+                    "description": "Underlying Instrument ISIN",
                     "type": "string",
                     "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
                   }
