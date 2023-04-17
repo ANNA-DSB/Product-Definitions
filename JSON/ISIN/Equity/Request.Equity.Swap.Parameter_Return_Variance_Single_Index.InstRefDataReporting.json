@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Parameter_Return_Variance_Single_Index.InstRefDataReporting",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-03-10T09:17:09",
   "description": "Request template for Equity Swap Parameter_Return_Variance_Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -106,7 +106,7 @@
               "properties": {
                 "UnderlyingInstrumentISIN": {
                   "title": "Underlying Instrument ISIN",
-                  "description": "Underlying Instrument Index ISIN",
+                  "description": "Underlying Instrument ISIN",
                   "type": "string",
                   "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
                 }

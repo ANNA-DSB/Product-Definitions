@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Credit.Forward.Debt.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-04-17T11:41:25",
   "description": "Record template for Credit.Forward.Debt",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -141,19 +141,6 @@
             "Basket": "a synthetic credit derivative where the underlying reference entities are a bespoke portfolio whose constituents have been agreed to by the parties to the trade"
           }
         },
-        "ReturnorPayoutTrigger": {
-          "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
-          "type": "string",
-          "enum": [
-            "Spreadbets",
-            "Forward price of underlying instrument"
-          ],
-          "elaboration": {
-            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
-            "Forward price of underlying instrument": "Forward price of underlying instrument"
-          }
-        },
         "IssuerorOperatoroftheTradingVenueIdentifier": {
           "title": "Issuer or Operator of the Trading Venue Identifier",
           "description": "ISIN Issuer Long Name",
@@ -189,7 +176,6 @@
         "ClassificationType",
         "CommodityDerivativeIndicator",
         "UnderlyingAssetType",
-        "ReturnorPayoutTrigger",
         "IssuerorOperatoroftheTradingVenueIdentifier",
         "ShortName",
         "ISODeliveryType"
@@ -218,6 +204,19 @@
           "type": "number",
           "minimum": 0,
           "exclusiveMinimum": true
+        },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Spreadbets",
+            "Forward price of underlying instrument"
+          ],
+          "elaboration": {
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+            "Forward price of underlying instrument": "Forward price of underlying instrument"
+          }
         },
         "DeliveryType": {
           "title": "Delivery Type",
@@ -255,6 +254,7 @@
         "NotionalCurrency",
         "ExpiryDate",
         "PriceMultiplier",
+        "ReturnorPayoutTrigger",
         "DeliveryType",
         "UnderlyingInstrumentISIN"
       ],

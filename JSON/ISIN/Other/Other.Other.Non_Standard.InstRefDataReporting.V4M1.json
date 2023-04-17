@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Other.Non_Standard.InstRefDataReporting.V4M1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-03-10T09:12:17",
   "description": "Record template for Other.Other.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1652,7 +1652,7 @@
                       "minItems": 1,
                       "items": {
                         "title": "Underlying Instrument ISIN",
-                        "description": "Underlying Instrument Index ISIN",
+                        "description": "Underlying Instrument ISIN",
                         "type": "string",
                         "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
                       }
@@ -1941,7 +1941,7 @@
                       "minItems": 1,
                       "items": {
                         "title": "Underlying Instrument ISIN",
-                        "description": "Underlying Instrument Index ISIN",
+                        "description": "Underlying Instrument ISIN",
                         "type": "string",
                         "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
                       }
