@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Equity.Swap.Portfolio_Swap_Single_Name.UPI.V1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-03-28T03:23:39",
   "description": "Record template for Equity.Swap.Portfolio_Swap_Single_Name",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -262,9 +262,7 @@
           "description": "Underlier ID Source",
           "type": "string",
           "enum": [
-            "ISIN",
-            "LEI",
-            "UPI"
+            "ISIN"
           ]
         },
         "ReturnUnderlierIDSource": {

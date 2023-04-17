@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Forward.FRA_Other.UPI.V1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-03-28T03:23:39",
   "description": "Record template for Rates.Forward.FRA_Other",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -192,8 +192,8 @@
           }
         },
         "UnderlyingInstrumentISIN": {
-          "title": "Underlier ID",
-          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+          "title": "Underlying Instrument ISIN",
+          "description": "ISIN code of the underlying instrument",
           "type": "string",
           "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
         },
@@ -249,9 +249,7 @@
           "description": "Underlier ID Source",
           "type": "string",
           "enum": [
-            "ISIN",
-            "LEI",
-            "UPI"
+            "ISIN"
           ]
         },
         "ReturnUnderlierIDSource": {

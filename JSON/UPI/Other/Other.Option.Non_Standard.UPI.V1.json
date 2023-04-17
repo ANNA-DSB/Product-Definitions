@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Option.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-03-28T03:23:39",
   "description": "Record template for Other.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -517,24 +517,10 @@
                   "title": "Underlying Credit Index Series",
                   "description": "The series identifier of a credit default swap index",
                   "type": "integer",
-                  "minimum": 1,
-                  "maximum": 999
-                },
-                "UnderlyingCreditIndexVersion": {
-                  "title": "Underlying Credit Index Version",
-                  "description": "The version of a credit default swap index annex",
-                  "type": "integer",
-                  "minimum": 1,
-                  "maximum": 999
-                },
-                "UnderlyingCreditIndexSeriesPROP": {
-                  "title": "Underlying Credit Index Series",
-                  "description": "The series identifier of a credit default swap index",
-                  "type": "integer",
                   "minimum": 0,
                   "maximum": 999
                 },
-                "UnderlyingCreditIndexVersionPROP": {
+                "UnderlyingCreditIndexVersion": {
                   "title": "Underlying Credit Index Version",
                   "description": "The version of a credit default swap index annex",
                   "type": "integer",
@@ -1323,9 +1309,7 @@
           "description": "Underlier ID Source",
           "type": "string",
           "enum": [
-            "ISIN",
-            "LEI",
-            "UPI"
+            "ISIN"
           ]
         },
         "ReturnUnderlierIDSource": {

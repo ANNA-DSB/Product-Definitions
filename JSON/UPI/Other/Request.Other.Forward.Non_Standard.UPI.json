@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Other.Forward.Non_Standard.UPI",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-03-10T13:03:22",
   "description": "Request template for Other Forward Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1044,7 +1044,8 @@
                 "UnderlierIDSource",
                 "UnderlierID",
                 "OtherUnderlierIDSource",
-                "OtherUnderlierID"
+                "OtherUnderlierID",
+                "ReturnorPayoutTrigger"
               ],
               "dependencies": {
                 "PlaceofSettlement": [

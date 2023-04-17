@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Forward.Debt.UPI.V1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-03-28T03:23:39",
   "description": "Record template for Rates.Forward.Debt",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -111,19 +111,6 @@
           "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
           "type": "string"
         },
-        "ReturnorPayoutTrigger": {
-          "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
-          "type": "string",
-          "enum": [
-            "Spreadbets",
-            "Forward price of underlying instrument"
-          ],
-          "elaboration": {
-            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
-            "Forward price of underlying instrument": "Forward price of underlying instrument"
-          }
-        },
         "UnderlyingAssetType": {
           "title": "Underlying Asset Type",
           "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
@@ -178,7 +165,6 @@
       },
       "required": [
         "ClassificationType",
-        "ReturnorPayoutTrigger",
         "UnderlyingAssetType",
         "ShortName",
         "UnderlierName",
@@ -200,10 +186,23 @@
           "description": "Currency in which the notional is denominated. Usage: Within MiFIR, in the case of an interest rate or currency derivative contract, this will be the notional currency of leg 1 or the currency 1 of the pair. Within MiFIR, in the case of swaptions where the underlying swap is single-currency, this will be the notional currency of the underlying swap. For swaptions where the underlying is multi-currency, this will be the notional currency of leg 1 of the swap"
         },
         "UnderlyingInstrumentISIN": {
-          "title": "Underlier ID",
-          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+          "title": "Underlying Instrument ISIN",
+          "description": "ISIN code of the underlying instrument",
           "type": "string",
           "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+        },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Spreadbets",
+            "Forward price of underlying instrument"
+          ],
+          "elaboration": {
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+            "Forward price of underlying instrument": "Forward price of underlying instrument"
+          }
         },
         "DeliveryType": {
           "title": "Delivery Type",
@@ -228,6 +227,7 @@
       "required": [
         "UnderlierCharacteristic",
         "NotionalCurrency",
+        "ReturnorPayoutTrigger",
         "DeliveryType"
       ],
       "additionalProperties": false
@@ -255,9 +255,7 @@
           "description": "Underlier ID Source",
           "type": "string",
           "enum": [
-            "ISIN",
-            "LEI",
-            "UPI"
+            "ISIN"
           ]
         },
         "ReturnUnderlierIDSource": {

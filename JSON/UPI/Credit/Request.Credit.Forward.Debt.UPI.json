@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Forward.Debt.UPI",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-03-10T13:03:22",
   "description": "Request template for Credit Forward Debt",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -122,6 +122,19 @@
             }
           ]
         },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Spreadbets",
+            "Forward price of underlying instrument"
+          ],
+          "elaboration": {
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+            "Forward price of underlying instrument": "Forward price of underlying instrument"
+          }
+        },
         "DeliveryType": {
           "title": "Delivery Type",
           "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
@@ -144,6 +157,7 @@
       },
       "required": [
         "Underlying",
+        "ReturnorPayoutTrigger",
         "DeliveryType"
       ],
       "additionalProperties": false
