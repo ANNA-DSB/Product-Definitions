@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Swap.Single_Index.InstRefDataReporting",
-  "LastModifyDateTime": "2022-05-17T14:49:44",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Request template for Commodities Swap Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -112,15 +112,9 @@
               "title": "UnderlyingInstrumentIndex",
               "properties": {
                 "UnderlyingInstrumentIndex": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
-                  "maxItems": 1,
-                  "items": {
-                    "$ref": "../../codesets/CommoditiesIndex.json",
-                    "title": "Underlying Instrument Index",
-                    "description": "Underlying Instrument Index"
-                  }
+                  "$ref": "../../codesets/CommoditiesIndex.json",
+                  "title": "Underlying Instrument Index",
+                  "description": "Underlying Instrument Index"
                 }
               },
               "required": [
@@ -133,15 +127,9 @@
               "title": "UnderlyingInstrumentIndexProp",
               "properties": {
                 "UnderlyingInstrumentIndexProp": {
-                  "type": "array",
-                  "uniqueItems": false,
-                  "minItems": 1,
-                  "maxItems": 1,
-                  "items": {
-                    "title": "Underlying Instrument Index Prop",
-                    "description": "Underlying Instrument Index Prop",
-                    "type": "string"
-                  }
+                  "title": "Underlying Instrument Index Prop",
+                  "description": "Underlying Instrument Index Prop",
+                  "type": "string"
                 }
               },
               "required": [

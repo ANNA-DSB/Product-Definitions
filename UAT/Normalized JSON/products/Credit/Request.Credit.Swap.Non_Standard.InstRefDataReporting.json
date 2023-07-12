@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Swap.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2022-11-29T16:13:05",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Request template for Credit Swap Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -112,7 +112,7 @@
               "uniqueItems": true,
               "minItems": 1,
               "items": {
-                "$ref": "../../codesets/FpmlCreditIndex.json",
+                "$ref": "../../codesets/CreditIndex.json",
                 "title": "Underlying Instrument Index",
                 "description": "Name of the index on which the financial instrument is based"
               }
@@ -186,17 +186,18 @@
         },
         "UnderlyingIssuerType": {
           "title": "Underlying Issuer Type",
+          "description": "The underlying issuer type as defined by CFI code: ISO 10962 (2015)",
           "type": "object",
           "oneOf": [
             {
               "type": "object",
               "title": "Corporate",
-              "options": {
-                "disable_properties": false
-              },
               "properties": {
                 "Corporate": {
-                  "title": "Corporate",
+                  "minProperties": 0,
+                  "options": {
+                    "disable_properties": false
+                  },
                   "type": "object",
                   "properties": {
                     "ContractSpecification": {
@@ -321,23 +322,23 @@
                       }
                     }
                   },
-                  "required": [
-                    "ContractSpecification"
-                  ],
                   "additionalProperties": false
                 }
               },
+              "required": [
+                "Corporate"
+              ],
               "additionalProperties": false
             },
             {
               "type": "object",
               "title": "Sovereign",
-              "options": {
-                "disable_properties": false
-              },
               "properties": {
                 "Sovereign": {
-                  "title": "Sovereign",
+                  "minProperties": 0,
+                  "options": {
+                    "disable_properties": false
+                  },
                   "type": "object",
                   "properties": {
                     "ContractSpecification": {
@@ -384,23 +385,23 @@
                       }
                     }
                   },
-                  "required": [
-                    "ContractSpecification"
-                  ],
                   "additionalProperties": false
                 }
               },
+              "required": [
+                "Sovereign"
+              ],
               "additionalProperties": false
             },
             {
               "type": "object",
               "title": "Local",
-              "options": {
-                "disable_properties": false
-              },
               "properties": {
                 "Local": {
-                  "title": "Local",
+                  "minProperties": 0,
+                  "options": {
+                    "disable_properties": false
+                  },
                   "type": "object",
                   "properties": {
                     "ContractSpecification": {
@@ -425,12 +426,12 @@
                       }
                     }
                   },
-                  "required": [
-                    "ContractSpecification"
-                  ],
                   "additionalProperties": false
                 }
               },
+              "required": [
+                "Local"
+              ],
               "additionalProperties": false
             }
           ]

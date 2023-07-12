@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Equity.Swap.Parameter_Return_Volatility_Basket.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2022-11-29T16:13:05",
+  "LastModifyDateTime": "2023-03-15T10:44:43",
   "description": "Record template for Equity.Swap.Parameter_Return_Volatility_Basket",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -273,7 +273,7 @@
               "uniqueItems": true,
               "minItems": 1,
               "items": {
-                "title": " Underlying Instrument ISIN",
+                "title": "Underlying Instrument ISIN",
                 "description": "Underlying Instrument ISIN",
                 "type": "string",
                 "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
