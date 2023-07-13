@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Request.Equity.Swap.Portfolio_Swap_Single_Name.UPI",
+  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "description": "Request template for Equity Swap Portfolio_Swap_Single_Name",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Equity"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Swap"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Portfolio_Swap_Single_Name"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "UnderlierIDSource": {
+          "title": "Underlier ID Source",
+          "description": "The origin, or publisher, of the associated underlier ID.",
+          "type": "string",
+          "enum": [
+            "ISIN",
+            "RIC",
+            "FIGI",
+            "CUSIP",
+            "SEDOL"
+          ],
+          "elaboration": {
+            "ISIN": "ISIN code of the underlying instrument",
+            "RIC": "RIC of the underlying instrument",
+            "FIGI": "FIGI code of the underlying instrument",
+            "CUSIP": "CUSIP code of the underlying instrument",
+            "SEDOL": "SEDOL code of the underlying instrument"
+          }
+        },
+        "UnderlierID": {
+          "title": "Underlier ID",
+          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+          "type": "string"
+        },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Price",
+            "Dividend",
+            "Variance",
+            "Volatility",
+            "Total Return",
+            "Contract for Difference (CFD)",
+            "Other"
+          ],
+          "elaboration": {
+            "Price": "price return equity swap, similar to a total return swap, except that dividends are not passed through to the buyer",
+            "Dividend": "a fixed-term contract between two parties where one party will make an interest rate payment for each interval and the other party will pay the total dividends received as pay-out by a selected underlying asset",
+            "Variance": "a forward swap that uses the variance (being the volatility squared) of an underlying's price movement over a period as the basis for the payoff calculation",
+            "Volatility": "the variability of movements in a security or underlying instrument's price; it is a measure of the amount by which an asset's price is expected to fluctuate over a given period of time; it is normally measured by the annual standard deviation of daily price changes",
+            "Total Return": "the total economic return of an underlying asset is transferred from one party (total return buyer) to another (total return seller); total return seller takes on the risk of negative changes in market value of the reference asset, and pays any positive cash flow to the buyer such as coupon, capital gains or dividends of the reference asset",
+            "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
+            "Other": "Miscellaneous"
+          }
+        },
+        "DeliveryType": {
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": "determined at the time of settlement"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Elect at Settlement"
+            ]
+          }
+        }
+      },
+      "required": [
+        "UnderlierIDSource",
+        "UnderlierID",
+        "ReturnorPayoutTrigger",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "Header",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}

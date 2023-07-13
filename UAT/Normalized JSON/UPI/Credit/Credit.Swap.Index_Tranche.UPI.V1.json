@@ -1,0 +1,375 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Credit.Swap.Index_Tranche.UPI.V1",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "description": "Record template for Credit.Swap.Index_Tranche",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "TemplateVersion": {
+      "title": "Template Version",
+      "description": "Template Version",
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Credit"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Swap"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Index_Tranche"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Identifier": {
+      "title": "Identifier",
+      "type": "object",
+      "properties": {
+        "UPI": {
+          "title": "UPI",
+          "description": "Unique Product Identifier (ISO 4914).",
+          "type": "string"
+        },
+        "Status": {
+          "title": "Status",
+          "description": "Status of the Record",
+          "type": "string",
+          "enum": [
+            "New",
+            "Updated",
+            "Deleted",
+            "Deprecated"
+          ],
+          "elaboration": {
+            "New": "New record added to the database",
+            "Updated": "One/several of the fields in the record is/are updated",
+            "Deleted": "The identifier is deleted and no longer active",
+            "Deprecated": "The record does not meet the requirements of the product template"
+          }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for UPI Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
+        }
+      },
+      "required": [
+        "UPI",
+        "Status",
+        "LastUpdateDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "Derived": {
+      "title": "Derived",
+      "description": "Derived Attributes",
+      "type": "object",
+      "properties": {
+        "ClassificationType": {
+          "title": "Classification Type",
+          "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
+          "type": "string"
+        },
+        "ShortName": {
+          "title": "Short Name",
+          "description": "Short name of financial instrument in accordance with ISO 18774",
+          "type": "string"
+        },
+        "UnderlierName": {
+          "title": "Underlier Name",
+          "description": "Underlier Name",
+          "type": "string"
+        },
+        "UnderlyingAssetType": {
+          "title": "Underlying Asset Type",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Single Name",
+            "Index Tranche",
+            "Index",
+            "Basket",
+            "Other"
+          ],
+          "elaboration": {
+            "Single Name": "the underlying risk is a single reference entity or reference obligation",
+            "Index Tranche": "a synthetic Collaterized Debt Obligation (CDO) based on a CDS index where each tranche references a different segment of the loss distribution of the underlying CDS index; each tranche has a different priority of claims on the principal and interest flows from the collateral pool, and are traditionally portioned into rising levels of seniority",
+            "Index": "family of standardized credit derivative indices, where the underlying reference entities are a defined basket of credit from a particular geographic region (for instance, Asia, North America, Europe, etc.), and/or credit rating level (for instance Emerging Markets, high yield, investment grade, etc.); credit default indices trade in standard maturities, and the reference entities are typically the most liquid; the reference portfolio is reassessed periodically to maintain this",
+            "Basket": "a synthetic credit derivative where the underlying reference entities are a bespoke portfolio whose constituents have been agreed to by the parties to the trade",
+            "Other": "miscellaneous"
+          }
+        },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Credit Default",
+            "Total Return",
+            "Spreadbets",
+            "Forward price of underlying instrument",
+            "Other"
+          ],
+          "elaboration": {
+            "Credit Default": "Credit Default",
+            "Total Return": "the total economic return of an underlying asset is transferred from one party (total return buyer) to another (total return seller); total return seller takes on the risk of negative changes in market value of the reference asset, and pays any positive cash flow to the buyer such as coupon, capital gains or dividends of the reference asset",
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+            "Forward price of underlying instrument": "Forward price of underlying instrument",
+            "Other": "Miscellaneous"
+          }
+        },
+        "CFIDeliveryType": {
+          "title": "CFI Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
+          "type": "string",
+          "enum": [
+            "Cash",
+            "Physical",
+            "Auction"
+          ],
+          "elaboration": {
+            "Cash": "As defined by CFI Code: ISO 10962",
+            "Physical": "As defined by CFI Code: ISO 10962",
+            "Auction": "As defined by CFI Code: ISO 10962"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Auction"
+            ]
+          }
+        }
+      },
+      "required": [
+        "ClassificationType",
+        "ShortName",
+        "UnderlierName",
+        "UnderlyingAssetType",
+        "ReturnorPayoutTrigger",
+        "CFIDeliveryType"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "Underlying": {
+          "title": "Underlying",
+          "type": "object",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "Underlying Instrument Index",
+              "properties": {
+                "UnderlyingInstrumentIndex": {
+                  "$ref": "../../codesets/CreditIndex.json",
+                  "title": "Underlying Instrument Index",
+                  "description": "Name of the index on which the financial instrument is based"
+                },
+                "UnderlyingInstrumentIndexTermValue": {
+                  "title": "Underlying Instrument Index Term Value",
+                  "description": "Tenor value of the underlying reference rate",
+                  "type": "integer",
+                  "not": {
+                    "type": "integer",
+                    "enum": [
+                      0
+                    ]
+                  },
+                  "minimum": -999,
+                  "maximum": 999
+                },
+                "UnderlyingInstrumentIndexTermUnit": {
+                  "title": "Underlying Instrument Index Term Unit",
+                  "description": "Tenor unit of the underlying reference rate",
+                  "type": "string",
+                  "enum": [
+                    "DAYS",
+                    "WEEK",
+                    "MNTH",
+                    "YEAR"
+                  ],
+                  "elaboration": {
+                    "DAYS": "Rate is reported in days",
+                    "WEEK": "Rate is reported in weeks",
+                    "MNTH": "Rate is reported in months",
+                    "YEAR": "Rate is reported in years"
+                  }
+                },
+                "UnderlyingCreditIndexSeries": {
+                  "title": "Underlying Credit Index Series",
+                  "description": "The series identifier of a credit default swap index",
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                },
+                "UnderlyingCreditIndexVersion": {
+                  "title": "Underlying Credit Index Version",
+                  "description": "The version of a credit default swap index annex",
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                }
+              },
+              "required": [
+                "UnderlyingInstrumentIndex",
+                "UnderlyingInstrumentIndexTermValue",
+                "UnderlyingInstrumentIndexTermUnit",
+                "UnderlyingCreditIndexSeries",
+                "UnderlyingCreditIndexVersion"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "title": "Underlying Instrument Index Prop",
+              "properties": {
+                "UnderlyingInstrumentIndexProp": {
+                  "title": "Underlying Instrument Index Prop",
+                  "description": "Underlying Instrument Index Prop",
+                  "type": "string"
+                },
+                "UnderlyingInstrumentIndexTermValue": {
+                  "title": "Underlying Instrument Index Term Value",
+                  "description": "Tenor value of the underlying reference rate",
+                  "type": "integer",
+                  "enum": [
+                    0
+                  ]
+                },
+                "UnderlyingInstrumentIndexTermUnit": {
+                  "title": "Underlying Instrument Index Term Unit",
+                  "description": "Tenor unit of the underlying reference rate",
+                  "type": "string",
+                  "enum": [
+                    "DAYS"
+                  ],
+                  "elaboration": {
+                    "DAYS": "Rate is reported in days"
+                  }
+                },
+                "UnderlyingCreditIndexSeries": {
+                  "title": "Underlying Credit Index Series",
+                  "description": "The series identifier of a credit default swap index",
+                  "type": "integer",
+                  "enum": [
+                    0
+                  ]
+                },
+                "UnderlyingCreditIndexVersion": {
+                  "title": "Underlying Credit Index Version",
+                  "description": "The version of a credit default swap index annex",
+                  "type": "integer",
+                  "enum": [
+                    0
+                  ]
+                }
+              },
+              "required": [
+                "UnderlyingInstrumentIndexProp",
+                "UnderlyingInstrumentIndexTermValue",
+                "UnderlyingInstrumentIndexTermUnit",
+                "UnderlyingCreditIndexSeries",
+                "UnderlyingCreditIndexVersion"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "UnderlyingIssuerType": {
+          "default": "Corporate",
+          "title": "Underlying Issuer Type",
+          "description": "The underlying issuer type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Corporate",
+            "Sovereign",
+            "Local"
+          ]
+        },
+        "DeliveryType": {
+          "default": "OPTL",
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": "an independently administered synthetic auction process on a set of defined deliverable obligations that sets a reference final price that can be used to facilitate cash settlement of all covered transactions following a credit event"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Auction"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Underlying",
+        "UnderlyingIssuerType",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "TemplateVersion",
+    "Header",
+    "Identifier",
+    "Derived",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}
