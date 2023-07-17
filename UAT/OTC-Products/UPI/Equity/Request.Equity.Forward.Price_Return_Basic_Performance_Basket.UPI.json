@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Request.Equity.Forward.Price_Return_Basic_Performance_Basket.UPI",
+  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "description": "Request template for Equity Forward Price_Return_Basic_Performance_Basket",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Equity"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Forward"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Price_Return_Basic_Performance_Basket"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "ReturnorPayoutTrigger": {
+          "default": "Forward price of underlying instrument",
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Spreadbets",
+            "Forward price of underlying instrument"
+          ],
+          "elaboration": {
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+            "Forward price of underlying instrument": "Forward price of underlying instrument"
+          }
+        },
+        "DeliveryType": {
+          "default": "PHYS",
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical"
+            ]
+          }
+        }
+      },
+      "required": [
+        "ReturnorPayoutTrigger",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "Header",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}

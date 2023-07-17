@@ -1,0 +1,373 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Equity.Option.Single_Name.InstRefDataReporting.V2",
+  "LastModifyDateTime": "2023-03-15T10:44:43",
+  "description": "Record template for Equity.Option.Single_Name",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "TemplateVersion": {
+      "title": "Template Version",
+      "description": "Template Version",
+      "type": "integer"
+    },
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Equity"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Option"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Single_Name"
+          ]
+        },
+        "Level": {
+          "title": "Level",
+          "description": "Label assigned to the ISIN to describe its level in the hierarchy",
+          "type": "string",
+          "enum": [
+            "InstRefDataReporting"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "ISIN": {
+      "type": "object",
+      "properties": {
+        "ISIN": {
+          "title": "Identification",
+          "description": "International Securities Identification Number (ISO 6166)",
+          "type": "string"
+        },
+        "Status": {
+          "title": "Status",
+          "description": "Status of the ISIN",
+          "type": "string",
+          "enum": [
+            "New",
+            "Updated",
+            "Expired",
+            "Deleted"
+          ],
+          "elaboration": {
+            "New": "New ISIN added to the database",
+            "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
+            "Deleted": "The instrument associated with the ISIN is no longer active"
+          }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for ISIN Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
+        },
+        "Parent": {
+          "title": "Parent",
+          "description": "ISIN of the parent level",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ISIN",
+        "Status",
+        "LastUpdateDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "Derived": {
+      "title": "Derived",
+      "description": "Derived Attributes",
+      "type": "object",
+      "properties": {
+        "FullName": {
+          "title": "Full Name",
+          "description": "Full name of the financial instrument",
+          "type": "string"
+        },
+        "ClassificationType": {
+          "title": "Classification Type",
+          "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
+          "type": "string"
+        },
+        "CommodityDerivativeIndicator": {
+          "title": "Commodity Derivative Indicator",
+          "description": "Indication as to whether the financial instrument falls within the definition of commodities derivative under Article 2(1)(30) of Regulation (EU) No 600/2014 or is a derivative relating to emission allowances referred to in Section C(4) of Annex I to Directive 2014/65/EU",
+          "type": "string"
+        },
+        "IssuerorOperatoroftheTradingVenueIdentifier": {
+          "title": "Issuer or Operator of the Trading Venue Identifier",
+          "description": "ISIN Issuer Long Name",
+          "type": "string"
+        },
+        "ShortName": {
+          "title": "Short Name",
+          "description": "Short name of financial instrument in accordance with ISO 18774",
+          "type": "string"
+        },
+        "UnderlyingAssetType": {
+          "title": "Underlying Asset Type",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Single Stock",
+            "Index",
+            "Basket",
+            "Options",
+            "Forwards",
+            "Futures",
+            "Other"
+          ],
+          "elaboration": {
+            "Single Stock": "an option on a contract which gives the holder the right to buy, respectively to sell, single-named equity",
+            "Index": "an option on a contract which gives the holder the right to buy, respectively to sell, specified equity indices",
+            "Basket": "an option on a contract that may be exercised based on the weighted average performance of several underlying equities instruments",
+            "Options": "Options",
+            "Forwards": "Forwards",
+            "Futures": "Futures",
+            "Other": "Miscellaneous"
+          }
+        },
+        "StrikePriceCurrency": {
+          "$ref": "../../codesets/ISOCurrencyCode.json",
+          "title": "Strike Price Currency",
+          "description": "Currency code of the Strike price"
+        }
+      },
+      "required": [
+        "FullName",
+        "ClassificationType",
+        "CommodityDerivativeIndicator",
+        "IssuerorOperatoroftheTradingVenueIdentifier",
+        "ShortName",
+        "UnderlyingAssetType"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "NotionalCurrency": {
+          "$ref": "../../codesets/ISOCurrencyCode.json",
+          "title": "Notional Currency",
+          "description": "Currency in which the notional is denominated. Usage: Within MiFIR, in the case of an interest rate or currency derivative contract, this will be the notional currency of leg 1 or the currency 1 of the pair. Within MiFIR, in the case of swaptions where the underlying swap is single-currency, this will be the notional currency of the underlying swap. For swaptions where the underlying is multi-currency, this will be the notional currency of leg 1 of the swap"
+        },
+        "ExpiryDate": {
+          "title": "Expiry Date",
+          "description": "Expiry date of the instrument (YYYY-MM-DD)",
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+          "format": "date"
+        },
+        "UnderlyingInstrumentISIN": {
+          "title": "Underlying Instrument ISIN",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "title": "Underlying Instrument ISIN",
+            "description": "ISIN code of the underlying instrument",
+            "type": "string",
+            "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+          }
+        },
+        "OptionType": {
+          "title": "Option Type",
+          "description": "Indication as to whether the derivative contract is a call (right to purchase a specific underlying asset) or a put (right to sell a specific underlying asset) or whether it is a chooser (right to decide whether it is a call or put prior to the expiration date)",
+          "type": "string",
+          "enum": [
+            "CALL",
+            "PUTO",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CALL": "An option on a contract which allows its holder (buyer) to exercise the right to buy specified assets (product)",
+            "PUTO": "An option on a contract which allows its holder (buyer) to exercise the right to sell specified assets (product)",
+            "OPTL": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product); The buyer does not have to decide whether the contract will be a put or a call until an agreed future date, prior to expiration"
+          },
+          "options": {
+            "enum_titles": [
+              "Call",
+              "Put",
+              "Chooser"
+            ]
+          }
+        },
+        "OptionExerciseStyle": {
+          "title": "Option Exercise Style",
+          "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
+          "type": "string",
+          "enum": [
+            "AMER",
+            "BERM",
+            "EURO"
+          ],
+          "elaboration": {
+            "AMER": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product) at a fixed price at any time during the term of the put option, up to and including the expiration date of the contract",
+            "BERM": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product) at a fixed price on a number of specific dates within the exercise period of the contract",
+            "EURO": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product) at a fixed price, only on the contract's expiration date"
+          },
+          "options": {
+            "enum_titles": [
+              "American",
+              "Bermudan",
+              "European"
+            ]
+          }
+        },
+        "ValuationMethodorTrigger": {
+          "title": "Valuation Method or Trigger",
+          "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Vanilla",
+            "Asian",
+            "Digital (Binary)",
+            "Barrier",
+            "Digital Barrier",
+            "Lookback",
+            "Other Path Dependent",
+            "Other"
+          ],
+          "elaboration": {
+            "Vanilla": "an option for which all terms are standardized",
+            "Asian": "an option where either the strike price or the settlement price is the average level of an underlying instrument over a predetermined period; the averaging can be either a geometric or arithmetic average",
+            "Digital (Binary)": "an option that has a pre-determined payout if the option is in-the-money and the payoff condition is satisfied; also referred to as a \"binary option\" or an \"all-or-nothing option\"",
+            "Barrier": "an option whose final exercise depends upon the path taken by the price of an underlying instrument; for a knockout barrier option, the option is cancelled if the underlying price crosses a predetermined barrier level; for a knock-in barrier option, the option becomes available-for-exercise if the underlying price crosses a predetermined barrier level",
+            "Digital Barrier": "a digital option embedded with a barrier option; there are different variations of this type of option; as an example, a down-and-out digital call option will pay a fixed payoff, or the underlying, at any time before maturity that the underlying price is equal to or greater than the barrier level; it will pay zero if the underlying price is less than the barrier level",
+            "Lookback": "an option that minimizes the uncertainties related to the timing of market entry; there are two types of lookback options: fixed and floating; the fixed option strike is determined at purchase, and the floating option strike is determined at maturity",
+            "Other Path Dependent": "an option on a contract whose payoff is directly related to the price pattern the underlying asset follows during the life of the contract",
+            "Other": "Miscellaneous"
+          }
+        },
+        "DeliveryType": {
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Elect at Exercise"
+            ]
+          }
+        },
+        "StrikePriceType": {
+          "title": "StrikePriceType",
+          "type": "object",
+          "properties": {
+            "StrikePriceType": {
+              "title": "Strike Price Type",
+              "description": "Strike Price Type",
+              "type": "string",
+              "enum": [
+                "Monetary Value",
+                "Percentage",
+                "Yield",
+                "Basis Points"
+              ],
+              "elaboration": {
+                "Monetary Value": "Monetary Value",
+                "Percentage": "Percentage",
+                "Yield": "Yield",
+                "Basis Points": "Basis Points"
+              },
+              "options": {
+                "enum_titles": [
+                  "Monetary Value",
+                  "Percentage",
+                  "Yield",
+                  "Basis Points"
+                ]
+              }
+            },
+            "StrikePrice": {
+              "title": "Strike Price",
+              "description": "Predetermined price at which the holder will have to buy or sell the underlying instrument, or an indication that the price cannot be determined at the time of execution",
+              "type": "number",
+              "highPrecisionNumber": true,
+              "minimum": -1000000000000000000,
+              "exclusiveMinimum": true,
+              "maximum": 1000000000000000000,
+              "exclusiveMaximum": true
+            }
+          },
+          "required": [
+            "StrikePriceType",
+            "StrikePrice"
+          ],
+          "additionalProperties": false
+        },
+        "PriceMultiplier": {
+          "default": 1,
+          "title": "Price Multiplier",
+          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        }
+      },
+      "required": [
+        "NotionalCurrency",
+        "ExpiryDate",
+        "UnderlyingInstrumentISIN",
+        "OptionType",
+        "OptionExerciseStyle",
+        "ValuationMethodorTrigger",
+        "DeliveryType",
+        "StrikePriceType",
+        "PriceMultiplier"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "TemplateVersion",
+    "Header",
+    "ISIN",
+    "Derived",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}
