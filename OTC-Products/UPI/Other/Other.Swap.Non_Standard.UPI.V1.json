@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Swap.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2023-03-28T03:23:39",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Record template for Other.Swap.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -9,7 +9,10 @@
     "TemplateVersion": {
       "title": "Template Version",
       "description": "Template Version",
-      "type": "integer"
+      "type": [
+        "string",
+        "integer"
+      ]
     },
     "Header": {
       "title": "Header",
@@ -389,7 +392,7 @@
                   "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
                 },
                 "UnderlyingInstrumentIndex": {
-                  "$ref": "../../codesets/EsmaEquityIndex.json",
+                  "$ref": "../../codesets/EquityIndex.json",
                   "title": "Underlying Instrument Index",
                   "description": "Name of the index on which the financial instrument is based"
                 },
@@ -484,7 +487,7 @@
                   "type": "string"
                 },
                 "UnderlyingInstrumentIndex": {
-                  "$ref": "../../codesets/MrktCreditIndex.json",
+                  "$ref": "../../codesets/CreditIndex.json",
                   "title": "Underlying Instrument Index",
                   "description": "Name of the index on which the financial instrument is based"
                 },
@@ -1113,7 +1116,7 @@
                   }
                 },
                 "ReferenceRate": {
-                  "$ref": "../../codesets/ISDACommoditiesReferenceRate.json",
+                  "$ref": "../../codesets/CommoditiesReferenceRate.json",
                   "title": "Reference Rate",
                   "description": "Identifies the reference index for the instrument"
                 },
@@ -1161,7 +1164,7 @@
                   }
                 },
                 "OtherReferenceRate": {
-                  "$ref": "../../codesets/ISDACommoditiesReferenceRate.json",
+                  "$ref": "../../codesets/CommoditiesReferenceRate.json",
                   "title": "Other Reference Rate",
                   "description": "Identifies the reference index for the instrument"
                 },

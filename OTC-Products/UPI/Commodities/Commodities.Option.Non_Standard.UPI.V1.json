@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Commodities.Option.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Record template for Commodities.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -9,7 +9,10 @@
     "TemplateVersion": {
       "title": "Template Version",
       "description": "Template Version",
-      "type": "integer"
+      "type": [
+        "string",
+        "integer"
+      ]
     },
     "Header": {
       "title": "Header",
@@ -124,7 +127,41 @@
         "UnderlyingAssetType": {
           "title": "Underlying Asset Type",
           "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "Energy",
+            "Metals",
+            "Agriculture",
+            "Environmental",
+            "Freight",
+            "Polypropylene Products",
+            "Paper",
+            "Fertilizer",
+            "Index",
+            "Multi Commodity",
+            "Options",
+            "Forwards",
+            "Futures",
+            "Swap",
+            "Other"
+          ],
+          "elaboration": {
+            "Energy": "Energy",
+            "Metals": "Metals",
+            "Agriculture": "Agriculture",
+            "Environmental": "Environmental",
+            "Freight": "Freight",
+            "Polypropylene Products": "Polypropylene Products",
+            "Paper": "Paper",
+            "Fertilizer": "Fertilizer",
+            "Index": "Index",
+            "Multi Commodity": "Multi Commodity",
+            "Options": "Options",
+            "Forwards": "Forwards",
+            "Futures": "Futures",
+            "Swap": "Swap",
+            "Other": "Other"
+          }
         },
         "CFIDeliveryType": {
           "title": "CFI Delivery Type",
@@ -202,33 +239,43 @@
     "Attributes": {
       "type": "object",
       "properties": {
-        "UnderlierCharacteristic": {
-          "title": "Underlier Characteristic",
-          "description": "An attribute that is used to specify whether the product is based on a single or multiple underliers.",
-          "type": "string",
-          "enum": [
-            "Single",
-            "Basket"
+        "Underlying": {
+          "title": "Underlying",
+          "type": "object",
+          "properties": {
+            "UnderlierCharacteristic": {
+              "title": "Underlier Characteristic",
+              "description": "An attribute that is used to specify whether the product is based on a single or multiple underliers.",
+              "type": "string",
+              "enum": [
+                "Single",
+                "Basket"
+              ],
+              "elaboration": {
+                "Single": "In case the product has single underlier",
+                "Basket": "In case the product has multiple underliers"
+              }
+            },
+            "UnderlyingInstrumentIndex": {
+              "$ref": "../../codesets/CommoditiesIndex.json",
+              "title": "Underlying Instrument Index",
+              "description": "Underlying Instrument Index"
+            },
+            "UnderlyingInstrumentIndexProp": {
+              "title": "Underlying Instrument Index Prop",
+              "description": "Underlying Instrument Index Prop",
+              "type": "string"
+            },
+            "ReferenceRate": {
+              "$ref": "../../codesets/CommoditiesReferenceRate.json",
+              "title": "Reference Rate",
+              "description": "Identifies the reference rate for the instrument"
+            }
+          },
+          "required": [
+            "UnderlierCharacteristic"
           ],
-          "elaboration": {
-            "Single": "In case the product has single underlier",
-            "Basket": "In case the product has multiple underliers"
-          }
-        },
-        "UnderlyingInstrumentIndex": {
-          "$ref": "../../codesets/CommoditiesIndex.json",
-          "title": "Underlying Instrument Index",
-          "description": "Underlying Instrument Index"
-        },
-        "UnderlyingInstrumentIndexProp": {
-          "title": "Underlying Instrument Index Prop",
-          "description": "Underlying Instrument Index Prop",
-          "type": "string"
-        },
-        "ReferenceRate": {
-          "$ref": "../../codesets/ISDACommoditiesReferenceRate.json",
-          "title": "Reference Rate",
-          "description": "Identifies the reference index for the instrument"
+          "additionalProperties": false
         },
         "NotionalCurrency": {
           "$ref": "../../codesets/ISOCurrencyCode.json",
@@ -331,19 +378,19 @@
           "elaboration": {
             "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
             "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
-            "OPTL": "determined at the time of settlement"
+            "OPTL": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise"
           },
           "options": {
             "enum_titles": [
               "Cash",
               "Physical",
-              "Elect at Settlement"
+              "Elect at Exercise"
             ]
           }
         }
       },
       "required": [
-        "UnderlierCharacteristic",
+        "Underlying",
         "NotionalCurrency",
         "OptionType",
         "OptionExerciseStyle",

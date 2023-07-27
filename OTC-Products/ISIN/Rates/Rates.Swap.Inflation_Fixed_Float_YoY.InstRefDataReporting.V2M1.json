@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Swap.Inflation_Fixed_Float_YoY.InstRefDataReporting.V2M1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Record template for Rates.Swap.Inflation_Fixed_Float_YoY",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -105,17 +105,13 @@
               "type": "string"
             }
           },
-          "required": [
-            "UPI"
-          ],
           "additionalProperties": false
         }
       },
       "required": [
         "ISIN",
         "Status",
-        "LastUpdateDateTime",
-        "Parents"
+        "LastUpdateDateTime"
       ],
       "additionalProperties": false
     },

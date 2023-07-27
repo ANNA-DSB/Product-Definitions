@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Credit.Forward.Non_Standard.InstRefDataReporting.V1M1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Record template for Credit.Forward.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -105,17 +105,13 @@
               "type": "string"
             }
           },
-          "required": [
-            "UPI"
-          ],
           "additionalProperties": false
         }
       },
       "required": [
         "ISIN",
         "Status",
-        "LastUpdateDateTime",
-        "Parents"
+        "LastUpdateDateTime"
       ],
       "additionalProperties": false
     },
@@ -161,25 +157,6 @@
           "title": "Short Name",
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
-        },
-        "ISODeliveryType": {
-          "title": "ISO Delivery Type",
-          "description": "ISO Delivery Type",
-          "type": "string",
-          "enum": [
-            "CASH",
-            "PHYS"
-          ],
-          "elaboration": {
-            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
-            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
-          },
-          "options": {
-            "enum_titles": [
-              "Cash",
-              "Physical"
-            ]
-          }
         }
       },
       "required": [
@@ -188,8 +165,7 @@
         "CommodityDerivativeIndicator",
         "UnderlyingAssetType",
         "IssuerorOperatoroftheTradingVenueIdentifier",
-        "ShortName",
-        "ISODeliveryType"
+        "ShortName"
       ],
       "additionalProperties": false
     },
@@ -221,12 +197,12 @@
           "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
           "enum": [
-            "Cash",
-            "Physical"
+            "CASH",
+            "PHYS"
           ],
           "elaboration": {
-            "Cash": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
-            "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
           },
           "options": {
             "enum_titles": [

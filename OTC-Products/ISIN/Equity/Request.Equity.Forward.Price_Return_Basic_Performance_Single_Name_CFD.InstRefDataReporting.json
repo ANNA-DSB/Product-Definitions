@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Forward.Price_Return_Basic_Performance_Single_Name_CFD.InstRefDataReporting",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2022-11-29T16:13:05",
   "description": "Request template for Equity Forward Price_Return_Basic_Performance_Single_Name_CFD",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -68,9 +68,16 @@
         },
         "UnderlyingInstrumentISIN": {
           "title": "Underlying Instrument ISIN",
-          "description": "ISIN code of the underlying instrument",
-          "type": "string",
-          "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "title": "Underlying Instrument ISIN",
+            "description": "ISIN code of the underlying instrument",
+            "type": "string",
+            "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+          }
         },
         "PriceMultiplier": {
           "default": 1,

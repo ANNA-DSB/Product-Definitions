@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Option.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2022-11-29T16:13:05",
   "description": "Request template for Credit Option Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -112,7 +112,7 @@
               "uniqueItems": true,
               "minItems": 1,
               "items": {
-                "$ref": "../../codesets/MrktCreditIndex.json",
+                "$ref": "../../codesets/FpmlCreditIndex.json",
                 "title": "Underlying Instrument Index",
                 "description": "Name of the index on which the financial instrument is based"
               }
@@ -212,7 +212,7 @@
         },
         "OptionExerciseStyle": {
           "title": "Option Exercise Style",
-          "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
+          "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
           "enum": [
             "AMER",

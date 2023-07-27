@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Option.Non_Standard.InstRefDataReporting.V2",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2020-08-05T10:37:37",
   "description": "Record template for Other.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -57,31 +57,28 @@
       "additionalProperties": false
     },
     "ISIN": {
-      "title": "Identifier",
       "type": "object",
       "properties": {
         "ISIN": {
-          "title": "ISIN",
+          "title": "Identification",
           "description": "International Securities Identification Number (ISO 6166)",
           "type": "string"
         },
         "Status": {
           "title": "Status",
-          "description": "Status of the Record",
+          "description": "Status of the ISIN",
           "type": "string",
           "enum": [
             "New",
             "Updated",
             "Expired",
-            "Deleted",
-            "Deprecated"
+            "Deleted"
           ],
           "elaboration": {
-            "New": "New record added to the database",
-            "Updated": "One/several of the fields in the record is/are updated",
-            "Expired": "Record that has already matured relative of the specified Expiry Date",
-            "Deleted": "The identifier is deleted and no longer active",
-            "Deprecated": "The record does not meet the requirements of the product template"
+            "New": "New ISIN added to the database",
+            "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
+            "Deleted": "The instrument associated with the ISIN is no longer active"
           }
         },
         "StatusReason": {
@@ -932,7 +929,7 @@
         },
         "OptionExerciseStyle": {
           "title": "Option Exercise Style",
-          "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
+          "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
           "enum": [
             "AMER",
@@ -984,24 +981,21 @@
           "enum": [
             "Cash",
             "Physical",
-            "Auction",
             "Elect at Exercise",
-            "Non-Deliverable"
+            "Auction"
           ],
           "elaboration": {
             "Cash": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
             "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
-            "Auction": "an independently administered synthetic auction process on a set of defined deliverable obligations that sets a reference final price that can be used to facilitate cash settlement of all covered transactions following a credit event",
             "Elect at Exercise": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise",
-            "Non-Deliverable": "The Delivery Type as defined by CFI code: ISO 10962 (2015)"
+            "Auction": "an independently administered synthetic auction process on a set of defined deliverable obligations that sets a reference final price that can be used to facilitate cash settlement of all covered transactions following a credit event"
           },
           "options": {
             "enum_titles": [
               "Cash",
               "Physical",
-              "Auction",
               "Elect at Exercise",
-              "Non-Deliverable"
+              "Auction"
             ]
           }
         },
@@ -1092,7 +1086,7 @@
           "uniqueItems": true,
           "minItems": 1,
           "items": {
-            "$ref": "../../codesets/ISDACommoditiesReferenceRate.json",
+            "$ref": "../../codesets/FpmlCommoditiesReferenceRate.json",
             "title": "Reference Rate",
             "description": "Identifies the reference rate for the instrument"
           }
@@ -1102,7 +1096,7 @@
           "uniqueItems": true,
           "minItems": 1,
           "items": {
-            "$ref": "../../codesets/ISDACommoditiesReferenceRate.json",
+            "$ref": "../../codesets/FpmlCommoditiesReferenceRate.json",
             "title": "Reference Rate",
             "description": "Identifies the reference rate for the instrument"
           }

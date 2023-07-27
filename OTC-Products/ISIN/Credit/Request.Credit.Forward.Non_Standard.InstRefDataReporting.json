@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Forward.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Request template for Credit Forward Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -79,12 +79,12 @@
           "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
           "enum": [
-            "Cash",
-            "Physical"
+            "CASH",
+            "PHYS"
           ],
           "elaboration": {
-            "Cash": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
-            "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
           },
           "options": {
             "enum_titles": [

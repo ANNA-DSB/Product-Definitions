@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Commodities.Forward.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Record template for Commodities.Forward.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -9,7 +9,10 @@
     "TemplateVersion": {
       "title": "Template Version",
       "description": "Template Version",
-      "type": "integer"
+      "type": [
+        "string",
+        "integer"
+      ]
     },
     "Header": {
       "title": "Header",
@@ -158,33 +161,43 @@
     "Attributes": {
       "type": "object",
       "properties": {
-        "UnderlierCharacteristic": {
-          "title": "Underlier Characteristic",
-          "description": "An attribute that is used to specify whether the product is based on a single or multiple underliers.",
-          "type": "string",
-          "enum": [
-            "Single",
-            "Basket"
+        "Underlying": {
+          "title": "Underlying",
+          "type": "object",
+          "properties": {
+            "UnderlierCharacteristic": {
+              "title": "Underlier Characteristic",
+              "description": "An attribute that is used to specify whether the product is based on a single or multiple underliers.",
+              "type": "string",
+              "enum": [
+                "Single",
+                "Basket"
+              ],
+              "elaboration": {
+                "Single": "In case the product has single underlier",
+                "Basket": "In case the product has multiple underliers"
+              }
+            },
+            "UnderlyingInstrumentIndex": {
+              "$ref": "../../codesets/CommoditiesIndex.json",
+              "title": "Underlying Instrument Index",
+              "description": "Underlying Instrument Index"
+            },
+            "UnderlyingInstrumentIndexProp": {
+              "title": "Underlying Instrument Index Prop",
+              "description": "Underlying Instrument Index Prop",
+              "type": "string"
+            },
+            "ReferenceRate": {
+              "$ref": "../../codesets/CommoditiesReferenceRate.json",
+              "title": "Reference Rate",
+              "description": "Identifies the reference rate for the instrument"
+            }
+          },
+          "required": [
+            "UnderlierCharacteristic"
           ],
-          "elaboration": {
-            "Single": "In case the product has single underlier",
-            "Basket": "In case the product has multiple underliers"
-          }
-        },
-        "UnderlyingInstrumentIndex": {
-          "$ref": "../../codesets/CommoditiesIndex.json",
-          "title": "Underlying Instrument Index",
-          "description": "Underlying Instrument Index"
-        },
-        "UnderlyingInstrumentIndexProp": {
-          "title": "Underlying Instrument Index Prop",
-          "description": "Underlying Instrument Index Prop",
-          "type": "string"
-        },
-        "ReferenceRate": {
-          "$ref": "../../codesets/ISDACommoditiesReferenceRate.json",
-          "title": "Reference Rate",
-          "description": "Identifies the reference index for the instrument"
+          "additionalProperties": false
         },
         "NotionalCurrency": {
           "$ref": "../../codesets/ISOCurrencyCode.json",
@@ -240,7 +253,7 @@
         }
       },
       "required": [
-        "UnderlierCharacteristic",
+        "Underlying",
         "NotionalCurrency",
         "ReturnorPayoutTrigger",
         "DeliveryType"
