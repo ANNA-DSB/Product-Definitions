@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Option.NDO.InstRefDataReporting.V1",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2022-05-17T14:49:44",
   "description": "Record template for Foreign_Exchange.Option.NDO",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -57,31 +57,28 @@
       "additionalProperties": false
     },
     "ISIN": {
-      "title": "Identifier",
       "type": "object",
       "properties": {
         "ISIN": {
-          "title": "ISIN",
+          "title": "Identification",
           "description": "International Securities Identification Number (ISO 6166)",
           "type": "string"
         },
         "Status": {
           "title": "Status",
-          "description": "Status of the Record",
+          "description": "Status of the ISIN",
           "type": "string",
           "enum": [
             "New",
             "Updated",
             "Expired",
-            "Deleted",
-            "Deprecated"
+            "Deleted"
           ],
           "elaboration": {
-            "New": "New record added to the database",
-            "Updated": "One/several of the fields in the record is/are updated",
-            "Expired": "Record that has already matured relative of the specified Expiry Date",
-            "Deleted": "The identifier is deleted and no longer active",
-            "Deprecated": "The record does not meet the requirements of the product template"
+            "New": "New ISIN added to the database",
+            "Updated": "One/several of the fields in the ISIN record is/are updated",
+            "Expired": "ISIN that has already matured relative of the specified Expiry Date",
+            "Deleted": "The instrument associated with the ISIN is no longer active"
           }
         },
         "StatusReason": {
@@ -223,7 +220,7 @@
         },
         "OptionExerciseStyle": {
           "title": "Option Exercise Style",
-          "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
+          "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
           "enum": [
             "AMER",

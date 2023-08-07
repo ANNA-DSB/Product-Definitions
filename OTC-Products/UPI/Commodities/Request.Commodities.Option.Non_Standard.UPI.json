@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Option.Non_Standard.UPI",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Request template for Commodities Forward Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -95,7 +95,7 @@
                           }
                         },
                         "UnderlierID": {
-                          "$ref": "../../codesets/ISDACommoditiesReferenceRate.json",
+                          "$ref": "../../codesets/CommoditiesReferenceRate.json",
                           "title": "Underlier ID",
                           "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index"
                         }
@@ -1703,13 +1703,13 @@
           "elaboration": {
             "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
             "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
-            "OPTL": "determined at the time of settlement"
+            "OPTL": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise"
           },
           "options": {
             "enum_titles": [
               "Cash",
               "Physical",
-              "Elect at Settlement"
+              "Elect at Exercise"
             ]
           }
         }

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2023-03-10T09:17:09",
+  "LastModifyDateTime": "2022-11-29T16:13:05",
   "description": "Request template for Equity Swap Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -88,7 +88,7 @@
               "uniqueItems": true,
               "minItems": 0,
               "items": {
-                "$ref": "../../codesets/EsmaEquityIndex.json",
+                "$ref": "../../codesets/FpmlEquityIndex.json",
                 "title": "Underlying Instrument Index",
                 "description": "Name of the index on which the financial instrument is based"
               }
@@ -110,7 +110,7 @@
               "uniqueItems": true,
               "minItems": 1,
               "items": {
-                "title": "Underlying Instrument ISIN",
+                "title": " Underlying Instrument ISIN",
                 "description": "Underlying Instrument ISIN",
                 "type": "string",
                 "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"

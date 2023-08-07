@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Price_Return_Basic_Performance_Single_Index_CFD.InstRefDataReporting",
-  "LastModifyDateTime": "2023-03-10T09:17:09",
+  "LastModifyDateTime": "2022-11-29T16:13:05",
   "description": "Request template for Equity Swap Price_Return_Basic_Performance_Single_Index_CFD",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -75,9 +75,16 @@
               "title": "UnderlyingInstrumentIndex",
               "properties": {
                 "UnderlyingInstrumentIndex": {
-                  "$ref": "../../codesets/EsmaEquityIndex.json",
                   "title": "Underlying Instrument Index",
-                  "description": "Name of the index on which the financial instrument is based"
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "maxItems": 1,
+                  "items": {
+                    "$ref": "../../codesets/FpmlEquityIndex.json",
+                    "title": "Underlying Instrument Index",
+                    "description": "Name of the index on which the financial instrument is based"
+                  }
                 }
               },
               "required": [
@@ -91,8 +98,15 @@
               "properties": {
                 "UnderlyingInstrumentIndexProp": {
                   "title": "Underlying Instrument Index Prop",
-                  "description": "Underlying Instrument Index Prop",
-                  "type": "string"
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "maxItems": 1,
+                  "items": {
+                    "title": "Underlying Instrument Index Prop",
+                    "description": "Underlying Instrument Index Prop",
+                    "type": "string"
+                  }
                 }
               },
               "required": [
@@ -106,9 +120,16 @@
               "properties": {
                 "UnderlyingInstrumentISIN": {
                   "title": "Underlying Instrument ISIN",
-                  "description": "Underlying Instrument ISIN",
-                  "type": "string",
-                  "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "maxItems": 1,
+                  "items": {
+                    "title": "Underlying Instrument ISIN",
+                    "description": "Underlying Instrument ISIN",
+                    "type": "string",
+                    "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+                  }
                 }
               },
               "required": [

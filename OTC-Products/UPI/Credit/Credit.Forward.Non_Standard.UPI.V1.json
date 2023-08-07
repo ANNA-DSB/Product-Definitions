@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Credit.Forward.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2023-03-28T03:23:39",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Record template for Credit.Forward.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -9,7 +9,10 @@
     "TemplateVersion": {
       "title": "Template Version",
       "description": "Template Version",
-      "type": "integer"
+      "type": [
+        "string",
+        "integer"
+      ]
     },
     "Header": {
       "title": "Header",
