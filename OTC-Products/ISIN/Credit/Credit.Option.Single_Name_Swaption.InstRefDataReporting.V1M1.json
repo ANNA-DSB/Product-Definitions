@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Credit.Option.Single_Name_Swaption.InstRefDataReporting.V1M1",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2023-08-08T15:07:00",
   "description": "Record template for Credit.Option.Single_Name_Swaption",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -194,7 +194,7 @@
           "title": "Underlying Instrument ISIN",
           "description": "ISIN code of the underlying instrument",
           "type": "string",
-          "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+          "pattern": "^[EZ]{2}[A-Z0-9]{9}[0-9]$"
         },
         "OptionType": {
           "title": "Option Type",
