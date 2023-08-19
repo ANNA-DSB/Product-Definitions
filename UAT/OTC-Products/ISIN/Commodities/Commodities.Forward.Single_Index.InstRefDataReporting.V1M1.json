@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Commodities.Forward.Single_Index.InstRefDataReporting.V1M1",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2023-08-14T09:10:39",
   "description": "Record template for Commodities.Forward.Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
