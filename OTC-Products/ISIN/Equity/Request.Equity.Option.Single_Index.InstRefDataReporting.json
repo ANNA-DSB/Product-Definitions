@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Option.Single_Index.InstRefDataReporting",
-  "LastModifyDateTime": "2022-11-29T16:13:05",
+  "LastModifyDateTime": "2023-08-11T10:22:06",
   "description": "Request template for Equity Option Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -75,16 +75,9 @@
               "title": "UnderlyingInstrumentIndex",
               "properties": {
                 "UnderlyingInstrumentIndex": {
+                  "$ref": "../../codesets/EquityIndex.json",
                   "title": "Underlying Instrument Index",
-                  "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
-                  "maxItems": 1,
-                  "items": {
-                    "$ref": "../../codesets/FpmlEquityIndex.json",
-                    "title": "Underlying Instrument Index",
-                    "description": "Name of the index on which the financial instrument is based"
-                  }
+                  "description": "Name of the index on which the financial instrument is based"
                 }
               },
               "required": [
@@ -98,15 +91,8 @@
               "properties": {
                 "UnderlyingInstrumentIndexProp": {
                   "title": "Underlying Instrument Index Prop",
-                  "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
-                  "maxItems": 1,
-                  "items": {
-                    "title": "Underlying Instrument Index Prop",
-                    "description": "Underlying Instrument Index Prop",
-                    "type": "string"
-                  }
+                  "description": "Underlying Instrument Index Prop",
+                  "type": "string"
                 }
               },
               "required": [
@@ -120,16 +106,9 @@
               "properties": {
                 "UnderlyingInstrumentISIN": {
                   "title": "Underlying Instrument ISIN",
-                  "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
-                  "maxItems": 1,
-                  "items": {
-                    "title": "Underlying Instrument ISIN",
-                    "description": "Underlying Instrument ISIN",
-                    "type": "string",
-                    "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
-                  }
+                  "description": "Underlying Instrument ISIN",
+                  "type": "string",
+                  "pattern": "^$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
                 }
               },
               "required": [
@@ -209,7 +188,7 @@
         },
         "OptionExerciseStyle": {
           "title": "Option Exercise Style",
-          "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
+          "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
           "enum": [
             "AMER",
