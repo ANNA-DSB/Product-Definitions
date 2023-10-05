@@ -1,0 +1,203 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Request.Commodities.Forward.Single_Index.UPI",
+  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "description": "Request template for Commodities Forward Single_Index",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Commodities"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Forward"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Single_Index"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "Underlying": {
+          "title": "Underlier Type",
+          "description": "Indicates the type of underlying asset or entity on which the product is based.",
+          "minProperties": 1,
+          "type": "object",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "Commodity Index",
+              "properties": {
+                "UnderlierIDSource": {
+                  "title": "Underlier ID Source",
+                  "description": "The origin, or publisher, of the associated underlier ID.",
+                  "type": "string",
+                  "enum": [
+                    "COIDX"
+                  ],
+                  "elaboration": {
+                    "COIDX": "Commodity Index"
+                  }
+                },
+                "UnderlierID": {
+                  "$ref": "../../codesets/CommoditiesIndex.json",
+                  "title": "Underlier ID",
+                  "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index"
+                }
+              },
+              "required": [
+                "UnderlierIDSource",
+                "UnderlierID"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "title": "Proprietary Index",
+              "properties": {
+                "UnderlierIDSource": {
+                  "title": "Underlier ID Source",
+                  "description": "The origin, or publisher, of the associated underlier ID.",
+                  "type": "string",
+                  "enum": [
+                    "PROP"
+                  ],
+                  "elaboration": {
+                    "PROP": "Underlying Instrument Index Prop"
+                  }
+                },
+                "UnderlierID": {
+                  "title": "Underlier ID",
+                  "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierIDSource",
+                "UnderlierID"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "BaseProduct": {
+          "title": "Base Product",
+          "description": "Base product taxonomy of commodity product",
+          "type": "string",
+          "enum": [
+            "AGRI",
+            "NRGY",
+            "ENVR",
+            "FRGT",
+            "FRTL",
+            "INDP",
+            "INFL",
+            "OEST",
+            "METL",
+            "PAPR",
+            "POLY",
+            "OTHC",
+            "OTHR"
+          ],
+          "options": {
+            "enum_titles": [
+              "Agricultural[AGRI]",
+              "Energy[NRGY]",
+              "Environmental[ENVR]",
+              "Freight[FRGT]",
+              "Fertilizer[FRTL]",
+              "IndustrialProduct[INDP]",
+              "Inflation[INFL]",
+              "OfficialEconomicStatistics[OEST]",
+              "Metal[METL]",
+              "Paper[PAPR]",
+              "Polypropylene[POLY]",
+              "OtherC10[OTHC]",
+              "Other[OTHR]"
+            ]
+          }
+        },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Contract for Difference (CFD)",
+            "Forward price of underlying instrument"
+          ],
+          "elaboration": {
+            "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
+            "Forward price of underlying instrument": "Forward price of underlying instrument"
+          }
+        },
+        "DeliveryType": {
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Underlying",
+        "BaseProduct",
+        "ReturnorPayoutTrigger",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "Header",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}
