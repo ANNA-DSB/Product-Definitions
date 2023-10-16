@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Other.Option.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2023-02-10T13:58:41",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Request template for Other Option Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -93,7 +93,7 @@
         },
         "OptionExerciseStyle": {
           "title": "Option Exercise Style",
-          "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
+          "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
           "enum": [
             "AMER",
@@ -154,7 +154,7 @@
             "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
             "Elect at Exercise": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise",
             "Auction": "an independently administered synthetic auction process on a set of defined deliverable obligations that sets a reference final price that can be used to facilitate cash settlement of all covered transactions following a credit event",
-            "Non-Deliverable": "as defined by CFI code: ISO 10962 (2015)"
+            "Non-Deliverable": "The Delivery Type as defined by CFI code: ISO 10962 (2015)"
           },
           "options": {
             "enum_titles": [
@@ -1036,7 +1036,7 @@
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "$ref": "../../codesets/FpmlCreditIndex.json",
+                        "$ref": "../../codesets/CreditIndex.json",
                         "title": "Underlying Instrument Index",
                         "description": "Name of the index on which the financial instrument is based"
                       }
@@ -1252,7 +1252,7 @@
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "$ref": "../../codesets/FpmlEquityIndex.json",
+                        "$ref": "../../codesets/EquityIndex.json",
                         "title": "Underlying Instrument Index",
                         "description": "Name of the index on which the financial instrument is based"
                       }
@@ -1338,7 +1338,7 @@
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "$ref": "../../codesets/FpmlCommoditiesReferenceRate.json",
+                        "$ref": "../../codesets/CommoditiesReferenceRate.json",
                         "title": "Reference Rate",
                         "description": "Identifies the reference rate for the instrument"
                       }
@@ -1357,6 +1357,7 @@
                       "properties": {
                         "AGRI": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
@@ -1405,6 +1406,10 @@
                             {
                               "type": "object",
                               "title": "Dairy[DIRY]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "DIRY": {
                                   "options": {
@@ -1424,6 +1429,10 @@
                             {
                               "type": "object",
                               "title": "Forestry[FRST]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "FRST": {
                                   "options": {
@@ -1443,6 +1452,10 @@
                             {
                               "type": "object",
                               "title": "Livestock[LSTK]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "LSTK": {
                                   "options": {
@@ -1462,6 +1475,10 @@
                             {
                               "type": "object",
                               "title": "Seafood[SEAF]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "SEAF": {
                                   "options": {
@@ -1555,6 +1572,10 @@
                             {
                               "type": "object",
                               "title": "Potato[POTA]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "POTA": {
                                   "options": {
@@ -1618,11 +1639,16 @@
                       "properties": {
                         "NRGY": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
                               "type": "object",
                               "title": "Coal[COAL]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "COAL": {
                                   "options": {
@@ -1642,6 +1668,10 @@
                             {
                               "type": "object",
                               "title": "Distillates[DIST]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "DIST": {
                                   "options": {
@@ -1661,6 +1691,10 @@
                             {
                               "type": "object",
                               "title": "InterEnergy[INRG]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "INRG": {
                                   "options": {
@@ -1680,6 +1714,10 @@
                             {
                               "type": "object",
                               "title": "LightEnd[LGHT]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "LGHT": {
                                   "options": {
@@ -1699,6 +1737,10 @@
                             {
                               "type": "object",
                               "title": "RenewableEnergy[RNNG]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "RNNG": {
                                   "options": {
@@ -1890,6 +1932,7 @@
                       "properties": {
                         "ENVR": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
@@ -1936,6 +1979,10 @@
                             {
                               "type": "object",
                               "title": "CarbonRelated[CRBR]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "CRBR": {
                                   "options": {
@@ -1955,6 +2002,10 @@
                             {
                               "type": "object",
                               "title": "Weather[WTHR]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "WTHR": {
                                   "options": {
@@ -1985,6 +2036,7 @@
                       "properties": {
                         "FRGT": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
@@ -2056,6 +2108,10 @@
                             {
                               "type": "object",
                               "title": "ContainerShip[CSHP]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "CSHP": {
                                   "options": {
@@ -2086,11 +2142,16 @@
                       "properties": {
                         "FRTL": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
                               "type": "object",
                               "title": "Ammonia[AMMO]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "AMMO": {
                                   "options": {
@@ -2110,6 +2171,10 @@
                             {
                               "type": "object",
                               "title": "DiammoniumPhosphate[DAPH]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "DAPH": {
                                   "options": {
@@ -2129,6 +2194,10 @@
                             {
                               "type": "object",
                               "title": "Potash[PTSH]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "PTSH": {
                                   "options": {
@@ -2148,6 +2217,10 @@
                             {
                               "type": "object",
                               "title": "Sulphur[SLPH]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "SLPH": {
                                   "options": {
@@ -2167,6 +2240,10 @@
                             {
                               "type": "object",
                               "title": "Urea[UREA]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "UREA": {
                                   "options": {
@@ -2186,6 +2263,10 @@
                             {
                               "type": "object",
                               "title": "UreaAndAmmoniumNitrate[UAAN]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "UAAN": {
                                   "options": {
@@ -2216,11 +2297,16 @@
                       "properties": {
                         "INDP": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
                               "type": "object",
                               "title": "Construction[CSTR]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "CSTR": {
                                   "options": {
@@ -2240,6 +2326,10 @@
                             {
                               "type": "object",
                               "title": "Manufacturing[MFTG]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "MFTG": {
                                   "options": {
@@ -2267,13 +2357,17 @@
                     {
                       "type": "object",
                       "title": "Inflation[INFL]",
+                      "options": {
+                        "disable_properties": true,
+                        "hidden": true
+                      },
                       "properties": {
                         "INFL": {
                           "options": {
                             "disable_properties": true,
                             "hidden": true
                           },
-                          "title": "Sub Product",
+                          "title": " ",
                           "type": "object",
                           "additionalProperties": false
                         }
@@ -2286,13 +2380,17 @@
                     {
                       "type": "object",
                       "title": "OfficialEconomicStatistics[OEST]",
+                      "options": {
+                        "disable_properties": true,
+                        "hidden": true
+                      },
                       "properties": {
                         "OEST": {
                           "options": {
                             "disable_properties": true,
                             "hidden": true
                           },
-                          "title": "Sub Product",
+                          "title": " ",
                           "type": "object",
                           "additionalProperties": false
                         }
@@ -2308,6 +2406,7 @@
                       "properties": {
                         "METL": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
@@ -2419,13 +2518,17 @@
                     {
                       "type": "object",
                       "title": "MultiCommodityExotic[MCEX]",
+                      "options": {
+                        "disable_properties": true,
+                        "hidden": true
+                      },
                       "properties": {
                         "MCEX": {
                           "options": {
                             "disable_properties": true,
                             "hidden": true
                           },
-                          "title": "Sub Product",
+                          "title": " ",
                           "type": "object",
                           "additionalProperties": false
                         }
@@ -2441,11 +2544,16 @@
                       "properties": {
                         "PAPR": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
                               "type": "object",
                               "title": "Containerboard[CBRD]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "CBRD": {
                                   "options": {
@@ -2465,6 +2573,10 @@
                             {
                               "type": "object",
                               "title": "Newsprint[NSPT]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "NSPT": {
                                   "options": {
@@ -2484,6 +2596,10 @@
                             {
                               "type": "object",
                               "title": "Pulp[PULP]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "PULP": {
                                   "options": {
@@ -2503,6 +2619,10 @@
                             {
                               "type": "object",
                               "title": "RecoveredPaper[RCVP]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "RCVP": {
                                   "options": {
@@ -2533,11 +2653,16 @@
                       "properties": {
                         "POLY": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
                               "type": "object",
                               "title": "Plastic[PLST]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "PLST": {
                                   "options": {
@@ -2568,11 +2693,16 @@
                       "properties": {
                         "OTHC": {
                           "title": "Sub Product",
+                          "description": "Sub product taxonomy of commodity product",
                           "type": "object",
                           "oneOf": [
                             {
                               "type": "object",
                               "title": "Deliverable[DLVR]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "DLVR": {
                                   "options": {
@@ -2592,6 +2722,10 @@
                             {
                               "type": "object",
                               "title": "NonDeliverable[NDLV]",
+                              "options": {
+                                "disable_properties": true,
+                                "hidden": true
+                              },
                               "properties": {
                                 "NDLV": {
                                   "options": {
@@ -2619,13 +2753,17 @@
                     {
                       "type": "object",
                       "title": "Other[OTHR]",
+                      "options": {
+                        "disable_properties": true,
+                        "hidden": true
+                      },
                       "properties": {
                         "OTHR": {
                           "options": {
                             "disable_properties": true,
                             "hidden": true
                           },
-                          "title": "Sub Product",
+                          "title": " ",
                           "type": "object",
                           "additionalProperties": false
                         }
@@ -2697,6 +2835,12 @@
                 "TransactionType",
                 "FinalPriceType"
               ],
+              "dependencies": {
+                "BaseProduct": [
+                  "TransactionType",
+                  "FinalPriceType"
+                ]
+              },
               "additionalProperties": false
             }
           },

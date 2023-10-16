@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Forward.Price_Return_Basic_Performance_Basket_CFD.InstRefDataReporting",
-  "LastModifyDateTime": "2023-02-10T13:58:41",
+  "LastModifyDateTime": "2023-07-05T10:13:20",
   "description": "Request template for Equity Forward Price_Return_Basic_Performance_Basket_CFD",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -80,7 +80,7 @@
               "uniqueItems": true,
               "minItems": 0,
               "items": {
-                "$ref": "../../codesets/FpmlEquityIndex.json",
+                "$ref": "../../codesets/EquityIndex.json",
                 "title": "Underlying Instrument Index",
                 "description": "Name of the index on which the financial instrument is based"
               }
