@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Option.Single_Index.InstRefDataReporting",
-  "LastModifyDateTime": "2022-05-17T14:49:44",
+  "LastModifyDateTime": "2023-08-11T10:22:06",
   "description": "Request template for Commodities Option Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -112,15 +112,9 @@
               "title": "UnderlyingInstrumentIndex",
               "properties": {
                 "UnderlyingInstrumentIndex": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "minItems": 1,
-                  "maxItems": 1,
-                  "items": {
-                    "$ref": "../../codesets/CommoditiesIndex.json",
-                    "title": "Underlying Instrument Index",
-                    "description": "Underlying Instrument Index"
-                  }
+                  "$ref": "../../codesets/CommoditiesIndex.json",
+                  "title": "Underlying Instrument Index",
+                  "description": "Underlying Instrument Index"
                 }
               },
               "required": [
@@ -133,15 +127,9 @@
               "title": "UnderlyingInstrumentIndexProp",
               "properties": {
                 "UnderlyingInstrumentIndexProp": {
-                  "type": "array",
-                  "uniqueItems": false,
-                  "minItems": 1,
-                  "maxItems": 1,
-                  "items": {
-                    "title": "Underlying Instrument Index Prop",
-                    "description": "Underlying Instrument Index Prop",
-                    "type": "string"
-                  }
+                  "title": "Underlying Instrument Index Prop",
+                  "description": "Underlying Instrument Index Prop",
+                  "type": "string"
                 }
               },
               "required": [
@@ -175,7 +163,7 @@
         },
         "OptionExerciseStyle": {
           "title": "Option Exercise Style",
-          "description": "Indicates when the option can be execercised. A Bermudan option can be execercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
+          "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
           "type": "string",
           "enum": [
             "AMER",
