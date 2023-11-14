@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
-  "LastModifyDateTime": "2023-01-24T14:02:40",
+  "LastModifyDateTime": "2023-11-10T03:54:55",
   "title": "FpmlRatesReferenceRate",
   "type": "string",
   "description": "FpML Reference Rate",
@@ -40,6 +40,7 @@
     "CAD-BA-Telerate",
     "CAD-CDOR",
     "CAD-CORRA",
+    "CAD-CORRA CanDeal TMX Term",
     "CAD-CORRA-OIS Compound",
     "CAD-CORRA-OIS-COMPOUND",
     "CAD-ISDA-Swap Rate",
@@ -378,6 +379,8 @@
     "KRW-KOFR-OIS Compound",
     "KRW-Quarterly Annual Swap Rate-3:30-ICAP",
     "MXN-TIIE",
+    "MXN-TIIE ON",
+    "MXN-TIIE ON-OIS Compound",
     "MXN-TIIE-Banxico",
     "MXN-TIIE-Banxico-Bloomberg",
     "MXN-TIIE-Banxico-Reference Banks",
@@ -647,7 +650,9 @@
     "ZAR-PRIME-AVERAGE-Reference Banks",
     "ZAR-Quarterly Swap Rate-1:00-TRADITION",
     "ZAR-Quarterly Swap Rate-5:30-TRADITION",
-    "ZAR-Quarterly Swap Rate-TRADITION-Reference Banks"
+    "ZAR-Quarterly Swap Rate-TRADITION-Reference Banks",
+    "ZAR-ZARONIA",
+    "ZAR-ZARONIA-OIS Compound"
   ],
   "elaboration": {
     "AED-EBOR-Reuters": "AED-EBOR-Reuters",
@@ -684,6 +689,7 @@
     "CAD-BA-Telerate": "CAD-BA-Telerate",
     "CAD-CDOR": "CAD-CDOR",
     "CAD-CORRA": "CAD-CORRA",
+    "CAD-CORRA CanDeal TMX Term": "CAD-CORRA CanDeal TMX Term",
     "CAD-CORRA-OIS Compound": "CAD-CORRA-OIS Compound",
     "CAD-CORRA-OIS-COMPOUND": "CAD-CORRA-OIS-COMPOUND",
     "CAD-ISDA-Swap Rate": "CAD-ISDA-Swap Rate",
@@ -1022,6 +1028,8 @@
     "KRW-KOFR-OIS Compound": "KRW-KOFR-OIS Compound",
     "KRW-Quarterly Annual Swap Rate-3:30-ICAP": "KRW-Quarterly Annual Swap Rate-3:30-ICAP",
     "MXN-TIIE": "MXN-TIIE",
+    "MXN-TIIE ON": "MXN-TIIE ON",
+    "MXN-TIIE ON-OIS Compound": "MXN-TIIE ON-OIS Compound",
     "MXN-TIIE-Banxico": "MXN-TIIE-Banxico",
     "MXN-TIIE-Banxico-Bloomberg": "MXN-TIIE-Banxico-Bloomberg",
     "MXN-TIIE-Banxico-Reference Banks": "MXN-TIIE-Banxico-Reference Banks",
@@ -1291,7 +1299,9 @@
     "ZAR-PRIME-AVERAGE-Reference Banks": "ZAR-PRIME-AVERAGE-Reference Banks",
     "ZAR-Quarterly Swap Rate-1:00-TRADITION": "ZAR-Quarterly Swap Rate-1:00-TRADITION",
     "ZAR-Quarterly Swap Rate-5:30-TRADITION": "ZAR-Quarterly Swap Rate-5:30-TRADITION",
-    "ZAR-Quarterly Swap Rate-TRADITION-Reference Banks": "ZAR-Quarterly Swap Rate-TRADITION-Reference Banks"
+    "ZAR-Quarterly Swap Rate-TRADITION-Reference Banks": "ZAR-Quarterly Swap Rate-TRADITION-Reference Banks",
+    "ZAR-ZARONIA": "ZAR-ZARONIA",
+    "ZAR-ZARONIA-OIS Compound": "ZAR-ZARONIA-OIS Compound"
   },
   "options": {
     "enum_titles": [
@@ -1329,6 +1339,7 @@
       "CAD-BA-Telerate",
       "CAD-CDOR (2021)",
       "CAD-CORRA (2006, 2021)",
+      "CAD-CORRA CanDeal TMX Term (2021)",
       "CAD-CORRA-OIS Compound (2021)",
       "CAD-CORRA-OIS-COMPOUND (2006)",
       "CAD-ISDA-Swap Rate (2006)",
@@ -1667,6 +1678,8 @@
       "KRW-KOFR-OIS Compound (2021)",
       "KRW-Quarterly Annual Swap Rate-3:30-ICAP (2006)",
       "MXN-TIIE (2021)",
+      "MXN-TIIE ON (2021)",
+      "MXN-TIIE ON-OIS Compound (2021)",
       "MXN-TIIE-Banxico (2006)",
       "MXN-TIIE-Banxico-Bloomberg (2006)",
       "MXN-TIIE-Banxico-Reference Banks (2006)",
@@ -1936,7 +1949,9 @@
       "ZAR-PRIME-AVERAGE-Reference Banks (2006)",
       "ZAR-Quarterly Swap Rate-1:00-TRADITION (2006)",
       "ZAR-Quarterly Swap Rate-5:30-TRADITION (2006)",
-      "ZAR-Quarterly Swap Rate-TRADITION-Reference Banks (2006)"
+      "ZAR-Quarterly Swap Rate-TRADITION-Reference Banks (2006)",
+      "ZAR-ZARONIA (2021)",
+      "ZAR-ZARONIA-OIS Compound (2021)"
     ]
   }
 }
