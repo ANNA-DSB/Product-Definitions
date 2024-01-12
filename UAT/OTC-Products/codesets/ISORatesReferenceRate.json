@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
-  "LastModifyDateTime": "2023-08-08T15:08:30",
+  "LastModifyDateTime": "2023-11-10T03:54:55",
   "title": "ISORatesReferenceRate",
   "type": "string",
   "description": "ISO 20022 Reference Rate",
@@ -284,6 +284,8 @@
     "THOR-OIS Compound",
     "TIBO",
     "TIIE",
+    "TIIE ON",
+    "TIIE ON-OIS Compound",
     "TIIE-Banxico-Bloomberg",
     "TIIE-Banxico-Reference Ba",
     "TIIE-Banxico",
@@ -334,7 +336,9 @@
     "SONA",
     "SOFR",
     "ESTR",
-    "THOR-COMPOUND"
+    "THOR-COMPOUND",
+    "ZARONIA",
+    "ZARONIA-OIS Compound"
   ],
   "elaboration": {
     "7-Repo Compounding Date": "7-Repo Compounding Date",
@@ -615,6 +619,8 @@
     "THOR-OIS Compound": "THOR-OIS Compound",
     "TIBO": "TIBO",
     "TIIE": "TIIE",
+    "TIIE ON": "TIIE ON",
+    "TIIE ON-OIS Compound": "TIIE ON-OIS Compound",
     "TIIE-Banxico-Bloomberg": "TIIE-Banxico-Bloomberg",
     "TIIE-Banxico-Reference Ba": "TIIE-Banxico-Reference Ba",
     "TIIE-Banxico": "TIIE-Banxico",
@@ -665,6 +671,8 @@
     "SONA": "SONA",
     "SOFR": "SOFR",
     "ESTR": "ESTR",
-    "THOR-COMPOUND": "THOR-COMPOUND"
+    "THOR-COMPOUND": "THOR-COMPOUND",
+    "ZARONIA": "ZARONIA",
+    "ZARONIA-OIS Compound": "ZARONIA-OIS Compound"
   }
 }
