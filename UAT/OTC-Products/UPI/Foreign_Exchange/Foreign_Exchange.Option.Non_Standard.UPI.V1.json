@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Option.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2024-01-16T07:51:20",
   "description": "Record template for Foreign_Exchange.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -127,42 +127,7 @@
         "CFIOptionStyleandType": {
           "title": "CFI Option Style and Type",
           "description": "The Option Style and Type as defined by CFI code: ISO 10962",
-          "type": "string",
-          "enum": [
-            "American-Put",
-            "American-Call",
-            "American-Chooser",
-            "Bermudan-Put",
-            "Bermudan-Call",
-            "Bermudan-Chooser",
-            "European-Put",
-            "European-Call",
-            "European-Chooser"
-          ],
-          "elaboration": {
-            "American-Put": "As defined by CFI Code: ISO 10962",
-            "American-Call": "As defined by CFI Code: ISO 10962",
-            "American-Chooser": "As defined by CFI Code: ISO 10962",
-            "Bermudan-Put": "As defined by CFI Code: ISO 10962",
-            "Bermudan-Call": "As defined by CFI Code: ISO 10962",
-            "Bermudan-Chooser": "As defined by CFI Code: ISO 10962",
-            "European-Put": "As defined by CFI Code: ISO 10962",
-            "European-Call": "As defined by CFI Code: ISO 10962",
-            "European-Chooser": "As defined by CFI Code: ISO 10962"
-          },
-          "options": {
-            "enum_titles": [
-              "American-Put",
-              "American-Call",
-              "American-Chooser",
-              "Bermudan-Put",
-              "Bermudan-Call",
-              "Bermudan-Chooser",
-              "European-Put",
-              "European-Call",
-              "European-Chooser"
-            ]
-          }
+          "type": "string"
         },
         "CFIDeliveryType": {
           "title": "CFI Delivery Type",
@@ -836,8 +801,6 @@
         "NotionalCurrency",
         "OtherNotionalCurrency",
         "UnderlyingAssetType",
-        "OptionType",
-        "OptionExerciseStyle",
         "ValuationMethodorTrigger",
         "DeliveryType"
       ],

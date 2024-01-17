@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Option.Non_Standard.InstRefDataReporting.V4M1",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2024-01-16T09:13:03",
   "description": "Record template for Other.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -2033,24 +2033,16 @@
       "required": [
         "ExpiryDate",
         "PriceMultiplier",
-        "OptionType",
-        "OptionExerciseStyle",
         "ValuationMethodorTrigger",
         "DeliveryType",
         "UnderlyingAssetClass"
       ],
       "dependencies": {
         "OptionType": [
-          "OptionExerciseStyle",
-          "ValuationMethodorTrigger"
+          "OptionExerciseStyle"
         ],
         "OptionExerciseStyle": [
-          "OptionType",
-          "ValuationMethodorTrigger"
-        ],
-        "ValuationMethodorTrigger": [
-          "OptionType",
-          "OptionExerciseStyle"
+          "OptionType"
         ]
       },
       "additionalProperties": false
