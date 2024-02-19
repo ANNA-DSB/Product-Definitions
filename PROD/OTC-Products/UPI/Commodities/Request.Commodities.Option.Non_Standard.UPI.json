@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Option.Non_Standard.UPI",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2024-01-16T07:51:20",
   "description": "Request template for Commodities Forward Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1718,11 +1718,17 @@
         "NotionalCurrency",
         "Underlying",
         "BaseProduct",
-        "OptionType",
-        "OptionExerciseStyle",
         "ValuationMethodorTrigger",
         "DeliveryType"
       ],
+      "dependencies": {
+        "OptionType": [
+          "OptionExerciseStyle"
+        ],
+        "OptionExerciseStyle": [
+          "OptionType"
+        ]
+      },
       "additionalProperties": false
     }
   },

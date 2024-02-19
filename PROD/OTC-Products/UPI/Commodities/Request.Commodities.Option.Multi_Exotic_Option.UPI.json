@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Option.Multi_Exotic_Option.UPI",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2024-01-16T07:51:20",
   "description": "Request template for Commodities Option Multi_Exotic_Option",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -187,11 +187,17 @@
       },
       "required": [
         "BaseProduct",
-        "OptionType",
-        "OptionExerciseStyle",
         "ValuationMethodorTrigger",
         "DeliveryType"
       ],
+      "dependencies": {
+        "OptionType": [
+          "OptionExerciseStyle"
+        ],
+        "OptionExerciseStyle": [
+          "OptionType"
+        ]
+      },
       "additionalProperties": false
     }
   },

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Foreign_Exchange.Option.Non_Standard.UPI",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2024-01-16T07:51:20",
   "description": "Request template for Foreign_Exchange Option Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -715,8 +715,6 @@
         "OtherUnderlierID",
         "OtherUnderlierIDSource",
         "UnderlyingAssetType",
-        "OptionType",
-        "OptionExerciseStyle",
         "ValuationMethodorTrigger",
         "DeliveryType"
       ],
