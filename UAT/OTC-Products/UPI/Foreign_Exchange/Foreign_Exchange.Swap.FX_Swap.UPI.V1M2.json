@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Swap.FX_Swap.UPI.V1M2",
-  "LastModifyDateTime": "2024-05-10T05:10:57",
+  "LastModifyDateTime": "2024-07-02T09:18:02",
   "description": "Record template for Foreign_Exchange.Swap.FX_Swap",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -134,18 +134,15 @@
           "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
-            "Cash",
             "Physical",
             "Non-Deliverable"
           ],
           "elaboration": {
-            "Cash": "As defined by CFI Code: ISO 10962",
             "Physical": "As defined by CFI Code: ISO 10962",
             "Non-Deliverable": "As defined by CFI Code: ISO 10962"
           },
           "options": {
             "enum_titles": [
-              "Cash",
               "Physical",
               "Non-Deliverable"
             ]
