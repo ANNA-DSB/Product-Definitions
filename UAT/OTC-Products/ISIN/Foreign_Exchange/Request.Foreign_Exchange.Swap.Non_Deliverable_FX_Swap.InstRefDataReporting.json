@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Foreign_Exchange.Swap.Non_Deliverable_FX_Swap.InstRefDataReporting",
-  "LastModifyDateTime": "2022-05-17T14:49:44",
+  "LastModifyDateTime": "2024-05-10T04:26:46",
   "description": "Request template for Foreign_Exchange Swap Non_Deliverable_FX_Swap",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -72,11 +72,11 @@
           "type": "string",
           "enum": [
             "PHYS",
-            "OPTL"
+            "CASH"
           ],
           "elaboration": {
             "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
-            "OPTL": "synthetic options on foreign exchange (FX) forwards that are based on non-convertible or thinly traded currencies"
+            "CASH": "synthetic options on foreign exchange (FX) forwards that are based on non-convertible or thinly traded currencies"
           },
           "options": {
             "enum_titles": [
