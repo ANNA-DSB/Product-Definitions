@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Forward.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2024-07-04T06:51:35",
   "description": "Request template for Equity Forward Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -143,10 +143,12 @@
           "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
           "type": "string",
           "enum": [
+            "Contract for Difference (CFD)",
             "Spreadbets",
             "Forward price of underlying instrument"
           ],
           "elaboration": {
+            "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
             "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
             "Forward price of underlying instrument": "Forward price of underlying instrument"
           }
