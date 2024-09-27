@@ -1,0 +1,466 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Commodities.Option.Swaption.UPI.V1",
+  "LastModifyDateTime": "2024-09-27T09:19:08",
+  "description": "Record template for Commodities.Option.Swaption",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "TemplateVersion": {
+      "title": "Template Version",
+      "description": "Template Version",
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Commodities"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Option"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Swaption"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Identifier": {
+      "title": "Identifier",
+      "type": "object",
+      "properties": {
+        "UPI": {
+          "title": "UPI",
+          "description": "Unique Product Identifier (ISO 4914).",
+          "type": "string"
+        },
+        "Status": {
+          "title": "Status",
+          "description": "Status of the Record",
+          "type": "string",
+          "enum": [
+            "New",
+            "Updated",
+            "Deleted",
+            "Deprecated"
+          ],
+          "elaboration": {
+            "New": "New record added to the database",
+            "Updated": "One/several of the fields in the record is/are updated",
+            "Deleted": "The identifier is deleted and no longer active",
+            "Deprecated": "The record does not meet the requirements of the product template"
+          }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for UPI Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
+        }
+      },
+      "required": [
+        "UPI",
+        "Status",
+        "LastUpdateDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "Derived": {
+      "title": "Derived",
+      "description": "Derived Attributes",
+      "type": "object",
+      "properties": {
+        "ClassificationType": {
+          "title": "Classification Type",
+          "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
+          "type": "string"
+        },
+        "ShortName": {
+          "title": "Short Name",
+          "description": "Short name of financial instrument in accordance with ISO 18774",
+          "type": "string"
+        },
+        "UnderlierName": {
+          "title": "Underlier Name",
+          "description": "Underlier Name",
+          "type": "string"
+        },
+        "UnderlyingAssetType": {
+          "title": "Underlying Asset Type",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Energy",
+            "Metals",
+            "Agriculture",
+            "Environmental",
+            "Freight",
+            "Polypropylene Products",
+            "Paper",
+            "Fertilizer",
+            "Index",
+            "Multi Commodity",
+            "Options",
+            "Forwards",
+            "Futures",
+            "Swap",
+            "Other"
+          ],
+          "elaboration": {
+            "Energy": "Energy",
+            "Metals": "Metals",
+            "Agriculture": "Agriculture",
+            "Environmental": "Environmental",
+            "Freight": "Freight",
+            "Polypropylene Products": "Polypropylene Products",
+            "Paper": "Paper",
+            "Fertilizer": "Fertilizer",
+            "Index": "Index",
+            "Multi Commodity": "Multi Commodity",
+            "Options": "Options",
+            "Forwards": "Forwards",
+            "Futures": "Futures",
+            "Swap": "Swap",
+            "Other": "Other"
+          }
+        },
+        "CFIOptionStyleandType": {
+          "title": "CFI Option Style and Type",
+          "description": "The Option Style and Type as defined by CFI code: ISO 10962",
+          "type": "string",
+          "enum": [
+            "American-Put",
+            "American-Call",
+            "American-Chooser",
+            "Bermudan-Put",
+            "Bermudan-Call",
+            "Bermudan-Chooser",
+            "European-Put",
+            "European-Call",
+            "European-Chooser"
+          ],
+          "elaboration": {
+            "American-Put": "As defined by CFI Code: ISO 10962",
+            "American-Call": "As defined by CFI Code: ISO 10962",
+            "American-Chooser": "As defined by CFI Code: ISO 10962",
+            "Bermudan-Put": "As defined by CFI Code: ISO 10962",
+            "Bermudan-Call": "As defined by CFI Code: ISO 10962",
+            "Bermudan-Chooser": "As defined by CFI Code: ISO 10962",
+            "European-Put": "As defined by CFI Code: ISO 10962",
+            "European-Call": "As defined by CFI Code: ISO 10962",
+            "European-Chooser": "As defined by CFI Code: ISO 10962"
+          },
+          "options": {
+            "enum_titles": [
+              "American-Put",
+              "American-Call",
+              "American-Chooser",
+              "Bermudan-Put",
+              "Bermudan-Call",
+              "Bermudan-Chooser",
+              "European-Put",
+              "European-Call",
+              "European-Chooser"
+            ]
+          }
+        },
+        "CFIDeliveryType": {
+          "title": "CFI Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
+          "type": "string",
+          "enum": [
+            "Cash",
+            "Physical",
+            "Elect at Exercise"
+          ],
+          "elaboration": {
+            "Cash": "As defined by CFI Code: ISO 10962",
+            "Physical": "As defined by CFI Code: ISO 10962",
+            "Elect at Exercise": "As defined by CFI Code: ISO 10962"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Elect at Exercise"
+            ]
+          }
+        },
+        "CFI": {
+          "title": "CFI",
+          "description": "CFI description",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "title": "CFI",
+            "properties": {
+              "Version": {
+                "title": "Version",
+                "description": "CFI Version",
+                "type": "string"
+              },
+              "VersionStatus": {
+                "title": "Version Status",
+                "description": "Version Status",
+                "type": "string"
+              },
+              "Value": {
+                "title": "Value",
+                "description": "CFI Value",
+                "type": "string"
+              },
+              "Category": {
+                "title": "Category",
+                "description": "CFI Category",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Category Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Category Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Group": {
+                "title": "Group",
+                "description": "CFI Group",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Group Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Group Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Attributes": {
+                "type": "array",
+                "title": "Attributes",
+                "minItems": 4,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "title": "Attribute",
+                  "properties": {
+                    "Name": {
+                      "title": "Name",
+                      "description": "Name of Attribute",
+                      "type": "string"
+                    },
+                    "Code": {
+                      "title": "Code",
+                      "description": "Code of Attribute",
+                      "type": "string"
+                    },
+                    "Value": {
+                      "title": "Value",
+                      "description": "Value of Attribute",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Name",
+                    "Code",
+                    "Value"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Version",
+              "VersionStatus",
+              "Value",
+              "Category",
+              "Group"
+            ]
+          }
+        }
+      },
+      "required": [
+        "ClassificationType",
+        "ShortName",
+        "UnderlierName",
+        "UnderlyingAssetType",
+        "CFIOptionStyleandType",
+        "CFIDeliveryType"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "UnderlyingInstrumentUPI": {
+          "title": "Underlying Instrument UPI",
+          "description": "UPI code of the underlying instrument",
+          "type": "string",
+          "pattern": "^QZ([0-9BCDFGHJ-NPQ-TVWXZ]){10}$"
+        },
+        "OptionType": {
+          "title": "Option Type",
+          "description": "Indication as to whether the derivative contract is a call (right to purchase a specific underlying asset) or a put (right to sell a specific underlying asset) or whether it is a chooser (right to decide whether it is a call or put prior to the expiration date)",
+          "type": "string",
+          "enum": [
+            "CALL",
+            "PUTO",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CALL": "An option on a contract which allows its holder (buyer) to exercise the right to buy specified assets (product)",
+            "PUTO": "An option on a contract which allows its holder (buyer) to exercise the right to sell specified assets (product)",
+            "OPTL": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product); The buyer does not have to decide whether the contract will be a put or a call until an agreed future date, prior to expiration"
+          },
+          "options": {
+            "enum_titles": [
+              "Call",
+              "Put",
+              "Chooser"
+            ]
+          }
+        },
+        "OptionExerciseStyle": {
+          "title": "Option Exercise Style",
+          "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
+          "type": "string",
+          "enum": [
+            "AMER",
+            "BERM",
+            "EURO"
+          ],
+          "elaboration": {
+            "AMER": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product) at a fixed price at any time during the term of the put option, up to and including the expiration date of the contract",
+            "BERM": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product) at a fixed price on a number of specific dates within the exercise period of the contract",
+            "EURO": "An option on a contract which allows its holder (buyer) to exercise the right to buy (call) or sell (put) specified assets (product) at a fixed price, only on the contract's expiration date"
+          },
+          "options": {
+            "enum_titles": [
+              "American",
+              "Bermudan",
+              "European"
+            ]
+          }
+        },
+        "ValuationMethodorTrigger": {
+          "title": "Valuation Method or Trigger",
+          "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Vanilla",
+            "Asian",
+            "Digital (Binary)",
+            "Barrier",
+            "Digital Barrier",
+            "Lookback",
+            "Other Path Dependent",
+            "Other"
+          ],
+          "elaboration": {
+            "Vanilla": "an option for which all terms are standardized",
+            "Asian": "an option where either the strike price or the settlement price is the average level of an underlying instrument over a predetermined period; the averaging can be either a geometric or arithmetic average",
+            "Digital (Binary)": "an option that has a pre-determined payout if the option is in-the-money and the payoff condition is satisfied; also referred to as a \"binary option\" or an \"all-or-nothing option\"",
+            "Barrier": "an option whose final exercise depends upon the path taken by the price of an underlying instrument; for a knockout barrier option, the option is cancelled if the underlying price crosses a predetermined barrier level; for a knock-in barrier option, the option becomes available-for-exercise if the underlying price crosses a predetermined barrier level",
+            "Digital Barrier": "a digital option embedded with a barrier option; there are different variations of this type of option; as an example, a down-and-out digital call option will pay a fixed payoff, or the underlying, at any time before maturity that the underlying price is equal to or greater than the barrier level; it will pay zero if the underlying price is less than the barrier level",
+            "Lookback": "an option that minimizes the uncertainties related to the timing of market entry; there are two types of lookback options: fixed and floating; the fixed option strike is determined at purchase, and the floating option strike is determined at maturity",
+            "Other Path Dependent": "an option on a contract whose payoff is directly related to the price pattern the underlying asset follows during the life of the contract",
+            "Other": "Miscellaneous"
+          }
+        },
+        "DeliveryType": {
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS",
+            "OPTL"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "OPTL": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Elect at Exercise"
+            ]
+          }
+        }
+      },
+      "required": [
+        "UnderlyingInstrumentUPI",
+        "OptionType",
+        "OptionExerciseStyle",
+        "ValuationMethodorTrigger",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "TemplateVersion",
+    "Header",
+    "Identifier",
+    "Derived",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}

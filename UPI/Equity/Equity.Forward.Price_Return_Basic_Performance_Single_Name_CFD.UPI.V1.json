@@ -1,0 +1,411 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Equity.Forward.Price_Return_Basic_Performance_Single_Name_CFD.UPI.V1",
+  "LastModifyDateTime": "2024-09-27T09:19:08",
+  "description": "Record template for Equity.Forward.Price_Return_Basic_Performance_Single_Name_CFD",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "TemplateVersion": {
+      "title": "Template Version",
+      "description": "Template Version",
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Equity"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Forward"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Price_Return_Basic_Performance_Single_Name_CFD"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Identifier": {
+      "title": "Identifier",
+      "type": "object",
+      "properties": {
+        "UPI": {
+          "title": "UPI",
+          "description": "Unique Product Identifier (ISO 4914).",
+          "type": "string"
+        },
+        "Status": {
+          "title": "Status",
+          "description": "Status of the Record",
+          "type": "string",
+          "enum": [
+            "New",
+            "Updated",
+            "Deleted",
+            "Deprecated"
+          ],
+          "elaboration": {
+            "New": "New record added to the database",
+            "Updated": "One/several of the fields in the record is/are updated",
+            "Deleted": "The identifier is deleted and no longer active",
+            "Deprecated": "The record does not meet the requirements of the product template"
+          }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for UPI Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
+        }
+      },
+      "required": [
+        "UPI",
+        "Status",
+        "LastUpdateDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "Derived": {
+      "title": "Derived",
+      "description": "Derived Attributes",
+      "type": "object",
+      "properties": {
+        "ClassificationType": {
+          "title": "Classification Type",
+          "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
+          "type": "string"
+        },
+        "ShortName": {
+          "title": "Short Name",
+          "description": "Short name of financial instrument in accordance with ISO 18774",
+          "type": "string"
+        },
+        "UnderlierName": {
+          "title": "Underlier Name",
+          "description": "Underlier Name",
+          "type": "string"
+        },
+        "UnderlyingAssetType": {
+          "title": "Underlying Asset Type",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Single Stock",
+            "Index",
+            "Basket",
+            "Options",
+            "Futures"
+          ],
+          "elaboration": {
+            "Single Stock": "single equity stock",
+            "Index": "instruments that make up the index",
+            "Basket": "a defined basket of instruments",
+            "Options": "Options",
+            "Futures": "Futures"
+          }
+        },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Price",
+            "Dividend",
+            "Variance",
+            "Volatility",
+            "Total Return",
+            "Contract for Difference (CFD)",
+            "Spreadbets",
+            "Forward price of underlying instrument",
+            "Other"
+          ],
+          "elaboration": {
+            "Price": "price return equity swap, similar to a total return swap, except that dividends are not passed through to the buyer",
+            "Dividend": "a fixed-term contract between two parties where one party will make an interest rate payment for each interval and the other party will pay the total dividends received as pay-out by a selected underlying asset",
+            "Variance": "a forward swap that uses the variance (being the volatility squared) of an underlying's price movement over a period as the basis for the payoff calculation",
+            "Volatility": "the variability of movements in a security or underlying instrument's price; it is a measure of the amount by which an asset's price is expected to fluctuate over a given period of time; it is normally measured by the annual standard deviation of daily price changes",
+            "Total Return": "the total economic return of an underlying asset is transferred from one party (total return buyer) to another (total return seller); total return seller takes on the risk of negative changes in market value of the reference asset, and pays any positive cash flow to the buyer such as coupon, capital gains or dividends of the reference asset",
+            "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+            "Forward price of underlying instrument": "Forward price of underlying instrument",
+            "Other": "Miscellaneous"
+          }
+        },
+        "CFIDeliveryType": {
+          "title": "CFI Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
+          "type": "string",
+          "enum": [
+            "Cash",
+            "Physical"
+          ],
+          "elaboration": {
+            "Cash": "As defined by CFI Code: ISO 10962",
+            "Physical": "As defined by CFI Code: ISO 10962"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical"
+            ]
+          }
+        },
+        "UnderlyingRecord": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UnderlyingRecord",
+            "title": "Underlying Record"
+          }
+        },
+        "CFI": {
+          "title": "CFI",
+          "description": "CFI description",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "title": "CFI",
+            "properties": {
+              "Version": {
+                "title": "Version",
+                "description": "CFI Version",
+                "type": "string"
+              },
+              "VersionStatus": {
+                "title": "Version Status",
+                "description": "Version Status",
+                "type": "string"
+              },
+              "Value": {
+                "title": "Value",
+                "description": "CFI Value",
+                "type": "string"
+              },
+              "Category": {
+                "title": "Category",
+                "description": "CFI Category",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Category Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Category Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Group": {
+                "title": "Group",
+                "description": "CFI Group",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Group Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Group Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Attributes": {
+                "type": "array",
+                "title": "Attributes",
+                "minItems": 4,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "title": "Attribute",
+                  "properties": {
+                    "Name": {
+                      "title": "Name",
+                      "description": "Name of Attribute",
+                      "type": "string"
+                    },
+                    "Code": {
+                      "title": "Code",
+                      "description": "Code of Attribute",
+                      "type": "string"
+                    },
+                    "Value": {
+                      "title": "Value",
+                      "description": "Value of Attribute",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Name",
+                    "Code",
+                    "Value"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Version",
+              "VersionStatus",
+              "Value",
+              "Category",
+              "Group"
+            ]
+          }
+        }
+      },
+      "required": [
+        "ClassificationType",
+        "ShortName",
+        "UnderlierName",
+        "UnderlyingAssetType",
+        "ReturnorPayoutTrigger",
+        "CFIDeliveryType"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "UnderlyingInstrumentISIN": {
+          "title": "Underlying Instrument ISIN",
+          "description": "Underlying Instrument ISIN",
+          "type": "string",
+          "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+        },
+        "DeliveryType": {
+          "default": "PHYS",
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical"
+            ]
+          }
+        }
+      },
+      "required": [
+        "UnderlyingInstrumentISIN",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "TemplateVersion",
+    "Header",
+    "Identifier",
+    "Derived",
+    "Attributes"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "UnderlyingRecord": {
+      "type": "object",
+      "properties": {
+        "UnderlierID": {
+          "title": "Underlier ID",
+          "description": "Underlier ID",
+          "type": "string"
+        },
+        "UnderlierIDSource": {
+          "title": "Underlier ID Source",
+          "description": "Underlier ID Source",
+          "type": "string",
+          "enum": [
+            "ISIN"
+          ]
+        },
+        "ReturnUnderlierIDSource": {
+          "title": "Return Underlier ID Source",
+          "description": "Return Underlier ID Source",
+          "type": "string",
+          "enum": [
+            "CUSIP",
+            "FIGI",
+            "RIC",
+            "SEDOL"
+          ]
+        },
+        "ReturnUnderlierID": {
+          "title": "Return Underlier ID",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+            "title": "Return Underlier ID",
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "UnderlierID",
+        "UnderlierIDSource",
+        "ReturnUnderlierIDSource",
+        "ReturnUnderlierID"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

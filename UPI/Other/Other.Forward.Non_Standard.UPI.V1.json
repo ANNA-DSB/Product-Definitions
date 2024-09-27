@@ -1,0 +1,1232 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Other.Forward.Non_Standard.UPI.V1",
+  "LastModifyDateTime": "2024-09-27T09:19:08",
+  "description": "Record template for Other.Forward.Non_Standard",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "TemplateVersion": {
+      "title": "Template Version",
+      "description": "Template Version",
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "type": "string",
+          "enum": [
+            "Other"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "type": "string",
+          "enum": [
+            "Forward"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Non_Standard"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Identifier": {
+      "title": "Identifier",
+      "type": "object",
+      "properties": {
+        "UPI": {
+          "title": "UPI",
+          "description": "Unique Product Identifier (ISO 4914).",
+          "type": "string"
+        },
+        "Status": {
+          "title": "Status",
+          "description": "Status of the Record",
+          "type": "string",
+          "enum": [
+            "New",
+            "Updated",
+            "Deleted",
+            "Deprecated"
+          ],
+          "elaboration": {
+            "New": "New record added to the database",
+            "Updated": "One/several of the fields in the record is/are updated",
+            "Deleted": "The identifier is deleted and no longer active",
+            "Deprecated": "The record does not meet the requirements of the product template"
+          }
+        },
+        "StatusReason": {
+          "title": "Status Reason",
+          "description": "The reason for UPI Status change",
+          "default": "",
+          "type": "string"
+        },
+        "LastUpdateDateTime": {
+          "title": "Last Update DateTime",
+          "description": "Last Update DateTime",
+          "type": "string"
+        }
+      },
+      "required": [
+        "UPI",
+        "Status",
+        "LastUpdateDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "Derived": {
+      "title": "Derived",
+      "description": "Derived Attributes",
+      "type": "object",
+      "properties": {
+        "ClassificationType": {
+          "title": "Classification Type",
+          "description": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority",
+          "type": "string"
+        },
+        "FurtherGrouping": {
+          "title": "Further Grouping",
+          "description": "Further Grouping",
+          "type": "string"
+        },
+        "ShortName": {
+          "title": "Short Name",
+          "description": "Short name of financial instrument in accordance with ISO 18774",
+          "type": "string"
+        },
+        "UnderlyingAssetClass": {
+          "title": "Underlying Asset Class",
+          "minProperties": 1,
+          "type": "object",
+          "properties": {
+            "Rates": {
+              "title": "Rates",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            },
+            "Equity": {
+              "title": "Equity",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            },
+            "Credit": {
+              "title": "Credit",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            },
+            "Foreign_Exchange": {
+              "title": "Foreign_Exchange",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            },
+            "Commodities": {
+              "title": "Commodities",
+              "type": "object",
+              "properties": {
+                "UnderlierName": {
+                  "title": "Underlier Name",
+                  "description": "Underlier Name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "UnderlierName"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "UnderlyingRecord": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UnderlyingRecord",
+            "title": "Underlying Record"
+          }
+        },
+        "CFI": {
+          "title": "CFI",
+          "description": "CFI description",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "title": "CFI",
+            "properties": {
+              "Version": {
+                "title": "Version",
+                "description": "CFI Version",
+                "type": "string"
+              },
+              "VersionStatus": {
+                "title": "Version Status",
+                "description": "Version Status",
+                "type": "string"
+              },
+              "Value": {
+                "title": "Value",
+                "description": "CFI Value",
+                "type": "string"
+              },
+              "Category": {
+                "title": "Category",
+                "description": "CFI Category",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Category Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Category Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Group": {
+                "title": "Group",
+                "description": "CFI Group",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Group Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Group Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Attributes": {
+                "type": "array",
+                "title": "Attributes",
+                "minItems": 4,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "title": "Attribute",
+                  "properties": {
+                    "Name": {
+                      "title": "Name",
+                      "description": "Name of Attribute",
+                      "type": "string"
+                    },
+                    "Code": {
+                      "title": "Code",
+                      "description": "Code of Attribute",
+                      "type": "string"
+                    },
+                    "Value": {
+                      "title": "Value",
+                      "description": "Value of Attribute",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Name",
+                    "Code",
+                    "Value"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Version",
+              "VersionStatus",
+              "Value",
+              "Category",
+              "Group"
+            ]
+          }
+        }
+      },
+      "required": [
+        "ClassificationType",
+        "FurtherGrouping",
+        "ShortName",
+        "UnderlyingAssetClass"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "UnderlyingAssetClass": {
+          "title": "Underlying Asset Class",
+          "minProperties": 1,
+          "options": {
+            "disable_properties": false
+          },
+          "type": "object",
+          "properties": {
+            "Rates": {
+              "title": "Rates",
+              "type": "object",
+              "properties": {
+                "ReturnorPayoutTrigger": {
+                  "title": "Return or Payout Trigger",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "type": "string",
+                  "enum": [
+                    "Spreadbets",
+                    "Forward price of underlying instrument"
+                  ],
+                  "elaboration": {
+                    "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+                    "Forward price of underlying instrument": "Forward price of underlying instrument"
+                  }
+                },
+                "NotionalCurrency": {
+                  "$ref": "../../codesets/ISOCurrencyCode.json",
+                  "title": "Notional Currency",
+                  "description": "Currency in which the notional is denominated. Usage: Within MiFIR, in the case of an interest rate or currency derivative contract, this will be the notional currency of leg 1 or the currency 1 of the pair. Within MiFIR, in the case of swaptions where the underlying swap is single-currency, this will be the notional currency of the underlying swap. For swaptions where the underlying is multi-currency, this will be the notional currency of leg 1 of the swap"
+                },
+                "ReferenceRate": {
+                  "$ref": "../../codesets/FpmlRatesReferenceAndInflationRate.json",
+                  "title": "Reference Rate",
+                  "description": "Identifies the reference index for the instrument"
+                },
+                "ReferenceRateTermValue": {
+                  "title": "Reference Rate Term Value",
+                  "description": "Tenor value of the first leg reference rate",
+                  "type": "integer",
+                  "minimum": -999,
+                  "maximum": 999
+                },
+                "ReferenceRateTermUnit": {
+                  "title": "Reference Rate Term Unit",
+                  "description": "Tenor unit of the first leg reference rate",
+                  "type": "string",
+                  "enum": [
+                    "DAYS",
+                    "WEEK",
+                    "MNTH",
+                    "YEAR"
+                  ],
+                  "elaboration": {
+                    "DAYS": "Rate is reported in days",
+                    "WEEK": "Rate is reported in weeks",
+                    "MNTH": "Rate is reported in months",
+                    "YEAR": "Rate is reported in years"
+                  }
+                },
+                "UnderlyingInstrumentISIN": {
+                  "title": "Underlying Instrument ISIN",
+                  "description": "ISIN code of the underlying instrument",
+                  "type": "string",
+                  "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+                },
+                "UnderlierCharacteristic": {
+                  "title": "Underlier Characteristic",
+                  "description": "An attribute that is used to specify whether the product is based on a single or multiple underliers.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ReturnorPayoutTrigger",
+                "NotionalCurrency",
+                "UnderlierCharacteristic"
+              ],
+              "additionalProperties": false
+            },
+            "Equity": {
+              "title": "Equity",
+              "type": "object",
+              "properties": {
+                "ReturnorPayoutTrigger": {
+                  "title": "Return or Payout Trigger",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "type": "string",
+                  "enum": [
+                    "Spreadbets",
+                    "Contract for Difference (CFD)",
+                    "Forward price of underlying instrument"
+                  ],
+                  "elaboration": {
+                    "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+                    "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
+                    "Forward price of underlying instrument": "Forward price of underlying instrument"
+                  }
+                },
+                "UnderlierCharacteristic": {
+                  "title": "Underlier Characteristic",
+                  "description": "An attribute that is used to specify whether the product is based on a single or multiple underliers.",
+                  "type": "string",
+                  "enum": [
+                    "Single",
+                    "Basket"
+                  ],
+                  "elaboration": {
+                    "Single": "In case the product has single underlier",
+                    "Basket": "In case the product has multiple underliers"
+                  }
+                },
+                "UnderlyingInstrumentISIN": {
+                  "title": "Underlying Instrument ISIN",
+                  "description": "ISIN code of the underlying instrument",
+                  "type": "string",
+                  "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+                },
+                "UnderlyingInstrumentIndex": {
+                  "$ref": "../../codesets/EquityIndex.json",
+                  "title": "Underlying Instrument Index",
+                  "description": "Name of the index on which the financial instrument is based"
+                },
+                "UnderlyingInstrumentIndexProp": {
+                  "title": "Underlying Instrument Index Prop",
+                  "description": "Underlying Instrument Index Prop",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ReturnorPayoutTrigger",
+                "UnderlierCharacteristic"
+              ],
+              "additionalProperties": false
+            },
+            "Credit": {
+              "title": "Credit",
+              "type": "object",
+              "properties": {
+                "ReturnorPayoutTrigger": {
+                  "title": "Return or Payout Trigger",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "type": "string",
+                  "enum": [
+                    "Spreadbets",
+                    "Forward price of underlying instrument"
+                  ],
+                  "elaboration": {
+                    "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+                    "Forward price of underlying instrument": "Forward price of underlying instrument"
+                  }
+                },
+                "UnderlierCharacteristic": {
+                  "title": "Underlier Characteristic",
+                  "description": "An attribute that is used to specify whether the product is based on a single or multiple underliers.",
+                  "type": "string",
+                  "enum": [
+                    "Single",
+                    "Basket"
+                  ],
+                  "elaboration": {
+                    "Single": "In case the product has single underlier",
+                    "Basket": "In case the product has multiple underliers"
+                  }
+                },
+                "UnderlyingInstrumentISIN": {
+                  "title": "Underlying Instrument ISIN",
+                  "description": "ISIN code of the underlying instrument",
+                  "type": "string",
+                  "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+                }
+              },
+              "required": [
+                "ReturnorPayoutTrigger",
+                "UnderlierCharacteristic"
+              ],
+              "additionalProperties": false
+            },
+            "Foreign_Exchange": {
+              "title": "Foreign_Exchange",
+              "options": {
+                "disable_properties": false
+              },
+              "type": "object",
+              "properties": {
+                "NotionalCurrency": {
+                  "$ref": "../../codesets/ISOCurrencyCode.json",
+                  "title": "Notional Currency",
+                  "description": "Currency in which the notional is denominated. Usage: Within MiFIR, in the case of an interest rate or currency derivative contract, this will be the notional currency of leg 1 or the currency 1 of the pair. Within MiFIR, in the case of swaptions where the underlying swap is single-currency, this will be the notional currency of the underlying swap. For swaptions where the underlying is multi-currency, this will be the notional currency of leg 1 of the swap"
+                },
+                "OtherNotionalCurrency": {
+                  "$ref": "../../codesets/ISOCurrencyCode.json",
+                  "title": "Other Notional Currency",
+                  "description": "In the case of multi-currency or cross-currency swaps the currency in which leg 2 of the contract is denominated; For swaptions where the underlying swap is multi-currency, the currency in which leg 2 of the swap is denominated"
+                },
+                "ReturnorPayoutTrigger": {
+                  "title": "Return or Payout Trigger",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "type": "string",
+                  "enum": [
+                    "Spreadbets",
+                    "Contract for Difference (CFD)",
+                    "Forward price of underlying instrument"
+                  ],
+                  "elaboration": {
+                    "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
+                    "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
+                    "Forward price of underlying instrument": "Forward price of underlying instrument"
+                  }
+                },
+                "SettlementCurrency": {
+                  "$ref": "../../codesets/ISOCurrencyCode.json",
+                  "title": "Settlement Currency",
+                  "description": "Settlement Currency"
+                },
+                "PlaceofSettlement": {
+                  "title": "Place of Settlement",
+                  "description": "Place of Settlement",
+                  "type": "string",
+                  "enum": [
+                    "Afghanistan",
+                    "Aland Islands",
+                    "Albania",
+                    "Algeria",
+                    "American Samoa",
+                    "Andorra",
+                    "Angola",
+                    "Anguilla",
+                    "Antarctica",
+                    "Antigua and Barbuda",
+                    "Argentina",
+                    "Armenia",
+                    "Aruba",
+                    "Australia",
+                    "Austria",
+                    "Azerbaijan",
+                    "Bahamas",
+                    "Bahrain",
+                    "Bangladesh",
+                    "Barbados",
+                    "Belarus",
+                    "Belgium",
+                    "Belize",
+                    "Benin",
+                    "Bermuda",
+                    "Bhutan",
+                    "Bolivia, Plurinational State of",
+                    "Bonaire, Sint Eustatius and Saba",
+                    "Bosnia and Herzegovina",
+                    "Botswana",
+                    "Bouvet Island",
+                    "Brazil",
+                    "British Indian Ocean Territory",
+                    "Brunei Darussalam",
+                    "Bulgaria",
+                    "Burkina Faso",
+                    "Burundi",
+                    "Cambodia",
+                    "Cameroon",
+                    "Canada",
+                    "Cape Verde",
+                    "Cayman Islands",
+                    "Central African Republic",
+                    "Chad",
+                    "Chile",
+                    "China",
+                    "Christmas Island",
+                    "Cocos (Keeling) Islands",
+                    "Colombia",
+                    "Comoros",
+                    "Congo, the Democratic Republic of the",
+                    "Congo",
+                    "Cook Islands",
+                    "Costa Rica",
+                    "Cote d'Ivoire",
+                    "Croatia",
+                    "Cuba",
+                    "Curacao",
+                    "Cyprus",
+                    "Czech Republic",
+                    "Denmark",
+                    "Djibouti",
+                    "Dominica",
+                    "Dominican Republic",
+                    "Ecuador",
+                    "Egypt",
+                    "El Salvador",
+                    "Equatorial Guinea",
+                    "Eritrea",
+                    "Estonia",
+                    "Ethiopia",
+                    "Falkland Islands (Malvinas)",
+                    "Faroe Islands",
+                    "Fiji",
+                    "Finland",
+                    "France",
+                    "French Guiana",
+                    "French Polynesia",
+                    "French Southern Territories",
+                    "Gabon",
+                    "Gambia",
+                    "Georgia",
+                    "Germany",
+                    "Ghana",
+                    "Gibraltar",
+                    "Greece",
+                    "Greenland",
+                    "Grenada",
+                    "Guadeloupe",
+                    "Guam",
+                    "Guatemala",
+                    "Guernsey",
+                    "Guinea-Bissau",
+                    "Guinea",
+                    "Guyana",
+                    "Haiti",
+                    "Heard Island and McDonald Islands",
+                    "Holy See (Vatican City State)",
+                    "Honduras",
+                    "Hong Kong",
+                    "Hungary",
+                    "Iceland",
+                    "India",
+                    "Indonesia",
+                    "Iran, Islamic Republic of",
+                    "Iraq",
+                    "Ireland",
+                    "Isle of Man",
+                    "Israel",
+                    "Italy",
+                    "Jamaica",
+                    "Japan",
+                    "Jersey",
+                    "Jordan",
+                    "Kazakhstan",
+                    "Kenya",
+                    "Kiribati",
+                    "Korea, Democratic People's Republic of",
+                    "Korea, Republic of",
+                    "Kuwait",
+                    "Kyrgyzstan",
+                    "Lao People's Democratic Republic",
+                    "Latvia",
+                    "Lebanon",
+                    "Lesotho",
+                    "Liberia",
+                    "Libya",
+                    "Liechtenstein",
+                    "Lithuania",
+                    "Luxembourg",
+                    "Macao",
+                    "Macedonia, the Former Yugoslav Republic of",
+                    "Madagascar",
+                    "Malawi",
+                    "Malaysia",
+                    "Maldives",
+                    "Mali",
+                    "Malta",
+                    "Marshall Islands",
+                    "Martinique",
+                    "Mauritania",
+                    "Mauritius",
+                    "Mayotte",
+                    "Mexico",
+                    "Micronesia, Federated States of",
+                    "Moldova, Republic of",
+                    "Monaco",
+                    "Mongolia",
+                    "Montenegro",
+                    "Montserrat",
+                    "Morocco",
+                    "Mozambique",
+                    "Myanmar",
+                    "Namibia",
+                    "Nauru",
+                    "Nepal",
+                    "Netherlands",
+                    "New Caledonia",
+                    "New Zealand",
+                    "Nicaragua",
+                    "Niger",
+                    "Nigeria",
+                    "Niue",
+                    "Norfolk Island",
+                    "Northern Mariana Islands",
+                    "Norway",
+                    "Oman",
+                    "Pakistan",
+                    "Palau",
+                    "Palestine, State of",
+                    "Panama",
+                    "Papua New Guinea",
+                    "Paraguay",
+                    "Peru",
+                    "Philippines",
+                    "Pitcairn",
+                    "Poland",
+                    "Portugal",
+                    "Puerto Rico",
+                    "Qatar",
+                    "Reunion",
+                    "Romania",
+                    "Russian Federation",
+                    "Rwanda",
+                    "Saint Barthelemy",
+                    "Saint Helena, Ascension and Tristan da Cunha",
+                    "Saint Kitts and Nevis",
+                    "Saint Lucia",
+                    "Saint Martin (French part)",
+                    "Saint Pierre and Miquelon",
+                    "Saint Vincent and the Grenadines",
+                    "Samoa",
+                    "San Marino",
+                    "Sao Tome and Principe",
+                    "Saudi Arabia",
+                    "Senegal",
+                    "Serbia",
+                    "Seychelles",
+                    "Sierra Leone",
+                    "Singapore",
+                    "Sint Maarten (Dutch part)",
+                    "Slovakia",
+                    "Slovenia",
+                    "Solomon Islands",
+                    "Somalia",
+                    "South Africa",
+                    "South Georgia and the South Sandwich Islands",
+                    "South Sudan",
+                    "Spain",
+                    "Sri Lanka",
+                    "Sudan",
+                    "Suriname",
+                    "Svalbard and Jan Mayen",
+                    "Swaziland",
+                    "Sweden",
+                    "Switzerland",
+                    "Syrian Arab Republic",
+                    "Taiwan, Province of China",
+                    "Tajikistan",
+                    "Tanzania, United Republic of",
+                    "Thailand",
+                    "Timor-Leste",
+                    "Togo",
+                    "Tokelau",
+                    "Tonga",
+                    "Trinidad and Tobago",
+                    "Tunisia",
+                    "Turkey",
+                    "Turkmenistan",
+                    "Turks and Caicos Islands",
+                    "Tuvalu",
+                    "Uganda",
+                    "Ukraine",
+                    "United Arab Emirates",
+                    "United Kingdom",
+                    "United States Minor Outlying Islands",
+                    "United States",
+                    "Uruguay",
+                    "Uzbekistan",
+                    "Vanuatu",
+                    "Venezuela, Bolivarian Republic of",
+                    "Viet Nam",
+                    "Virgin Islands, British",
+                    "Virgin Islands, U.S.",
+                    "Wallis and Futuna",
+                    "Western Sahara",
+                    "Yemen",
+                    "Zambia",
+                    "Zimbabwe"
+                  ],
+                  "elaboration": {
+                    "Afghanistan": "Afghanistan",
+                    "Aland Islands": "Aland Islands",
+                    "Albania": "Albania",
+                    "Algeria": "Algeria",
+                    "American Samoa": "American Samoa",
+                    "Andorra": "Andorra",
+                    "Angola": "Angola",
+                    "Anguilla": "Anguilla",
+                    "Antarctica": "Antarctica",
+                    "Antigua and Barbuda": "Antigua and Barbuda",
+                    "Argentina": "Argentina",
+                    "Armenia": "Armenia",
+                    "Aruba": "Aruba",
+                    "Australia": "Australia",
+                    "Austria": "Austria",
+                    "Azerbaijan": "Azerbaijan",
+                    "Bahamas": "Bahamas",
+                    "Bahrain": "Bahrain",
+                    "Bangladesh": "Bangladesh",
+                    "Barbados": "Barbados",
+                    "Belarus": "Belarus",
+                    "Belgium": "Belgium",
+                    "Belize": "Belize",
+                    "Benin": "Benin",
+                    "Bermuda": "Bermuda",
+                    "Bhutan": "Bhutan",
+                    "Bolivia, Plurinational State of": "Bolivia, Plurinational State of",
+                    "Bonaire, Sint Eustatius and Saba": "Bonaire, Sint Eustatius and Saba",
+                    "Bosnia and Herzegovina": "Bosnia and Herzegovina",
+                    "Botswana": "Botswana",
+                    "Bouvet Island": "Bouvet Island",
+                    "Brazil": "Brazil",
+                    "British Indian Ocean Territory": "British Indian Ocean Territory",
+                    "Brunei Darussalam": "Brunei Darussalam",
+                    "Bulgaria": "Bulgaria",
+                    "Burkina Faso": "Burkina Faso",
+                    "Burundi": "Burundi",
+                    "Cambodia": "Cambodia",
+                    "Cameroon": "Cameroon",
+                    "Canada": "Canada",
+                    "Cape Verde": "Cape Verde",
+                    "Cayman Islands": "Cayman Islands",
+                    "Central African Republic": "Central African Republic",
+                    "Chad": "Chad",
+                    "Chile": "Chile",
+                    "China": "China",
+                    "Christmas Island": "Christmas Island",
+                    "Cocos (Keeling) Islands": "Cocos (Keeling) Islands",
+                    "Colombia": "Colombia",
+                    "Comoros": "Comoros",
+                    "Congo, the Democratic Republic of the": "Congo, the Democratic Republic of the",
+                    "Congo": "Congo",
+                    "Cook Islands": "Cook Islands",
+                    "Costa Rica": "Costa Rica",
+                    "Cote d'Ivoire": "Cote d'Ivoire",
+                    "Croatia": "Croatia",
+                    "Cuba": "Cuba",
+                    "Curacao": "Curacao",
+                    "Cyprus": "Cyprus",
+                    "Czech Republic": "Czech Republic",
+                    "Denmark": "Denmark",
+                    "Djibouti": "Djibouti",
+                    "Dominica": "Dominica",
+                    "Dominican Republic": "Dominican Republic",
+                    "Ecuador": "Ecuador",
+                    "Egypt": "Egypt",
+                    "El Salvador": "El Salvador",
+                    "Equatorial Guinea": "Equatorial Guinea",
+                    "Eritrea": "Eritrea",
+                    "Estonia": "Estonia",
+                    "Ethiopia": "Ethiopia",
+                    "Falkland Islands (Malvinas)": "Falkland Islands (Malvinas)",
+                    "Faroe Islands": "Faroe Islands",
+                    "Fiji": "Fiji",
+                    "Finland": "Finland",
+                    "France": "France",
+                    "French Guiana": "French Guiana",
+                    "French Polynesia": "French Polynesia",
+                    "French Southern Territories": "French Southern Territories",
+                    "Gabon": "Gabon",
+                    "Gambia": "Gambia",
+                    "Georgia": "Georgia",
+                    "Germany": "Germany",
+                    "Ghana": "Ghana",
+                    "Gibraltar": "Gibraltar",
+                    "Greece": "Greece",
+                    "Greenland": "Greenland",
+                    "Grenada": "Grenada",
+                    "Guadeloupe": "Guadeloupe",
+                    "Guam": "Guam",
+                    "Guatemala": "Guatemala",
+                    "Guernsey": "Guernsey",
+                    "Guinea-Bissau": "Guinea-Bissau",
+                    "Guinea": "Guinea",
+                    "Guyana": "Guyana",
+                    "Haiti": "Haiti",
+                    "Heard Island and McDonald Islands": "Heard Island and McDonald Islands",
+                    "Holy See (Vatican City State)": "Holy See (Vatican City State)",
+                    "Honduras": "Honduras",
+                    "Hong Kong": "Hong Kong",
+                    "Hungary": "Hungary",
+                    "Iceland": "Iceland",
+                    "India": "India",
+                    "Indonesia": "Indonesia",
+                    "Iran, Islamic Republic of": "Iran, Islamic Republic of",
+                    "Iraq": "Iraq",
+                    "Ireland": "Ireland",
+                    "Isle of Man": "Isle of Man",
+                    "Israel": "Israel",
+                    "Italy": "Italy",
+                    "Jamaica": "Jamaica",
+                    "Japan": "Japan",
+                    "Jersey": "Jersey",
+                    "Jordan": "Jordan",
+                    "Kazakhstan": "Kazakhstan",
+                    "Kenya": "Kenya",
+                    "Kiribati": "Kiribati",
+                    "Korea, Democratic People's Republic of": "Korea, Democratic People's Republic of",
+                    "Korea, Republic of": "Korea, Republic of",
+                    "Kuwait": "Kuwait",
+                    "Kyrgyzstan": "Kyrgyzstan",
+                    "Lao People's Democratic Republic": "Lao People's Democratic Republic",
+                    "Latvia": "Latvia",
+                    "Lebanon": "Lebanon",
+                    "Lesotho": "Lesotho",
+                    "Liberia": "Liberia",
+                    "Libya": "Libya",
+                    "Liechtenstein": "Liechtenstein",
+                    "Lithuania": "Lithuania",
+                    "Luxembourg": "Luxembourg",
+                    "Macao": "Macao",
+                    "Macedonia, the Former Yugoslav Republic of": "Macedonia, the Former Yugoslav Republic of",
+                    "Madagascar": "Madagascar",
+                    "Malawi": "Malawi",
+                    "Malaysia": "Malaysia",
+                    "Maldives": "Maldives",
+                    "Mali": "Mali",
+                    "Malta": "Malta",
+                    "Marshall Islands": "Marshall Islands",
+                    "Martinique": "Martinique",
+                    "Mauritania": "Mauritania",
+                    "Mauritius": "Mauritius",
+                    "Mayotte": "Mayotte",
+                    "Mexico": "Mexico",
+                    "Micronesia, Federated States of": "Micronesia, Federated States of",
+                    "Moldova, Republic of": "Moldova, Republic of",
+                    "Monaco": "Monaco",
+                    "Mongolia": "Mongolia",
+                    "Montenegro": "Montenegro",
+                    "Montserrat": "Montserrat",
+                    "Morocco": "Morocco",
+                    "Mozambique": "Mozambique",
+                    "Myanmar": "Myanmar",
+                    "Namibia": "Namibia",
+                    "Nauru": "Nauru",
+                    "Nepal": "Nepal",
+                    "Netherlands": "Netherlands",
+                    "New Caledonia": "New Caledonia",
+                    "New Zealand": "New Zealand",
+                    "Nicaragua": "Nicaragua",
+                    "Niger": "Niger",
+                    "Nigeria": "Nigeria",
+                    "Niue": "Niue",
+                    "Norfolk Island": "Norfolk Island",
+                    "Northern Mariana Islands": "Northern Mariana Islands",
+                    "Norway": "Norway",
+                    "Oman": "Oman",
+                    "Pakistan": "Pakistan",
+                    "Palau": "Palau",
+                    "Palestine, State of": "Palestine, State of",
+                    "Panama": "Panama",
+                    "Papua New Guinea": "Papua New Guinea",
+                    "Paraguay": "Paraguay",
+                    "Peru": "Peru",
+                    "Philippines": "Philippines",
+                    "Pitcairn": "Pitcairn",
+                    "Poland": "Poland",
+                    "Portugal": "Portugal",
+                    "Puerto Rico": "Puerto Rico",
+                    "Qatar": "Qatar",
+                    "Reunion": "Reunion",
+                    "Romania": "Romania",
+                    "Russian Federation": "Russian Federation",
+                    "Rwanda": "Rwanda",
+                    "Saint Barthelemy": "Saint Barthelemy",
+                    "Saint Helena, Ascension and Tristan da Cunha": "Saint Helena, Ascension and Tristan da Cunha",
+                    "Saint Kitts and Nevis": "Saint Kitts and Nevis",
+                    "Saint Lucia": "Saint Lucia",
+                    "Saint Martin (French part)": "Saint Martin (French part)",
+                    "Saint Pierre and Miquelon": "Saint Pierre and Miquelon",
+                    "Saint Vincent and the Grenadines": "Saint Vincent and the Grenadines",
+                    "Samoa": "Samoa",
+                    "San Marino": "San Marino",
+                    "Sao Tome and Principe": "Sao Tome and Principe",
+                    "Saudi Arabia": "Saudi Arabia",
+                    "Senegal": "Senegal",
+                    "Serbia": "Serbia",
+                    "Seychelles": "Seychelles",
+                    "Sierra Leone": "Sierra Leone",
+                    "Singapore": "Singapore",
+                    "Sint Maarten (Dutch part)": "Sint Maarten (Dutch part)",
+                    "Slovakia": "Slovakia",
+                    "Slovenia": "Slovenia",
+                    "Solomon Islands": "Solomon Islands",
+                    "Somalia": "Somalia",
+                    "South Africa": "South Africa",
+                    "South Georgia and the South Sandwich Islands": "South Georgia and the South Sandwich Islands",
+                    "South Sudan": "South Sudan",
+                    "Spain": "Spain",
+                    "Sri Lanka": "Sri Lanka",
+                    "Sudan": "Sudan",
+                    "Suriname": "Suriname",
+                    "Svalbard and Jan Mayen": "Svalbard and Jan Mayen",
+                    "Swaziland": "Swaziland",
+                    "Sweden": "Sweden",
+                    "Switzerland": "Switzerland",
+                    "Syrian Arab Republic": "Syrian Arab Republic",
+                    "Taiwan, Province of China": "Taiwan, Province of China",
+                    "Tajikistan": "Tajikistan",
+                    "Tanzania, United Republic of": "Tanzania, United Republic of",
+                    "Thailand": "Thailand",
+                    "Timor-Leste": "Timor-Leste",
+                    "Togo": "Togo",
+                    "Tokelau": "Tokelau",
+                    "Tonga": "Tonga",
+                    "Trinidad and Tobago": "Trinidad and Tobago",
+                    "Tunisia": "Tunisia",
+                    "Turkey": "Turkey",
+                    "Turkmenistan": "Turkmenistan",
+                    "Turks and Caicos Islands": "Turks and Caicos Islands",
+                    "Tuvalu": "Tuvalu",
+                    "Uganda": "Uganda",
+                    "Ukraine": "Ukraine",
+                    "United Arab Emirates": "United Arab Emirates",
+                    "United Kingdom": "United Kingdom",
+                    "United States Minor Outlying Islands": "United States Minor Outlying Islands",
+                    "United States": "United States",
+                    "Uruguay": "Uruguay",
+                    "Uzbekistan": "Uzbekistan",
+                    "Vanuatu": "Vanuatu",
+                    "Venezuela, Bolivarian Republic of": "Venezuela, Bolivarian Republic of",
+                    "Viet Nam": "Viet Nam",
+                    "Virgin Islands, British": "Virgin Islands, British",
+                    "Virgin Islands, U.S.": "Virgin Islands, U.S.",
+                    "Wallis and Futuna": "Wallis and Futuna",
+                    "Western Sahara": "Western Sahara",
+                    "Yemen": "Yemen",
+                    "Zambia": "Zambia",
+                    "Zimbabwe": "Zimbabwe"
+                  }
+                }
+              },
+              "required": [
+                "NotionalCurrency",
+                "OtherNotionalCurrency",
+                "ReturnorPayoutTrigger"
+              ],
+              "dependencies": {
+                "PlaceofSettlement": [
+                  "SettlementCurrency"
+                ]
+              },
+              "additionalProperties": false
+            },
+            "Commodities": {
+              "title": "Commodities",
+              "type": "object",
+              "properties": {
+                "NotionalCurrency": {
+                  "$ref": "../../codesets/ISOCurrencyCode.json",
+                  "title": "Notional Currency",
+                  "description": "Currency in which the notional is denominated. Usage: Within MiFIR, in the case of an interest rate or currency derivative contract, this will be the notional currency of leg 1 or the currency 1 of the pair. Within MiFIR, in the case of swaptions where the underlying swap is single-currency, this will be the notional currency of the underlying swap. For swaptions where the underlying is multi-currency, this will be the notional currency of leg 1 of the swap"
+                },
+                "ReturnorPayoutTrigger": {
+                  "title": "Return or Payout Trigger",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "type": "string",
+                  "enum": [
+                    "Contract for Difference (CFD)",
+                    "Forward price of underlying instrument"
+                  ],
+                  "elaboration": {
+                    "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
+                    "Forward price of underlying instrument": "Forward price of underlying instrument"
+                  }
+                },
+                "UnderlierCharacteristic": {
+                  "title": "Underlier Characteristic",
+                  "description": "An attribute that is used to specify whether the product is based on a single or multiple underliers.",
+                  "type": "string",
+                  "enum": [
+                    "Single",
+                    "Basket"
+                  ],
+                  "elaboration": {
+                    "Single": "In case the product has single underlier",
+                    "Basket": "In case the product has multiple underliers"
+                  }
+                },
+                "ReferenceRate": {
+                  "$ref": "../../codesets/CommoditiesReferenceRate.json",
+                  "title": "Reference Rate",
+                  "description": "Identifies the reference index for the instrument"
+                },
+                "UnderlyingInstrumentIndex": {
+                  "$ref": "../../codesets/CommoditiesIndex.json",
+                  "title": "Underlying Instrument Index",
+                  "description": "Underlying Instrument Index"
+                },
+                "UnderlyingInstrumentIndexProp": {
+                  "title": "Underlying Instrument Index Prop",
+                  "description": "Underlying Instrument Index Prop",
+                  "type": "string"
+                },
+                "BaseProduct": {
+                  "title": "Base Product",
+                  "description": "Base product taxonomy of commodity product",
+                  "type": "string"
+                },
+                "SubProduct": {
+                  "title": "Sub Product",
+                  "description": "Sub product taxonomy of commodity product",
+                  "type": "string"
+                },
+                "AdditionalSubProduct": {
+                  "title": "Additional Sub Product",
+                  "description": "Additional Sub Product",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "NotionalCurrency",
+                "ReturnorPayoutTrigger",
+                "UnderlierCharacteristic"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "DeliveryType": {
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "type": "string",
+          "enum": [
+            "Cash",
+            "Physical",
+            "Non-Deliverable"
+          ],
+          "elaboration": {
+            "Cash": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "Non-Deliverable": "as defined by CFI code: ISO 10962 (2015)"
+          },
+          "options": {
+            "enum_titles": [
+              "Cash",
+              "Physical",
+              "Non-Deliverable"
+            ]
+          }
+        }
+      },
+      "required": [
+        "UnderlyingAssetClass",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "TemplateVersion",
+    "Header",
+    "Identifier",
+    "Derived",
+    "Attributes"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "UnderlyingRecord": {
+      "type": "object",
+      "properties": {
+        "UnderlierID": {
+          "title": "Underlier ID",
+          "description": "Underlier ID",
+          "type": "string"
+        },
+        "UnderlierIDSource": {
+          "title": "Underlier ID Source",
+          "description": "Underlier ID Source",
+          "type": "string",
+          "enum": [
+            "ISIN"
+          ]
+        },
+        "ReturnUnderlierIDSource": {
+          "title": "Return Underlier ID Source",
+          "description": "Return Underlier ID Source",
+          "type": "string",
+          "enum": [
+            "CUSIP",
+            "FIGI",
+            "RIC",
+            "SEDOL"
+          ]
+        },
+        "ReturnUnderlierID": {
+          "title": "Return Underlier ID",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+            "title": "Return Underlier ID",
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "UnderlierID",
+        "UnderlierIDSource",
+        "ReturnUnderlierIDSource",
+        "ReturnUnderlierID"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
