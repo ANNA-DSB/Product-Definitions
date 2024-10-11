@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Request.Rates.Swap.Inflation_Swap.UPI",
+  "LastModifyDateTime": "2024-10-07T15:39:41",
+  "description": "Request template for Rates Swap Inflation_Swap",
+  "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
+  "type": "object",
+  "properties": {
+    "Header": {
+      "title": "Header",
+      "type": "object",
+      "properties": {
+        "AssetClass": {
+          "title": "Asset Class",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
+          "type": "string",
+          "enum": [
+            "Rates"
+          ]
+        },
+        "InstrumentType": {
+          "title": "Instrument Type",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
+          "type": "string",
+          "enum": [
+            "Swap"
+          ]
+        },
+        "UseCase": {
+          "title": "Product",
+          "description": "Unique label that defines the product",
+          "type": "string",
+          "enum": [
+            "Inflation_Swap"
+          ]
+        },
+        "Level": {
+          "description": "Label assigned to the UPI to describe its level in the hierarchy",
+          "title": "Level",
+          "type": "string",
+          "enum": [
+            "UPI"
+          ]
+        }
+      },
+      "required": [
+        "AssetClass",
+        "InstrumentType",
+        "UseCase",
+        "Level"
+      ],
+      "additionalProperties": false
+    },
+    "Attributes": {
+      "type": "object",
+      "properties": {
+        "NotionalCurrency": {
+          "$ref": "../../codesets/ISOCurrencyCode.json",
+          "title": "Notional Currency",
+          "description": "Currency in which the notional is denominated. Usage: Within MiFIR, in the case of an interest rate or currency derivative contract, this will be the notional currency of leg 1 or the currency 1 of the pair. Within MiFIR, in the case of swaptions where the underlying swap is single-currency, this will be the notional currency of the underlying swap. For swaptions where the underlying is multi-currency, this will be the notional currency of leg 1 of the swap"
+        },
+        "UnderlierID": {
+          "$ref": "../../codesets/FpmlRatesInflationRate.json",
+          "title": "Underlier ID",
+          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index"
+        },
+        "UnderlierIDSource": {
+          "title": "Underlier ID Source",
+          "description": "The origin, or publisher, of the associated underlier ID.",
+          "type": "string",
+          "enum": [
+            "FPML"
+          ],
+          "elaboration": {
+            "FPML": "FPML"
+          }
+        },
+        "ReferenceRateTermValue": {
+          "title": "Reference Rate Term Value",
+          "description": "Tenor value of the first leg reference rate",
+          "type": "integer",
+          "not": {
+            "type": "integer",
+            "enum": [
+              0
+            ]
+          },
+          "minimum": -999,
+          "maximum": 999
+        },
+        "ReferenceRateTermUnit": {
+          "title": "Reference Rate Term Unit",
+          "description": "Tenor unit of the first leg reference rate",
+          "type": "string",
+          "enum": [
+            "DAYS",
+            "WEEK",
+            "MNTH",
+            "YEAR"
+          ],
+          "elaboration": {
+            "DAYS": "Rate is reported in days",
+            "WEEK": "Rate is reported in weeks",
+            "MNTH": "Rate is reported in months",
+            "YEAR": "Rate is reported in years"
+          }
+        },
+        "NotionalSchedule": {
+          "title": "Notional Schedule",
+          "description": "Indicates the face amount of a swap upon which the payment streams for that swap are based",
+          "type": "string",
+          "enum": [
+            "Constant",
+            "Accreting",
+            "Amortizing",
+            "Custom"
+          ],
+          "elaboration": {
+            "Constant": "the notional amount is constant through the life of the contract",
+            "Accreting": "the notional amount increases through the life of the contract",
+            "Amortizing": "the notional amount decreases through the life of the contract",
+            "Custom": "customized notional step schedule"
+          }
+        },
+        "DeliveryType": {
+          "default": "PHYS",
+          "title": "Delivery Type",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
+          "type": "string",
+          "enum": [
+            "CASH",
+            "PHYS"
+          ],
+          "elaboration": {
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
+            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
+          },
+          "options": {
+            "enum_titles": [
+              "Non-deliverable",
+              "Deliverable"
+            ]
+          }
+        }
+      },
+      "required": [
+        "NotionalCurrency",
+        "UnderlierID",
+        "UnderlierIDSource",
+        "ReferenceRateTermValue",
+        "ReferenceRateTermUnit",
+        "NotionalSchedule",
+        "DeliveryType"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "Header",
+    "Attributes"
+  ],
+  "additionalProperties": false
+}
