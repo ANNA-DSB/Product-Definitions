@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Option.Swaption.InstRefDataReporting",
-  "LastModifyDateTime": "2023-08-08T15:07:00",
+  "LastModifyDateTime": "2024-10-07T15:39:41",
   "description": "Request template for Commodities Option Swaption",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Commodities"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Option"
@@ -72,45 +72,6 @@
           "type": "string",
           "pattern": "^[EZ]{2}[A-Z0-9]{9}[0-9]$"
         },
-        "UnderlyingAssetType": {
-          "title": "Underlying Asset Type",
-          "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
-          "type": "string",
-          "enum": [
-            "Energy",
-            "Metals",
-            "Agriculture",
-            "Environmental",
-            "Freight",
-            "Polypropylene Products",
-            "Paper",
-            "Fertilizer",
-            "Index",
-            "Multi Commodity",
-            "Options",
-            "Forwards",
-            "Futures",
-            "Swap",
-            "Other"
-          ],
-          "elaboration": {
-            "Energy": "Energy",
-            "Metals": "Metals",
-            "Agriculture": "Agriculture",
-            "Environmental": "Environmental",
-            "Freight": "Freight",
-            "Polypropylene Products": "Polypropylene Products",
-            "Paper": "Paper",
-            "Fertilizer": "Fertilizer",
-            "Index": "Index",
-            "Multi Commodity": "Multi Commodity",
-            "Options": "Options",
-            "Forwards": "Forwards",
-            "Futures": "Futures",
-            "Swap": "Swap",
-            "Other": "Other"
-          }
-        },
         "OptionType": {
           "title": "Option Type",
           "description": "Indication as to whether the derivative contract is a call (right to purchase a specific underlying asset) or a put (right to sell a specific underlying asset) or whether it is a chooser (right to decide whether it is a call or put prior to the expiration date)",
@@ -157,7 +118,7 @@
         },
         "ValuationMethodorTrigger": {
           "title": "Valuation Method or Trigger",
-          "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Valuation method or trigger as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "Vanilla",
@@ -182,7 +143,7 @@
         },
         "DeliveryType": {
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "CASH",
@@ -215,7 +176,6 @@
         "NotionalCurrency",
         "ExpiryDate",
         "UnderlyingInstrumentISIN",
-        "UnderlyingAssetType",
         "OptionType",
         "OptionExerciseStyle",
         "ValuationMethodorTrigger",
