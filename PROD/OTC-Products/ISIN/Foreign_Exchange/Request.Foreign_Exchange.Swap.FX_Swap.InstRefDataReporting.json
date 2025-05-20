@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Foreign_Exchange.Swap.FX_Swap.InstRefDataReporting",
-  "LastModifyDateTime": "2024-07-23T03:50:05",
+  "LastModifyDateTime": "2024-10-07T15:39:41",
   "description": "Request template for Foreign_Exchange Swap FX_Swap",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Foreign_Exchange"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Swap"
@@ -69,7 +69,7 @@
         "DeliveryType": {
           "default": "PHYS",
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "PHYS",
@@ -82,7 +82,7 @@
           "options": {
             "enum_titles": [
               "Physical",
-              "Non-Deliverable"
+              "Cash"
             ]
           }
         },
