@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Swap.Non_Deliverable_FX_Swap.UPI.V1",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2024-10-07T16:50:00",
   "description": "Record template for Foreign_Exchange.Swap.Non_Deliverable_FX_Swap",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -148,6 +148,113 @@
               "Cash",
               "Physical",
               "Non-Deliverable"
+            ]
+          }
+        },
+        "CFI": {
+          "title": "CFI",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "title": "CFI",
+            "properties": {
+              "Version": {
+                "title": "Version",
+                "description": "CFI Version",
+                "type": "string"
+              },
+              "VersionStatus": {
+                "title": "Version Status",
+                "description": "Version Status",
+                "type": "string"
+              },
+              "Value": {
+                "title": "Value",
+                "description": "CFI Value",
+                "type": "string"
+              },
+              "Category": {
+                "title": "Category",
+                "description": "CFI Category",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Category Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Category Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Group": {
+                "title": "Group",
+                "description": "CFI Group",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Group Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Group Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Attributes": {
+                "type": "array",
+                "title": "Attributes",
+                "minItems": 4,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "title": "Attribute",
+                  "properties": {
+                    "Name": {
+                      "title": "Name",
+                      "description": "Name of Attribute",
+                      "type": "string"
+                    },
+                    "Code": {
+                      "title": "Code",
+                      "description": "Code of Attribute",
+                      "type": "string"
+                    },
+                    "Value": {
+                      "title": "Value",
+                      "description": "Value of Attribute",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Name",
+                    "Code",
+                    "Value"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Version",
+              "VersionStatus",
+              "Value",
+              "Category",
+              "Group"
             ]
           }
         }
@@ -697,12 +804,6 @@
           "elaboration": {
             "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
             "OPTL": "synthetic options on foreign exchange (FX) forwards that are based on non-convertible or thinly traded currencies"
-          },
-          "options": {
-            "enum_titles": [
-              "Physical",
-              "Non-Deliverable"
-            ]
           }
         }
       },

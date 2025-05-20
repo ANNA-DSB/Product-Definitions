@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Option.Target_Option.UPI.V1",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2024-10-07T15:39:41",
   "description": "Record template for Foreign_Exchange.Option.Target_Option",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -20,7 +20,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Foreign_Exchange"
@@ -28,7 +28,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Option"
@@ -126,7 +126,7 @@
         },
         "UnderlyingAssetType": {
           "title": "Underlying Asset Type",
-          "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "Forwards",
@@ -145,7 +145,7 @@
         },
         "ValuationMethodorTrigger": {
           "title": "Valuation Method or Trigger",
-          "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Valuation method or trigger as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "Vanilla",
@@ -229,6 +229,113 @@
               "Elect at Exercise"
             ]
           }
+        },
+        "CFI": {
+          "title": "CFI",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "title": "CFI",
+            "properties": {
+              "Version": {
+                "title": "Version",
+                "description": "CFI Version",
+                "type": "string"
+              },
+              "VersionStatus": {
+                "title": "Version Status",
+                "description": "Version Status",
+                "type": "string"
+              },
+              "Value": {
+                "title": "Value",
+                "description": "CFI Value",
+                "type": "string"
+              },
+              "Category": {
+                "title": "Category",
+                "description": "CFI Category",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Category Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Category Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Group": {
+                "title": "Group",
+                "description": "CFI Group",
+                "type": "object",
+                "properties": {
+                  "Code": {
+                    "title": "Code",
+                    "description": "Group Code",
+                    "type": "string"
+                  },
+                  "Value": {
+                    "title": "Value",
+                    "description": "Group Value",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Code",
+                  "Value"
+                ]
+              },
+              "Attributes": {
+                "type": "array",
+                "title": "Attributes",
+                "minItems": 4,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "title": "Attribute",
+                  "properties": {
+                    "Name": {
+                      "title": "Name",
+                      "description": "Name of Attribute",
+                      "type": "string"
+                    },
+                    "Code": {
+                      "title": "Code",
+                      "description": "Code of Attribute",
+                      "type": "string"
+                    },
+                    "Value": {
+                      "title": "Value",
+                      "description": "Value of Attribute",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Name",
+                    "Code",
+                    "Value"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Version",
+              "VersionStatus",
+              "Value",
+              "Category",
+              "Group"
+            ]
+          }
         }
       },
       "required": [
@@ -302,7 +409,7 @@
         "DeliveryType": {
           "default": "PHYS",
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "CASH",
@@ -313,13 +420,6 @@
             "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
             "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
             "OPTL": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise"
-          },
-          "options": {
-            "enum_titles": [
-              "Cash",
-              "Physical",
-              "Elect at Exercise"
-            ]
           }
         }
       },
