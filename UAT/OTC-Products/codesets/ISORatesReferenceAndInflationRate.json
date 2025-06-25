@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
-  "LastModifyDateTime": "2024-06-10T03:46:34",
+  "LastModifyDateTime": "2025-06-11T05:40:55",
   "title": "ISORatesReferenceAndInflationRate",
   "type": "string",
   "description": "ISO 20022 Reference Rate and Inflation Rate",
@@ -391,7 +391,10 @@
     "ESTR",
     "THOR-COMPOUND",
     "ZARONIA",
-    "ZARONIA-OIS Compound"
+    "ZARONIA-OIS Compound",
+    "INDONIA",
+    "INDONIA-OIS Compound",
+    "ORR"
   ],
   "elaboration": {
     "7-Repo Compounding Date": "7-Repo Compounding Date",
@@ -779,6 +782,9 @@
     "ESTR": "ESTR",
     "THOR-COMPOUND": "THOR-COMPOUND",
     "ZARONIA": "ZARONIA",
-    "ZARONIA-OIS Compound": "ZARONIA-OIS Compound"
+    "ZARONIA-OIS Compound": "ZARONIA-OIS Compound",
+    "INDONIA": "INDONIA",
+    "INDONIA-OIS Compound": "INDONIA-OIS Compound",
+    "ORR": "ORR"
   }
 }
