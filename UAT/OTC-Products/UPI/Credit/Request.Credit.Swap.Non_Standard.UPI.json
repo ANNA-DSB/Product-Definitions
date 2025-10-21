@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Swap.Non_Standard.UPI",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2025-09-01T08:03:27",
   "description": "Request template for Credit Swap Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Credit"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Swap"
@@ -71,7 +71,7 @@
                     "disable_properties": true
                   },
                   "title": "Underlying Asset Type",
-                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962",
                   "type": "object",
                   "oneOf": [
                     {
@@ -93,14 +93,12 @@
                                   "type": "string",
                                   "enum": [
                                     "ISIN",
-                                    "RIC",
                                     "FIGI",
                                     "CUSIP",
                                     "SEDOL"
                                   ],
                                   "elaboration": {
                                     "ISIN": "ISIN code of the underlying instrument",
-                                    "RIC": "RIC of the underlying instrument",
                                     "FIGI": "FIGI code of the underlying instrument",
                                     "CUSIP": "CUSIP code of the underlying instrument",
                                     "SEDOL": "SEDOL code of the underlying instrument"
@@ -544,14 +542,12 @@
                                   "type": "string",
                                   "enum": [
                                     "ISIN",
-                                    "RIC",
                                     "FIGI",
                                     "CUSIP",
                                     "SEDOL"
                                   ],
                                   "elaboration": {
                                     "ISIN": "ISIN code of the underlying instrument",
-                                    "RIC": "RIC of the underlying instrument",
                                     "FIGI": "FIGI code of the underlying instrument",
                                     "CUSIP": "CUSIP code of the underlying instrument",
                                     "SEDOL": "SEDOL code of the underlying instrument"
@@ -821,7 +817,7 @@
                     "disable_properties": true
                   },
                   "title": "Underlying Asset Type",
-                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962",
                   "type": "string",
                   "enum": [
                     "Other",
@@ -842,7 +838,7 @@
         },
         "UnderlyingIssuerType": {
           "title": "Underlying Issuer Type",
-          "description": "The underlying issuer type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The underlying issuer type as defined by CFI code: ISO 10962",
           "type": "object",
           "oneOf": [
             {
@@ -1094,7 +1090,7 @@
         },
         "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "Credit Default",
@@ -1109,7 +1105,7 @@
         },
         "DeliveryType": {
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "CASH",

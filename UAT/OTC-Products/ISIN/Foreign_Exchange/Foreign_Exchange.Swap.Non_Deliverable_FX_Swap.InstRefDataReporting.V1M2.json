@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Swap.Non_Deliverable_FX_Swap.InstRefDataReporting.V1M2",
-  "LastModifyDateTime": "2024-10-07T15:39:41",
+  "LastModifyDateTime": "2025-08-01T05:49:52",
   "description": "Record template for Foreign_Exchange.Swap.Non_Deliverable_FX_Swap",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1338,13 +1338,13 @@
           "title": "Instrument ISIN - Near Leg",
           "description": "ISIN code of the underlying instrument - Near Leg",
           "type": "string",
-          "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+          "pattern": "^EZ[A-Z0-9]{9}[0-9]$"
         },
         "InstrumentISINFarLeg": {
           "title": "Instrument ISIN - Far leg",
           "description": "ISIN code of the underlying instrument - Far Leg",
           "type": "string",
-          "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+          "pattern": "^EZ[A-Z0-9]{9}[0-9]$"
         },
         "DeliveryType": {
           "title": "Delivery Type",

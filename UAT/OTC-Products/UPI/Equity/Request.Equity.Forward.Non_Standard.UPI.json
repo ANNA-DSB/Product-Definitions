@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Forward.Non_Standard.UPI",
-  "LastModifyDateTime": "2024-04-12T12:17:50",
+  "LastModifyDateTime": "2025-09-01T08:03:27",
   "description": "Request template for Equity Forward Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Equity"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Forward"
@@ -71,7 +71,7 @@
                     "disable_properties": true
                   },
                   "title": "Underlying Asset Type",
-                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962",
                   "type": "object",
                   "oneOf": [
                     {
@@ -87,14 +87,12 @@
                               "type": "string",
                               "enum": [
                                 "ISIN",
-                                "RIC",
                                 "FIGI",
                                 "CUSIP",
                                 "SEDOL"
                               ],
                               "elaboration": {
                                 "ISIN": "ISIN code of the underlying instrument",
-                                "RIC": "RIC of the underlying instrument",
                                 "FIGI": "FIGI code of the underlying instrument",
                                 "CUSIP": "CUSIP code of the underlying instrument",
                                 "SEDOL": "SEDOL code of the underlying instrument"
@@ -146,34 +144,7 @@
                                   "title": "Underlier ID",
                                   "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
                                   "type": "string",
-                                  "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
-                                }
-                              },
-                              "required": [
-                                "UnderlierIDSource",
-                                "UnderlierID"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Equity Index Name",
-                              "properties": {
-                                "UnderlierIDSource": {
-                                  "title": "Underlier ID Source",
-                                  "description": "The origin, or publisher, of the associated underlier ID.",
-                                  "type": "string",
-                                  "enum": [
-                                    "EQIDX"
-                                  ],
-                                  "elaboration": {
-                                    "EQIDX": "Equity Index"
-                                  }
-                                },
-                                "UnderlierID": {
-                                  "$ref": "../../codesets/EquityIndex.json",
-                                  "title": "Underlier ID",
-                                  "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index"
+                                  "pattern": "^(?!(EZ|QZ))(OTHER|[A-Z]{2}[A-Z0-9]{9}[0-9])$"
                                 }
                               },
                               "required": [
@@ -230,14 +201,12 @@
                               "type": "string",
                               "enum": [
                                 "ISIN",
-                                "RIC",
                                 "FIGI",
                                 "CUSIP",
                                 "SEDOL"
                               ],
                               "elaboration": {
                                 "ISIN": "ISIN code of the underlying instrument",
-                                "RIC": "RIC of the underlying instrument",
                                 "FIGI": "FIGI code of the underlying instrument",
                                 "CUSIP": "CUSIP code of the underlying instrument",
                                 "SEDOL": "SEDOL code of the underlying instrument"
@@ -274,14 +243,12 @@
                               "type": "string",
                               "enum": [
                                 "ISIN",
-                                "RIC",
                                 "FIGI",
                                 "CUSIP",
                                 "SEDOL"
                               ],
                               "elaboration": {
                                 "ISIN": "ISIN code of the underlying instrument",
-                                "RIC": "RIC of the underlying instrument",
                                 "FIGI": "FIGI code of the underlying instrument",
                                 "CUSIP": "CUSIP code of the underlying instrument",
                                 "SEDOL": "SEDOL code of the underlying instrument"
@@ -325,7 +292,7 @@
                     "disable_properties": true
                   },
                   "title": "Underlying Asset Type",
-                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)",
+                  "description": "The type of the underlying asset as defined by CFI code: ISO 10962",
                   "type": "string",
                   "enum": [
                     "Basket",
@@ -348,7 +315,7 @@
         },
         "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "Contract for Difference (CFD)",
@@ -363,7 +330,7 @@
         },
         "DeliveryType": {
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "CASH",
