@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Price_Return_Basic_Performance_Single_Index.UPI",
-  "LastModifyDateTime": "2025-08-11T07:41:39",
+  "LastModifyDateTime": "2025-12-11T09:15:27",
   "description": "Request template for Equity Swap Price_Return_Basic_Performance_Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -129,10 +129,12 @@
           "type": "string",
           "enum": [
             "Price",
+            "Total Return",
             "Other"
           ],
           "elaboration": {
             "Price": "price return equity swap, similar to a total return swap, except that dividends are not passed through to the buyer",
+            "Total Return": "the total economic return of an underlying asset is transferred from one party (total return buyer) to another (total return seller); total return seller takes on the risk of negative changes in market value of the reference asset, and pays any positive cash flow to the buyer such as coupon, capital gains or dividends of the reference asset",
             "Other": "Other"
           }
         },
