@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Swap.Basis_Swap.InstRefDataReporting",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2025-08-01T05:49:52",
   "description": "Request template for Commodities Swap Basis_Swap",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Commodities"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Swap"
@@ -68,7 +68,7 @@
         },
         "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "Contract for Difference (CFD)",
@@ -81,7 +81,7 @@
         },
         "DeliveryType": {
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "CASH",
@@ -1531,8 +1531,8 @@
           ]
         },
         "OtherBaseProduct": {
+          "title": "Other Base Product",
           "description": "The first commodity of the basis swap represents the receiving leg, the second commodity of the basis swap represents that paying leg",
-          "title": "Base Product",
           "type": "object",
           "oneOf": [
             {
@@ -1540,7 +1540,7 @@
               "title": "Agricultural[AGRI]",
               "properties": {
                 "AGRI": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
@@ -1553,8 +1553,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "FWHT",
@@ -1688,8 +1688,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "ROBU",
@@ -1729,8 +1729,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "LAMP"
@@ -1785,8 +1785,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "MWHT"
@@ -1822,7 +1822,7 @@
               "title": "Energy[NRGY]",
               "properties": {
                 "NRGY": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
@@ -1950,8 +1950,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "BSLD",
@@ -1991,8 +1991,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "GASP",
@@ -2032,8 +2032,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "BAKK",
@@ -2115,7 +2115,7 @@
               "title": "Environmental[ENVR]",
               "properties": {
                 "ENVR": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
@@ -2128,8 +2128,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "CERE",
@@ -2219,7 +2219,7 @@
               "title": "Freight[FRGT]",
               "properties": {
                 "FRGT": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
@@ -2232,8 +2232,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "DBCR"
@@ -2265,8 +2265,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "TNKR"
@@ -2325,7 +2325,7 @@
               "title": "Fertilizer[FRTL]",
               "properties": {
                 "FRTL": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
@@ -2480,7 +2480,7 @@
               "title": "IndustrialProduct[INDP]",
               "properties": {
                 "INDP": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
@@ -2589,7 +2589,7 @@
               "title": "Metal[METL]",
               "properties": {
                 "METL": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
@@ -2602,8 +2602,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "ALUM",
@@ -2659,8 +2659,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "GOLD",
@@ -2727,7 +2727,7 @@
               "title": "Paper[PAPR]",
               "properties": {
                 "PAPR": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
@@ -2836,7 +2836,7 @@
               "title": "Polypropylene[POLY]",
               "properties": {
                 "POLY": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
@@ -2876,7 +2876,7 @@
               "title": "OtherC10[OTHC]",
               "properties": {
                 "OTHC": {
-                  "title": "Sub Product",
+                  "title": "Other Sub Product",
                   "description": "Sub product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Option.NDO.InstRefDataReporting.V1M1",
-  "LastModifyDateTime": "2024-10-07T15:39:41",
+  "LastModifyDateTime": "2025-08-01T05:49:52",
   "description": "Record template for Foreign_Exchange.Option.NDO",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -392,14 +392,10 @@
           "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
-            "CASH",
-            "PHYS",
-            "OPTL"
+            "CASH"
           ],
           "elaboration": {
-            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
-            "PHYS": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
-            "OPTL": "the method of delivery of the underlying instrument when the option is exercised shall be determined at the time of exercise"
+            "CASH": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties"
           }
         },
         "PriceMultiplier": {

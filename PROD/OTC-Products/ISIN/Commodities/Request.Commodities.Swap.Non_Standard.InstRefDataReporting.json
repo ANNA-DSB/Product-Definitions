@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Swap.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2025-02-14T10:46:49",
+  "LastModifyDateTime": "2025-08-01T05:49:52",
   "description": "Request template for Commodities Swap Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1613,8 +1613,8 @@
           "description": "In the case of multi-currency or cross-currency swaps the currency in which leg 2 of the contract is denominated; For swaptions where the underlying swap is multi-currency, the currency in which leg 2 of the swap is denominated"
         },
         "OtherBaseProduct": {
-          "description": "The first commodity of the basis swap represents the receiving leg, the second commodity of the basis swap represents that paying leg",
           "title": "Other Base Product",
+          "description": "The first commodity of the basis swap represents the receiving leg, the second commodity of the basis swap represents that paying leg",
           "type": "object",
           "oneOf": [
             {
@@ -1770,8 +1770,8 @@
                           "type": "object",
                           "properties": {
                             "AdditionalSubProduct": {
-                              "title": "Additional Sub Product",
-                              "description": "Additional Sub Product",
+                              "title": "Other Additional Sub Product",
+                              "description": "Other Additional Sub Product",
                               "type": "string",
                               "enum": [
                                 "ROBU",
@@ -2623,8 +2623,16 @@
             {
               "type": "object",
               "title": "Inflation[INFL]",
+              "options": {
+                "disable_properties": true,
+                "hidden": true
+              },
               "properties": {
                 "INFL": {
+                  "options": {
+                    "disable_properties": true,
+                    "hidden": true
+                  },
                   "title": " ",
                   "type": "object",
                   "additionalProperties": false
@@ -2638,8 +2646,16 @@
             {
               "type": "object",
               "title": "OfficialEconomicStatistics[OEST]",
+              "options": {
+                "disable_properties": true,
+                "hidden": true
+              },
               "properties": {
                 "OEST": {
+                  "options": {
+                    "disable_properties": true,
+                    "hidden": true
+                  },
                   "title": " ",
                   "type": "object",
                   "additionalProperties": false
@@ -2768,8 +2784,16 @@
             {
               "type": "object",
               "title": "MultiCommodityExotic[MCEX]",
+              "options": {
+                "disable_properties": true,
+                "hidden": true
+              },
               "properties": {
                 "MCEX": {
+                  "options": {
+                    "disable_properties": true,
+                    "hidden": true
+                  },
                   "title": " ",
                   "type": "object",
                   "additionalProperties": false
@@ -2995,8 +3019,16 @@
             {
               "type": "object",
               "title": "Other[OTHR]",
+              "options": {
+                "disable_properties": true,
+                "hidden": true
+              },
               "properties": {
                 "OTHR": {
+                  "options": {
+                    "disable_properties": true,
+                    "hidden": true
+                  },
                   "title": " ",
                   "type": "object",
                   "additionalProperties": false

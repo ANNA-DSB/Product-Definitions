@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Other.Forward.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2025-02-14T10:46:49",
+  "LastModifyDateTime": "2025-08-01T05:49:52",
   "description": "Request template for Other Forward Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -923,17 +923,6 @@
                   },
                   "type": "object",
                   "properties": {
-                    "UnderlyingInstrumentIndex": {
-                      "title": "Underlying Instrument Index",
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
-                      "items": {
-                        "$ref": "../../codesets/EquityIndex.json",
-                        "title": "Underlying Instrument Index",
-                        "description": "Name of the index on which the financial instrument is based"
-                      }
-                    },
                     "UnderlyingInstrumentIndexProp": {
                       "title": "Underlying Instrument Index Prop",
                       "type": "array",
@@ -948,13 +937,13 @@
                     "UnderlyingInstrumentISIN": {
                       "title": "Underlying Instrument ISIN",
                       "type": "array",
-                      "uniqueItems": true,
+                      "uniqueItems": false,
                       "minItems": 1,
                       "items": {
                         "title": "Underlying Instrument ISIN",
                         "description": "Underlying Instrument Index ISIN",
                         "type": "string",
-                        "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+                        "pattern": "^(?!(EZ|QZ))(OTHER|[A-Z]{2}[A-Z0-9]{9}[0-9])$"
                       }
                     }
                   },

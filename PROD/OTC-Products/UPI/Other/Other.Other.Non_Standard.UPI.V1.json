@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Other.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2024-10-07T15:39:41",
+  "LastModifyDateTime": "2025-09-01T08:03:27",
   "description": "Record template for Other.Other.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1261,8 +1261,8 @@
                   "type": "string"
                 },
                 "BaseProduct": {
+                  "description": "The first commodity of the basis swap represents the receiving leg, the second commodity of the basis swap represents that paying leg",
                   "title": "Base Product",
-                  "description": "Base product taxonomy of commodity product",
                   "type": "string"
                 },
                 "SubProduct": {
@@ -1310,7 +1310,7 @@
                 },
                 "OtherAdditionalSubProduct": {
                   "title": "Other Additional Sub Product",
-                  "description": "Additional Sub Product",
+                  "description": "Other Additional Sub Product",
                   "type": "string"
                 }
               },
@@ -1460,7 +1460,6 @@
           "enum": [
             "CUSIP",
             "FIGI",
-            "RIC",
             "SEDOL"
           ]
         },

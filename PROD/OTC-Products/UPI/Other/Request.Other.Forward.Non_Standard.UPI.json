@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Other.Forward.Non_Standard.UPI",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2025-09-01T08:03:27",
   "description": "Request template for Other Forward Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Other"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Forward"
@@ -68,7 +68,7 @@
               "properties": {
                 "ReturnorPayoutTrigger": {
                   "title": "Return or Payout Trigger",
-                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
                   "type": "string",
                   "enum": [
                     "Spreadbets",
@@ -161,14 +161,12 @@
                                   "type": "string",
                                   "enum": [
                                     "ISIN",
-                                    "RIC",
                                     "FIGI",
                                     "CUSIP",
                                     "SEDOL"
                                   ],
                                   "elaboration": {
                                     "ISIN": "ISIN code of the underlying instrument",
-                                    "RIC": "RIC of the underlying instrument",
                                     "FIGI": "FIGI code of the underlying instrument",
                                     "CUSIP": "CUSIP code of the underlying instrument",
                                     "SEDOL": "SEDOL code of the underlying instrument"
@@ -233,7 +231,7 @@
               "properties": {
                 "ReturnorPayoutTrigger": {
                   "title": "Return or Payout Trigger",
-                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
                   "type": "string",
                   "enum": [
                     "Spreadbets",
@@ -270,14 +268,12 @@
                                   "type": "string",
                                   "enum": [
                                     "ISIN",
-                                    "RIC",
                                     "FIGI",
                                     "CUSIP",
                                     "SEDOL"
                                   ],
                                   "elaboration": {
                                     "ISIN": "ISIN code of the underlying instrument",
-                                    "RIC": "RIC of the underlying instrument",
                                     "FIGI": "FIGI code of the underlying instrument",
                                     "CUSIP": "CUSIP code of the underlying instrument",
                                     "SEDOL": "SEDOL code of the underlying instrument"
@@ -287,33 +283,6 @@
                                   "title": "Underlier ID",
                                   "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index",
                                   "type": "string"
-                                }
-                              },
-                              "required": [
-                                "UnderlierIDSource",
-                                "UnderlierID"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "title": "Equity Index Name",
-                              "properties": {
-                                "UnderlierIDSource": {
-                                  "title": "Underlier ID Source",
-                                  "description": "The origin, or publisher, of the associated underlier ID.",
-                                  "type": "string",
-                                  "enum": [
-                                    "EQIDX"
-                                  ],
-                                  "elaboration": {
-                                    "EQIDX": "Equity Index"
-                                  }
-                                },
-                                "UnderlierID": {
-                                  "$ref": "../../codesets/EquityIndex.json",
-                                  "title": "Underlier ID",
-                                  "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index"
                                 }
                               },
                               "required": [
@@ -387,7 +356,7 @@
               "properties": {
                 "ReturnorPayoutTrigger": {
                   "title": "Return or Payout Trigger",
-                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
                   "type": "string",
                   "enum": [
                     "Spreadbets",
@@ -416,14 +385,12 @@
                           "type": "string",
                           "enum": [
                             "ISIN",
-                            "RIC",
                             "FIGI",
                             "CUSIP",
                             "SEDOL"
                           ],
                           "elaboration": {
                             "ISIN": "ISIN code of the underlying instrument",
-                            "RIC": "RIC of the underlying instrument",
                             "FIGI": "FIGI code of the underlying instrument",
                             "CUSIP": "CUSIP code of the underlying instrument",
                             "SEDOL": "SEDOL code of the underlying instrument"
@@ -514,7 +481,7 @@
                 },
                 "ReturnorPayoutTrigger": {
                   "title": "Return or Payout Trigger",
-                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
                   "type": "string",
                   "enum": [
                     "Spreadbets",
@@ -1065,7 +1032,7 @@
                 },
                 "ReturnorPayoutTrigger": {
                   "title": "Return or Payout Trigger",
-                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+                  "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
                   "type": "string",
                   "enum": [
                     "Contract for Difference (CFD)",
@@ -1194,8 +1161,8 @@
                   ]
                 },
                 "BaseProduct": {
+                  "description": "The first commodity of the basis swap represents the receiving leg, the second commodity of the basis swap represents that paying leg",
                   "title": "Base Product",
-                  "description": "Base product taxonomy of commodity product",
                   "type": "object",
                   "oneOf": [
                     {
@@ -2636,7 +2603,7 @@
         },
         "DeliveryType": {
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "Cash",
@@ -2646,7 +2613,7 @@
           "elaboration": {
             "Cash": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
             "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
-            "Non-Deliverable": "as defined by CFI code: ISO 10962 (2015)"
+            "Non-Deliverable": "as defined by CFI code: ISO 10962"
           },
           "options": {
             "enum_titles": [

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Credit.Swap.ABS.UPI",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2025-09-01T08:03:27",
   "description": "Request template for Credit Swap ABS",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Credit"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Swap"
@@ -69,14 +69,12 @@
                   "type": "string",
                   "enum": [
                     "ISIN",
-                    "RIC",
                     "FIGI",
                     "CUSIP",
                     "SEDOL"
                   ],
                   "elaboration": {
                     "ISIN": "ISIN code of the underlying instrument",
-                    "RIC": "RIC of the underlying instrument",
                     "FIGI": "FIGI code of the underlying instrument",
                     "CUSIP": "CUSIP code of the underlying instrument",
                     "SEDOL": "SEDOL code of the underlying instrument"
@@ -163,7 +161,7 @@
         "DeliveryType": {
           "default": "OPTL",
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "CASH",

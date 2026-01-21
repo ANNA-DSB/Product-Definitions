@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Equity.Swap.Price_Return_Basic_Performance_Basket.UPI",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2025-12-11T09:15:27",
   "description": "Request template for Equity Swap Price_Return_Basic_Performance_Basket",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Equity"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Swap"
@@ -56,7 +56,7 @@
       "properties": {
         "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "Price",
@@ -72,7 +72,7 @@
         "DeliveryType": {
           "default": "PHYS",
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "CASH",
