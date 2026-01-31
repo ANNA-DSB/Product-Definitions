@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Forward.Single_Index.UPI",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2025-08-11T07:41:39",
   "description": "Request template for Commodities Forward Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Commodities"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Forward"
@@ -130,6 +130,7 @@
             "INFL",
             "OEST",
             "METL",
+            "MCEX",
             "PAPR",
             "POLY",
             "OTHC",
@@ -146,6 +147,7 @@
               "Inflation[INFL]",
               "OfficialEconomicStatistics[OEST]",
               "Metal[METL]",
+              "MultiCommodityExotic[MCEX]",
               "Paper[PAPR]",
               "Polypropylene[POLY]",
               "OtherC10[OTHC]",
@@ -155,7 +157,7 @@
         },
         "ReturnorPayoutTrigger": {
           "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "Contract for Difference (CFD)",
@@ -168,7 +170,7 @@
         },
         "DeliveryType": {
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "CASH",

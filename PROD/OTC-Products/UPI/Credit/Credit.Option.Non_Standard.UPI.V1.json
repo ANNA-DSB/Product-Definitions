@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Credit.Option.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2024-10-07T15:39:41",
+  "LastModifyDateTime": "2025-09-01T08:03:27",
   "description": "Record template for Credit.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -544,7 +544,6 @@
           "enum": [
             "CUSIP",
             "FIGI",
-            "RIC",
             "SEDOL"
           ]
         },

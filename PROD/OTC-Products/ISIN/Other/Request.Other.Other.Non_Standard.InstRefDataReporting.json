@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Other.Other.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2025-02-14T10:46:49",
+  "LastModifyDateTime": "2025-08-01T05:49:52",
   "description": "Request template for Other Other Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1319,17 +1319,6 @@
                   },
                   "type": "object",
                   "properties": {
-                    "UnderlyingInstrumentIndex": {
-                      "title": "Underlying Instrument Index",
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 1,
-                      "items": {
-                        "$ref": "../../codesets/EquityIndex.json",
-                        "title": "Underlying Instrument Index",
-                        "description": "Name of the index on which the financial instrument is based"
-                      }
-                    },
                     "UnderlyingInstrumentIndexProp": {
                       "title": "Underlying Instrument Index Prop",
                       "type": "array",
@@ -1344,13 +1333,13 @@
                     "UnderlyingInstrumentISIN": {
                       "title": "Underlying Instrument ISIN",
                       "type": "array",
-                      "uniqueItems": true,
+                      "uniqueItems": false,
                       "minItems": 1,
                       "items": {
                         "title": "Underlying Instrument ISIN",
                         "description": "Underlying Instrument Index ISIN",
                         "type": "string",
-                        "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+                        "pattern": "^(?!(EZ|QZ))(OTHER|[A-Z]{2}[A-Z0-9]{9}[0-9])$"
                       }
                     }
                   },
@@ -3035,8 +3024,8 @@
                                   "type": "object",
                                   "properties": {
                                     "AdditionalSubProduct": {
-                                      "title": "Additional Sub Product",
-                                      "description": "Additional Sub Product",
+                                      "title": "Other Additional Sub Product",
+                                      "description": "Other Additional Sub Product",
                                       "type": "string",
                                       "enum": [
                                         "ROBU",
@@ -3888,8 +3877,16 @@
                     {
                       "type": "object",
                       "title": "Inflation[INFL]",
+                      "options": {
+                        "disable_properties": true,
+                        "hidden": true
+                      },
                       "properties": {
                         "INFL": {
+                          "options": {
+                            "disable_properties": true,
+                            "hidden": true
+                          },
                           "title": " ",
                           "type": "object",
                           "additionalProperties": false
@@ -3903,8 +3900,16 @@
                     {
                       "type": "object",
                       "title": "OfficialEconomicStatistics[OEST]",
+                      "options": {
+                        "disable_properties": true,
+                        "hidden": true
+                      },
                       "properties": {
                         "OEST": {
+                          "options": {
+                            "disable_properties": true,
+                            "hidden": true
+                          },
                           "title": " ",
                           "type": "object",
                           "additionalProperties": false
@@ -4033,8 +4038,16 @@
                     {
                       "type": "object",
                       "title": "MultiCommodityExotic[MCEX]",
+                      "options": {
+                        "disable_properties": true,
+                        "hidden": true
+                      },
                       "properties": {
                         "MCEX": {
+                          "options": {
+                            "disable_properties": true,
+                            "hidden": true
+                          },
                           "title": " ",
                           "type": "object",
                           "additionalProperties": false
@@ -4260,8 +4273,16 @@
                     {
                       "type": "object",
                       "title": "Other[OTHR]",
+                      "options": {
+                        "disable_properties": true,
+                        "hidden": true
+                      },
                       "properties": {
                         "OTHR": {
+                          "options": {
+                            "disable_properties": true,
+                            "hidden": true
+                          },
                           "title": " ",
                           "type": "object",
                           "additionalProperties": false
