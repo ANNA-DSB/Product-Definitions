@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Forward.Multi_Exotic_Forward.InstRefDataReporting",
-  "LastModifyDateTime": "2025-02-14T10:46:49",
+  "LastModifyDateTime": "2026-04-29T08:07:36",
   "description": "Request template for Commodities Forward Multi_Exotic_Forward",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -149,11 +149,13 @@
           "type": "string",
           "enum": [
             "Contract for Difference (CFD)",
-            "Forward price of underlying instrument"
+            "Forward price of underlying instrument",
+            "Spreadbets"
           ],
           "elaboration": {
             "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
-            "Forward price of underlying instrument": "Forward price of underlying instrument"
+            "Forward price of underlying instrument": "Forward price of underlying instrument",
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement"
           }
         },
         "DeliveryType": {

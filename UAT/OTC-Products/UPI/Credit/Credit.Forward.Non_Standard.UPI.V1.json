@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Credit.Forward.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2025-09-01T08:03:27",
+  "LastModifyDateTime": "2026-05-25T07:07:50",
   "description": "Record template for Credit.Forward.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -302,11 +302,13 @@
           "type": "string",
           "enum": [
             "Spreadbets",
-            "Forward price of underlying instrument"
+            "Forward price of underlying instrument",
+            "CFD"
           ],
           "elaboration": {
             "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
-            "Forward price of underlying instrument": "Forward price of underlying instrument"
+            "Forward price of underlying instrument": "Forward price of underlying instrument",
+            "CFD": "CFD"
           }
         },
         "UnderlyingInstrumentISIN": {

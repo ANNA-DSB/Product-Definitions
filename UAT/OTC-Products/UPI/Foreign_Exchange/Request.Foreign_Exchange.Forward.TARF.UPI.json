@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Request.Foreign_Exchange.Forward.Rolling_Spot.UPI",
-  "LastModifyDateTime": "2026-05-25T07:07:50",
-  "description": "Request template for Foreign_Exchange Forward Rolling_Spot",
+  "title": "Request.Foreign_Exchange.Forward.TARF.UPI",
+  "LastModifyDateTime": "2026-05-19T05:44:02",
+  "description": "Request template for Foreign_Exchange Forward TARF",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
@@ -31,7 +31,7 @@
           "description": "Unique label that defines the product",
           "type": "string",
           "enum": [
-            "Rolling_Spot"
+            "TARF"
           ]
         },
         "Level": {
@@ -57,7 +57,7 @@
         "UnderlierID": {
           "$ref": "../../codesets/ISOCurrencyCode.json",
           "title": "Underlier ID",
-          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index"
+          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index."
         },
         "UnderlierIDSource": {
           "title": "Underlier ID Source",
@@ -73,7 +73,7 @@
         "OtherUnderlierID": {
           "$ref": "../../codesets/ISOCurrencyCode.json",
           "title": "Other Underlier ID",
-          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index"
+          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index."
         },
         "OtherUnderlierIDSource": {
           "title": "Other Underlier ID Source",
@@ -86,24 +86,8 @@
             "CCY": "CCY"
           }
         },
-        "SettlementCurrency": {
-          "$ref": "../../codesets/ISOCurrencyCode.json",
-          "title": "Settlement Currency",
-          "description": "Settlement Currency"
-        },
-        "ReturnorPayoutTrigger": {
-          "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
-          "type": "string",
-          "enum": [
-            "Rolling spot"
-          ],
-          "elaboration": {
-            "Rolling spot": "an indefinitely renewed position in which no currency is actually delivered until a party closes out its position"
-          }
-        },
         "DeliveryType": {
-          "default": "CASH",
+          "default": "PHYS",
           "title": "Delivery Type",
           "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
@@ -128,7 +112,6 @@
         "UnderlierIDSource",
         "OtherUnderlierID",
         "OtherUnderlierIDSource",
-        "SettlementCurrency",
         "DeliveryType"
       ],
       "additionalProperties": false

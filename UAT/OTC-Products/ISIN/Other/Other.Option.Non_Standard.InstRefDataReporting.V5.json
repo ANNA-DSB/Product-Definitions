@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Option.Non_Standard.InstRefDataReporting.V5",
-  "LastModifyDateTime": "2025-08-01T05:49:52",
+  "LastModifyDateTime": "2026-04-29T08:07:36",
   "description": "Record template for Other.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -2127,9 +2127,6 @@
       "dependencies": {
         "OptionType": [
           "OptionExerciseStyle"
-        ],
-        "OptionExerciseStyle": [
-          "OptionType"
         ]
       },
       "additionalProperties": false
