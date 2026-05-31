@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Option.Non_Standard.UPI.V2",
-  "LastModifyDateTime": "2025-09-01T08:03:27",
+  "LastModifyDateTime": "2026-05-25T07:07:50",
   "description": "Record template for Other.Option.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -1332,9 +1332,6 @@
       "dependencies": {
         "OptionType": [
           "OptionExerciseStyle"
-        ],
-        "OptionExerciseStyle": [
-          "OptionType"
         ]
       },
       "additionalProperties": false

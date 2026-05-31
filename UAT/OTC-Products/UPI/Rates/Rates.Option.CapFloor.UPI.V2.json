@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Rates.Option.CapFloor.UPI.V1",
+  "title": "Rates.Option.CapFloor.UPI.V2",
   "LastModifyDateTime": "2026-05-25T07:07:50",
   "description": "Record template for Rates.Option.CapFloor",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
@@ -124,33 +124,6 @@
           "description": "Underlier Name",
           "type": "string"
         },
-        "UnderlyingAssetType": {
-          "title": "Underlying Asset Type",
-          "description": "The type of the underlying asset as defined by CFI code: ISO 10962",
-          "type": "string",
-          "enum": [
-            "Basis Swap (Float - Float)",
-            "Fixed - Floating",
-            "Fixed - Fixed",
-            "Inflation Rate Index",
-            "Overnight Index Swap (OIS)",
-            "Options",
-            "Forwards",
-            "Futures",
-            "Other"
-          ],
-          "elaboration": {
-            "Basis Swap (Float - Float)": "Basis Swap (Float - Float)",
-            "Fixed - Floating": "Fixed - Floating",
-            "Fixed - Fixed": "Fixed - Fixed",
-            "Inflation Rate Index": "Inflation rate index",
-            "Overnight Index Swap (OIS)": "Overnight Index Swap (OIS)",
-            "Options": "Options",
-            "Forwards": "Forwards",
-            "Futures": "Futures",
-            "Other": "Other"
-          }
-        },
         "OptionExerciseStyle": {
           "title": "Option Exercise Style",
           "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
@@ -176,27 +149,7 @@
         "ValuationMethodorTrigger": {
           "title": "Valuation Method or Trigger",
           "description": "The Valuation method or trigger as defined by CFI code: ISO 10962",
-          "type": "string",
-          "enum": [
-            "Vanilla",
-            "Asian",
-            "Digital (Binary)",
-            "Barrier",
-            "Digital Barrier",
-            "Lookback",
-            "Other Path Dependent",
-            "Other"
-          ],
-          "elaboration": {
-            "Vanilla": "an option for which all terms are standardized",
-            "Asian": "an option where either the strike price or the settlement price is the average level of an underlying instrument over a predetermined period; the averaging can be either a geometric or arithmetic average",
-            "Digital (Binary)": "an option that has a pre-determined payout if the option is in-the-money and the payoff condition is satisfied; also referred to as a \"binary option\" or an \"all-or-nothing option\"",
-            "Barrier": "an option whose final exercise depends upon the path taken by the price of an underlying instrument; for a knockout barrier option, the option is cancelled if the underlying price crosses a predetermined barrier level; for a knock-in barrier option, the option becomes available-for-exercise if the underlying price crosses a predetermined barrier level",
-            "Digital Barrier": "a digital option embedded with a barrier option; there are different variations of this type of option; as an example, a down-and-out digital call option will pay a fixed payoff, or the underlying, at any time before maturity that the underlying price is equal to or greater than the barrier level; it will pay zero if the underlying price is less than the barrier level",
-            "Lookback": "an option that minimizes the uncertainties related to the timing of market entry; there are two types of lookback options: fixed and floating; the fixed option strike is determined at purchase, and the floating option strike is determined at maturity",
-            "Other Path Dependent": "an option on a contract whose payoff is directly related to the price pattern the underlying asset follows during the life of the contract",
-            "Other": "Miscellaneous"
-          }
+          "type": "string"
         },
         "CFIOptionStyleandType": {
           "title": "CFI Option Style and Type",
@@ -372,7 +325,6 @@
         "ClassificationType",
         "ShortName",
         "UnderlierName",
-        "UnderlyingAssetType",
         "OptionExerciseStyle",
         "ValuationMethodorTrigger",
         "CFIOptionStyleandType",
@@ -445,6 +397,17 @@
             ]
           }
         },
+        "UnderlyingAssetType": {
+          "title": "Underlying Asset Type",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962",
+          "type": "string",
+          "enum": [
+            "Interest Rate Index"
+          ],
+          "elaboration": {
+            "Interest Rate Index": "Interest rate index"
+          }
+        },
         "DeliveryType": {
           "default": "CASH",
           "title": "Delivery Type",
@@ -468,6 +431,7 @@
         "UnderlyingInstrumentIndexTermValue",
         "UnderlyingInstrumentIndexTermUnit",
         "OptionType",
+        "UnderlyingAssetType",
         "DeliveryType"
       ],
       "additionalProperties": false

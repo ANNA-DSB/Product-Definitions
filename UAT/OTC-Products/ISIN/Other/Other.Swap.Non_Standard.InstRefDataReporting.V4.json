@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Other.Swap.Non_Standard.InstRefDataReporting.V4",
-  "LastModifyDateTime": "2025-08-01T05:49:52",
+  "LastModifyDateTime": "2026-04-29T08:07:36",
   "description": "Record template for Other.Swap.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -831,11 +831,13 @@
           "type": "string",
           "enum": [
             "Cash",
-            "Physical"
+            "Physical",
+            "Elect at Settlement"
           ],
           "elaboration": {
             "Cash": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
-            "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
+            "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "Elect at Settlement": "determined at the time of settlement"
           }
         },
         "UnderlyingAssetClass": {

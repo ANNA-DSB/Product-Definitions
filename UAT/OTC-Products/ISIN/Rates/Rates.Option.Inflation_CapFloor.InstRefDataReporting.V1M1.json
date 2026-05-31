@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rates.Option.Inflation_CapFloor.InstRefDataReporting.V1M1",
-  "LastModifyDateTime": "2024-10-07T15:39:41",
+  "LastModifyDateTime": "2026-04-29T08:07:36",
   "description": "Record template for Rates.Option.Inflation_CapFloor",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -197,27 +197,7 @@
         "ValuationMethodorTrigger": {
           "title": "Valuation Method or Trigger",
           "description": "The Valuation method or trigger as defined by CFI code: ISO 10962",
-          "type": "string",
-          "enum": [
-            "Vanilla",
-            "Asian",
-            "Digital (Binary)",
-            "Barrier",
-            "Digital Barrier",
-            "Lookback",
-            "Other Path Dependent",
-            "Other"
-          ],
-          "elaboration": {
-            "Vanilla": "an option for which all terms are standardized",
-            "Asian": "an option where either the strike price or the settlement price is the average level of an underlying instrument over a predetermined period; the averaging can be either a geometric or arithmetic average",
-            "Digital (Binary)": "an option that has a pre-determined payout if the option is in-the-money and the payoff condition is satisfied; also referred to as a \"binary option\" or an \"all-or-nothing option\"",
-            "Barrier": "an option whose final exercise depends upon the path taken by the price of an underlying instrument; for a knockout barrier option, the option is cancelled if the underlying price crosses a predetermined barrier level; for a knock-in barrier option, the option becomes available-for-exercise if the underlying price crosses a predetermined barrier level",
-            "Digital Barrier": "a digital option embedded with a barrier option; there are different variations of this type of option; as an example, a down-and-out digital call option will pay a fixed payoff, or the underlying, at any time before maturity that the underlying price is equal to or greater than the barrier level; it will pay zero if the underlying price is less than the barrier level",
-            "Lookback": "an option that minimizes the uncertainties related to the timing of market entry; there are two types of lookback options: fixed and floating; the fixed option strike is determined at purchase, and the floating option strike is determined at maturity",
-            "Other Path Dependent": "an option on a contract whose payoff is directly related to the price pattern the underlying asset follows during the life of the contract",
-            "Other": "Miscellaneous"
-          }
+          "type": "string"
         },
         "ISOUnderlyingInstrumentIndex": {
           "$ref": "../../codesets/ISORatesInflationRate.json",
