@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Other.Swap.Non_Standard.UPI",
-  "LastModifyDateTime": "2025-09-01T08:03:27",
+  "LastModifyDateTime": "2026-06-10T09:21:10",
   "description": "Request template for Other Swap Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -4360,16 +4360,19 @@
           "type": "string",
           "enum": [
             "Cash",
-            "Physical"
+            "Physical",
+            "Elect at Settlement"
           ],
           "elaboration": {
             "Cash": "the discharge of an obligation by payment or receipt of a net cash amount instead of payment or delivery by both parties",
-            "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement"
+            "Physical": "the meeting of a settlement obligation under a derivative contract through the receipt or delivery of the actual underlying instrument(s) instead of through cash settlement",
+            "Elect at Settlement": "determined at the time of settlement"
           },
           "options": {
             "enum_titles": [
               "Cash",
-              "Physical"
+              "Physical",
+              "Elect at Settlement"
             ]
           }
         }

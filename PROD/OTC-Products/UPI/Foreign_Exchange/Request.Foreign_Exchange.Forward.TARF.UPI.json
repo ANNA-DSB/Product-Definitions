@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Request.Commodities.Forward.Multi_Exotic_Forward.UPI",
+  "title": "Request.Foreign_Exchange.Forward.TARF.UPI",
   "LastModifyDateTime": "2026-06-10T09:21:10",
-  "description": "Request template for Commodities Forward Multi_Exotic_Forward",
+  "description": "Request template for Foreign_Exchange Forward TARF",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
@@ -15,7 +15,7 @@
           "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
-            "Commodities"
+            "Foreign_Exchange"
           ]
         },
         "InstrumentType": {
@@ -31,7 +31,7 @@
           "description": "Unique label that defines the product",
           "type": "string",
           "enum": [
-            "Multi_Exotic_Forward"
+            "TARF"
           ]
         },
         "Level": {
@@ -54,61 +54,40 @@
     "Attributes": {
       "type": "object",
       "properties": {
-        "BaseProduct": {
-          "title": "Base Product",
-          "description": "Base product taxonomy of commodity product",
-          "type": "string",
-          "enum": [
-            "AGRI",
-            "NRGY",
-            "ENVR",
-            "FRGT",
-            "FRTL",
-            "INDP",
-            "INFL",
-            "OEST",
-            "METL",
-            "MCEX",
-            "PAPR",
-            "POLY",
-            "OTHC",
-            "OTHR"
-          ],
-          "options": {
-            "enum_titles": [
-              "Agricultural[AGRI]",
-              "Energy[NRGY]",
-              "Environmental[ENVR]",
-              "Freight[FRGT]",
-              "Fertilizer[FRTL]",
-              "IndustrialProduct[INDP]",
-              "Inflation[INFL]",
-              "OfficialEconomicStatistics[OEST]",
-              "Metal[METL]",
-              "MultiCommodityExotic[MCEX]",
-              "Paper[PAPR]",
-              "Polypropylene[POLY]",
-              "OtherC10[OTHC]",
-              "Other[OTHR]"
-            ]
-          }
+        "UnderlierID": {
+          "$ref": "../../codesets/ISOCurrencyCode.json",
+          "title": "Underlier ID",
+          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index."
         },
-        "ReturnorPayoutTrigger": {
-          "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
+        "UnderlierIDSource": {
+          "title": "Underlier ID Source",
+          "description": "The origin, or publisher, of the associated underlier ID.",
           "type": "string",
           "enum": [
-            "Contract for Difference (CFD)",
-            "Forward price of underlying instrument",
-            "Spreadbets"
+            "CCY"
           ],
           "elaboration": {
-            "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
-            "Forward price of underlying instrument": "Forward price of underlying instrument",
-            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement"
+            "CCY": "CCY"
+          }
+        },
+        "OtherUnderlierID": {
+          "$ref": "../../codesets/ISOCurrencyCode.json",
+          "title": "Other Underlier ID",
+          "description": "An identifier that can be used to determine the asset(s), index (indices) or benchmark underlying a contract or, in the case of a foreign exchange derivative, identification of the currency pair or index."
+        },
+        "OtherUnderlierIDSource": {
+          "title": "Other Underlier ID Source",
+          "description": "The origin, or publisher, of the associated underlier ID.",
+          "type": "string",
+          "enum": [
+            "CCY"
+          ],
+          "elaboration": {
+            "CCY": "CCY"
           }
         },
         "DeliveryType": {
+          "default": "PHYS",
           "title": "Delivery Type",
           "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
@@ -129,8 +108,10 @@
         }
       },
       "required": [
-        "BaseProduct",
-        "ReturnorPayoutTrigger",
+        "UnderlierID",
+        "UnderlierIDSource",
+        "OtherUnderlierID",
+        "OtherUnderlierIDSource",
         "DeliveryType"
       ],
       "additionalProperties": false

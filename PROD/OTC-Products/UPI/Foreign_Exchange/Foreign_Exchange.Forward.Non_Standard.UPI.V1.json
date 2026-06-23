@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Foreign_Exchange.Forward.Non_Standard.UPI.V1",
-  "LastModifyDateTime": "2024-10-07T15:39:41",
+  "LastModifyDateTime": "2026-06-10T09:21:10",
   "description": "Record template for Foreign_Exchange.Forward.Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -301,12 +301,14 @@
           "enum": [
             "Spreadbets",
             "Contract for Difference (CFD)",
-            "Forward price of underlying instrument"
+            "Forward price of underlying instrument",
+            "Rolling spot"
           ],
           "elaboration": {
             "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
             "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
-            "Forward price of underlying instrument": "Forward price of underlying instrument"
+            "Forward price of underlying instrument": "Forward price of underlying instrument",
+            "Rolling spot": "Rolling spot"
           }
         },
         "DeliveryType": {
