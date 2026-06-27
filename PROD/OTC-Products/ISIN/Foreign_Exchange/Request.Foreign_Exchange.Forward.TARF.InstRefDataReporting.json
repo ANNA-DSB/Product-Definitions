@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Request.Credit.Forward.Non_Standard.InstRefDataReporting",
+  "title": "Request.Foreign_Exchange.Forward.TARF.InstRefDataReporting",
   "LastModifyDateTime": "2026-06-10T09:19:06",
-  "description": "Request template for Credit Forward Non_Standard",
+  "description": "Request template for Foreign_Exchange Forward TARF",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
@@ -15,7 +15,7 @@
           "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
-            "Credit"
+            "Foreign_Exchange"
           ]
         },
         "InstrumentType": {
@@ -31,7 +31,7 @@
           "description": "Unique label that defines the product",
           "type": "string",
           "enum": [
-            "Non_Standard"
+            "TARF"
           ]
         },
         "Level": {
@@ -66,15 +66,13 @@
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
           "format": "date"
         },
-        "PriceMultiplier": {
-          "title": "Price Multiplier",
-          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
-          "default": 1,
-          "type": "number",
-          "minimum": 0,
-          "exclusiveMinimum": true
+        "OtherNotionalCurrency": {
+          "$ref": "../../codesets/ISOCurrencyCode.json",
+          "title": "Other Notional Currency",
+          "description": "In the case of multi-currency or cross-currency swaps the currency in which leg 2 of the contract is denominated; For swaptions where the underlying swap is multi-currency, the currency in which leg 2 of the swap is denominated"
         },
         "DeliveryType": {
+          "default": "PHYS",
           "title": "Delivery Type",
           "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
@@ -93,41 +91,19 @@
             ]
           }
         },
-        "ReturnorPayoutTrigger": {
-          "title": "Return or Payout Trigger",
-          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
-          "type": "string",
-          "enum": [
-            "Spreadbets",
-            "Forward price of underlying instrument",
-            "CFD"
-          ],
-          "elaboration": {
-            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement",
-            "Forward price of underlying instrument": "Forward price of underlying instrument",
-            "CFD": "CFD"
-          }
-        },
-        "UnderlyingInstrumentISIN": {
-          "title": "Underlying Instrument ISIN",
-          "type": "array",
-          "uniqueItems": true,
-          "minItems": 1,
-          "items": {
-            "title": "Underlying Instrument ISIN",
-            "description": "ISIN code of the underlying instrument",
-            "type": "string",
-            "pattern": "^(?!(EZ|QZ))[A-Z]{2}[A-Z0-9]{9}[0-9]$"
-          }
+        "PriceMultiplier": {
+          "default": 1,
+          "title": "Price Multiplier",
+          "description": "Number of units of the underlying instrument represented by a single derivative contract. Number of units of the underlying instrument represented by a single derivative contract. For an option on an index, the amount per index point. For spreadbets the movement in the price of the underlying instrument on which the spreadbet is based",
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
         }
       },
       "required": [
         "NotionalCurrency",
         "ExpiryDate",
-        "PriceMultiplier",
-        "DeliveryType",
-        "ReturnorPayoutTrigger",
-        "UnderlyingInstrumentISIN"
+        "OtherNotionalCurrency"
       ],
       "additionalProperties": false
     }

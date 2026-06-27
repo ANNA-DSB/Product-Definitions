@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Rates.Option.Non_Standard.InstRefDataReporting",
-  "LastModifyDateTime": "2023-07-05T10:13:20",
+  "LastModifyDateTime": "2026-06-10T09:19:06",
   "description": "Request template for Rates Option Non_Standard",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Rates"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Option"
@@ -93,7 +93,7 @@
             "UnderlyingAssetType": {
               "$ref": "#/definitions/UnderlyingAssetType",
               "title": "Underlying Asset Type",
-              "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)"
+              "description": "The type of the underlying asset as defined by CFI code: ISO 10962"
             },
             "OptionType": {
               "$ref": "#/definitions/OptionType",
@@ -108,12 +108,12 @@
             "ValuationMethodorTrigger": {
               "$ref": "#/definitions/ValuationMethodorTrigger",
               "title": "Valuation Method or Trigger",
-              "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)"
+              "description": "The Valuation method or trigger as defined by CFI code: ISO 10962"
             },
             "DeliveryType": {
               "$ref": "#/definitions/DeliveryType",
               "title": "Delivery Type",
-              "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)"
+              "description": "The Delivery Type as defined by CFI code: ISO 10962"
             },
             "ReferenceRate": {
               "title": "Reference Rate",
@@ -220,7 +220,7 @@
             "UnderlyingAssetType": {
               "$ref": "#/definitions/UnderlyingAssetType",
               "title": "Underlying Asset Type",
-              "description": "The type of the underlying asset as defined by CFI code: ISO 10962 (2015)"
+              "description": "The type of the underlying asset as defined by CFI code: ISO 10962"
             },
             "OptionType": {
               "$ref": "#/definitions/OptionType",
@@ -235,12 +235,12 @@
             "ValuationMethodorTrigger": {
               "$ref": "#/definitions/ValuationMethodorTrigger",
               "title": "Valuation Method or Trigger",
-              "description": "The Valuation method or trigger as defined by CFI code: ISO 10962 (2015)"
+              "description": "The Valuation method or trigger as defined by CFI code: ISO 10962"
             },
             "DeliveryType": {
               "$ref": "#/definitions/DeliveryType",
               "title": "Delivery Type",
-              "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)"
+              "description": "The Delivery Type as defined by CFI code: ISO 10962"
             },
             "ReferenceRate": {
               "title": "Reference Rate",
@@ -319,6 +319,7 @@
         "Basis Swap (Float - Float)",
         "Fixed - Floating",
         "Fixed - Fixed",
+        "Interest Rate Index",
         "Inflation Rate Index",
         "Overnight Index Swap (OIS)",
         "Options",
@@ -330,6 +331,7 @@
         "Basis Swap (Float - Float)": "Basis Swap (Float - Float)",
         "Fixed - Floating": "Fixed - Floating",
         "Fixed - Fixed": "Fixed - Fixed",
+        "Interest Rate Index": "Interest rate index",
         "Inflation Rate Index": "Inflation rate index",
         "Overnight Index Swap (OIS)": "Overnight Index Swap (OIS)",
         "Options": "Options",
@@ -388,7 +390,9 @@
         "Digital Barrier",
         "Lookback",
         "Other Path Dependent",
-        "Other"
+        "Other",
+        "Cap",
+        "Floor"
       ],
       "elaboration": {
         "Vanilla": "an option for which all terms are standardized",
@@ -398,7 +402,9 @@
         "Digital Barrier": "a digital option embedded with a barrier option; there are different variations of this type of option; as an example, a down-and-out digital call option will pay a fixed payoff, or the underlying, at any time before maturity that the underlying price is equal to or greater than the barrier level; it will pay zero if the underlying price is less than the barrier level",
         "Lookback": "an option that minimizes the uncertainties related to the timing of market entry; there are two types of lookback options: fixed and floating; the fixed option strike is determined at purchase, and the floating option strike is determined at maturity",
         "Other Path Dependent": "an option on a contract whose payoff is directly related to the price pattern the underlying asset follows during the life of the contract",
-        "Other": "Miscellaneous"
+        "Other": "Miscellaneous",
+        "Cap": "an option in which the payment is triggered when the value of the underlier exceeds a specified level",
+        "Floor": "an option in which the payment is triggered when the value of the underlier falls below a specified level"
       }
     },
     "DeliveryType": {
