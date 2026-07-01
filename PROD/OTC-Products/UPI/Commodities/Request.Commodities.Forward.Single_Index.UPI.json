@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Commodities.Forward.Single_Index.UPI",
-  "LastModifyDateTime": "2025-08-11T07:41:39",
+  "LastModifyDateTime": "2026-06-10T09:21:10",
   "description": "Request template for Commodities Forward Single_Index",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -161,11 +161,13 @@
           "type": "string",
           "enum": [
             "Contract for Difference (CFD)",
-            "Forward price of underlying instrument"
+            "Forward price of underlying instrument",
+            "Spreadbets"
           ],
           "elaboration": {
             "Contract for Difference (CFD)": "a cash settled total return swap or forward where the parties agree to exchange on the maturity of the contract the difference between the opening price and closing price of the underlying",
-            "Forward price of underlying instrument": "Forward price of underlying instrument"
+            "Forward price of underlying instrument": "Forward price of underlying instrument",
+            "Spreadbets": "the payout is determined by the movement in the reference price of the underlying instrument to its price at expiry (or the price when the holder wishes to close out) multiplied by an agreed amount per point movement"
           }
         },
         "DeliveryType": {

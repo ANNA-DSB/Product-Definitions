@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Request.Foreign_Exchange.Forward.Rolling_Spot.UPI",
-  "LastModifyDateTime": "2023-02-01T19:12:44",
+  "LastModifyDateTime": "2026-05-25T07:07:50",
   "description": "Request template for Foreign_Exchange Forward Rolling_Spot",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
@@ -12,7 +12,7 @@
       "properties": {
         "AssetClass": {
           "title": "Asset Class",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #2",
+          "description": "As defined by CFI code: ISO 10962; Character #2",
           "type": "string",
           "enum": [
             "Foreign_Exchange"
@@ -20,7 +20,7 @@
         },
         "InstrumentType": {
           "title": "Instrument Type",
-          "description": "As defined by CFI code: ISO 10962 (2015); Character #1",
+          "description": "As defined by CFI code: ISO 10962; Character #1",
           "type": "string",
           "enum": [
             "Forward"
@@ -91,10 +91,21 @@
           "title": "Settlement Currency",
           "description": "Settlement Currency"
         },
+        "ReturnorPayoutTrigger": {
+          "title": "Return or Payout Trigger",
+          "description": "The Return or payout Trigger as defined by CFI code: ISO 10962",
+          "type": "string",
+          "enum": [
+            "Rolling spot"
+          ],
+          "elaboration": {
+            "Rolling spot": "an indefinitely renewed position in which no currency is actually delivered until a party closes out its position"
+          }
+        },
         "DeliveryType": {
           "default": "CASH",
           "title": "Delivery Type",
-          "description": "The Delivery Type as defined by CFI code: ISO 10962 (2015)",
+          "description": "The Delivery Type as defined by CFI code: ISO 10962",
           "type": "string",
           "enum": [
             "CASH",
