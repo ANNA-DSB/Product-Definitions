@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Rates.Option.Inflation_CapFloor.InstRefDataReporting.V1M1",
+  "title": "Rates.Option.CapFloor.InstRefDataReporting.V3",
   "LastModifyDateTime": "2026-07-16T07:40:05",
-  "description": "Record template for Rates.Option.Inflation_CapFloor",
+  "description": "Record template for Rates.Option.CapFloor",
   "copyright": "Copyright © 2020 The Derivatives Service Bureau (DSB) Limited. All Rights Reserved.",
   "type": "object",
   "properties": {
@@ -36,7 +36,7 @@
           "description": "Unique label that defines the product",
           "type": "string",
           "enum": [
-            "Inflation_CapFloor"
+            "CapFloor"
           ]
         },
         "Level": {
@@ -145,33 +145,6 @@
           "description": "Short name of financial instrument in accordance with ISO 18774",
           "type": "string"
         },
-        "UnderlyingAssetType": {
-          "title": "Underlying Asset Type",
-          "description": "The type of the underlying asset as defined by CFI code: ISO 10962",
-          "type": "string",
-          "enum": [
-            "Basis Swap (Float - Float)",
-            "Fixed - Floating",
-            "Fixed - Fixed",
-            "Inflation Rate Index",
-            "Overnight Index Swap (OIS)",
-            "Options",
-            "Forwards",
-            "Futures",
-            "Other"
-          ],
-          "elaboration": {
-            "Basis Swap (Float - Float)": "Basis Swap (Float - Float)",
-            "Fixed - Floating": "Fixed - Floating",
-            "Fixed - Fixed": "Fixed - Fixed",
-            "Inflation Rate Index": "Inflation rate index",
-            "Overnight Index Swap (OIS)": "Overnight Index Swap (OIS)",
-            "Options": "Options",
-            "Forwards": "Forwards",
-            "Futures": "Futures",
-            "Other": "Other"
-          }
-        },
         "OptionExerciseStyle": {
           "title": "Option Exercise Style",
           "description": "Indicates when the option can be exercised. A Bermudan option can be exercised only on predetermined date; American option can be exercised at anytime prior to and including its expiry date; A European option can only be exercised at the expiry date",
@@ -200,7 +173,7 @@
           "type": "string"
         },
         "ISOUnderlyingInstrumentIndex": {
-          "$ref": "../../codesets/ISORatesInflationRate.json",
+          "$ref": "../../codesets/ISORatesReferenceRate.json",
           "title": "ISO Underlying Instrument Index",
           "description": "Underlying Instrument Index represented in ISO 20022 acceptable format"
         },
@@ -318,7 +291,6 @@
         "CommodityDerivativeIndicator",
         "IssuerorOperatoroftheTradingVenueIdentifier",
         "ShortName",
-        "UnderlyingAssetType",
         "OptionExerciseStyle",
         "ValuationMethodorTrigger",
         "ISOUnderlyingInstrumentIndex"
@@ -366,7 +338,7 @@
           }
         },
         "UnderlyingInstrumentIndex": {
-          "$ref": "../../codesets/FpmlRatesInflationRate.json",
+          "$ref": "../../codesets/FpmlRatesReferenceRate.json",
           "title": "Underlying Instrument Index",
           "description": "Name of the index on which the financial instrument is based"
         },
@@ -422,6 +394,17 @@
             ]
           }
         },
+        "UnderlyingAssetType": {
+          "title": "Underlying Asset Type",
+          "description": "The type of the underlying asset as defined by CFI code: ISO 10962",
+          "type": "string",
+          "enum": [
+            "Interest Rate Index"
+          ],
+          "elaboration": {
+            "Interest Rate Index": "Interest rate index"
+          }
+        },
         "PriceMultiplier": {
           "default": 1,
           "title": "Price Multiplier",
@@ -456,6 +439,7 @@
         "UnderlyingInstrumentIndexTermValue",
         "UnderlyingInstrumentIndexTermUnit",
         "OptionType",
+        "UnderlyingAssetType",
         "PriceMultiplier",
         "DeliveryType"
       ],
